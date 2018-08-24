@@ -36,6 +36,12 @@ android {
     }
     productFlavors{
         xiaomi{}
+        sx_vivo{}
+        sx_oppo{}
+        sx_tencent{}
+        sx_baidu{}
+        sx_360{}
+        sx_huawei{}
     }
     android.applicationVariants.all { variant ->
         variant.outputs.each { output ->
