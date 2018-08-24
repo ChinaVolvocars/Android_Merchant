@@ -19,7 +19,6 @@ import com.common.widget.imageview.image.ImageLoaderUtils;
 
 /**
  * 首页  添加描述   test
- * 把项目都放到gitOscH
  */
 public class MainActivity extends BaseMvpActivity {
     private ImageView mIvSetting;
