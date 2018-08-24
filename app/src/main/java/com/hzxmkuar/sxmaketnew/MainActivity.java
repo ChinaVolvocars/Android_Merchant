@@ -19,8 +19,6 @@ import com.common.widget.imageview.image.ImageLoaderUtils;
 
 /**
  * 首页  添加描述
- * 首页   添加了一些描述
- * 更改了应用的module名称
  */
 public class MainActivity extends BaseMvpActivity {
     private ImageView mIvSetting;
