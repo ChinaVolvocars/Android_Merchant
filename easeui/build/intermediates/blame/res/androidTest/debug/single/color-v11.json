@@ -4,7 +4,15 @@
         "source": "C:\\Users\\Administrator\\.android\\build-cache\\b194eff9d79e6f03fb88b11af710d368968f313a\\output\\res\\color-v11\\abc_background_cache_hint_selector_material_dark.xml"
     },
     {
+        "merged": "E:\\sx_repositories\\sx_Merchant\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\color-v11\\abc_background_cache_hint_selector_material_light.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\b194eff9d79e6f03fb88b11af710d368968f313a\\output\\res\\color-v11\\abc_background_cache_hint_selector_material_light.xml"
+    },
+    {
         "merged": "E:\\as_pro\\Sx_Merchant\\sxappTwo\\sxappTwo\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\color-v11\\abc_background_cache_hint_selector_material_light.xml",
         "source": "C:\\Users\\Administrator\\.android\\build-cache\\b194eff9d79e6f03fb88b11af710d368968f313a\\output\\res\\color-v11\\abc_background_cache_hint_selector_material_light.xml"
+    },
+    {
+        "merged": "E:\\sx_repositories\\sx_Merchant\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\color-v11\\abc_background_cache_hint_selector_material_dark.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\b194eff9d79e6f03fb88b11af710d368968f313a\\output\\res\\color-v11\\abc_background_cache_hint_selector_material_dark.xml"
     }
 ]

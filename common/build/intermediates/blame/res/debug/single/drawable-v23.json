@@ -1,5 +1,9 @@
 [
     {
+        "merged": "E:\\sx_repositories\\sx_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\drawable-v23\\abc_control_background_material.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\b194eff9d79e6f03fb88b11af710d368968f313a\\output\\res\\drawable-v23\\abc_control_background_material.xml"
+    },
+    {
         "merged": "E:\\as_pro\\Sx_Merchant\\sxappTwo\\sxappTwo\\common\\build\\intermediates\\res\\merged\\debug\\drawable-v23\\abc_control_background_material.xml",
         "source": "C:\\Users\\Administrator\\.android\\build-cache\\b194eff9d79e6f03fb88b11af710d368968f313a\\output\\res\\drawable-v23\\abc_control_background_material.xml"
     }

@@ -18,9 +18,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @desc:   App相关工具类
+ * @desc: App相关工具类
  * @author: Leo
- * @date:   2016/09/26
+ * @date: 2016/09/26
  */
 public class AppUtils {
 
@@ -41,10 +41,10 @@ public class AppUtils {
 
     /**
      * 获取拨打电话意图
+     *
      * @return intent
      */
-    public static Intent gettakeCallIntent(String phone)
-    {
+    public static Intent gettakeCallIntent(String phone) {
         Intent intent = new Intent(Intent.ACTION_DIAL);
         Uri data = Uri.parse("tel:" + StringUtils.nullToStr(phone));
         intent.setData(data);
@@ -53,10 +53,10 @@ public class AppUtils {
 
     /**
      * 获取打开浏览器意图
+     *
      * @return intent
      */
-    public static Intent getOpenWebClientIntent(String url)
-    {
+    public static Intent getOpenWebClientIntent(String url) {
         Intent intent = new Intent(Intent.ACTION_VIEW);
         Uri uri = StringUtils.isHttpPic(url) ? Uri.parse(url) : Uri.parse("");
         intent.setData(uri);
@@ -66,6 +66,7 @@ public class AppUtils {
 
     /**
      * 获取App信息的意图
+     *
      * @param packageName 包名
      * @return 意图
      */
@@ -239,8 +240,9 @@ public class AppUtils {
 
     /**
      * 获取app注册渠道名
+     *
      * @param context 上下文
-     * @return  注册渠道名
+     * @return 注册渠道名
      */
     public static String getRegistChannelName(Context context) {
         String channel = "unknown";
@@ -254,12 +256,14 @@ public class AppUtils {
 
     /**
      * 获取包名
+     *
      * @param context context
      * @return 包名
      */
-    public static String getPackageName(Context context)
-    {
-        if (context == null) { return null; }
+    public static String getPackageName(Context context) {
+        if (context == null) {
+            return null;
+        }
 
         PackageManager manager = context.getPackageManager();
 
@@ -275,10 +279,10 @@ public class AppUtils {
 
     /**
      * 获取app打包渠道名
-     * @return  打包渠道名
+     *
+     * @return 打包渠道名
      */
-    public static String getPacketChannelName()
-    {
+    public static String getPacketChannelName() {
         String channel = ContextUtils.getAppContext().getResources().getString(R.string.app_name);
         Context context = ContextUtils.getAppContext();
 
@@ -292,7 +296,8 @@ public class AppUtils {
 
     /**
      * 获取app版本名
-     * @return  版本名
+     *
+     * @return 版本名
      */
     public static String getVersionName() {
         Context context = ContextUtils.getAppContext();
@@ -380,13 +385,13 @@ public class AppUtils {
 
     /**
      * 打开指定app
+     *
      * @param context 上下文
      */
-    public static void openApp(Context context)
-    {
+    public static void openApp(Context context) {
         PackageManager packageManager = context.getPackageManager();
         Intent intent = packageManager.getLaunchIntentForPackage(AppUtils.getPackageName(context));
-        if(intent == null) {
+        if (intent == null) {
             System.out.println("APP not found!");
         }
         context.startActivity(intent);
@@ -394,17 +399,18 @@ public class AppUtils {
 
     /**
      * 判断程序是否处于激活状态
-     * @param context          con
-     * @param packageName      程序包名
+     *
+     * @param context     con
+     * @param packageName 程序包名
      * @return
      */
-    public static boolean isAppAlive(Context context, String packageName){
+    public static boolean isAppAlive(Context context, String packageName) {
         ActivityManager activityManager =
-                (ActivityManager)context.getSystemService(Context.ACTIVITY_SERVICE);
+                (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
         List<ActivityManager.RunningAppProcessInfo> processInfos
                 = activityManager.getRunningAppProcesses();
-        for(int i = 0; i < processInfos.size(); i++){
-            if(processInfos.get(i).processName.equals(packageName)){
+        for (int i = 0; i < processInfos.size(); i++) {
+            if (processInfos.get(i).processName.equals(packageName)) {
                 Log.i("NotificationLaunch",
                         String.format("the %s is running, isAppAlive return true", packageName));
                 return true;
@@ -417,6 +423,7 @@ public class AppUtils {
 
     /**
      * 判断微信是否可用
+     *
      * @return
      */
     public static boolean isWeixinAvilible() {
@@ -436,6 +443,7 @@ public class AppUtils {
 
     /**
      * 判断qq是否可用
+     *
      * @return
      */
     public static boolean isQQClientAvailable() {

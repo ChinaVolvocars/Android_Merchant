@@ -71,7 +71,7 @@
 
                     <ImageView
                         style="@style/HomeViewItemIconStyle"
-                        android:src="@mipmap/zlbj" />
+                        android:src="@mipmap/account_icon" />
 
                     <TextView
                         style="@style/HomeViewItemTvStyle"

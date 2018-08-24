@@ -1,9 +1,13 @@
 package com.common.retrofit.base;
 
 import com.common.base.Constants;
+import com.common.interceptor.HeaderIntercepter;
 import com.common.retrofit.entity.resultImpl.HttpRespBean;
 import com.common.retrofit.jsoncoverter.CustomGsonConverterFactory;
 
+import java.net.Proxy;
+
+import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import rx.Observable;
@@ -22,12 +26,19 @@ public abstract class BaseMethods {
     protected abstract String getHttpUrl();
 
     public Retrofit getRetrofit() {
+
+//        OkHttpClient.Builder httpClient = new OkHttpClient.Builder().proxy(Proxy.NO_PROXY);
+//        httpClient.addInterceptor(new HeaderIntercepter());
+
         return new Retrofit.Builder()
                 .client(OkHttpManager.getClient().getOkHttp())
+//                .client(httpClient.build())
                 .addConverterFactory(CustomGsonConverterFactory.create())
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                 .baseUrl(Constants.BaseUrl + getHttpUrl())
                 .build();
+
+
     }
 
     // 统一正常返回处理
