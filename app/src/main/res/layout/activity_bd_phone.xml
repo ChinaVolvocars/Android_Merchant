@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:fillViewport="true"
+    android:scrollbars="none"
+    android:overScrollMode="never"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+        <FrameLayout
+            android:background="@mipmap/titles_bac"
+            android:layout_width="match_parent"
+            android:layout_height="65dp">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="15dp"
+                android:textColor="@color/white"
+                android:text="省鑫网-绑定手机号"
+                android:gravity="center"
+                android:textSize="18sp"/>
+            <ImageView
+                android:layout_marginTop="15dp"
+                android:src="@mipmap/whait_back"
+                android:layout_marginLeft="10dp"
+                android:layout_width="30dp"
+                android:layout_height="match_parent"/>
+        </FrameLayout>
+        <LinearLayout
+            android:id="@+id/ll"
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:background="@color/white"
+            android:orientation="horizontal"
+            android:layout_height="40dp">
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:layout_height="match_parent">
+                <TextView
+                    android:id="@+id/one_t"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="解除绑定"
+                    android:gravity="center"
+                    android:textColor="@color/base_color"
+                    />
+                <ImageView
+                    android:id="@+id/one_i"
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:src="@color/base_color"
+                    />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:layout_height="match_parent">
+                <TextView
+                    android:id="@+id/two_t"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="换绑手机"
+                    android:gravity="center"
+                    android:textColor="@color/base_color"
+                    />
+                <ImageView
+                    android:id="@+id/two_i"
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:src="@color/base_color"
+                    />
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_gravity="center_horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_marginTop="30dp"
+                android:layout_marginLeft="35dp"
+                android:layout_marginRight="35dp"
+                android:layout_width="match_parent"
+                android:layout_gravity="center_horizontal"
+                android:layout_height="@dimen/view_size_45"
+                android:layout_marginBottom="10dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <com.common.widget.editview.DeleteEditText
+                    android:background="@drawable/jx_10_w"
+                    android:id="@+id/ev_phone"
+                    style="@style/inputView_style"
+                    android:layout_width="match_parent"
+                    android:gravity="center_vertical"
+                    android:hint="输入您的手机号" />
+            </LinearLayout>
+            <LinearLayout
+                android:background="@drawable/jx_10_w"
+                android:layout_width="match_parent"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="35dp"
+                android:layout_marginRight="35dp"
+                android:layout_height="@dimen/view_size_45"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <com.common.widget.editview.DeleteEditText
+                    android:layout_marginLeft="15dp"
+                    android:id="@+id/ev_code"
+                    style="@style/inputView_style"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:inputType="phone"
+                    android:gravity="center_vertical"
+                    android:hint="请输入验证码" />
+
+                <com.common.widget.textview.CountdownButton
+                    android:id="@+id/tv_verify"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/jx_10_yz"
+                    android:gravity="center"
+                    android:paddingLeft="@dimen/view_size_10"
+                    android:paddingRight="@dimen/view_size_10"
+                    android:text="发送验证码"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_size_13"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_login"
+            android:visibility="gone"
+            android:layout_gravity="center_horizontal"
+            android:paddingTop="@dimen/view_size_10"
+            android:paddingBottom="@dimen/view_size_10"
+            android:gravity="right"
+            android:textSize="@dimen/text_size_13"
+            android:textColor="@color/normal_text_color"
+            android:layout_width="270dp"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:layout_gravity="center_horizontal"
+            android:id="@+id/btn_next"
+            android:layout_marginTop="30dp"
+            android:layout_width="match_parent"
+            android:layout_marginLeft="35dp"
+            android:layout_marginRight="35dp"
+            android:text="确定"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:clickable="true"
+            android:textSize="16sp"
+            android:background="@drawable/jx_10_base"
+            style="@style/BaseCustomButton"/>
+        <ImageView
+            android:layout_marginTop="40dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/ggw"/>
+    </LinearLayout>
+
+</ScrollView>

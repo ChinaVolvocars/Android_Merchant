@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="navigationBar_rightButton" type="id">false</item>
+    <item name="tag" type="id"/>
+
+    <item name="sLeftIconId" type="id" />
+    <item name="sCenterBaseLineId" type="id" />
+    <item name="sCenterTextId" type="id" />
+    <item name="sLeftTextId" type="id" />
+    <item name="sLeftTopTextId" type="id" />
+    <item name="sLeftBottomTextId" type="id" />
+    <item name="sLeftBottomTextId2" type="id" />
+    <item name="sRightTextId" type="id" />
+    <item name="sRightIconId" type="id" />
+
+    <!--滚动广告栏-->
+    <item name="banner_indicatorId" type="id" />
+
+    <!--展开TextView-->
+    <item type="id" name="expandable_text"/>
+    <item type="id" name="expand_collapse"/>
+
+    <!--刷新列表-->
+    <item name="smContentView" type="id"/>
+    <item name="smMenuView" type="id"/>
+    <item name="BaseQuickAdapter_viewholder_support" type="id"/>
+    <item name="BaseQuickAdapter_swiping_support" type="id"/>
+    <item name="BaseQuickAdapter_dragging_support" type="id"/>
+
+    <!--通用设置item布局-->
+    <item name="img_id" type="id" />
+    <item name="txt_id" type="id" />
+    <item name="arrow_id" type="id" />
+    <item name="picture_id" type="id" />
+    <item name="right_text_id" type="id" />
+    <item name="center_text_id" type="id" />
+    <item name="center_edit_id" type="id" />
+    <item name="red_text_id" type="id" />
+
+    <item type="id" name="id_autolayout" />
+
+    <!--状态栏用-->
+    <item name="statusbarutil_fake_status_bar_view" type="id"/>
+    <item name="statusbarutil_translucent_view" type="id"/>
+
+</resources>

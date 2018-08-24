@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_ddd"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/view_size_65"
+        android:background="@mipmap/titles_bac">
+
+        <TextView
+            style="@style/TitleBarTitleStyle"
+            android:text="找回密码" />
+
+
+        <ImageView
+            android:id="@+id/iv_forget_pwd_back"
+            style="@style/TitleBarBackStyle" />
+    </FrameLayout>
+
+    <LinearLayout style="@style/BindBankCardContent">
+
+        <TextView
+            style="@style/MyStoreContentLeft"
+            android:text="商云账号" />
+
+        <com.common.widget.editview.DeleteEditText
+            android:id="@+id/edt_input_account"
+            style="@style/BindBankCardContentRight"
+            android:digits="@string/digets"
+            android:hint="请输入您的账号"
+            android:maxLength="20" />
+    </LinearLayout>
+
+    <View style="@style/DivideLine" />
+
+    <LinearLayout style="@style/BindBankCardContent">
+
+        <TextView
+            style="@style/MyStoreContentLeft"
+            android:text="商家店铺名称" />
+
+        <com.common.widget.editview.DeleteEditText
+            android:id="@+id/edt_input_stroe_name"
+            style="@style/BindBankCardContentRight"
+            android:hint="请输入您的店铺名称"
+            android:maxLength="22" />
+    </LinearLayout>
+
+    <View style="@style/DivideLine" />
+
+    <LinearLayout style="@style/BindBankCardContent">
+
+        <TextView
+            style="@style/MyStoreContentLeft"
+            android:text="法人姓名" />
+
+        <com.common.widget.editview.DeleteEditText
+            android:id="@+id/edt_input_legal_name"
+            style="@style/BindBankCardContentRight"
+            android:hint="请输入您的姓名"
+            android:maxLength="22" />
+    </LinearLayout>
+
+    <View style="@style/DivideLine" />
+
+    <LinearLayout style="@style/BindBankCardContent">
+
+        <TextView
+            style="@style/MyStoreContentLeft"
+            android:text="法人证件名称" />
+
+        <TextView
+            android:id="@+id/tv_chose_certificate_type"
+            style="@style/MyStoreContentRight"
+            android:hint="证件类型" />
+    </LinearLayout>
+
+    <View style="@style/DivideLine" />
+
+    <LinearLayout style="@style/BindBankCardContent">
+
+        <TextView
+            style="@style/MyStoreContentLeft"
+            android:text="法人证件号码" />
+
+        <com.common.widget.editview.DeleteEditText
+            android:id="@+id/edt_input_legal_id_no"
+            style="@style/BindBankCardContentRight"
+            android:digits="@string/id_card_digets"
+            android:hint="请输入您的证件号"
+            android:maxLength="19" />
+    </LinearLayout>
+
+    <View style="@style/DivideLine" />
+
+    <LinearLayout style="@style/BindBankCardContent">
+
+        <TextView
+            style="@style/MyStoreContentLeft"
+            android:text="手机号" />
+
+        <com.common.widget.editview.DeleteEditText
+            android:id="@+id/edt_input_phone_no"
+            style="@style/BindBankCardContentRight"
+            android:hint="请输入您的手机号码"
+            android:inputType="number"
+            android:maxLength="11" />
+    </LinearLayout>
+
+    <LinearLayout style="@style/BindBankCardContent">
+
+        <TextView
+            style="@style/MyStoreContentLeft"
+            android:layout_width="wrap_content"
+            android:text="验证码" />
+
+        <com.common.widget.editview.DeleteEditText
+            android:id="@+id/edt_input_verification_code"
+            style="@style/BindBankCardContentRight"
+            android:layout_width="32dp"
+            android:layout_marginLeft="32dp"
+            android:layout_marginRight="6dp"
+            android:hint="请输入验证码"
+            android:inputType="number"
+            android:maxLength="6" />
+        <com.common.widget.textview.CountdownButton
+            android:id="@+id/btn_send_msg"
+            style="@style/SendMsgButton" />
+
+    </LinearLayout>
+
+
+    <Button
+        android:id="@+id/btn_commit"
+        style="@style/ConfirmButton"
+        android:text="提交" />
+
+</LinearLayout>

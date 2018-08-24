@@ -1,0 +1,56 @@
+<resources
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="MissingTranslation">
+    <string name="app_name">hidii</string>
+    <string name="app_save">保存</string>
+    <string name="app_confirm">确定</string>
+    <string name="app_clear">重置</string>
+    <string name="app_confirm_pay">确认支付</string>
+    <string name="app_sure">确认</string>
+    <string name="app_mx">明细</string>
+    <string name="app_submit">提交</string>
+    <string name="app_sure_check">立即确认</string>
+    <string name="app_cancel">取消</string>
+    <string name="app_edit">编辑</string>
+    <string name="app_delete">删除</string>
+    <string name="app_close">关闭</string>
+    <string name="app_next">下一步</string>
+    <string name="app_complete">完成</string>
+    <string name="app_tips">提示</string>
+
+    <string name="string_input_hint">输入不可为空</string>
+
+    <string name="string_pwd_title">修改密码</string>
+    <string name="string_pwd_old">原密码</string>
+    <string name="string_pwd_new">新密码</string>
+    <string name="string_pwd_comfire">确认新密码</string>
+    <string name="string_pwdhint_old">输入原密码</string>
+    <string name="string_pwdhint_new">输入新密码</string>
+    <string name="string_pwdhint_con">再次输入密码</string>
+    <string name="string_login_t_input">请输入登录账号</string>
+    <string name="string_login_t_input_err">手机号不正确</string>
+    <string name="string_login_t_pwd">请输入密码</string>
+    <string name="string_login_t_success">登录成功</string>
+    <string name="string_login_t_failed">登录失败</string>
+
+    <string name="string_loadText">加载中</string>
+    <string name="string_dialog_title">温馨提示</string>
+
+    <string name="listview_header_hint_normal">下拉刷新</string>
+    <string name="listview_header_hint_release">松开立即刷新</string>
+    <string name="listview_loading">正在加载</string>
+    <string name="nomore_loading">没有了</string>
+    <string name="refreshing">正在刷新</string>
+    <string name="refresh_done">刷新完成</string>
+    <string name="listview_header_last_time">上次更新时间：</string>
+    <string name="string_usertype_tips">才能使用此功能，如需要使用此功能，请重新切换身份类型，谢谢！</string>
+    <string name="string_usertype_submit">切换身份</string>
+    <string name="string_usertype_cancel">以后再说</string>
+    <string name="string_success_continue">继续发布</string>
+    <string name="string_success_look">立即查看</string>
+
+    <string name="expand">全文</string>
+    <string name="shink">收起</string>
+    <string name="zone_img_position">circle_img_position</string>
+
+</resources>

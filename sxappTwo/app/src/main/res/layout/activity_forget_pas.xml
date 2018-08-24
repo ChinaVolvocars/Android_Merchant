@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:fillViewport="true"
+    android:scrollbars="none"
+    android:overScrollMode="never"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:background="@color/white"
+            android:layout_gravity="center_horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_gravity="center_horizontal"
+                android:layout_height="@dimen/view_size_45"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <com.common.widget.editview.DeleteEditText
+                    android:layout_marginLeft="15dp"
+                    android:id="@+id/ev_phone"
+                    style="@style/inputView_style"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:inputType="phone"
+                    android:maxLength="11"
+                    android:gravity="center_vertical"
+                    android:hint="请输入您的手机号码" />
+
+            </LinearLayout>
+
+            <View
+                android:background="#888888"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/view_size_0_5" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_gravity="center_horizontal"
+                android:layout_height="@dimen/view_size_45"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <com.common.widget.editview.DeleteEditText
+                    android:id="@+id/ev_code"
+                    style="@style/inputView_style"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="15dp"
+                    android:gravity="center_vertical"
+                    android:hint="请输入验证码" />
+
+                <com.common.widget.textview.CountdownButton
+                    android:id="@+id/tv_verify"
+                    android:text="获取验证码"
+                    android:textSize="@dimen/text_size_13"
+                    android:gravity="center"
+                    android:background="@null"
+                    android:textColor="@color/selector_base_color"
+                    android:paddingLeft="@dimen/view_size_10"
+                    android:paddingRight="@dimen/view_size_10"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_login"
+            android:layout_gravity="center_horizontal"
+            android:paddingTop="@dimen/view_size_10"
+            android:paddingBottom="@dimen/view_size_10"
+            android:gravity="right"
+            android:textSize="@dimen/text_size_13"
+            android:textColor="@color/normal_text_color"
+            android:layout_width="270dp"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:layout_gravity="center_horizontal"
+            android:id="@+id/btn_next"
+            android:layout_width="270dp"
+            android:layout_marginTop="@dimen/view_size_60"
+            android:text="@string/app_next"
+            android:clickable="true"
+            android:textStyle="bold"
+            android:background="@color/base_color"
+            style="@style/CustomButton"/>
+
+    </LinearLayout>
+
+</ScrollView>

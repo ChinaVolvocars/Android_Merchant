@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_f7_bg"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/view_size_65"
+        android:background="@mipmap/titles_bac">
+
+        <TextView
+            android:text="重置密码"
+            style="@style/TitleBarTitleStyle"/>
+
+        <ImageView
+            android:id="@+id/iv_newpwd_back"
+            style="@style/TitleBarBackStyle"
+            android:clickable="true"/>
+    </FrameLayout>
+
+    <LinearLayout style="@style/BindBankCardContent">
+
+        <TextView
+            style="@style/MyStoreContentLeft"
+            android:text="新密码" />
+
+        <com.common.widget.editview.DeleteEditText
+            android:id="@+id/edt_input_new_pwd"
+            style="@style/BindBankCardContentRight"
+            android:gravity="center_vertical|left"
+            android:hint="请输入您的新密码" />
+    </LinearLayout>
+
+    <LinearLayout style="@style/BindBankCardContent">
+
+        <TextView
+            style="@style/MyStoreContentLeft"
+            android:text="确认密码" />
+
+        <com.common.widget.editview.DeleteEditText
+            android:id="@+id/edt_input_new_pwd_confirm"
+            style="@style/BindBankCardContentRight"
+            android:gravity="center_vertical|left"
+            android:hint="请再次输入确认密码" />
+
+        <!--<com.common.widget.textview.CountdownButton-->
+            <!--android:id="@+id/btn_confirm_pwd_send_msg"-->
+            <!--style="@style/SendMsgButton" />-->
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_confirm_pwd"
+        android:text="确认"
+        style="@style/ConfirmButton"/>
+
+</LinearLayout>

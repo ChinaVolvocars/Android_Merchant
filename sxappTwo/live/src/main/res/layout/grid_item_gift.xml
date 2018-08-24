@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingLeft="5dp"
+    android:paddingRight="5dp"
+    android:paddingTop="5dp">
+
+
+    <ImageView
+        android:id="@+id/iv_gift_pic"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_centerHorizontal="true"
+        android:src="@mipmap/loadingview_error" />
+
+    <ImageView
+        android:visibility="gone"
+        android:id="@+id/iv_select_gift"
+        android:layout_width="18dp"
+        android:layout_height="18dp"
+        android:background="@mipmap/xm_select"
+        android:layout_alignParentRight="true" />
+
+    <LinearLayout
+        android:id="@+id/tag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/iv_gift_pic"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tv_gift_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:textColor="@color/text_color_half_black_4"
+            android:textSize="9dp" />
+
+        <ImageView
+            android:layout_marginLeft="2dp"
+            android:layout_width="15dp"
+            android:layout_height="10dp"
+            android:background="@mipmap/me_myaccount_reddiamond" />
+    </LinearLayout>
+
+    <TextView
+        android:text="0"
+        android:id="@+id/tv_experience_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tag"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp"
+        android:textColor="@color/text_color_half_black_4"
+        android:textSize="@dimen/text_size_10" />
+</RelativeLayout>

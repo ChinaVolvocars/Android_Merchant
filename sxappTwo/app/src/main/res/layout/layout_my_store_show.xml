@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ll_normal_content_show"
+    style="@style/MyStoreDescContent">
+
+    <LinearLayout style="@style/BindBankCardContent">
+
+        <TextView
+            style="@style/BindBankCardContentLeft"
+            android:text="商家名称" />
+
+        <!-- tv_store_name -->
+        <TextView
+            android:id="@+id/tv_store_name_show"
+            style="@style/BindBankCardContentRight"
+            android:text="直接输入" />
+
+    </LinearLayout>
+
+    <TextView style="@style/DivideLine" />
+
+    <!--android:id="@+id/ll_ones"-->
+    <LinearLayout style="@style/BindBankCardContent">
+
+        <TextView
+            style="@style/BindBankCardContentLeft"
+            android:text="商家类型" />
+
+        <TextView
+            android:id="@+id/tv_store_type_show"
+            style="@style/MyStoreContentRight"
+            android:hint="选择" />
+    </LinearLayout>
+
+    <TextView style="@style/DivideLine" />
+
+    <!--android:id="@+id/ll_twos"-->
+    <LinearLayout style="@style/BindBankCardContent">
+
+        <TextView
+            style="@style/BindBankCardContentLeft"
+            android:text="省、市" />
+
+        <TextView
+            android:id="@+id/tv_city_show"
+            style="@style/MyStoreContentRight"
+            android:hint="选择" />
+    </LinearLayout>
+
+    <View style="@style/DivideLine" />
+
+    <LinearLayout style="@style/MyStoreItemContent">
+
+        <TextView
+            style="@style/MyStoreDescTitle"
+            android:text="详细地址" />
+
+        <TextView
+            android:id="@+id/addressss_detils_show"
+            style="@style/MyStoreDescEditor"
+            android:text="请输入详细的店铺详情" />
+    </LinearLayout>
+
+    <TextView style="@style/DivideLine" />
+
+    <LinearLayout style="@style/MyStoreItemContent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/MyStoreDescTitle"
+                android:text="店家详情介绍" />
+
+            <TextView
+                style="@style/MyStoreDescTitle"
+                android:text="(限200字)"
+                android:textColor="@color/normal_text_color"
+                android:textSize="11sp" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_store_desc_show"
+            style="@style/MyStoreDescEditor"
+            android:text="请输入详细的店铺详情" />
+    </LinearLayout>
+
+    <TextView style="@style/DivideLine" />
+
+    <LinearLayout style="@style/MyStoreItemContent">
+
+        <TextView
+            android:id="@+id/tv_store_bg_show"
+            style="@style/MyStoreDescTitle"
+            android:gravity="center_vertical"
+            android:text="店头照片（0/1）" />
+
+        <ImageView
+            android:id="@+id/iv_store_card_bg_show"
+            style="@style/MyStoreBg" />
+
+        <TextView
+            style="@style/MyStoreDescTitle"
+            android:layout_marginBottom="6dp"
+            android:layout_marginTop="6dp"
+            android:text="请按规定上传888*888的照片"
+            android:textColor="@color/base_grey_text_color"
+            android:textSize="11sp" />
+    </LinearLayout>
+
+    <TextView style="@style/DivideLine" />
+
+    <LinearLayout
+        style="@style/MyStoreItemContent"
+        android:layout_marginBottom="10dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_stroe_desc_img_show"
+                style="@style/MyStoreDescTitle"
+                android:gravity="center_vertical"
+                android:text="店家照片（0/4）" />
+
+            <!--android:id="@+id/tv_modify_or_add_img_show"-->
+            <TextView
+                style="@style/MyStoreDescTitle"
+                android:layout_alignParentRight="true"
+                android:drawableRight="@mipmap/alls_back"
+                android:text="修改/增加"
+                android:textColor="@color/base_grey_text_color" />
+        </RelativeLayout>
+    </LinearLayout>
+</LinearLayout>

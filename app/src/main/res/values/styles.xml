@@ -1,0 +1,251 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+    <!--splash全屏解决启动黑白屏-->
+    <style name="SplashTheme" parent="AppTheme">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFullscreen">true</item>
+    </style>
+
+    <style name="CustomDialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowBackground">@color/transparent</item>
+        <item name="android:backgroundDimEnabled">false</item><!--activity不变暗-->
+        <item name="android:background">@color/transparent</item>
+        <item name="android:windowEnterAnimation">@anim/push_bottom_in</item>
+        <item name="android:windowExitAnimation">@anim/push_bottom_out</item>
+        <item name="android:windowCloseOnTouchOutside">true</item>
+    </style>
+
+    <style name="AnimationFade">
+        <!-- PopupWindow左右弹出的效果 -->
+        <item name="android:windowEnterAnimation">@anim/inputodown</item>
+        <item name="android:windowExitAnimation">@anim/outdowntoup</item>
+    </style>
+
+    <!--银行卡绑定容器样式-->
+    <style name="BindBankCardContent">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/view_size_50</item>
+        <item name="android:background">@color/white</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:paddingLeft">@dimen/view_size_15</item>
+        <item name="android:paddingRight">@dimen/view_size_15</item>
+    </style>
+
+
+    <!--银行卡绑定容器左侧提示-->
+    <style name="BindBankCardContentLeft">
+        <item name="android:layout_width">80dp</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:textColor">@color/black333</item>
+        <item name="android:textSize">@dimen/text_size_14</item>
+    </style>
+
+
+    <!--银行卡绑定容器右侧输入-->
+    <style name="BindBankCardContentRight">
+        <item name="android:textColor">@color/base_text_color</item>
+        <item name="android:textColorHint">@color/base_grey_text_color</item>
+        <item name="android:paddingLeft">@dimen/view_size_10</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:background">@null</item>
+        <item name="android:gravity">center_vertical|right</item>
+        <item name="android:textSize">@dimen/text_size_14</item>
+    </style>
+
+
+    <!-- 我的店铺 左侧提示语 -->
+    <style name="MyStoreContentLeft">
+        <item name="android:layout_width">@dimen/view_size_120</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:textColor">@color/black333</item>
+        <item name="android:textSize">@dimen/text_size_14</item>
+    </style>
+
+    <!-- 我的店铺 右侧输入-->
+    <style name="MyStoreContentRight">
+        <item name="android:textColor">@color/base_text_color</item>
+        <item name="android:textColorHint">@color/base_grey_text_color</item>
+        <item name="android:paddingLeft">@dimen/view_size_10</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:background">@null</item>
+        <item name="android:gravity">center_vertical|right</item>
+        <item name="android:textSize">@dimen/text_size_14</item>
+        <item name="android:drawableRight">@mipmap/alls_back</item>
+    </style>
+
+    <!-- 分隔线 -->
+    <style name="DivideLine">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/view_size_0_5</item>
+        <item name="android:background">@color/color_ddd</item>
+    </style>
+
+
+    <!-- 我的店铺 店铺介绍容器 -->
+    <style name="MyStoreDescContent">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@color/white</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:gravity">center_vertical</item>
+    </style>
+
+    <!-- 我的店铺 条目容器纵向布局 -->
+    <style name="MyStoreItemContent">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@color/white</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:paddingLeft">@dimen/view_size_15</item>
+        <item name="android:paddingRight">@dimen/view_size_15</item>
+    </style>
+    <!-- 我的店铺 条目横向容器 -->
+    <style name="MyStoreItemContentHorizontal">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:background">@color/white</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:layout_height">50dp</item>
+        <item name="android:paddingLeft">@dimen/view_size_15</item>
+        <item name="android:paddingRight">@dimen/view_size_15</item>
+    </style>
+
+    <!-- 我的店铺 输入我的地址及店铺描述编辑器 -->
+    <style name="MyStoreDescEditor">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">8dp</item>
+        <item name="android:background">@null</item>
+        <item name="android:gravity">left|top</item>
+        <item name="android:maxLength">200</item>
+        <item name="android:minHeight">@dimen/view_size_50</item>
+        <item name="android:textSize">@dimen/text_size_14</item>
+    </style>
+
+    <!-- 我的店铺 输入我的地址及店铺描述编辑器 -->
+    <!--<item name="android:layout_marginTop">8dp</item>-->
+    <style name="MyStoreDescEditorNoHeight">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@null</item>
+        <item name="android:gravity">center_vertical|right</item>
+        <item name="android:maxLength">200</item>
+        <item name="android:textSize">@dimen/text_size_14</item>
+    </style>
+
+    <!-- 我的店铺 输入我的地址及店铺描述提示语 -->
+    <style name="MyStoreDescTitle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">@dimen/view_size_15</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:gravity">left|top</item>
+    </style>
+    <!-- 我的店铺 输入我的地址及店铺描述提示语 -->
+    <style name="MyStoreBg">
+        <item name="android:layout_width">@dimen/view_size_60</item>
+        <item name="android:layout_height">@dimen/view_size_60</item>
+        <item name="android:layout_marginTop">@dimen/view_size_10</item>
+        <item name="android:scaleType">fitXY</item>
+        <item name="android:src">@mipmap/sczp</item>
+    </style>
+
+    <!-- 商家入驻 添加图片-->
+    <style name="MyStoreAddImgSytle">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:scaleType">fitXY</item>
+        <item name="android:src">@mipmap/add_card</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <!-- 发送验证码按钮 -->
+    <style name="SendMsgButton">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">32dp</item>
+        <item name="android:layout_marginLeft">@dimen/view_size_6</item>
+        <item name="android:background">@drawable/bg_circle_shape_send_msg</item>
+        <item name="android:gravity">center</item>
+        <item name="android:paddingLeft">@dimen/view_size_3</item>
+        <item name="android:paddingRight">@dimen/view_size_3</item>
+        <item name="android:text">获取验证码</item>
+        <item name="android:textSize">@dimen/text_size_14</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <!-- 确认按钮 -->
+    <style name="ConfirmButton">
+        <item name="android:textColor">@color/selector_white_color</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/view_size_50</item>
+        <item name="android:layout_marginLeft">@dimen/view_size_15</item>
+        <item name="android:layout_marginRight">@dimen/view_size_15</item>
+        <item name="android:layout_marginTop">@dimen/view_size_60</item>
+        <item name="android:gravity">center</item>
+        <item name="android:background">@drawable/jx_10_base</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">@dimen/text_size_14</item>
+        <item name="android:clickable">true</item>
+    </style>
+
+    <!-- 标题栏抬头 -->
+    <style name="TitleBarTitleStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/view_size_50</item>
+        <item name="android:layout_marginTop">@dimen/view_size_15</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/selector_white_color</item>
+        <item name="android:textSize">@dimen/text_size_18</item>
+    </style>
+
+    <!-- 标题栏返回按钮 -->
+    <style name="TitleBarBackStyle">
+        <item name="android:layout_width">@dimen/view_size_30</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_marginLeft">@dimen/view_size_10</item>
+        <item name="android:layout_marginTop">@dimen/view_size_10</item>
+        <item name="android:src">@mipmap/whait_back</item>
+    </style>
+
+    <!-- 首页三个条目选项 -->
+    <style name="HomeViewItemStyle">
+        <item name="android:layout_width">@dimen/view_size_0</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:gravity">center</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <!-- 首页三个条目选项——图片 -->
+    <style name="HomeViewItemIconStyle">
+        <item name="android:layout_width">@dimen/view_size_40</item>
+        <item name="android:layout_height">@dimen/view_size_40</item>
+    </style>
+    <!-- 首页三个条目选项——文字 -->
+    <style name="HomeViewItemTvStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">@dimen/view_size_6</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/text_size_12</item>
+    </style>
+
+
+</resources>

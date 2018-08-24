@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 按钮自定义属性 -->
+    <declare-styleable name="StateButton">
+        <!--text color-->
+        <attr name="SBnormalTextColor" format="color|reference" />
+        <attr name="SBpressedTextColor" format="color|reference" />
+        <attr name="SBunableTextColor" format="color|reference" />
+
+        <!--stroke width and color, dash width, dash gap-->
+        <attr name="SBstrokeDashWidth" format="dimension|reference" />
+        <attr name="SBstrokeDashGap" format="dimension|reference" />
+        <attr name="SBnormalStrokeWidth" format="dimension|reference" />
+        <attr name="SBpressedStrokeWidth" format="dimension|reference" />
+        <attr name="SBunableStrokeWidth" format="dimension|reference" />
+        <attr name="SBnormalStrokeColor" format="color|reference" />
+        <attr name="SBpressedStrokeColor" format="color|reference" />
+        <attr name="SBunableStrokeColor" format="color|reference" />
+
+        <!--background color-->
+        <attr name="SBnormalBackgroundColor" format="color|reference" />
+        <attr name="SBpressedBackgroundColor" format="color|reference" />
+        <attr name="SBunableBackgroundColor" format="color|reference" />
+
+        <!--background radius-->
+        <attr name="SBradius" format="dimension|reference" />
+        <attr name="SBround" format="boolean|reference" />
+
+        <!--animation duration-->
+        <attr name="SBanimationDuration" format="integer|reference" />
+    </declare-styleable>
+
+    <declare-styleable name="bubbleView">
+        <attr name="borderColor" format="color" />
+        <attr name="bgColor" format="color" />
+        <attr name="offset" format="dimension" />
+        <attr name="borderWidth" format="dimension" />
+        <attr name="radius" format="dimension" />
+        <attr name="orientation" format="enum">
+            <enum name="left" value="0" />
+            <enum name="right" value="1" />
+            <enum name="top" value="2" />
+            <enum name="bottom" value="3" />
+        </attr>
+        <attr name="triangleWidth" format="dimension" />
+        <attr name="triangleHeight" format="dimension" />
+        <attr name="clipToRadius" format="boolean" />
+        <attr name="centerArrow" format="boolean" />
+    </declare-styleable>
+</resources>

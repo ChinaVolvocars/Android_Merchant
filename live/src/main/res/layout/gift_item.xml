@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:qwerjk="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal">
+
+    <LinearLayout
+        android:id="@+id/tag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="10dp"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:layout_width="200dp"
+            android:layout_height="40dp"
+            android:background="@drawable/shap_circle_transparent_bg"
+            android:paddingRight="10dp">
+
+            <ImageView
+                android:id="@+id/iv_gift_visitors_image"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/avater_man" />
+
+            <TextView
+                android:layout_marginTop="5dp"
+                android:id="@+id/tv_visitors_name"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_10"
+                android:layout_marginLeft="5dp"
+                android:layout_toRightOf="@+id/iv_gift_visitors_image"/>
+
+            <TextView
+                android:id="@+id/name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_toRightOf="@+id/iv_gift_visitors_image"
+                android:layout_alignParentBottom="true"
+                android:textColor="@color/text_yellow"
+                android:textSize="@dimen/text_size_10" />
+
+
+            <ImageView
+                android:id="@+id/iv_visitor_gift_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_toRightOf="@+id/tv_visitors_name"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="20dp"
+                android:src="@mipmap/xm_gift" />
+
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+    <com.widget.giftview.MagicTextView
+        android:id="@+id/gift_num"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="2dp"
+        android:text="X1"
+        android:textColor="@color/text_yellow"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        qwerjk:foreground="@color/text_yellow"
+        qwerjk:innerShadowColor="@color/text_yellow"
+        qwerjk:innerShadowDy="2"
+        qwerjk:innerShadowRadius="1"
+        qwerjk:strokeColor="@color/text_yellow"
+        qwerjk:strokeJoinStyle="miter"
+        qwerjk:strokeWidth="2" />
+</LinearLayout>

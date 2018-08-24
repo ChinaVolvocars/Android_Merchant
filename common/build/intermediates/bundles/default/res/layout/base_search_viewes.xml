@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:id="@+id/search"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    android:background="@drawable/wc_nomal"
+    android:layout_width="0dp"
+    android:layout_weight="1"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:padding="3dp"
+        android:layout_marginLeft="10dp"
+        android:id="@+id/iv_search"
+        android:src="@mipmap/home_search"
+        android:layout_marginRight="@dimen/view_size_10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+
+    <com.common.widget.editview.DeleteEditText
+        android:id="@+id/sh"
+        style="@style/inputView_style"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:hint="搜索课程、曲谱、帖子、用户"
+        android:imeOptions="actionSearch"
+        android:gravity="center_vertical" />
+
+</LinearLayout>

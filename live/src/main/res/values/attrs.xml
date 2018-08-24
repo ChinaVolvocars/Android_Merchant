@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+	<declare-styleable name="EndlessLoopAdapterContainer">
+        <attr name="shouldRepeat" format="boolean" />
+    </declare-styleable>
+    
+	<declare-styleable name="BasicContentBand">
+        <attr name="gridMode">
+             <flag name="fixed" value="0"/>
+             <flag name="dynamic" value="1"/>
+        </attr>
+        
+        <attr name="deviceSpecificPixelSize" format="integer" />
+    </declare-styleable>
+
+	<style name="CustomDialog" parent="@android:style/Theme.Dialog">
+		<item name="android:windowBackground">@color/transparent</item>
+		<item name="android:backgroundDimEnabled">false</item><!--activity不变暗-->
+		<item name="android:background">@color/transparent</item>
+		<item name="android:windowEnterAnimation">@anim/push_bottom_in</item>
+		<item name="android:windowExitAnimation">@anim/push_bottom_out</item>
+		<item name="android:windowCloseOnTouchOutside">true</item>
+	</style>
+
+	<!--tablayut标题的样式-->
+	<style name="MyTablayoutStyle2" parent="TextAppearance.AppCompat.Widget.ActionBar.Title">
+		<item name="android:textSize">15sp</item>
+		<item name="android:textColor">@color/text_color_black_3</item>
+	</style>
+
+	<!-- 飘星自定义属性 -->
+	<declare-styleable name="HeartLayout">
+		<attr name="initX" format="dimension" />
+		<attr name="initY" format="dimension" />
+		<attr name="xRand" format="dimension" />
+		<attr name="animLengthRand" format="dimension" />
+		<attr name="xPointFactor" format="dimension" />
+		<attr name="animLength" format="dimension" />
+		<attr name="heart_width" format="dimension" />
+		<attr name="heart_height" format="dimension" />
+		<attr name="bezierFactor" format="integer" />
+		<attr name="anim_duration" format="integer" />
+	</declare-styleable>
+
+	<!--送礼物文字特效动画-->
+	<declare-styleable name="MagicTextView">
+		<attr name="innerShadowColor" format="color" />
+		<attr name="innerShadowRadius" format="float" />
+		<attr name="innerShadowDx" format="float" />
+		<attr name="innerShadowDy" format="float" />
+		<attr name="outerShadowColor" format="color" />
+		<attr name="outerShadowRadius" format="float" />
+		<attr name="outerShadowDx" format="float" />
+		<attr name="outerShadowDy" format="float" />
+		<attr name="typeface" format="string" />
+		<attr name="foreground" format="reference|color" />
+		<attr name="strokeWidth" format="float" />
+		<attr name="strokeMiter" format="float" />
+		<attr name="strokeColor" format="color" />
+		<attr name="strokeJoinStyle">
+			<enum name="miter" value="0" />
+			<enum name="bevel" value="1" />
+			<enum name="round" value="2" />
+		</attr>
+	</declare-styleable>
+
+</resources>

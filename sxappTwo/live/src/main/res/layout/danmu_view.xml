@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <RelativeLayout
+        android:id="@+id/rl_Anchor_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shap_circle_transparent_bg"
+        android:paddingRight="20dp">
+
+        <ImageView
+            android:id="@+id/iv_user_img"
+            android:layout_width="31dp"
+            android:layout_height="31dp"
+            android:src="@mipmap/loadingview_error" />
+
+        <TextView
+            android:id="@+id/tv_user_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="3dp"
+            android:layout_toRightOf="@+id/iv_user_img"
+            android:text="直播"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_10" />
+
+        <TextView
+            android:ellipsize="end"
+            android:maxEms="30"
+            android:singleLine="true"
+            android:id="@+id/tv_send_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_user_name"
+            android:layout_marginLeft="5dp"
+            android:layout_toRightOf="@+id/iv_user_img"
+            android:text=""
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_10" />
+    </RelativeLayout>
+
+</LinearLayout>
