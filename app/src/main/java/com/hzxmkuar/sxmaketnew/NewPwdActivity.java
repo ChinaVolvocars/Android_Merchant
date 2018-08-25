@@ -6,6 +6,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import com.common.mvp.BaseMvpActivity;
 import com.common.mvp.BasePresenter;
+import com.common.retrofit.entity.resultImpl.HttpRespBean;
 import com.common.retrofit.methods.BusinessUserMethods;
 import com.common.retrofit.subscriber.CommonSubscriber;
 import com.common.retrofit.subscriber.SubscriberListener;
@@ -94,7 +95,7 @@ public class NewPwdActivity extends BaseMvpActivity {
 //        resetPwd(mUserName, getEditTextStr(mEdtInputNewPwdConfirm));
         showProgressingDialog();
         if (!EmptyUtils.isEmpty(mUserName) && getEditTextStr(mEdtInputNewPwd).equals(getEditTextStr(mEdtInputNewPwdConfirm))){
-            CommonSubscriber<Object> checkSub = new CommonSubscriber<>(new SubscriberListener() {
+            CommonSubscriber<HttpRespBean> checkSub = new CommonSubscriber<>(new SubscriberListener() {
                 @Override
                 public void onNext(Object o) {
                     showToastMsg("密码重置成功");
