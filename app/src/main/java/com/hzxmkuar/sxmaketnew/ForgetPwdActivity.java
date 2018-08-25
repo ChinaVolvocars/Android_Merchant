@@ -1,7 +1,5 @@
 package com.hzxmkuar.sxmaketnew;
 
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -10,9 +8,14 @@ import android.widget.TextView;
 import com.bigkoo.pickerview.OptionsPickerView;
 import com.common.mvp.BaseMvpActivity;
 import com.common.mvp.BasePresenter;
+import com.common.retrofit.entity.result.IndexBean;
+import com.common.retrofit.methods.BusinessUserMethods;
+import com.common.retrofit.subscriber.CommonSubscriber;
+import com.common.retrofit.subscriber.SubscriberListener;
 import com.common.utils.EmptyUtils;
-import com.common.utils.RegexUtils;
+import com.common.utils.SPUtils;
 import com.common.widget.editview.DeleteEditText;
+import com.common.widget.imageview.image.ImageLoaderUtils;
 import com.common.widget.textview.CountdownButton;
 
 import java.util.ArrayList;
@@ -36,6 +39,9 @@ public class ForgetPwdActivity extends BaseMvpActivity {
     private TextView mTvChoseCertificateType;
     private DeleteEditText mEdtInputLegalIdNo;
     private DeleteEditText mEdtInputPhoneNo;
+    /**
+     * 手机验证码
+     */
     private DeleteEditText mEdtInputVerificationCode;
     private CountdownButton mBtnSendMsg;
     private Button mBtnCommit;
@@ -145,9 +151,47 @@ public class ForgetPwdActivity extends BaseMvpActivity {
                 showToastMsg("验证码格式不对，请重新输入");
                 return;
             }
-            commitInputInfo();
-            gotoActivity(NewPwdActivity.class);
+            commitInputInfo(getEditTextStr(mEdtInputAccount),getEditTextStr(mEdtInputStroeName),
+                    getEditTextStr(mEdtInputLegalName),getTextViewStr(mTvChoseCertificateType),
+                    getEditTextStr(mEdtInputLegalIdNo),getEditTextStr(mEdtInputPhoneNo),
+                    getEditTextStr(mEdtInputVerificationCode));
         }
+    }
+
+    /**
+     * 提交商户输入内容、请求找加密码
+     */
+    private void commitInputInfo(String userName, String storeName,
+                                 String legalNmae, String certificateType,
+                                 String legalIdNo, String phoneNo, String inputVerCode) {
+
+        CommonSubscriber<IndexBean> subscriber = new CommonSubscriber<>(new SubscriberListener() {
+            @Override
+            public void onNext(Object o) {
+                statusContent();
+//                IndexBean bean = (IndexBean) o;
+//                ImageLoaderUtils.displaySmallPhoto(mIvHomeBg, bean.getAd_img());
+//                ImageLoaderUtils.displaySmallPhoto(mIvQRCode, bean.getPay_img());
+//                String proportion = bean.getProportion();
+//                String ratio = bean.getRatio();
+//                mTvGatheringCode.setText("ID" + bean.getId());
+//                SPUtils.setShareString("proportion", proportion);
+//                SPUtils.setShareString("ratio", ratio);
+        gotoActivity(NewPwdActivity.class);
+            }
+
+            @Override
+            public void onError(String e, int code) {
+                statusContent();
+                showToastMsg(e);
+            }
+        });
+        BusinessUserMethods.getInstance().forgetPwd(subscriber,userName,storeName,
+                legalNmae,certificateType,
+                legalIdNo,phoneNo,inputVerCode);
+        rxManager.add(subscriber);
+        showToastMsg("提交");
+
     }
 
     /**
@@ -166,12 +210,9 @@ public class ForgetPwdActivity extends BaseMvpActivity {
         showToastMsg("正在发送验证");
     }
 
-    /**
-     * 提交商户输入内容
-     */
-    private void commitInputInfo() {
-        showToastMsg("提交");
-    }
+//    private void commitInputInfo() {
+//
+//    }
 
     /**
      * 初始化证件类型拾取器
@@ -194,20 +235,4 @@ public class ForgetPwdActivity extends BaseMvpActivity {
         mCertificatesTypePicker.setPicker(typeList);
     }
 
-//    private TextWatcher textWatcher = new TextWatcher() {
-//        @Override
-//        public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-//        }
-//
-//        @Override
-//        public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-//            if (EmptyUtils.isNotEmpty(getEditTextStr(mEdtInputPhoneNo)) && RegexUtils.isMobileExact(getEditTextStr(mEdtInputPhoneNo))) {
-//                mBtnSendMsg.setClickable(true);
-//            }
-//        }
-//
-//        @Override
-//        public void afterTextChanged(Editable editable) {
-//        }
-//    };
 }

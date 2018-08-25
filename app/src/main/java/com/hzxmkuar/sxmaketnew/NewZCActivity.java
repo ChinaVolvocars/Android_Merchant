@@ -6,20 +6,24 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
 import com.bigkoo.pickerview.OptionsPickerView;
 import com.common.base.Constants;
 import com.common.mvp.BaseMvpActivity;
 import com.common.mvp.BasePresenter;
+import com.common.retrofit.entity.result.ChangeBean;
 import com.common.retrofit.entity.result.NewTestBean;
 import com.common.retrofit.entity.result.PicBean;
 import com.common.retrofit.entity.result.TestBean;
 import com.common.retrofit.entity.resultImpl.CityBean;
+import com.common.retrofit.entity.resultImpl.HttpRespBean;
 import com.common.retrofit.methods.BusinessUserMethods;
 import com.common.retrofit.methods.UploadMethods;
 import com.common.retrofit.subscriber.CommonSubscriber;
@@ -37,6 +41,7 @@ import com.hzxmkuar.sxmaketnew.common.BaseUrlActivity;
 import com.hzxmkuar.sxmaketnew.common.PictureCheckDialogFragment;
 import com.hzxmkuar.sxmaketnew.common.photoPcker.MQPhotoPickerActivity;
 import com.hzxmkuar.sxmaketnew.utils.BottomPickerUtils;
+
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -47,7 +52,7 @@ import java.util.List;
  * Created by STH on 2018/5/16.
  */
 public class NewZCActivity extends BaseMvpActivity {
-
+    private static final String TAG = "NewZCActivity";
     private ImageView mBack;
     private TextView mXieyi;
     private Button mNext;
@@ -516,13 +521,13 @@ public class NewZCActivity extends BaseMvpActivity {
         } else if (EmptyUtils.isEmpty(getEditTextStr(mEdtCredentialsNo))) {
             showToastMsg("法人证件号不能为空");
             return;
-        }else if (EmptyUtils.isEmpty(ID_front_img)){
+        } else if (EmptyUtils.isEmpty(ID_front_img)) {
             showToastMsg("请上传身份证正面照");
             return;
-        }else if (EmptyUtils.isEmpty(ID_back_img)){
+        } else if (EmptyUtils.isEmpty(ID_back_img)) {
             showToastMsg("请上传身份证反面照");
             return;
-        }else if (EmptyUtils.isEmpty(license_img)){
+        } else if (EmptyUtils.isEmpty(license_img)) {
             showToastMsg("请上传营业执照");
             return;
         } else if (getEditTextStr(mEdtCredentialsNo).length() < 6) {
@@ -540,41 +545,85 @@ public class NewZCActivity extends BaseMvpActivity {
         } else if (getEditTextStr(mEdtManagerPhoneNo).length() < 11) {
             showToastMsg("法人授权代理人手机号格式不正确");
             return;
-        } else if (EmptyUtils.isEmpty(getEditTextStr(mEdtInputVerCode))) {
-            showToastMsg("验证码不能为空");
-            return;
-        } else if (getEditTextStr(mEdtInputVerCode).length() < 6) {
-            showToastMsg("验证码格式不对，请重新输入");
-            return;
         }
     /* 如果当前按钮发送验证码，则不需要走后面的判断。如果当前点击的按钮为提交按钮，则需要判断前面所有的逻辑都需要判断，包括后面的逻辑判断。 */
         if (view.getId() == mCdBtnSendMsg.getId()) {
             sendVerifyCodeMsg();
         } else if (view.getId() == mNext.getId()) {
-            if (!mCheckBox.isChecked()) {
+            if (EmptyUtils.isEmpty(getEditTextStr(mEdtInputVerCode))) {
+                showToastMsg("验证码不能为空");
+                return;
+            } else if (getEditTextStr(mEdtInputVerCode).length() < 6) {
+                showToastMsg("验证码格式不对，请重新输入");
+                return;
+            } else if (!mCheckBox.isChecked()) {
                 showToastMsg("请先勾选平台协议");
                 return;
-//                 gotoActivity(NewPwdActivity.class);
             }
             commitInputInfo();
         }
 
     }
 
+
     /**
      * 发送验证码
      */
     private void sendVerifyCodeMsg() {
-        mCdBtnSendMsg.getInputContent(getEditTextStr(mEdtManagerPhoneNo));
-        showToastMsg("发送验证码");
+        checkUserNameIsUnique(getEditTextStr(mEdtAccountSetting));
     }
+
+    /**
+     * 检测商户账户是否是唯一的
+     */
+    private void checkUserNameIsUnique(String accountNmaeInput) {
+        showProgressingDialog();
+        CommonSubscriber<HttpRespBean> userNmaeSub = new CommonSubscriber<>(new SubscriberListener() {
+            @Override
+            public void onNext(Object o) {
+                mCdBtnSendMsg.getInputContent(getEditTextStr(mEdtManagerPhoneNo));
+                sendVerifyCodeRequest();
+            }
+
+            @Override
+            public void onError(String e, int code) {
+                dismissProgressDialog();
+                showToastMsg(e);
+            }
+        });
+        BusinessUserMethods.getInstance().checkUsrName(userNmaeSub, accountNmaeInput);
+        rxManager.add(userNmaeSub);
+
+    }
+
+
+    /**
+     * 发送手机验证码的请求
+     */
+    private void sendVerifyCodeRequest() {
+        CommonSubscriber<HttpRespBean> sendVerCodeSub = new CommonSubscriber<>(new SubscriberListener() {
+            @Override
+            public void onNext(Object o) {
+                dismissProgressDialog();
+                showToastMsg("短信验证码已发送成功");
+            }
+
+            @Override
+            public void onError(String e, int code) {
+                dismissProgressDialog();
+                showToastMsg(e);
+            }
+        });
+        BusinessUserMethods.getInstance().sendVerCode(sendVerCodeSub,getEditTextStr(mEdtManagerPhoneNo),"1");
+        rxManager.add(sendVerCodeSub);
+    }
+
 
     /**
      * 输入信息提交审核
      */
     private void commitInputInfo() {
-        showToastMsg("提交审核");
-        goToHttpReqss(getEditTextStr(mEdtAccountSetting), getEditTextStr(mEdtPwdSetting),
+        newMerchantApplyJoinReuqest(getEditTextStr(mEdtAccountSetting), getEditTextStr(mEdtPwdSetting),
                 getEditTextStr(mEdtStoreNmae), getEditTextStr(mEdtStorePhoneNo),
                 mStoreType, mProportion,
                 provinceStr, cityStr,
@@ -592,22 +641,28 @@ public class NewZCActivity extends BaseMvpActivity {
 //                               String textStr1, String str1, String s1, String certificates_type, String editTextStr2,
 //                               String textStr2, String ID_front_img, String id_front_img, String license_img, String t, String t1) {
 
-    private void goToHttpReqss(String storeAccount, String pwd,
-                               String storeName, String storePhoneNo,
-                               String storeType, String proportion,
-                               String provice, String city,
-                               String area, String addressDetail,
-                               String inviteCode, String legalName,
-                               String certificatesType, String certificatesNo,
-                               String imgFront, String imgBack,
-                               String imgLicense, String managerName,
-                               String managerPhoneNo, String verCode) {
+
+    private void newMerchantApplyJoinReuqest(String storeAccount, String pwd,
+                                             String storeName, String storePhoneNo,
+                                             String storeType, String proportion,
+                                             String provice, String city,
+                                             String area, String addressDetail,
+                                             String inviteCode, String legalName,
+                                             String certificatesType, String certificatesNo,
+                                             String imgFront, String imgBack,
+                                             String imgLicense, String managerName,
+                                             String managerPhoneNo, String verCode) {
         showProgressingDialog();
         CommonSubscriber<Object> subscriber = new CommonSubscriber<>(new SubscriberListener() {
             @Override
             public void onNext(Object o) {
                 dismissProgressDialog();
                 showToastMsg("提交成功！");
+                // TODO: 2018/8/25  将userName传到下一个界面
+                Intent resetPwdIntent = new Intent(NewZCActivity.this,NewPwdActivity.class);
+                resetPwdIntent.putExtra("userName",getEditTextStr(mEdtAccountSetting));
+                startActivity(resetPwdIntent);
+//                gotoActivity(NewPwdActivity.class);
                 finish();
             }
 
@@ -621,7 +676,7 @@ public class NewZCActivity extends BaseMvpActivity {
 //        BusinessUserMethods.getInstance().apply(subscriber, editTextStr, textStr, str, s, category_id, proportion, sheng
 //                , shi, qu, editTextStr1, textStr1, str1, s1, certificates_type, editTextStr2, textStr2, ID_front_img, id_front_img, license_img);
 
-        BusinessUserMethods.getInstance().apply(subscriber,
+        BusinessUserMethods.getInstance().newMerhcantApplyJoin(subscriber,
                 storeAccount, pwd,
                 storeName, storePhoneNo,
                 storeType, proportion,

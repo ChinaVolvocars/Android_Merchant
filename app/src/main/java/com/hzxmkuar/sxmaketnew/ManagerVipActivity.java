@@ -39,7 +39,6 @@ public class ManagerVipActivity extends BaseMvpActivity {
         mTvFansCount = (TextView) findViewById(R.id.tv_fans_count);
         mIvQrImg = (ImageView) findViewById(R.id.iv_qr_img);
         mTvIdcode = (TextView) findViewById(R.id.tv_id_code);
-
     }
 
     @Override
@@ -53,4 +52,6 @@ public class ManagerVipActivity extends BaseMvpActivity {
             finish();
         }
     }
+
+
 }

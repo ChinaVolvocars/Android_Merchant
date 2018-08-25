@@ -8,8 +8,13 @@ import com.common.retrofit.entity.result.FiniBean;
 import com.common.retrofit.entity.result.IndexBean;
 import com.common.retrofit.entity.result.InfoBean;
 import com.common.retrofit.entity.result.NewTestBean;
+import com.common.retrofit.entity.resultImpl.HttpRespBean;
 import com.common.retrofit.service.UserService;
+import com.google.gson.internal.ObjectConstructor;
 
+import retrofit2.http.Field;
+import retrofit2.http.FormUrlEncoded;
+import retrofit2.http.POST;
 import rx.Observable;
 import rx.Subscriber;
 
@@ -86,6 +91,24 @@ public class BusinessUserMethods extends BaseMethods {
         Observable observable = initService().index( System.currentTimeMillis() + "","e785f07736bde4d62b77d03214d29647", DataCenter.UserId,DataCenter.HashId);
         toSubscribe(observable, subscriber);
     }
+
+    /**
+     * 忘记密码
+     * @param subscriber
+     */
+    public void forgetPwd(Subscriber<IndexBean> subscriber,
+                          String userName,String shopName,
+                          String documentName,String certificatesType,
+                          String certificatesNumber,String phoneNo,
+                          String verCode) {
+        Observable observable = initService().forgetPwd(System.currentTimeMillis() + "","e785f07736bde4d62b77d03214d29647",
+                            userName,shopName,
+                            documentName,certificatesType,
+                            certificatesNumber,phoneNo,verCode);
+        toSubscribe(observable, subscriber);
+    }
+
+
     public void financeDetail(Subscriber<FBean> subscriber) {
         Observable observable = initService().financeDetail( System.currentTimeMillis() + "","e785f07736bde4d62b77d03214d29647", DataCenter.UserId,DataCenter.HashId);
         toSubscribe(observable, subscriber);
@@ -139,7 +162,7 @@ public class BusinessUserMethods extends BaseMethods {
      * @param managerPhoneNo     手机号   <br/>
      * @param verCode   手机验证码   <br/>
      */
-    public void apply(Subscriber<Object> subscriber,
+    public void newMerhcantApplyJoin(Subscriber<Object> subscriber,
                       String storeAccount, String pwd,
                       String storeName, String storePhoneNo,
                       String storeType, String proportion,
@@ -152,7 +175,7 @@ public class BusinessUserMethods extends BaseMethods {
                       String managerPhoneNo, String verCode) {
 
         Observable observable = initService()
-                .apply(System.currentTimeMillis() + "","47dc24053e61ca7bcf2bae17f472a8b2"
+                .newMerhcantApplyJoin(System.currentTimeMillis() + "","47dc24053e61ca7bcf2bae17f472a8b2"
                 ,storeAccount,pwd
                 ,storeName,storePhoneNo
                 ,storeType,proportion
@@ -165,6 +188,41 @@ public class BusinessUserMethods extends BaseMethods {
                 ,managerPhoneNo,verCode);
         toOtherSubscribe(observable, subscriber);
     }
+
+    /**
+     *  检测商户名称是是否唯一
+     * @param subscriber 观察者
+     */
+    public void checkUsrName(Subscriber<HttpRespBean> subscriber, String userNmae) {
+        Observable observable = initService().checkUsrnameIsUnique(System.currentTimeMillis()+"","35503c34c1bd394162d8f7e1df257b41" ,userNmae);
+        toSubscribe(observable, subscriber);
+    }
+
+
+    /**
+     *  发送手机短信验证码  <br/>
+     * @param mobilePhone  手机号码  <br/>
+     * @param checkType  checkType类型  <br/>
+     *                   checkType类型  <br/>1 为注册。  <br/>2 为找回密码。  <br/>3 手机短信登录。  <br/>4 解除绑定。  <br/>5 短信绑定（手机绑定）  <br/>6 绑定第三方。
+     * @return
+     */
+    public void sendVerCode(Subscriber<HttpRespBean> subscriber, String mobilePhone,String checkType) {
+        Observable observable = initService().sendCode(System.currentTimeMillis()+"","c5ea4773f8c6122731ef99bcf1b960a8" ,mobilePhone,checkType);
+        toSubscribe(observable, subscriber);
+    }
+
+
+//    @FormUrlEncoded
+//    @POST("sendcode.html")
+//    Observable<Object> sendcode(@Field("time") String hash, @Field("hash") String time,
+//                                @Field("mobile") String uid, @Field("checktype") int password
+//    );}
+    public void resetUserPwd(Subscriber<Object> subscriber,String userNmae,String pwd){
+        Observable observable = initService().resetPwd(System.currentTimeMillis() + "","3c437a1b469dc67c1e1a804b3a00270b",userNmae,pwd);
+        toSubscribe(observable, subscriber);
+    }
+
+
 
 
 }

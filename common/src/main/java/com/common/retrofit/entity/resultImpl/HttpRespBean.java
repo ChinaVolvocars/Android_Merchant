@@ -1,7 +1,6 @@
 package com.common.retrofit.entity.resultImpl;
 
-public class HttpRespBean<T>
-{
+public class HttpRespBean<T> {
     private int Code;
     private String Msg;
     private String Time;

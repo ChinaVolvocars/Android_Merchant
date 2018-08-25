@@ -1,6 +1,7 @@
 package com.common.interceptor;
-import android.content.Context;
+
 import com.common.utils.APPUtil;
+import com.common.utils.ContextUtils;
 import java.io.IOException;
 import okhttp3.Interceptor;
 import okhttp3.Request;
@@ -12,14 +13,13 @@ import okhttp3.Response;
  */
 public class HeaderIntercepter implements Interceptor {
 
-    Context context;
 
     @Override
     public Response intercept(Chain chain) throws IOException {
 
         Request request = chain.request().newBuilder()
                 .addHeader("uuid", String.valueOf(APPUtil.getUniqueIMei()))
-                .addHeader("versioncode", String.valueOf(APPUtil.getVersionCode(context)))
+                .addHeader("versioncode", String.valueOf(APPUtil.getVersionCode(ContextUtils.getAppContext())))
                 .addHeader("types","2")
                 .build();
         return chain.proceed(request);

@@ -29,7 +29,6 @@ public abstract class BaseMethods {
 
 //        OkHttpClient.Builder httpClient = new OkHttpClient.Builder().proxy(Proxy.NO_PROXY);
 //        httpClient.addInterceptor(new HeaderIntercepter());
-
         return new Retrofit.Builder()
                 .client(OkHttpManager.getClient().getOkHttp())
 //                .client(httpClient.build())

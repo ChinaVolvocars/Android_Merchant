@@ -13,8 +13,7 @@ import java.util.Locale;
  * @author 续写经典
  * @date 2015/11/3
  */
-public class DateUtils
-{
+public class DateUtils {
     public static final SimpleDateFormat FORMAT = new SimpleDateFormat("yyyy-MM-dd HH:mm", Locale.CHINA);
     public static final SimpleDateFormat FORMAT_DATE_DOT = new SimpleDateFormat("yyyy.MM.dd", Locale.CHINA);
     public static final SimpleDateFormat FORMAT_DATE = new SimpleDateFormat("yyyy-MM-dd", Locale.CHINA);
@@ -77,6 +76,7 @@ public class DateUtils
 
     /**
      * 时间格式化
+     *
      * @param format
      * @param time
      * @return
@@ -87,10 +87,9 @@ public class DateUtils
 
     /**
      * 功能描述：格式化输出日期
-     * @param date
-     *            Date 日期
-     * @param format
-     *            String 格式
+     *
+     * @param date   Date 日期
+     * @param format String 格式
      * @return 返回字符型日期
      */
     public static String format(Date date, String format) {
@@ -118,8 +117,8 @@ public class DateUtils
 
     /**
      * 功能描述：
-     * @param date
-     *            Date 日期
+     *
+     * @param date Date 日期
      * @return
      */
     public static String format(Date date) {
@@ -584,6 +583,7 @@ public class DateUtils
 
     /**
      * 获取指定格式日期
+     *
      * @param time
      * @return
      */
@@ -593,6 +593,7 @@ public class DateUtils
 
     /**
      * 获取指定格式日期
+     *
      * @param timeS 秒
      * @return yyyy-MM-dd HH:mm
      */
@@ -610,9 +611,9 @@ public class DateUtils
      * @return 12:00~13:00
      */
     public static String getSimpleDate(long start, long end) {
-        start*=1000;
-        end*=1000;
-        return FORMAT_DATE2.format(new Date(start))+"  "+FORMAT_TIME.format(new Date(start)) + "~" + FORMAT_TIME.format(new Date(end));
+        start *= 1000;
+        end *= 1000;
+        return FORMAT_DATE2.format(new Date(start)) + "  " + FORMAT_TIME.format(new Date(start)) + "~" + FORMAT_TIME.format(new Date(end));
     }
 
     //获得当天0点时间
@@ -637,6 +638,7 @@ public class DateUtils
 
     /**
      * 拼接时间小时和分 如9:10
+     *
      * @param timeS 秒
      * @return 返回拼接时间
      */

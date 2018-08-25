@@ -3,8 +3,7 @@ package com.common.retrofit.jsoncoverter;
 import com.common.base.Constants;
 import com.common.utils.StringUtils;
 
-public class ApiException extends RuntimeException
-{
+public class ApiException extends RuntimeException {
     private int mErrorCode;
     private String displayMessage;
 
@@ -38,6 +37,7 @@ public class ApiException extends RuntimeException
 
     /**
      * 判断是否是token失效
+     *
      * @return 失效返回true, 否则返回false;
      */
     public boolean isTokenExpried() {

@@ -103,7 +103,7 @@ public interface UserService {
 
     @FormUrlEncoded
     @POST("scategory.html")
-    Observable<NewTestBean> scategory(@Field("time") String hash, @Field("hash") String time);
+    Observable<NewTestBean> scategory(@Field("time") String time, @Field("hash") String hash);
 
     /**
      * shop_name (请输入门店名称 String类型 必填)
@@ -154,6 +154,29 @@ public interface UserService {
     Observable<HttpRespBean<IndexBean>> index(@Field("time") String hash, @Field("hash") String time, @Field("uid") int uid
             , @Field("hashid") String hashid);
 
+
+    /**
+     * 忘记密码
+     * @param hash hash
+     * @param time time
+     * @param username 商家账号
+     * @param shop_name 商家名称
+     * @param document_name 法人姓名
+     * @param certificates_type 证件类型
+     * @param certificates_number 证件号
+     * @param phone 手机号
+     * @param pcode 手机验证码
+     * @return
+     *
+     */
+    @FormUrlEncoded
+    @POST("BusinessUser/shopResetPwd.html")
+//    Observable<HttpRespBean<IndexBean>> forgetPwd(@Field("time") String hash, @Field("hash") String time,
+    Observable<HttpRespBean<String>> forgetPwd(@Field("time") String hash, @Field("hash") String time,
+                                                  @Field("username") String username, @Field("shop_name") String shop_name,
+                                                  @Field("document_name") String document_name,@Field("certificates_type") String certificates_type,
+                                                  @Field("certificates_number") String certificates_number,@Field("phone") String phone, @Field("pcode") String pcode);
+
     @FormUrlEncoded
     @POST("financeDetail.html")
     Observable<HttpRespBean<FBean>> financeDetail(@Field("time") String hash, @Field("hash") String time, @Field("uid") int uid
@@ -169,6 +192,40 @@ public interface UserService {
     Observable<HttpRespBean<ChangeBean>> store(@Field("time") String hash, @Field("hash") String time, @Field("uid") int uid
             , @Field("hashid") String hashid);
 
+
+    /**
+     * 检测商户账户名是否唯一的
+     * @param username 商家用户名
+     * @return
+     */
+    @FormUrlEncoded
+    @POST("shopUsername.html")
+//    Observable<String> checkUsrnameIsUnique(@Field("username") String username);
+    Observable<HttpRespBean> checkUsrnameIsUnique(@Field("time") String time, @Field("hash") String hash,@Field("username") String username);
+
+
+    /**
+     *  发送手机短信验证码  <br/>
+     * @param time time  <br/>
+     * @param hash hash  <br/>
+     * @param mobile  手机号码  <br/>
+     * @param checktype  type类型  <br/>
+     *                   type类型：  <br/>1 为注册。  <br/>2 为找回密码。  <br/>3 手机短信登录。  <br/>4 解除绑定。  <br/>5 短信绑定（手机绑定）  <br/>6 绑定第三方。
+     * @return
+     */
+    @FormUrlEncoded
+    @POST("sendCode.html")
+    Observable<HttpRespBean> sendCode(@Field("time") String time,@Field("hash") String hash,
+                                @Field("mobile") String mobile, @Field("checktype") String checktype);
+
+    /**
+     * 重置密码
+     * @param username 商家用户名
+     * @return
+     */
+    @FormUrlEncoded
+    @POST("shopResetPwd.html")
+    Observable<Object> resetPwd(@Field("time") String time, @Field("hash") String hash,@Field("username") String username,@Field("password") String password);
 
 
 
@@ -211,9 +268,11 @@ public interface UserService {
      * @param pcode         手机验证码   <br/>
      * @return
      */
+//    @FormUrlEncoded
+//    @POST("apply.html")
     @FormUrlEncoded
-    @POST("apply.html")
-    Observable<Object> apply(@Field("time") String time, @Field("hash") String hash
+    @POST("BusinessUser/apply.html")
+    Observable<Object> newMerhcantApplyJoin(@Field("time") String time, @Field("hash") String hash
             , @Field("username") String username, @Field("password") String password
             , @Field("shop_name") String shop_name, @Field("mobile") String mobile
             , @Field("category_id") String category_id, @Field("proportion") String proportion
@@ -227,8 +286,6 @@ public interface UserService {
 //            ,@Field("latitude") String latitude, @Field("longitude") String longitude);
 //     * @param latitude
 //     * @param longitude
-
-
 
     @FormUrlEncoded
     @POST("delData.html")
@@ -400,18 +457,19 @@ public interface UserService {
     Observable<HttpRespBean<YSBean>> getclothescolor(@Field("hash") String hash, @Field("time") String time,
                                                      @Field("apiId") String apiId, @Field("terminal") int terminal,
                                                      @Field("uid") int uid, @Field("hashid") String password);
+//
+//    @FormUrlEncoded
+//    @POST("saveUserDetailData.html")
+//    Observable<Object> saveUserDetailData(@Field("hash") String hash, @Field("time") String time,
+//                                          @Field("apiId") String apiId, @Field("terminal") int terminal,
+//                                          @Field("uid") int uid, @Field("hashid") String password, @Field("update") String update);
+//
+//    @FormUrlEncoded
+//    @POST("sendCode.html")
+//    Observable<Object> sendCode(@Field("time") String time,@Field("hash") String hash,
+//                                @Field("apiId") String apiId, @Field("terminal") int terminal,
+//                                @Field("mobile") String mobile, @Field("type") int type);
 
-    @FormUrlEncoded
-    @POST("saveUserDetailData.html")
-    Observable<Object> saveUserDetailData(@Field("hash") String hash, @Field("time") String time,
-                                          @Field("apiId") String apiId, @Field("terminal") int terminal,
-                                          @Field("uid") int uid, @Field("hashid") String password, @Field("update") String update);
-
-    @FormUrlEncoded
-    @POST("sendCode.html")
-    Observable<Object> sendCode(@Field("hash") String hash, @Field("time") String time,
-                                @Field("apiId") String apiId, @Field("terminal") int terminal,
-                                @Field("mobile") String uid, @Field("type") int password);
 
     /**
      * shop_face ,shop_img,title,person,tel,province_id,city_id,area_id,address,floor,sell_sn,arbitration_name,

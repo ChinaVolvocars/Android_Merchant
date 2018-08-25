@@ -33,12 +33,13 @@ public class SmsMethods extends BaseMethods {
     private UserService initService() {
         return getRetrofit().create(UserService.class);
     }
-    // 用户登录
-    public void sendCode(Subscriber<Object> subscriber, String phone, int type) {
-        List<String> list = new ArrayList();
-        list.add("mobile");
-        list.add("type");
-        Observable observable = initService().sendCode(Constants.getHash(list), System.currentTimeMillis() + "","e5f743c219cc437d4942471c0acff98d",3, phone,type);
-        toOtherSubscribe(observable, subscriber);
-    }
+//
+//    // 用户登录
+//    public void sendCode(Subscriber<Object> subscriber, String phone, int type) {
+//        List<String> list = new ArrayList();
+//        list.add("mobile");
+//        list.add("type");
+//        Observable observable = initService().sendCode(System.currentTimeMillis() + "",Constants.getHash(list), "e5f743c219cc437d4942471c0acff98d",3, phone,type);
+//        toOtherSubscribe(observable, subscriber);
+//    }
 }

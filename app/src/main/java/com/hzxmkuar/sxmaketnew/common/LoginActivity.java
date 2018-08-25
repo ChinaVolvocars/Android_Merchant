@@ -25,6 +25,7 @@ import com.common.widget.editview.DeleteEditText;
 import com.common.widget.textview.CountdownButton;
 import com.hzxmkuar.sxmaketnew.ForgetPwdActivity;
 import com.hzxmkuar.sxmaketnew.MainActivity;
+import com.hzxmkuar.sxmaketnew.NewPwdActivity;
 import com.hzxmkuar.sxmaketnew.NewZCActivity;
 import com.hzxmkuar.sxmaketnew.R;
 import com.xmkj.payandlogin.ShareConfig;
@@ -273,6 +274,7 @@ public class LoginActivity extends BaseMvpActivity {
             gotoActivity(BDPhoneActivity.class);
         }else if (view.getId()==mBack.getId()){
             gotoActivity(NewZCActivity.class);
+//            gotoActivity(NewPwdActivity.class);
         }else if (view.getId()==mTvForgetPwd.getId()){
             gotoActivity(ForgetPwdActivity.class);
         }else if (view.getId()==xieyi.getId()){

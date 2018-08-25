@@ -66,7 +66,7 @@
 
                 <LinearLayout
                     android:id="@+id/ll_manager_account"
-                    style="@style/HomeViewItemStyle"     
+                    style="@style/HomeViewItemStyle"
                     android:layout_width="0dp">
 
                     <ImageView
