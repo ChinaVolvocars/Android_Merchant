@@ -18,7 +18,7 @@ import com.common.utils.SPUtils;
 import com.common.widget.imageview.image.ImageLoaderUtils;
 
 /**
- * 首页  添加描述
+ * 首页  添加描述   test
  */
 public class MainActivity extends BaseMvpActivity {
     private ImageView mIvSetting;
