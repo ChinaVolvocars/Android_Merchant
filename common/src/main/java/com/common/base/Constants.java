@@ -48,11 +48,11 @@ public class Constants {
     /**
      * 线下环境测试用
      */
-//    public static final String BaseUrl = "http://192.168.0.150/Api/";                   //  高兴超线下测试环境用
+    public static final String BaseUrl = "http://192.168.0.150/Api/";                   //  高兴超线下测试环境用
     /**
      * 线下环境测试用
      */
-    public static final String BaseUrl = "http://192.168.0.141/Api/";                 //  张兆伦线下测试环境用
+//    public static final String BaseUrl = "http://192.168.0.141/Api/";                 //  张兆伦线下测试环境用
     /**
      *  ？？？这是用来干嘛的？
      */

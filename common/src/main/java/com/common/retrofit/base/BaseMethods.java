@@ -27,11 +27,11 @@ public abstract class BaseMethods {
 
     public Retrofit getRetrofit() {
 
-//        OkHttpClient.Builder httpClient = new OkHttpClient.Builder().proxy(Proxy.NO_PROXY);
-//        httpClient.addInterceptor(new HeaderIntercepter());
+        OkHttpClient.Builder httpClient = new OkHttpClient.Builder().proxy(Proxy.NO_PROXY);
+        httpClient.addInterceptor(new HeaderIntercepter());
         return new Retrofit.Builder()
-                .client(OkHttpManager.getClient().getOkHttp())
-//                .client(httpClient.build())
+//                .client(OkHttpManager.getClient().getOkHttp())
+                .client(httpClient.build())
                 .addConverterFactory(CustomGsonConverterFactory.create())
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                 .baseUrl(Constants.BaseUrl + getHttpUrl())

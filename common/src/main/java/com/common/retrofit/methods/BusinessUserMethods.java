@@ -101,7 +101,7 @@ public class BusinessUserMethods extends BaseMethods {
                           String documentName,String certificatesType,
                           String certificatesNumber,String phoneNo,
                           String verCode) {
-        Observable observable = initService().forgetPwd(System.currentTimeMillis() + "","e785f07736bde4d62b77d03214d29647",
+        Observable observable = initService().forgetPwd(System.currentTimeMillis() + "","f96cc776ba900d47eb7b8b9c4e2f73c1",
                             userName,shopName,
                             documentName,certificatesType,
                             certificatesNumber,phoneNo,verCode);
@@ -175,7 +175,8 @@ public class BusinessUserMethods extends BaseMethods {
                       String managerPhoneNo, String verCode) {
 
         Observable observable = initService()
-                .newMerhcantApplyJoin(System.currentTimeMillis() + "","47dc24053e61ca7bcf2bae17f472a8b2"
+//                .newMerhcantApplyJoin(System.currentTimeMillis() + "","47dc24053e61ca7bcf2bae17f472a8b2"
+                .newMerhcantApplyJoin(System.currentTimeMillis() + "","53dc732e3bf21146a143d1d8cae38592"
                 ,storeAccount,pwd
                 ,storeName,storePhoneNo
                 ,storeType,proportion
@@ -217,7 +218,8 @@ public class BusinessUserMethods extends BaseMethods {
 //    Observable<Object> sendcode(@Field("time") String hash, @Field("hash") String time,
 //                                @Field("mobile") String uid, @Field("checktype") int password
 //    );}
-    public void resetUserPwd(Subscriber<Object> subscriber,String userNmae,String pwd){
+    public void resetUserPwd(Subscriber<HttpRespBean> subscriber,String userNmae,String pwd){
+//        Observable observable = initService().resetPwd(System.currentTimeMillis() + "","3c437a1b469dc67c1e1a804b3a00270b",userNmae,pwd);
         Observable observable = initService().resetPwd(System.currentTimeMillis() + "","3c437a1b469dc67c1e1a804b3a00270b",userNmae,pwd);
         toSubscribe(observable, subscriber);
     }

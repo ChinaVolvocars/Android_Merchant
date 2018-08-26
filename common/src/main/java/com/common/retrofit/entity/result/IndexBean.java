@@ -12,7 +12,6 @@ public class IndexBean {
      * pay_img :
      * proportion : 0.05
      */
-
     private String id;
     /**
      * 商铺图片url
@@ -24,6 +23,9 @@ public class IndexBean {
     private String pay_img;
     private String proportion;
     private String ratio;
+    private String managementID;
+    private String managementNum;
+    private String managementCode;
     public String getRatio() {
         return ratio;
     }
@@ -67,5 +69,29 @@ public class IndexBean {
 
     public void setProportion(String proportion) {
         this.proportion = proportion;
+    }
+
+    public String getManagementID() {
+        return managementID;
+    }
+
+    public void setManagementID(String managementID) {
+        this.managementID = managementID;
+    }
+
+    public String getManagementNum() {
+        return managementNum;
+    }
+
+    public void setManagementNum(String managementNum) {
+        this.managementNum = managementNum;
+    }
+
+    public String getManagementCode() {
+        return managementCode;
+    }
+
+    public void setManagementCode(String managementCode) {
+        this.managementCode = managementCode;
     }
 }

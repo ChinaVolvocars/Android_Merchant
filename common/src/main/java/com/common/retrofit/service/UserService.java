@@ -170,12 +170,22 @@ public interface UserService {
      *
      */
     @FormUrlEncoded
-    @POST("BusinessUser/shopResetPwd.html")
+    @POST("shopRetrievePwd.html")
 //    Observable<HttpRespBean<IndexBean>> forgetPwd(@Field("time") String hash, @Field("hash") String time,
-    Observable<HttpRespBean<String>> forgetPwd(@Field("time") String hash, @Field("hash") String time,
+    Observable<HttpRespBean> forgetPwd(@Field("time") String hash, @Field("hash") String time,
                                                   @Field("username") String username, @Field("shop_name") String shop_name,
                                                   @Field("document_name") String document_name,@Field("certificates_type") String certificates_type,
                                                   @Field("certificates_number") String certificates_number,@Field("phone") String phone, @Field("pcode") String pcode);
+
+    /**
+     * 重置密码
+     * @param username 商家用户名
+     * @return
+     */
+    @FormUrlEncoded
+    @POST("shopResetPwd.html")
+    Observable<HttpRespBean> resetPwd(@Field("time") String time, @Field("hash") String hash,@Field("username") String username,@Field("password") String password);
+
 
     @FormUrlEncoded
     @POST("financeDetail.html")
@@ -217,15 +227,6 @@ public interface UserService {
     @POST("sendCode.html")
     Observable<HttpRespBean> sendCode(@Field("time") String time,@Field("hash") String hash,
                                 @Field("mobile") String mobile, @Field("checktype") String checktype);
-
-    /**
-     * 重置密码
-     * @param username 商家用户名
-     * @return
-     */
-    @FormUrlEncoded
-    @POST("shopResetPwd.html")
-    Observable<Object> resetPwd(@Field("time") String time, @Field("hash") String hash,@Field("username") String username,@Field("password") String password);
 
 
 
@@ -271,7 +272,7 @@ public interface UserService {
 //    @FormUrlEncoded
 //    @POST("apply.html")
     @FormUrlEncoded
-    @POST("BusinessUser/apply.html")
+    @POST("apply.html")
     Observable<Object> newMerhcantApplyJoin(@Field("time") String time, @Field("hash") String hash
             , @Field("username") String username, @Field("password") String password
             , @Field("shop_name") String shop_name, @Field("mobile") String mobile

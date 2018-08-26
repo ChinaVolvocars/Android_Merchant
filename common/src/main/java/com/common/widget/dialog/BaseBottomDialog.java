@@ -15,17 +15,16 @@ import com.common.mvp.BaseDialogFragment;
 import com.common.mvp.BasePresenter;
 
 /*******************************
-* 通用底部弹窗对话框
-* created at 2017/3/30 下午 3:04
-********************************/
-public class BaseBottomDialog extends BaseDialogFragment
-{
+ * 通用底部弹窗对话框
+ * created at 2017/3/30 下午 3:04
+ ********************************/
+public class BaseBottomDialog extends BaseDialogFragment {
     public static final String BOTTOM_KEY = "BOTTOM_KEY";
 
     private boolean outSidedismiss = true;
     private int resourceId;
 
-    public static BaseBottomDialog newInstance(int resourceId){
+    public static BaseBottomDialog newInstance(int resourceId) {
         BaseBottomDialog dialog = new BaseBottomDialog();
         Bundle bundle = new Bundle();
         bundle.putInt(BaseBottomDialog.BOTTOM_KEY, resourceId);
@@ -66,7 +65,7 @@ public class BaseBottomDialog extends BaseDialogFragment
         lp.gravity = Gravity.BOTTOM;
 
         window.setAttributes(lp);
-        if(!outSidedismiss){
+        if (!outSidedismiss) {
             getDialog().setOnKeyListener(new DialogInterface.OnKeyListener() {
                 @Override
                 public boolean onKey(DialogInterface dialog, int keyCode, KeyEvent event) {

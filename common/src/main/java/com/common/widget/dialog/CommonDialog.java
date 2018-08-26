@@ -23,8 +23,7 @@ import com.common.R;
  * @author syc
  * created at 2017/4/17 上午 9:03
  ********************************/
-public class CommonDialog extends DialogFragment
-{
+public class CommonDialog extends DialogFragment {
     private View rootView;
     private boolean outSidedismiss = true;
 
@@ -56,7 +55,7 @@ public class CommonDialog extends DialogFragment
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         getDialog().setCanceledOnTouchOutside(outSidedismiss);
-        if(!outSidedismiss){
+        if (!outSidedismiss) {
             getDialog().setOnKeyListener(new DialogInterface.OnKeyListener() {
                 @Override
                 public boolean onKey(DialogInterface dialog, int keyCode, KeyEvent event) {
@@ -70,7 +69,9 @@ public class CommonDialog extends DialogFragment
         return rootView;
     }
 
-    /**  对话框初始化 */
+    /**
+     * 对话框初始化
+     */
     public void init(View rootView) {
         tvContent = (TextView) rootView.findViewById(R.id.tv_content);
         btnCancel = (Button) rootView.findViewById(R.id.btn_cancel);
@@ -94,7 +95,8 @@ public class CommonDialog extends DialogFragment
 
     /**
      * diaog提示语
-     * @param text    text
+     *
+     * @param text text
      */
     public void setText(String text) {
         if (null != tvContent) {
@@ -104,7 +106,8 @@ public class CommonDialog extends DialogFragment
 
     /**
      * dialog提示语
-     * @param text  text
+     *
+     * @param text text
      * @param size 字体大小
      */
     public void setText(String text, int size) {
@@ -128,11 +131,12 @@ public class CommonDialog extends DialogFragment
 
     /**
      * 设置对话康类型
-     * @param type   type
+     *
+     * @param type type
      */
     public void setDialogType(TYPE type) {
         switch (type) {
-            case CLOSE :
+            case CLOSE:
                 llButton.setVisibility(View.GONE);
                 btnFunc.setVisibility(View.GONE);
                 llClose.setVisibility(View.VISIBLE);
@@ -152,7 +156,8 @@ public class CommonDialog extends DialogFragment
 
     /**
      * 取消监听事件
-     * @param cancel     cancel
+     *
+     * @param cancel cancel
      */
     public void setCancel(View.OnClickListener cancel) {
         if (null == cancel) {
@@ -166,7 +171,8 @@ public class CommonDialog extends DialogFragment
 
     /**
      * 确认监听事件
-     * @param submit     submit
+     *
+     * @param submit submit
      */
     public void setSubmit(View.OnClickListener submit) {
         if (null == submit) {
@@ -180,7 +186,8 @@ public class CommonDialog extends DialogFragment
 
     /**
      * 单个按钮监听事件
-     * @param listener     listener
+     *
+     * @param listener listener
      */
     public void setBtnFunc(View.OnClickListener listener) {
         if (null == listener) {
@@ -194,7 +201,8 @@ public class CommonDialog extends DialogFragment
 
     /**
      * 设置弹框外消失
-     * @param bool    bool
+     *
+     * @param bool bool
      */
     public void setCanceledOnTouchOutside(Boolean bool) {
         outSidedismiss = bool;
