@@ -368,6 +368,7 @@ public class NewZCActivity extends BaseMvpActivity {
         mProfitsList.add("30%");
         mProfitsList.add("35%");
         mProfitsList.add("40%");
+        mProfitsList.add("50%");
         profitsPickers = new OptionsPickerView.Builder(context, new OptionsPickerView.OnOptionsSelectListener() {
             @Override
             public void onOptionsSelect(int options1, int options2, int options3, View v) {
@@ -443,7 +444,6 @@ public class NewZCActivity extends BaseMvpActivity {
             credentialsTypePickers.show();
         } else if (view.getId() == mCdBtnSendMsg.getId()) {
             checkInputInfo(mCdBtnSendMsg);
-//            showToastMsg("发送验证码");
         } else if (view.getId() == mNext.getId()) {
             // 提交审核
             checkInputInfo(mNext);
@@ -614,7 +614,7 @@ public class NewZCActivity extends BaseMvpActivity {
                 showToastMsg(e);
             }
         });
-        BusinessUserMethods.getInstance().sendVerCode(sendVerCodeSub,getEditTextStr(mEdtManagerPhoneNo),"1");
+        BusinessUserMethods.getInstance().sendVerCode(sendVerCodeSub, getEditTextStr(mEdtManagerPhoneNo), "1");
         rxManager.add(sendVerCodeSub);
     }
 
@@ -657,7 +657,6 @@ public class NewZCActivity extends BaseMvpActivity {
             @Override
             public void onNext(Object o) {
                 dismissProgressDialog();
-                showToastMsg("提交成功！");
                 finish();
             }
 
@@ -665,6 +664,10 @@ public class NewZCActivity extends BaseMvpActivity {
             public void onError(String e, int code) {
                 dismissProgressDialog();
                 showToastMsg(e);
+                Log.i(TAG, "onError:    e:  " + e);
+                Log.i(TAG, "onError:    code:   " + code);
+
+
             }
         });
         // 新会员入驻审核接口
