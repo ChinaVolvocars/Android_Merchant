@@ -1,6 +1,5 @@
 package com.hzxmkuar.sxmaketnew;
 
-import android.content.Intent;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
