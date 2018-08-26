@@ -32,6 +32,8 @@
             android:text="示例：100010000100" />
     </LinearLayout>
 
+    <View style="@style/DivideLine" />
+
     <LinearLayout style="@style/BindBankCardContent">
 
         <TextView
@@ -45,22 +47,29 @@
             android:text="示例：1417" />
     </LinearLayout>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="30dp"
-        android:text="邀请码"
-        android:textColor="@color/black"
-        android:textSize="15sp" />
+    <View style="@style/DivideLine" />
+
+    <LinearLayout style="@style/BindBankCardContent">
+
+        <TextView
+            style="@style/MyStoreContentLeft"
+            android:text="邀请码" />
+
+        <TextView
+            android:id="@+id/tv_id_code"
+            style="@style/MyStoreContentRight"
+            android:drawableRight="@null"
+            android:text="示例：112233" />
+    </LinearLayout>
+
 
     <LinearLayout
         android:layout_width="250dp"
         android:layout_height="250dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="15dp"
-        android:gravity="center"
-        android:background="@color/white">
+        android:background="@color/white"
+        android:gravity="center">
 
         <ImageView
             android:id="@+id/iv_qr_img"
@@ -70,12 +79,5 @@
 
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/tv_id_code"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="10dp"
-        android:text="示例：112233" />
 
 </LinearLayout>

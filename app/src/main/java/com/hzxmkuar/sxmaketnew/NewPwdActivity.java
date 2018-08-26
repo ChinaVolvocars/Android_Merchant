@@ -4,6 +4,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+
 import com.common.mvp.BaseMvpActivity;
 import com.common.mvp.BasePresenter;
 import com.common.retrofit.entity.resultImpl.HttpRespBean;
@@ -94,18 +95,21 @@ public class NewPwdActivity extends BaseMvpActivity {
     private void sendResetPwdRequest() {
 //        resetPwd(mUserName, getEditTextStr(mEdtInputNewPwdConfirm));
         showProgressingDialog();
-        if (!EmptyUtils.isEmpty(mUserName) && getEditTextStr(mEdtInputNewPwd).equals(getEditTextStr(mEdtInputNewPwdConfirm))){
+        if (!EmptyUtils.isEmpty(mUserName) && getEditTextStr(mEdtInputNewPwd).equals(getEditTextStr(mEdtInputNewPwdConfirm))) {
+//            Log.i(TAG, "sendResetPwdRequest: " + mUserName);
             CommonSubscriber<HttpRespBean> checkSub = new CommonSubscriber<>(new SubscriberListener() {
                 @Override
                 public void onNext(Object o) {
                     showToastMsg("密码重置成功");
                     dismissProgressDialog();
+                    finish();
                 }
 
                 @Override
                 public void onError(String e, int code) {
                     dismissProgressDialog();
                     showToastMsg(e);
+                    Log.i(TAG, "onError: " + code);
                 }
             });
             BusinessUserMethods.getInstance().resetUserPwd(checkSub, mUserName, getEditTextStr(mEdtInputNewPwdConfirm));

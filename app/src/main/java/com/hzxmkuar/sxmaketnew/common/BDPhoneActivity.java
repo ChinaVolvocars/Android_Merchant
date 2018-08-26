@@ -16,8 +16,7 @@ import com.common.widget.textview.CountdownButton;
 import com.hzxmkuar.sxmaketnew.MainActivity;
 import com.hzxmkuar.sxmaketnew.R;
 
-public class BDPhoneActivity extends BaseMvpActivity
-{
+public class BDPhoneActivity extends BaseMvpActivity {
     public static final String TYPE = "TYPE";
 
     private DeleteEditText evPhone;
@@ -52,13 +51,13 @@ public class BDPhoneActivity extends BaseMvpActivity
     }
 
 
-
     @Override
     protected void doLogicFunc() {
         setVerifyView();
         attachClickListener(btnRegister);
         attachClickListener(mBack);
     }
+
     private void setVerifyView() {
         tvVerify.setEnabled(false);
         tvVerify.setOnClickListener(new OnOnceClickListener() {
@@ -95,7 +94,8 @@ public class BDPhoneActivity extends BaseMvpActivity
 
     private TextWatcher textWatcher = new TextWatcher() {
         @Override
-        public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {}
+        public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+        }
 
         @Override
         public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
@@ -105,7 +105,8 @@ public class BDPhoneActivity extends BaseMvpActivity
         }
 
         @Override
-        public void afterTextChanged(Editable editable) {}
+        public void afterTextChanged(Editable editable) {
+        }
     };
 
     @Override
@@ -117,7 +118,7 @@ public class BDPhoneActivity extends BaseMvpActivity
             }*/
             gotoActivity(MainActivity.class);
             //gotoHttpReqs(1,getIntent().getIntExtra("id",0),getEditTextStr(evPhone),getEditTextStr(evCode), MainApplication.mRegistrationId);
-        }else if (view.getId()==mBack.getId()){
+        } else if (view.getId() == mBack.getId()) {
             finish();
         }
     }

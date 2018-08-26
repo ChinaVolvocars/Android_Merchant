@@ -1,5 +1,6 @@
 package com.hzxmkuar.sxmaketnew;
 
+import android.content.Intent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -9,6 +10,7 @@ import com.bigkoo.pickerview.OptionsPickerView;
 import com.common.mvp.BaseMvpActivity;
 import com.common.mvp.BasePresenter;
 import com.common.retrofit.entity.result.IndexBean;
+import com.common.retrofit.entity.resultImpl.HttpRespBean;
 import com.common.retrofit.methods.BusinessUserMethods;
 import com.common.retrofit.subscriber.CommonSubscriber;
 import com.common.retrofit.subscriber.SubscriberListener;
@@ -159,7 +161,7 @@ public class ForgetPwdActivity extends BaseMvpActivity {
     }
 
     /**
-     * 提交商户输入内容、请求找加密码
+     * 提交商户输入内容、请求找回密码
      */
     private void commitInputInfo(String userName, String storeName,
                                  String legalNmae, String certificateType,
@@ -169,15 +171,11 @@ public class ForgetPwdActivity extends BaseMvpActivity {
             @Override
             public void onNext(Object o) {
                 statusContent();
-//                IndexBean bean = (IndexBean) o;
-//                ImageLoaderUtils.displaySmallPhoto(mIvHomeBg, bean.getAd_img());
-//                ImageLoaderUtils.displaySmallPhoto(mIvQRCode, bean.getPay_img());
-//                String proportion = bean.getProportion();
-//                String ratio = bean.getRatio();
-//                mTvGatheringCode.setText("ID" + bean.getId());
-//                SPUtils.setShareString("proportion", proportion);
-//                SPUtils.setShareString("ratio", ratio);
-        gotoActivity(NewPwdActivity.class);
+                // TODO: 2018/8/25  将userName传到下一个界面
+                Intent resetPwdIntent = new Intent(ForgetPwdActivity.this,NewPwdActivity.class);
+                resetPwdIntent.putExtra("userName",getEditTextStr(mEdtInputAccount));
+                startActivity(resetPwdIntent);
+                finish();
             }
 
             @Override
@@ -190,14 +188,6 @@ public class ForgetPwdActivity extends BaseMvpActivity {
                 legalNmae,certificateType,
                 legalIdNo,phoneNo,inputVerCode);
         rxManager.add(subscriber);
-        showToastMsg("提交");
-
-    }
-
-    /**
-     * 校验验证码
-     */
-    private void checkVerificationCode() {
 
     }
 
@@ -205,14 +195,9 @@ public class ForgetPwdActivity extends BaseMvpActivity {
      * 发送验证码
      */
     private void sendVerifyCodeMsg() {
-//        mEdtInputPhoneNo.addTextChangedListener(textWatcher);
+        sendVerifyCodeRequest();
         mBtnSendMsg.getInputContent(getEditTextStr(mEdtInputPhoneNo));
-        showToastMsg("正在发送验证");
     }
-
-//    private void commitInputInfo() {
-//
-//    }
 
     /**
      * 初始化证件类型拾取器
@@ -233,6 +218,27 @@ public class ForgetPwdActivity extends BaseMvpActivity {
                 setCancelColor(getResources().getColor(R.color.normal_text_color)).
                 build();
         mCertificatesTypePicker.setPicker(typeList);
+    }
+
+    /**
+     * 发送手机验证码的请求
+     */
+    private void sendVerifyCodeRequest() {
+        CommonSubscriber<HttpRespBean> sendVerCodeSub = new CommonSubscriber<>(new SubscriberListener() {
+            @Override
+            public void onNext(Object o) {
+                dismissProgressDialog();
+                showToastMsg("短信验证码已发送成功");
+            }
+
+            @Override
+            public void onError(String e, int code) {
+                dismissProgressDialog();
+                showToastMsg(e);
+            }
+        });
+        BusinessUserMethods.getInstance().sendVerCode(sendVerCodeSub,getEditTextStr(mEdtInputPhoneNo),"2");
+        rxManager.add(sendVerCodeSub);
     }
 
 }

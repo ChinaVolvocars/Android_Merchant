@@ -658,11 +658,6 @@ public class NewZCActivity extends BaseMvpActivity {
             public void onNext(Object o) {
                 dismissProgressDialog();
                 showToastMsg("提交成功！");
-                // TODO: 2018/8/25  将userName传到下一个界面
-                Intent resetPwdIntent = new Intent(NewZCActivity.this,NewPwdActivity.class);
-                resetPwdIntent.putExtra("userName",getEditTextStr(mEdtAccountSetting));
-                startActivity(resetPwdIntent);
-//                gotoActivity(NewPwdActivity.class);
                 finish();
             }
 

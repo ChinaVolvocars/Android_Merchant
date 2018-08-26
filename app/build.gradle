@@ -14,7 +14,8 @@ android {
         manifestPlaceholders = [
                 JPUSH_PKGNAME: applicationId,
                 JPUSH_APPKEY : "025008c3164a65bacc50bbed", //JPush上注册的包名对应的appkey.
-                JPUSH_CHANNEL: "xiaomi", //暂时填写默认值即可.
+//                JPUSH_CHANNEL: "xiaomi", //暂时填写默认值即可.
+                JPUSH_CHANNEL: "productFlavors{}", //暂时填写默认值即可.
         ]
         ndk {
             //选择要添加的对应cpu类型的.so库。

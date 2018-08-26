@@ -1,5 +1,6 @@
 package com.hzxmkuar.sxmaketnew;
 
+import android.content.Intent;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -118,6 +119,10 @@ public class MainActivity extends BaseMvpActivity {
                 mTvGatheringCode.setText("ID" + bean.getId());
                 SPUtils.setShareString("proportion", proportion);
                 SPUtils.setShareString("ratio", ratio);
+                SPUtils.setShareString("management_ID", bean.getManagementID());
+                SPUtils.setShareString("management_Num", bean.getManagementNum());
+                SPUtils.setShareString("management_Code", bean.getManagementCode());
+
             }
 
             @Override
