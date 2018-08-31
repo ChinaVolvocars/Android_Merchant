@@ -16,6 +16,9 @@ import com.common.widget.textview.CountdownButton;
 import com.hzxmkuar.sxmaketnew.MainActivity;
 import com.hzxmkuar.sxmaketnew.R;
 
+/**
+ * 绑定手机号码
+ */
 public class BDPhoneActivity extends BaseMvpActivity {
     public static final String TYPE = "TYPE";
 

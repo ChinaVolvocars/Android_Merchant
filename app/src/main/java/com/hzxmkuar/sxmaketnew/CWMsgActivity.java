@@ -2,6 +2,7 @@ package com.hzxmkuar.sxmaketnew;
 
 import android.content.Context;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.util.SparseArray;
 import android.util.TypedValue;
 import android.view.View;
@@ -9,12 +10,12 @@ import android.view.animation.AccelerateInterpolator;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-
 import com.common.adapter.BaseFragmentAdapter;
 import com.common.adapter.helper.IRecyclerViewHelper;
 import com.common.mvp.BaseMvpActivity;
 import com.common.mvp.BasePresenter;
 import com.common.retrofit.entity.result.FBean;
+import com.common.retrofit.entity.result.FinanceDetailEntity;
 import com.common.retrofit.entity.result.FiniBean;
 import com.common.retrofit.methods.BusinessUserMethods;
 import com.common.retrofit.subscriber.CommonSubscriber;
@@ -22,6 +23,7 @@ import com.common.retrofit.subscriber.SubscriberListener;
 import com.common.utils.EmptyUtils;
 import com.common.utils.ResourceUtils;
 import com.common.utils.SizeUtils;
+import com.common.utils.StringUtils;
 import com.common.widget.indicator.ColorTransitionPagerTitleView;
 import com.common.widget.indicator.CommonNavigator;
 import com.common.widget.indicator.CommonNavigatorAdapter;
@@ -35,7 +37,6 @@ import com.common.widget.listview.NoPreloadViewPager;
 import com.common.widget.recyclerview.refresh.recycleview.XRecyclerView;
 import com.hzxmkuar.sxmaketnew.fragment.adapter.JEAdapter;
 import com.hzxmkuar.sxmaketnew.fragment.fragment.JFOneFragment;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -45,17 +46,20 @@ import java.util.List;
  * Created by STH on 2017/8/1.
  */
 public class CWMsgActivity extends BaseMvpActivity {
+    private static final String TAG = "CWMsgActivity";
 
     /**
      * 消费交易抵扣额
      */
     private TextView mTvMonetaryDeduction;
     /**
+     * <br/>
      * 消费交易抵扣额（容器）
      */
     private LinearLayout mLlMonetaryDeduction;
     /**
-     *  鑫豆总数
+     * <br/>
+     * 鑫豆总数
      */
     private TextView mTvXdAount;
     /**
@@ -70,16 +74,29 @@ public class CWMsgActivity extends BaseMvpActivity {
      * 目前账户可用余额
      */
     private TextView mTvAccountBalance;
-
-    private NoPreloadViewPager viewPager;
-    private MagicIndicator tabIndicator;
+    /**
+     * <br/>
+     * 消费记录ViewPager
+     */
+    private NoPreloadViewPager mVpConsumptionRecord;
+    /**
+     *
+     * <br/>
+     * 消费记录ViewPager的指示器
+     */
+    private MagicIndicator mIndicatorConsumptionRecord;
     private BaseFragmentAdapter fragmentAdapter;
-    private TextView mText;
-    private LinearLayout mMLl_two;
+//    private TextView mText;
+    /**
+     * <br/>
+     * 可提现标签的容器
+     */
+    private LinearLayout mLlCanTakeCashContent;
     private JEAdapter adapter;
     private XRecyclerView recyclerView;
     private List<FBean> bean = new ArrayList<>();
     private ImageView back;
+    private TextView tv_conversion;
 
     @Override
     protected void setStatusBar() {
@@ -97,21 +114,20 @@ public class CWMsgActivity extends BaseMvpActivity {
 
     @Override
     protected void onViewCreated() {
-        viewPager = (NoPreloadViewPager) findViewById(R.id.viewpager);
-        tabIndicator = (MagicIndicator) findViewById(R.id.tab_indicator);
+        back = (ImageView) findViewById(R.id.back);
+        mVpConsumptionRecord = (NoPreloadViewPager) findViewById(R.id.viewpager);
+        mIndicatorConsumptionRecord = (MagicIndicator) findViewById(R.id.indicator_consumption_record);
         mTvMonetaryDeduction = (TextView) findViewById(R.id.tv_monetary_deduction);
         mLlMonetaryDeduction = (LinearLayout) findViewById(R.id.ll_monetary_deduction);
         mTvXdAount = (TextView) findViewById(R.id.tv_xd_amount);
         mTvCanTakeCash = (TextView) findViewById(R.id.tv_can_take_cash);
         mTvApplyTakeCash = (TextView) findViewById(R.id.tv_apply_take_cash);
-
-
-
-        mText = (TextView) findViewById(R.id.text);
-        back = (ImageView) findViewById(R.id.back);
+        tv_conversion = (TextView) findViewById(R.id.tv_conversion);
+//        mText = (TextView) findViewById(R.id.text);
         mTvAccountBalance = (TextView) findViewById(R.id.tv_accunt_balance);
-        mMLl_two = (LinearLayout) findViewById(R.id.ll_two);
+        mLlCanTakeCashContent = (LinearLayout) findViewById(R.id.ll_can_take_cash_content);
         recyclerView = (XRecyclerView) findViewById(R.id.recyclerview);
+
     }
 
     @Override
@@ -123,14 +139,30 @@ public class CWMsgActivity extends BaseMvpActivity {
         mTvMonetaryDeduction.setClickable(false);
         mTvCanTakeCash.setClickable(true);
         mLlMonetaryDeduction.setVisibility(View.VISIBLE);
-        mMLl_two.setVisibility(View.GONE);
+        mLlCanTakeCashContent.setVisibility(View.GONE);
         initIndicator();
         setRecyclerView();
         statusLoading();
-        goToHttpReq();
-        goToHttpReqss();
+        getFinanceList();
+        getConsumptionRecord();
     }
 
+    /**
+     * <br/>
+     * 初始化指示器
+     */
+    private void initIndicator() {
+        indicatorTitles.append(0, "消费抵账鑫豆提现申请");
+        indicatorTitles.append(1, "现金到账");
+        indicatorTitles.append(2, "今日销售");
+        setFragmentList();
+        initIndicatorView();
+        mVpConsumptionRecord.setCurrentItem(0);
+    }
+
+    /**
+     *  初始化RecyclerView
+     */
     private void setRecyclerView() {
         adapter = new JEAdapter(context, bean);
         IRecyclerViewHelper.init().setRecycleGridLayout(context, recyclerView, 1);
@@ -141,7 +173,7 @@ public class CWMsgActivity extends BaseMvpActivity {
             public void onRefresh() {
                 mPageIndex = 1;
                 mIsRefreshOrLoadMore = 0;
-                goToHttpReq();
+                getFinanceList();
             }
 
             @Override
@@ -153,21 +185,13 @@ public class CWMsgActivity extends BaseMvpActivity {
                 }
                 mPageIndex++;
                 mIsRefreshOrLoadMore = 1;
-                goToHttpReq();
+                getFinanceList();
             }
         });
     }
 
-    SparseArray<String> titles = new SparseArray<>();
+    SparseArray<String> indicatorTitles = new SparseArray<>();
 
-    private void initIndicator() {
-        titles.append(0, "消费抵账鑫豆提现申请");
-        titles.append(1, "现金到账");
-        titles.append(2, "今日销售");
-        setFragmentList();
-        initIndicatorView();
-        viewPager.setCurrentItem(0);
-    }
 
     @Override
     protected void onViewClicked(View view) {
@@ -182,7 +206,7 @@ public class CWMsgActivity extends BaseMvpActivity {
             mTvCanTakeCash.setTextColor(getResources().getColor(R.color.normal_text_color));
             mTvCanTakeCash.setBackgroundResource(R.drawable.jx_10_w_nom);
             mLlMonetaryDeduction.setVisibility(View.VISIBLE);
-            mMLl_two.setVisibility(View.GONE);
+            mLlCanTakeCashContent.setVisibility(View.GONE);
         } else if (view.getId() == mTvCanTakeCash.getId()) {
             mTvMonetaryDeduction.setClickable(true);
             mTvCanTakeCash.setClickable(false);
@@ -191,20 +215,32 @@ public class CWMsgActivity extends BaseMvpActivity {
             mTvCanTakeCash.setTextColor(getResources().getColor(R.color.black));
             mTvMonetaryDeduction.setTextColor(getResources().getColor(R.color.normal_text_color));
             mLlMonetaryDeduction.setVisibility(View.GONE);
-            mMLl_two.setVisibility(View.VISIBLE);
+            mLlCanTakeCashContent.setVisibility(View.VISIBLE);
         } else if (view.getId() == back.getId()) {
             finish();
         }
     }
 
-    private void goToHttpReqss() {
+    /**
+     * 拉取消费抵账鑫豆提现申请 获取消费记录清单
+     */
+    private void getConsumptionRecord() {
         CommonSubscriber<FBean> subscriber = new CommonSubscriber<>(new SubscriberListener() {
+//        CommonSubscriber<FinanceDetailEntity> subscriber = new CommonSubscriber<>(new SubscriberListener() {
             @Override
             public void onNext(Object o) {
                 statusContent();
-                FBean fBean = (FBean) o;
-                mTvXdAount.setText(fBean.getXindou());
-                mTvAccountBalance.setText(fBean.getMoney());
+                FBean entity = (FBean) o;
+//                FinanceDetailEntity entity = (FinanceDetailEntity) o;
+                mTvXdAount.setText(entity.getXindou());
+                Log.i(TAG, "onNext:       fBean:      "+entity.toString());
+                if (!EmptyUtils.isEmpty(entity.getAppreciation()) && !EmptyUtils.isEmpty(entity.getProportion())){
+                    double profits = 1 - Double.valueOf(entity.getProportion());
+                    double profitsProfit = profits * 100;
+                    String profitsProfitShow = String.valueOf(profitsProfit);
+                    tv_conversion.setText("提现换算公式：1豆x" + entity.getAppreciation() + "x" + profitsProfitShow.substring(0,2)+"%" + "=" + entity.getRatio());
+                }
+                mTvAccountBalance.setText(entity.getMoney());
             }
 
             @Override
@@ -214,10 +250,25 @@ public class CWMsgActivity extends BaseMvpActivity {
             }
         });
         BusinessUserMethods.getInstance().financeDetail(subscriber);
+//        BusinessUserMethods.getInstance().financeDetailNew(subscriber);
         rxManager.add(subscriber);
     }
 
-    private void goToHttpReq() {
+    /**
+     * 获取可提现的总金额
+     *
+     * @param appreciation 鑫豆的升值比例
+     * @param proportion   商家的让利比例
+     */
+    private String getTotalMoney(String appreciation, String proportion) {
+        double amountDouble = Double.valueOf(appreciation) * Double.valueOf(proportion);
+        return String.valueOf(amountDouble);
+    }
+
+    /**
+     *  获取财务信息
+     */
+    private void getFinanceList() {
         CommonSubscriber<FiniBean> subscriber = new CommonSubscriber<>(new SubscriberListener() {
             @Override
             public void onNext(Object o) {
@@ -266,18 +317,22 @@ public class CWMsgActivity extends BaseMvpActivity {
         rxManager.add(subscriber);
     }
 
+
+    /**
+     * 初始化fragment
+     */
     private void setFragmentList() {
         List<Fragment> fragmentList = new ArrayList<>();
         for (int t = 0; t < 3; t++) {
             fragmentList.add(new JFOneFragment(t));
         }
-        
+
         if (fragmentAdapter == null) {
-            fragmentAdapter = new BaseFragmentAdapter(getSupportFragmentManager(), fragmentList, titles);
+            fragmentAdapter = new BaseFragmentAdapter(getSupportFragmentManager(), fragmentList, indicatorTitles);
         } else {
-            fragmentAdapter.setFragments(getSupportFragmentManager(), fragmentList, titles);
+            fragmentAdapter.setFragments(getSupportFragmentManager(), fragmentList, indicatorTitles);
         }
-        viewPager.setAdapter(fragmentAdapter);
+        mVpConsumptionRecord.setAdapter(fragmentAdapter);
     }
 
     private void initIndicatorView() {
@@ -287,13 +342,13 @@ public class CWMsgActivity extends BaseMvpActivity {
         navigator.setAdapter(new CommonNavigatorAdapter() {
             @Override
             public int getCount() {
-                return titles.size();
+                return indicatorTitles.size();
             }
 
             @Override
             public IPagerTitleView getTitleView(final Context context, final int index) {
                 SimplePagerTitleView titleView = new ColorTransitionPagerTitleView(context);
-                titleView.setText(titles.get(index));
+                titleView.setText(indicatorTitles.get(index));
                 titleView.setNormalColor(ResourceUtils.getColor(context, R.color.normal_text_color));
                 titleView.setSelectedColor(ResourceUtils.getColor(context, R.color.base_color));
                 titleView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 8);
@@ -302,7 +357,7 @@ public class CWMsgActivity extends BaseMvpActivity {
                 titleView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        viewPager.setCurrentItem(index);
+                        mVpConsumptionRecord.setCurrentItem(index);
                     }
                 });
                 return titleView;
@@ -319,7 +374,7 @@ public class CWMsgActivity extends BaseMvpActivity {
                 return indicator;
             }
         });
-        tabIndicator.setNavigator(navigator);
-        ViewPagerHelper.bind(tabIndicator, viewPager);
+        mIndicatorConsumptionRecord.setNavigator(navigator);
+        ViewPagerHelper.bind(mIndicatorConsumptionRecord, mVpConsumptionRecord);
     }
 }

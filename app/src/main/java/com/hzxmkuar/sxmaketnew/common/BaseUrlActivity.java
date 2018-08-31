@@ -2,6 +2,7 @@ package com.hzxmkuar.sxmaketnew.common;
 
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.webkit.JavascriptInterface;
@@ -16,8 +17,8 @@ import com.hzxmkuar.sxmaketnew.R;
 import com.just.library.AgentWeb;
 import com.just.library.ChromeClientCallbackManager;
 
-public class BaseUrlActivity extends BaseMvpActivity
-{
+public class BaseUrlActivity extends BaseMvpActivity {
+    private static final String TAG = "BaseUrlActivity";
     protected AgentWeb mAgentWeb;
     private LinearLayout mLinearLayout;
     private WidgetButton[] widgeButtons;
@@ -25,7 +26,8 @@ public class BaseUrlActivity extends BaseMvpActivity
     private WidgetButton btnClose;
 
     public static final String MAIN_URL = "MAIN_URL";
-    private String url;
+    public static final String MAIN_TITLE = "MAIN_TITLE";
+    private String webViewUrl;
 
     @Override
     protected int getLayoutId() {
@@ -54,7 +56,7 @@ public class BaseUrlActivity extends BaseMvpActivity
             }
         });
         getNavigationBar().setLeftMenus(widgeButtons);
-        url = getIntent().getStringExtra(MAIN_URL);
+        webViewUrl = getIntent().getStringExtra(MAIN_URL);
     }
 
     @Override
@@ -69,24 +71,31 @@ public class BaseUrlActivity extends BaseMvpActivity
 
     @Override
     protected void doLogicFunc() {
-         /*webview加载进度条*/
+         /* webview加载进度条 */
         mAgentWeb = AgentWeb.with(this)//
-                .setAgentWebParent(mLinearLayout,new LinearLayout.LayoutParams(-1,-1) )//
+                .setAgentWebParent(mLinearLayout, new LinearLayout.LayoutParams(-1, -1))//
                 .useDefaultIndicator()
                 .defaultProgressBarColor()
+
                 .setReceivedTitleCallback(new ChromeClientCallbackManager.ReceivedTitleCallback() {
                     @Override
                     public void onReceivedTitle(WebView view, String title) {
-                        getNavigationBar().setAppWidgeTitle(title);
+                        if ("迎新礼".equals(getIntent().getStringExtra(MAIN_TITLE))) {
+                            Log.i(TAG, "onReceivedTitle:    getIntent().getStringExtra(MAIN_TITLE):     " + getIntent().getStringExtra(MAIN_TITLE));
+                            getNavigationBar().setAppWidgeTitle(getIntent().getStringExtra(MAIN_TITLE));
+                        } else {
+                            getNavigationBar().setAppWidgeTitle(title);
+                        }
+
                     }
                 })
                 .setSecutityType(AgentWeb.SecurityType.strict)
                 .createAgentWeb()
                 .ready()
-                .go(url);
+                .go(webViewUrl);
 
-        if(mAgentWeb != null){
-            mAgentWeb.getJsInterfaceHolder().addJavaObject("android",new AndroidInterface(mAgentWeb,this.getActivity()));
+        if (mAgentWeb != null) {
+            mAgentWeb.getJsInterfaceHolder().addJavaObject("android", new AndroidInterface(mAgentWeb, this.getActivity()));
         }
     }
 
@@ -131,8 +140,7 @@ public class BaseUrlActivity extends BaseMvpActivity
         super.onDestroy();
     }
 
-    protected void onActivityResult(int requestCode, int resultCode, Intent data)
-    {
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         mAgentWeb.uploadFileResult(requestCode, resultCode, data);
     }
 }
