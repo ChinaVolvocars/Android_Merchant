@@ -12,6 +12,7 @@ import com.common.mvp.BasePresenter;
 import com.common.retrofit.entity.result.IndexBean;
 import com.common.retrofit.entity.resultImpl.HttpRespBean;
 import com.common.retrofit.methods.BusinessUserMethods;
+import com.common.retrofit.methods.SmsMethods;
 import com.common.retrofit.subscriber.CommonSubscriber;
 import com.common.retrofit.subscriber.SubscriberListener;
 import com.common.utils.EmptyUtils;
@@ -237,7 +238,7 @@ public class ForgetPwdActivity extends BaseMvpActivity {
                 showToastMsg(e);
             }
         });
-        BusinessUserMethods.getInstance().sendVerCode(sendVerCodeSub,getEditTextStr(mEdtInputPhoneNo),"2");
+        SmsMethods.getInstance().sendVerCode(sendVerCodeSub,getEditTextStr(mEdtInputPhoneNo),"2");
         rxManager.add(sendVerCodeSub);
     }
 

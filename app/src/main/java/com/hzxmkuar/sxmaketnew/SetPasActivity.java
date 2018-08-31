@@ -12,9 +12,9 @@ import com.common.retrofit.subscriber.SubscriberListener;
 import com.common.widget.editview.DeleteEditText;
 
 /**
+ *  修改密码
  * Created by STH on 2018/5/17.
  */
-
 public class SetPasActivity extends BaseMvpActivity {
 
     private ImageView mBack;

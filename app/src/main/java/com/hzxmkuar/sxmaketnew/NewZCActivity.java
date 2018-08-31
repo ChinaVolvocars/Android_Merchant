@@ -25,6 +25,7 @@ import com.common.retrofit.entity.result.TestBean;
 import com.common.retrofit.entity.resultImpl.CityBean;
 import com.common.retrofit.entity.resultImpl.HttpRespBean;
 import com.common.retrofit.methods.BusinessUserMethods;
+import com.common.retrofit.methods.SmsMethods;
 import com.common.retrofit.methods.UploadMethods;
 import com.common.retrofit.subscriber.CommonSubscriber;
 import com.common.retrofit.subscriber.SubscriberListener;
@@ -614,7 +615,7 @@ public class NewZCActivity extends BaseMvpActivity {
                 showToastMsg(e);
             }
         });
-        BusinessUserMethods.getInstance().sendVerCode(sendVerCodeSub, getEditTextStr(mEdtManagerPhoneNo), "1");
+        SmsMethods.getInstance().sendVerCode(sendVerCodeSub, getEditTextStr(mEdtManagerPhoneNo), "1");
         rxManager.add(sendVerCodeSub);
     }
 
