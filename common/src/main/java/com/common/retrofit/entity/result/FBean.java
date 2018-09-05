@@ -3,11 +3,14 @@ package com.common.retrofit.entity.result;
 /**
  * Created by STH on 2018/6/11.
  */
-
 public class FBean {
     private String money;
     private String time;
     private String xindou;
+
+    private String proportion;
+    private String appreciation;
+    private String ratio;
 
     public String getXindou() {
         return xindou;
@@ -34,5 +37,60 @@ public class FBean {
 
     public void setTime(String time) {
         this.time = time;
+    }
+
+    public void setXindou(String xindou) {
+        this.xindou = xindou;
+    }
+
+    /**
+     * 让利比例
+     *
+     * @return
+     */
+    public String getProportion() {
+        return proportion;
+    }
+
+    public void setProportion(String proportion) {
+        this.proportion = proportion;
+    }
+
+    /**
+     * 升值比例
+     *
+     * @return
+     */
+    public String getAppreciation() {
+        return appreciation;
+    }
+
+    public void setAppreciation(String appreciation) {
+        this.appreciation = appreciation;
+    }
+
+    public String getRatio() {
+        return ratio;
+    }
+
+    /**
+     * 换算比
+     *
+     * @param ratio
+     */
+    public void setRatio(String ratio) {
+        this.ratio = ratio;
+    }
+
+    @Override
+    public String toString() {
+        return "FBean{" +
+                "money='" + money + '\'' +
+                ", time='" + time + '\'' +
+                ", xindou='" + xindou + '\'' +
+                ", proportion='" + proportion + '\'' +
+                ", appreciation='" + appreciation + '\'' +
+                ", ratio='" + ratio + '\'' +
+                '}';
     }
 }

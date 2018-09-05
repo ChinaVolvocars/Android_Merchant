@@ -45,10 +45,11 @@ public class Constants {
      * 线上环境用
      */
 //    public static final String BaseUrl = "http://xmap1802009.php.hzxmnet.com/Api/";   //  线上环境
+    public static final String BaseUrl = "http://app.zhongxinyingjia.com/Api/";                   //  高兴超线上测试环境用
     /**
      * 线下环境测试用
      */
-    public static final String BaseUrl = "http://192.168.0.150/Api/";                   //  高兴超线下测试环境用
+//    public static final String BaseUrl = "http://app.zhongxinyingjia.com/Api/";                   //  高兴超线下测试环境用
     /**
      * 线下环境测试用
      */

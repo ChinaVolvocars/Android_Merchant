@@ -44,13 +44,13 @@ public class UserMethods extends BaseMethods {
      * @param jpushid
      */
     public void login(Subscriber<UserBean> subscriber, String mobole, String code, String jpushid) {
-//        Observable observable = initService().login(System.currentTimeMillis() + "", "682efd91c36fdd686556651625a7556e", mobole, code, jpushid);
-        Observable observable = initService().login(System.currentTimeMillis() + "", "6aac4ba6b75b6ad201de5bd774541613", mobole, code, jpushid);
+        Observable observable = initService().login(System.currentTimeMillis() + "", "682efd91c36fdd686556651625a7556e", mobole, code, jpushid);
+//        Observable observable = initService().login(System.currentTimeMillis() + "", "6aac4ba6b75b6ad201de5bd774541613", mobole, code, jpushid);
         toSubscribe(observable, subscriber);
     }
 
     /**
-     * 更换密码
+     * 修改密码
      *
      * @param subscriber 观察者对象
      * @param mobole     手机号码
@@ -58,7 +58,8 @@ public class UserMethods extends BaseMethods {
      * @param jpushid    极光id
      */
     public void updatePwd(Subscriber<Object> subscriber, String mobole, String code, String jpushid) {
-        Observable observable = initService().updatePwd(System.currentTimeMillis() + "", "d889fb1feccacc88634963c636d402e6", DataCenter.UserId, DataCenter.HashId, mobole, code, jpushid);
+        Observable observable = initService().updatePwd(System.currentTimeMillis() + "", "d889fb1feccacc88634963c636d402e6"
+                , DataCenter.UserId, DataCenter.HashId, mobole, code, jpushid);
         toOtherSubscribe(observable, subscriber);
     }
 }

@@ -44,7 +44,7 @@ public class LoginActivity extends BaseMvpActivity {
     private Button btnLogin;
     private Button btnQQ;
     private Button btnWechat;
-    private TextView mBack;
+    private TextView mNewShopJoin;
     private DeleteEditText evPhone;
     private DeleteEditText evCode;
     private CountdownButton tvVerify;
@@ -75,7 +75,7 @@ public class LoginActivity extends BaseMvpActivity {
         btnali = (Button) findViewById(R.id.iv_ali);
         tvVerify = (CountdownButton) findViewById(R.id.tv_verify);
         evCode = (DeleteEditText) findViewById(R.id.ev_code);
-        mBack = (TextView) findViewById(R.id.back);
+        mNewShopJoin = (TextView) findViewById(R.id.tv_new_shop_join);
         mCheckBox = (CheckBox) findViewById(R.id.checkbox);
         xieyi = (TextView) findViewById(R.id.xieyi);
         mTvForgetPwd = (TextView) findViewById(R.id.tv_forget_pwd);
@@ -93,7 +93,7 @@ public class LoginActivity extends BaseMvpActivity {
         attachClickListener(btnWechat);
         attachClickListener(btnWebo);
         attachClickListener(btnali);
-        attachClickListener(mBack);
+        attachClickListener(mNewShopJoin);
         attachClickListener(xieyi);
         attachClickListener(mTvForgetPwd);
         setVerifyView();
@@ -272,7 +272,7 @@ public class LoginActivity extends BaseMvpActivity {
             //LoginUtil.login(this, LoginPlatform.WX, mLoginListener);
             //showToastMsg("暂未开放");
             gotoActivity(BDPhoneActivity.class);
-        }else if (view.getId()==mBack.getId()){
+        }else if (view.getId()==mNewShopJoin.getId()){
             gotoActivity(NewZCActivity.class);
 //            gotoActivity(NewPwdActivity.class);
         }else if (view.getId()==mTvForgetPwd.getId()){

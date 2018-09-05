@@ -29,7 +29,7 @@
             android:id="@+id/tv_vip_account"
             style="@style/MyStoreContentRight"
             android:drawableRight="@null"
-            android:text="示例：100010000100" />
+            android:hint="ms100010000100" />
     </LinearLayout>
 
     <View style="@style/DivideLine" />
@@ -38,13 +38,13 @@
 
         <TextView
             style="@style/MyStoreContentLeft"
-            android:text="粉丝数" />
+            android:text="关联会员" />
 
         <TextView
             android:id="@+id/tv_fans_count"
             style="@style/MyStoreContentRight"
             android:drawableRight="@null"
-            android:text="示例：1417" />
+            android:text="0" />
     </LinearLayout>
 
     <View style="@style/DivideLine" />
@@ -59,7 +59,7 @@
             android:id="@+id/tv_id_code"
             style="@style/MyStoreContentRight"
             android:drawableRight="@null"
-            android:text="示例：112233" />
+            android:text=""/>
     </LinearLayout>
 
 

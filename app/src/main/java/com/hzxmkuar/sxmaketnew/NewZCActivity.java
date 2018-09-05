@@ -190,7 +190,7 @@ public class NewZCActivity extends BaseMvpActivity {
     /**
      * 法人授权代理人姓名
      */
-    private DeleteEditText mEdtInputManagerName;
+//    private DeleteEditText mEdtInputManagerName;
     /**
      * 法人授权代理人手机号
      */
@@ -247,7 +247,7 @@ public class NewZCActivity extends BaseMvpActivity {
         mIvBusinessLicense = (ImageView) findViewById(R.id.iv_business_license);
 
 
-        mEdtInputManagerName = (DeleteEditText) findViewById(R.id.edt_input_manager_name);
+//        mEdtInputManagerName = (DeleteEditText) findViewById(R.id.edt_input_manager_name);
         mEdtManagerPhoneNo = (DeleteEditText) findViewById(R.id.edt_manager_phone_no);
         mEdtInputVerCode = (DeleteEditText) findViewById(R.id.edt_input_ver_code);
         mCdBtnSendMsg = (CountdownButton) findViewById(R.id.cd_btn_send_msg);
@@ -458,19 +458,19 @@ public class NewZCActivity extends BaseMvpActivity {
         if (EmptyUtils.isEmpty(getEditTextStr(mEdtAccountSetting))) {
             showToastMsg("账号不能为空");
             return;
-        } else if (getEditTextStr(mEdtAccountSetting).length() < 6) {
+        } else if (getEditTextStr(mEdtAccountSetting).length() < 8) {
             showToastMsg("账号格式不正确");
             return;
         } else if (EmptyUtils.isEmpty(getEditTextStr(mEdtPwdSetting))) {
             showToastMsg("登陆密码不能为空");
             return;
-        } else if (getEditTextStr(mEdtPwdSetting).length() < 6) {
+        } else if (getEditTextStr(mEdtPwdSetting).length() < 8) {
             showToastMsg("登陆密码格式不正确");
             return;
         } else if (EmptyUtils.isEmpty(getEditTextStr(mEdtPwdConfirm))) {
             showToastMsg("确认密码不能为空");
             return;
-        } else if (getEditTextStr(mEdtPwdConfirm).length() < 6) {
+        } else if (getEditTextStr(mEdtPwdConfirm).length() < 8) {
             showToastMsg("确认密码格式不正确");
             return;
         } else if (!(getEditTextStr(mEdtPwdSetting).equals(getEditTextStr(mEdtPwdConfirm)))) {
@@ -500,7 +500,7 @@ public class NewZCActivity extends BaseMvpActivity {
         } else if (EmptyUtils.isEmpty(getEditTextStr(mEdtAddresDetail))) {
             showToastMsg("商铺详细地址不能为空");
             return;
-        } else if (getEditTextStr(mEdtAddresDetail).length() < 6) {
+        } else if (getEditTextStr(mEdtAddresDetail).length() < 4) {
             showToastMsg("商铺详细地址格式不正确");
             return;
         } else if (EmptyUtils.isEmpty(getEditTextStr(mEdtInviteCode))) {
@@ -510,7 +510,6 @@ public class NewZCActivity extends BaseMvpActivity {
             showToastMsg("邀请码格式不正确");
             return;
         } else if (EmptyUtils.isEmpty(getEditTextStr(mEdtLegalName))) {
-            // TODO: 2018/8/23   此处判断有问题？
             showToastMsg("法人姓名不能为空");
             return;
         } else if (getEditTextStr(mEdtLegalName).length() < 2) {
@@ -533,12 +532,6 @@ public class NewZCActivity extends BaseMvpActivity {
             return;
         } else if (getEditTextStr(mEdtCredentialsNo).length() < 6) {
             showToastMsg("法人证件号格式不正确");
-            return;
-        } else if (EmptyUtils.isEmpty(getEditTextStr(mEdtInputManagerName))) {
-            showToastMsg("法人授权代理人姓名不能为空");
-            return;
-        } else if (getEditTextStr(mEdtInputManagerName).length() < 2) {
-            showToastMsg("法人授权代理人姓名格式不对");
             return;
         } else if (EmptyUtils.isEmpty(getEditTextStr(mEdtManagerPhoneNo))) {
             showToastMsg("法人授权代理人手机号不能为空");
@@ -564,6 +557,13 @@ public class NewZCActivity extends BaseMvpActivity {
             commitInputInfo();
         }
 
+//        else if (EmptyUtils.isEmpty(getEditTextStr(mEdtInputManagerName))) {
+//            showToastMsg("法人授权代理人姓名不能为空");
+//            return;
+//        } else if (getEditTextStr(mEdtInputManagerName).length() < 2) {
+//            showToastMsg("法人授权代理人姓名格式不对");
+//            return;
+//        }
     }
 
 
@@ -632,7 +632,8 @@ public class NewZCActivity extends BaseMvpActivity {
                 getEditTextStr(mEdtInviteCode), getEditTextStr(mEdtLegalName),
                 mCertificates_type, getEditTextStr(mEdtCredentialsNo),
                 ID_front_img, ID_back_img,
-                license_img, getEditTextStr(mEdtInputManagerName),
+//                license_img, getEditTextStr(mEdtInputManagerName),
+                license_img,
                 getEditTextStr(mEdtManagerPhoneNo), getEditTextStr(mEdtInputVerCode));
     }
 
@@ -651,7 +652,8 @@ public class NewZCActivity extends BaseMvpActivity {
                                              String inviteCode, String legalName,
                                              String certificatesType, String certificatesNo,
                                              String imgFront, String imgBack,
-                                             String imgLicense, String managerName,
+//                                             String imgLicense, String managerName,
+                                             String imgLicense,
                                              String managerPhoneNo, String verCode) {
         showProgressingDialog();
         CommonSubscriber<Object> subscriber = new CommonSubscriber<>(new SubscriberListener() {
@@ -684,7 +686,8 @@ public class NewZCActivity extends BaseMvpActivity {
                 inviteCode, legalName,
                 certificatesType, certificatesNo,
                 imgFront, imgBack,
-                imgLicense, managerName,
+//                imgLicense, managerName,
+                imgLicense,
                 managerPhoneNo, verCode);
 
         rxManager.add(subscriber);

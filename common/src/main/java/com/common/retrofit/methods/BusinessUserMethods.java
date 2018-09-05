@@ -4,6 +4,7 @@ import com.common.retrofit.base.BaseMethods;
 import com.common.retrofit.entity.DataCenter;
 import com.common.retrofit.entity.result.ChangeBean;
 import com.common.retrofit.entity.result.FBean;
+import com.common.retrofit.entity.result.FinanceDetailEntity;
 import com.common.retrofit.entity.result.FiniBean;
 import com.common.retrofit.entity.result.IndexBean;
 import com.common.retrofit.entity.result.InfoBean;
@@ -41,14 +42,16 @@ public class BusinessUserMethods extends BaseMethods {
     private UserService initService() {
         return getRetrofit().create(UserService.class);
     }
+
     // 用户登录
     public void scategory(Subscriber<NewTestBean> subscriber) {
-        Observable observable = initService().scategory( System.currentTimeMillis() + "","70ffcb2a3569065c4420776b8a81809b");
+        Observable observable = initService().scategory(System.currentTimeMillis() + "", "70ffcb2a3569065c4420776b8a81809b");
         toOtherSubscribe(observable, subscriber);
     }
 
     /**
-     *  修改商铺信息提交
+     * 修改商铺信息提交
+     *
      * @param subscriber
      * @param name
      * @param typeid
@@ -62,68 +65,95 @@ public class BusinessUserMethods extends BaseMethods {
      * @param pics
      * @param picLists
      */
-    public void shopInfoSubmit(Subscriber<Object> subscriber,String name, String typeid, String shengid, String shiid, String quid,
+    public void shopInfoSubmit(Subscriber<Object> subscriber, String name, String typeid, String shengid, String shiid, String quid,
                                String adddes, String showdes, String pic, String picList, String pics, String picLists) {
-        Observable observable = initService().shopInfoSubmit( System.currentTimeMillis() + "","a831cff77e30288bf980cd32b4c960c5",DataCenter.UserId,DataCenter.HashId,name,typeid,shengid,shiid,quid,adddes,showdes,pic,picList
-        ,pics,picLists);
+        Observable observable = initService().shopInfoSubmit(System.currentTimeMillis() + "", "a831cff77e30288bf980cd32b4c960c5", DataCenter.UserId, DataCenter.HashId, name, typeid, shengid, shiid, quid, adddes, showdes, pic, picList
+                , pics, picLists);
         toOtherSubscribe(observable, subscriber);
     }
-    public void storeSubmit(Subscriber<Object> subscriber,String name, String typeid, String shengid
-                               ) {
-        Observable observable = initService().storeSubmit( System.currentTimeMillis() + "","23afbb21099d52421b0d5930cd870512",DataCenter.UserId,DataCenter.HashId,name,typeid,shengid);
+
+    public void storeSubmit(Subscriber<Object> subscriber, String name, String typeid, String shengid
+    ) {
+        Observable observable = initService().storeSubmit(System.currentTimeMillis() + "", "23afbb21099d52421b0d5930cd870512", DataCenter.UserId, DataCenter.HashId, name, typeid, shengid);
         toOtherSubscribe(observable, subscriber);
     }
-    public void withdraw(Subscriber<Object> subscriber,String name, String typeid, String shengid
-                               ) {
-        Observable observable = initService().withdraws( System.currentTimeMillis() + "","9bd814e2ffc73f7fbf48f1e36c4bce90",DataCenter.UserId,DataCenter.HashId,name,typeid,shengid);
+
+    public void withdraw(Subscriber<Object> subscriber, String name, String typeid, String shengid
+    ) {
+        Observable observable = initService().withdraws(System.currentTimeMillis() + "", "9bd814e2ffc73f7fbf48f1e36c4bce90", DataCenter.UserId, DataCenter.HashId, name, typeid, shengid);
         toOtherSubscribe(observable, subscriber);
     }
+
+    /**
+     * 财务管理
+     *
+     * @param subscriber
+     * @param page
+     */
     public void financeList(Subscriber<FiniBean> subscriber, int page) {
-        Observable observable = initService().financeList( System.currentTimeMillis() + "","1522546fb8e6c8b6c2d37837e99d0730", DataCenter.UserId,DataCenter.HashId,page);
+        Observable observable = initService().financeList(System.currentTimeMillis() + "", "1522546fb8e6c8b6c2d37837e99d0730", DataCenter.UserId, DataCenter.HashId, page);
         toSubscribe(observable, subscriber);
     }
 
     /**
      * 获取首页数据
+     *
      * @param subscriber
      */
     public void index(Subscriber<IndexBean> subscriber) {
-        Observable observable = initService().index( System.currentTimeMillis() + "","e785f07736bde4d62b77d03214d29647", DataCenter.UserId,DataCenter.HashId);
+        Observable observable = initService().index(System.currentTimeMillis() + "", "e785f07736bde4d62b77d03214d29647", DataCenter.UserId, DataCenter.HashId);
         toSubscribe(observable, subscriber);
     }
 
     /**
      * 忘记密码
+     *
      * @param subscriber
      */
     public void forgetPwd(Subscriber<IndexBean> subscriber,
-                          String userName,String shopName,
-                          String documentName,String certificatesType,
-                          String certificatesNumber,String phoneNo,
+                          String userName, String shopName,
+                          String documentName, String certificatesType,
+                          String certificatesNumber, String phoneNo,
                           String verCode) {
-        Observable observable = initService().forgetPwd(System.currentTimeMillis() + "","f96cc776ba900d47eb7b8b9c4e2f73c1",
-                            userName,shopName,
-                            documentName,certificatesType,
-                            certificatesNumber,phoneNo,verCode);
+        Observable observable = initService().forgetPwd(System.currentTimeMillis() + "", "f96cc776ba900d47eb7b8b9c4e2f73c1",
+                userName, shopName,
+                documentName, certificatesType,
+                certificatesNumber, phoneNo, verCode);
         toSubscribe(observable, subscriber);
     }
 
 
+    /**
+     * 拉取消费抵账鑫豆记录清单
+     *
+     * @param subscriber
+     */
     public void financeDetail(Subscriber<FBean> subscriber) {
-        Observable observable = initService().financeDetail( System.currentTimeMillis() + "","e785f07736bde4d62b77d03214d29647", DataCenter.UserId,DataCenter.HashId);
+        Observable observable = initService().financeDetail(System.currentTimeMillis() + "", "e785f07736bde4d62b77d03214d29647", DataCenter.UserId, DataCenter.HashId);
+        toSubscribe(observable, subscriber);
+    }
+   /**
+     * 拉取消费抵账鑫豆记录清单(新的返回值类型)
+     *
+     * @param subscriber
+     */
+    public void financeDetailNew(Subscriber<FinanceDetailEntity> subscriber) {
+        Observable observable = initService().financeDetailNew(System.currentTimeMillis() + "", "e785f07736bde4d62b77d03214d29647", DataCenter.UserId, DataCenter.HashId);
         toSubscribe(observable, subscriber);
     }
 
     /**
-     *  获取店铺信息
+     * 获取店铺信息
+     *
      * @param subscriber
      */
     public void shopInfo(Subscriber<InfoBean> subscriber) {
-        Observable observable = initService().shopInfo( System.currentTimeMillis() + "","e785f07736bde4d62b77d03214d29647", DataCenter.UserId,DataCenter.HashId);
+        Observable observable = initService().shopInfo(System.currentTimeMillis() + "", "e785f07736bde4d62b77d03214d29647", DataCenter.UserId, DataCenter.HashId);
         toSubscribe(observable, subscriber);
     }
+
     public void store(Subscriber<ChangeBean> subscriber) {
-        Observable observable = initService().store( System.currentTimeMillis() + "","e785f07736bde4d62b77d03214d29647", DataCenter.UserId,DataCenter.HashId);
+        Observable observable = initService().store(System.currentTimeMillis() + "", "e785f07736bde4d62b77d03214d29647", DataCenter.UserId, DataCenter.HashId);
         toSubscribe(observable, subscriber);
     }
 
@@ -140,91 +170,83 @@ public class BusinessUserMethods extends BaseMethods {
 
     /**
      * 新商家会员入驻接口   <br/>
-     * @param subscriber 观察者
-     * @param storeAccount 商家账号   <br/>
-     * @param pwd 密码   <br/>
-     * @param storeName 商家名称   <br/>
-     * @param storePhoneNo 营业电话   <br/>
-     * @param storeType 商户类型   <br/>
-     * @param proportion 提拨比例   <br/>
-     * @param provice 省   <br/>
-     * @param city 市   <br/>
-     * @param area 区   <br/>
-     * @param addressDetail 详细地址   <br/>
-     * @param inviteCode 邀请码   <br/>
-     * @param legalName  法人姓名   <br/>
-     * @param certificatesType  证件类型   <br/>
-     * @param certificatesNo 证件号   <br/>
-     * @param imgFront 正面照片   <br/>
-     * @param imgBack   反面照片   <br/>
-     * @param imgLicense    营业执照   <br/>
-     * @param managerName   法人授权代理人姓名   <br/>
-     * @param managerPhoneNo     手机号   <br/>
-     * @param verCode   手机验证码   <br/>
+     *
+     * @param subscriber       观察者
+     * @param storeAccount     商家账号   <br/>
+     * @param pwd              密码   <br/>
+     * @param storeName        商家名称   <br/>
+     * @param storePhoneNo     营业电话   <br/>
+     * @param storeType        商户类型   <br/>
+     * @param proportion       提拨比例   <br/>
+     * @param provice          省   <br/>
+     * @param city             市   <br/>
+     * @param area             区   <br/>
+     * @param addressDetail    详细地址   <br/>
+     * @param inviteCode       邀请码   <br/>
+     * @param legalName        法人姓名   <br/>
+     * @param certificatesType 证件类型   <br/>
+     * @param certificatesNo   证件号   <br/>
+     * @param imgFront         正面照片   <br/>
+     * @param imgBack          反面照片   <br/>
+     * @param imgLicense       营业执照   <br/>
+//     * @param managerName      法人授权代理人姓名   <br/>
+     * @param managerPhoneNo   手机号   <br/>
+     * @param verCode          手机验证码   <br/>
      */
     public void newMerhcantApplyJoin(Subscriber<Object> subscriber,
-                      String storeAccount, String pwd,
-                      String storeName, String storePhoneNo,
-                      String storeType, String proportion,
-                      String provice, String city,
-                      String area, String addressDetail,
-                      String inviteCode, String legalName,
-                      String certificatesType, String certificatesNo,
-                      String imgFront, String imgBack,
-                      String imgLicense, String managerName,
-                      String managerPhoneNo, String verCode) {
+                                     String storeAccount, String pwd,
+                                     String storeName, String storePhoneNo,
+                                     String storeType, String proportion,
+                                     String provice, String city,
+                                     String area, String addressDetail,
+                                     String inviteCode, String legalName,
+                                     String certificatesType, String certificatesNo,
+                                     String imgFront, String imgBack,
+//                                     String imgLicense, String managerName,
+                                     String imgLicense,
+                                     String managerPhoneNo, String verCode) {
 
         Observable observable = initService()
 //                .newMerhcantApplyJoin(System.currentTimeMillis() + "","47dc24053e61ca7bcf2bae17f472a8b2"
-                .newMerhcantApplyJoin(System.currentTimeMillis() + "","53dc732e3bf21146a143d1d8cae38592"
-                ,storeAccount,pwd
-                ,storeName,storePhoneNo
-                ,storeType,proportion
-                ,provice,city
-                ,area,addressDetail
-                ,inviteCode,legalName
-                ,certificatesType,certificatesNo
-                ,imgFront,imgBack
-                ,imgLicense,managerName
-                ,managerPhoneNo,verCode);
+                .newMerhcantApplyJoin(System.currentTimeMillis() + "", "53dc732e3bf21146a143d1d8cae38592"
+                        , storeAccount, pwd
+                        , storeName, storePhoneNo
+                        , storeType, proportion
+                        , provice, city
+                        , area, addressDetail
+                        , inviteCode, legalName
+                        , certificatesType, certificatesNo
+                        , imgFront, imgBack
+//                        , imgLicense, managerName
+                        , imgLicense
+                        , managerPhoneNo, verCode);
         toOtherSubscribe(observable, subscriber);
     }
 
     /**
-     *  检测商户名称是是否唯一
+     * 检测商户名称是是否唯一
+     *
      * @param subscriber 观察者
      */
     public void checkUsrName(Subscriber<HttpRespBean> subscriber, String userNmae) {
-        Observable observable = initService().checkUsrnameIsUnique(System.currentTimeMillis()+"","35503c34c1bd394162d8f7e1df257b41" ,userNmae);
+        Observable observable = initService().checkUsrnameIsUnique(System.currentTimeMillis() + "", "35503c34c1bd394162d8f7e1df257b41", userNmae);
         toSubscribe(observable, subscriber);
     }
 
 
-    /**
-     *  发送手机短信验证码  <br/>
-     * @param mobilePhone  手机号码  <br/>
-     * @param checkType  checkType类型  <br/>
-     *                   checkType类型  <br/>1 为注册。  <br/>2 为找回密码。  <br/>3 手机短信登录。  <br/>4 解除绑定。  <br/>5 短信绑定（手机绑定）  <br/>6 绑定第三方。
-     * @return
-     */
-    public void sendVerCode(Subscriber<HttpRespBean> subscriber, String mobilePhone,String checkType) {
-        Observable observable = initService().sendCode(System.currentTimeMillis()+"","c5ea4773f8c6122731ef99bcf1b960a8" ,mobilePhone,checkType);
-        toSubscribe(observable, subscriber);
-    }
 
 
-//    @FormUrlEncoded
+
+    //    @FormUrlEncoded
 //    @POST("sendcode.html")
 //    Observable<Object> sendcode(@Field("time") String hash, @Field("hash") String time,
 //                                @Field("mobile") String uid, @Field("checktype") int password
 //    );}
-    public void resetUserPwd(Subscriber<HttpRespBean> subscriber,String userNmae,String pwd){
+    public void resetUserPwd(Subscriber<HttpRespBean> subscriber, String userNmae, String pwd) {
 //        Observable observable = initService().resetPwd(System.currentTimeMillis() + "","3c437a1b469dc67c1e1a804b3a00270b",userNmae,pwd);
-        Observable observable = initService().resetPwd(System.currentTimeMillis() + "","3c437a1b469dc67c1e1a804b3a00270b",userNmae,pwd);
+        Observable observable = initService().resetPwd(System.currentTimeMillis() + "", "3c437a1b469dc67c1e1a804b3a00270b", userNmae, pwd);
         toSubscribe(observable, subscriber);
     }
-
-
 
 
 }

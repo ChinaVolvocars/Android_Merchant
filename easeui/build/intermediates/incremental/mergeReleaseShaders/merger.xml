@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merger version="3"><dataSet config="main"><source path="E:\sx_repositories\sx_Merchant\easeui\src\main\shaders"/></dataSet><dataSet config="release"><source path="E:\sx_repositories\sx_Merchant\easeui\src\release\shaders"/></dataSet></merger>
+<merger version="3"><dataSet config="main"><source path="E:\sx_repositories\SX_Merchant\easeui\src\main\shaders"/></dataSet><dataSet config="release"><source path="E:\sx_repositories\SX_Merchant\easeui\src\release\shaders"/></dataSet></merger>

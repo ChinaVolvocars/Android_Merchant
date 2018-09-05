@@ -349,21 +349,25 @@
             </LinearLayout>
         </LinearLayout>
 
-        <LinearLayout
-            style="@style/BindBankCardContent"
-            android:layout_marginTop="@dimen/view_size_8">
 
-            <TextView
-                style="@style/MyStoreContentLeft"
-                android:layout_width="wrap_content"
-                android:text="法人授权代理人姓名" />
 
-            <com.common.widget.editview.DeleteEditText
-                android:id="@+id/edt_input_manager_name"
-                style="@style/BindBankCardContentRight"
-                android:hint="请输入法人代理人姓名"
-                android:maxLength="19" />
-        </LinearLayout>
+        <!--<LinearLayout-->
+            <!--style="@style/BindBankCardContent"-->
+            <!--android:layout_marginTop="@dimen/view_size_8">-->
+
+            <!--<TextView-->
+                <!--style="@style/MyStoreContentLeft"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:text="法人授权代理人姓名" />-->
+
+            <!--<com.common.widget.editview.DeleteEditText-->
+                <!--android:id="@+id/edt_input_manager_name"-->
+                <!--style="@style/BindBankCardContentRight"-->
+                <!--android:hint="请输入法人代理人姓名"-->
+                <!--android:maxLength="19" />-->
+        <!--</LinearLayout>-->
+
+
 
         <View style="@style/DivideLine" />
 

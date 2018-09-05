@@ -106,7 +106,7 @@
             style="@style/MyStoreDescTitle"
             android:layout_marginBottom="6dp"
             android:layout_marginTop="6dp"
-            android:text="请按规定上传888*888的照片"
+            android:text="请按规定上传720*300的照片"
             android:textColor="@color/base_grey_text_color"
             android:textSize="11sp" />
     </LinearLayout>

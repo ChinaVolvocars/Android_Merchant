@@ -26,6 +26,9 @@ public class IndexBean {
     private String managementID;
     private String managementNum;
     private String managementCode;
+    private String new_shop_activity_name;
+    private String new_shop_activity_url;
+
     public String getRatio() {
         return ratio;
     }
@@ -93,5 +96,29 @@ public class IndexBean {
 
     public void setManagementCode(String managementCode) {
         this.managementCode = managementCode;
+    }
+
+    /**
+     *  商家新活动标题
+     * @return
+     */
+    public String getNew_shop_activity_name() {
+        return new_shop_activity_name;
+    }
+
+    public void setNew_shop_activity_name(String new_shop_activity_name) {
+        this.new_shop_activity_name = new_shop_activity_name;
+    }
+
+    /**
+     *  商家新活动链接
+     * @return
+     */
+    public String getNew_shop_activity_url() {
+        return new_shop_activity_url;
+    }
+
+    public void setNew_shop_activity_url(String new_shop_activity_url) {
+        this.new_shop_activity_url = new_shop_activity_url;
     }
 }

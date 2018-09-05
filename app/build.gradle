@@ -7,8 +7,10 @@ android {
         applicationId "com.hzxmkuar.sxmaketnew"
         minSdkVersion 16
         targetSdkVersion 25
-        versionCode 11
-        versionName "5.0"
+//        versionCode 11
+//        versionName "5.0"
+        versionCode 12
+        versionName "1.0.2"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         multiDexEnabled true
         manifestPlaceholders = [

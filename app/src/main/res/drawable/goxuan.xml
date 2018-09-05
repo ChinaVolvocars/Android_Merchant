@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item android:state_checked="true" android:drawable="@drawable/gouwu_sels" >
-    </item>
-    <item android:state_checked="false" android:drawable="@drawable/gouwu_nom">
-    </item>
+    <item android:drawable="@drawable/cb_agree_cion_sel" android:state_checked="true"></item>
+    <item android:drawable="@drawable/cb_agree_cion_def" android:state_checked="false"></item>
+
 
 </selector>

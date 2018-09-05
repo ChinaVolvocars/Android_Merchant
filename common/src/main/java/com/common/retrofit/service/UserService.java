@@ -12,6 +12,7 @@ import com.common.retrofit.entity.result.DPDABean;
 import com.common.retrofit.entity.result.FBean;
 import com.common.retrofit.entity.result.FLBean;
 import com.common.retrofit.entity.result.FLTwoBean;
+import com.common.retrofit.entity.result.FinanceDetailEntity;
 import com.common.retrofit.entity.result.FiniBean;
 import com.common.retrofit.entity.result.GGBean;
 import com.common.retrofit.entity.result.GoodCBean;
@@ -187,9 +188,30 @@ public interface UserService {
     Observable<HttpRespBean> resetPwd(@Field("time") String time, @Field("hash") String hash,@Field("username") String username,@Field("password") String password);
 
 
+    /**
+     *  消费账单详情
+     * @param hash
+     * @param time
+     * @param uid
+     * @param hashid
+     * @return
+     */
     @FormUrlEncoded
     @POST("financeDetail.html")
-    Observable<HttpRespBean<FBean>> financeDetail(@Field("time") String hash, @Field("hash") String time, @Field("uid") int uid
+    Observable<HttpRespBean<FBean>> financeDetail(@Field("time") String time, @Field("hash") String hash, @Field("uid") int uid
+            , @Field("hashid") String hashid);
+
+    /**
+     *  拉取消费抵账鑫豆记录清单(新的返回值类型)
+     * @param hash
+     * @param time
+     * @param uid
+     * @param hashid
+     * @return
+     */
+    @FormUrlEncoded
+    @POST("financeDetail.html")
+    Observable<HttpRespBean<FinanceDetailEntity>> financeDetailNew(@Field("time") String time, @Field("hash") String hash, @Field("uid") int uid
             , @Field("hashid") String hashid);
 
     @FormUrlEncoded
@@ -224,7 +246,7 @@ public interface UserService {
      * @return
      */
     @FormUrlEncoded
-    @POST("sendCode.html")
+    @POST("sendcode.html")
     Observable<HttpRespBean> sendCode(@Field("time") String time,@Field("hash") String hash,
                                 @Field("mobile") String mobile, @Field("checktype") String checktype);
 
@@ -282,7 +304,8 @@ public interface UserService {
             , @Field("code") String code, @Field("document_name") String document_name
             , @Field("certificates_type") String certificates_type, @Field("certificates_number") String certificates_number
             , @Field("ID_front_img") String ID_front_img,@Field("ID_back_img") String ID_back_img
-            , @Field("license_img") String license_img, @Field("name") String name
+//            , @Field("license_img") String license_img, @Field("name") String name
+            , @Field("license_img") String license_img
             , @Field("phone") String phone,@Field("pcode") String pcode);
 //            ,@Field("latitude") String latitude, @Field("longitude") String longitude);
 //     * @param latitude

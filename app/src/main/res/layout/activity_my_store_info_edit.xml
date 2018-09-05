@@ -77,7 +77,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
             android:layout_marginTop="10dp"
-            android:text="扩增或修改内容请联系客服400-8888-8888"
+            android:text="扩增或修改内容请联系客服:0571-88138575"
             android:textSize="12sp" />
 
         <Button
