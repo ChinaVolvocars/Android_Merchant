@@ -1,5 +1,9 @@
 [
     {
+        "merged": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\base_indicator_layout_no_scroll.xml",
+        "source": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\src\\main\\res\\layout\\base_indicator_layout_no_scroll.xml"
+    },
+    {
         "merged": "E:\\sx_repositories\\sx_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\mq_activity_photo_picker.xml",
         "source": "E:\\sx_repositories\\sx_Merchant\\common\\src\\main\\res\\layout\\mq_activity_photo_picker.xml"
     },
@@ -8,8 +12,24 @@
         "source": "E:\\sx_repositories\\SX_Merchant\\common\\src\\main\\res\\layout\\item_game_history.xml"
     },
     {
+        "merged": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\abc_alert_dialog_material.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\b194eff9d79e6f03fb88b11af710d368968f313a\\output\\res\\layout\\abc_alert_dialog_material.xml"
+    },
+    {
+        "merged": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_icon.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\b194eff9d79e6f03fb88b11af710d368968f313a\\output\\res\\layout\\abc_list_menu_item_icon.xml"
+    },
+    {
+        "merged": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\select_dialog_item_material.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\b194eff9d79e6f03fb88b11af710d368968f313a\\output\\res\\layout\\select_dialog_item_material.xml"
+    },
+    {
         "merged": "E:\\sx_repositories\\sx_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\support_simple_spinner_dropdown_item.xml",
         "source": "C:\\Users\\Administrator\\.android\\build-cache\\b194eff9d79e6f03fb88b11af710d368968f313a\\output\\res\\layout\\support_simple_spinner_dropdown_item.xml"
+    },
+    {
+        "merged": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\include_horizontal_space.xml",
+        "source": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\src\\main\\res\\layout\\include_horizontal_space.xml"
     },
     {
         "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\base_indicator_layout_no_scroll.xml",
@@ -32,8 +52,20 @@
         "source": "C:\\Users\\Administrator\\.android\\build-cache\\b194eff9d79e6f03fb88b11af710d368968f313a\\output\\res\\layout\\abc_screen_content_include.xml"
     },
     {
+        "merged": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_menu_layout.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\b194eff9d79e6f03fb88b11af710d368968f313a\\output\\res\\layout\\abc_action_menu_layout.xml"
+    },
+    {
+        "merged": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\layout_base_navigationbar.xml",
+        "source": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\src\\main\\res\\layout\\layout_base_navigationbar.xml"
+    },
+    {
         "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\dialog_person_msgs.xml",
         "source": "E:\\sx_repositories\\SX_Merchant\\common\\src\\main\\res\\layout\\dialog_person_msgs.xml"
+    },
+    {
+        "merged": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\design_bottom_navigation_item.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\39ea90904b1ecbc1667af9300a3add9f4bc64375\\output\\res\\layout\\design_bottom_navigation_item.xml"
     },
     {
         "merged": "E:\\sx_repositories\\sx_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_bar_view_list_nav_layout.xml",
@@ -60,6 +92,10 @@
         "source": "C:\\Users\\Administrator\\.android\\build-cache\\b194eff9d79e6f03fb88b11af710d368968f313a\\output\\res\\layout\\abc_action_bar_title_item.xml"
     },
     {
+        "merged": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\abc_activity_chooser_view_list_item.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\b194eff9d79e6f03fb88b11af710d368968f313a\\output\\res\\layout\\abc_activity_chooser_view_list_item.xml"
+    },
+    {
         "merged": "E:\\sx_repositories\\sx_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\base_search_view.xml",
         "source": "E:\\sx_repositories\\sx_Merchant\\common\\src\\main\\res\\layout\\base_search_view.xml"
     },
@@ -72,16 +108,20 @@
         "source": "E:\\sx_repositories\\SX_Merchant\\common\\src\\main\\res\\layout\\mq_activity_photo_picker_preview.xml"
     },
     {
-        "merged": "E:\\sx_repositories\\sx_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_bar_up_container.xml",
-        "source": "C:\\Users\\Administrator\\.android\\build-cache\\b194eff9d79e6f03fb88b11af710d368968f313a\\output\\res\\layout\\abc_action_bar_up_container.xml"
-    },
-    {
         "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\base_search_viewes.xml",
         "source": "E:\\sx_repositories\\SX_Merchant\\common\\src\\main\\res\\layout\\base_search_viewes.xml"
     },
     {
+        "merged": "E:\\sx_repositories\\sx_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_bar_up_container.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\b194eff9d79e6f03fb88b11af710d368968f313a\\output\\res\\layout\\abc_action_bar_up_container.xml"
+    },
+    {
         "merged": "E:\\sx_repositories\\sx_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_media.xml",
         "source": "C:\\Users\\Administrator\\.android\\build-cache\\b194eff9d79e6f03fb88b11af710d368968f313a\\output\\res\\layout\\notification_template_media.xml"
+    },
+    {
+        "merged": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\abc_alert_dialog_button_bar_material.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\b194eff9d79e6f03fb88b11af710d368968f313a\\output\\res\\layout\\abc_alert_dialog_button_bar_material.xml"
     },
     {
         "merged": "E:\\sx_repositories\\sx_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\layout_base_notification.xml",
@@ -96,32 +136,56 @@
         "source": "C:\\Users\\little_bug\\.android\\build-cache\\58d3ef2b14de161b9ff2ea18bc647c496b56dc17\\output\\res\\layout\\design_text_input_password_icon.xml"
     },
     {
-        "merged": "E:\\sx_repositories\\sx_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\dialog_request_permission.xml",
-        "source": "C:\\Users\\Administrator\\.android\\build-cache\\82a3bb5bad060ddcdfa037bd070bddf4588761fd\\output\\res\\layout\\dialog_request_permission.xml"
+        "merged": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\bga_banner_item_image.xml",
+        "source": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\src\\main\\res\\layout\\bga_banner_item_image.xml"
+    },
+    {
+        "merged": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\item_game_history.xml",
+        "source": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\src\\main\\res\\layout\\item_game_history.xml"
     },
     {
         "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_menu_item_layout.xml",
         "source": "C:\\Users\\little_bug\\.android\\build-cache\\f406617598f5a5689b140af35079d61c0806a085\\output\\res\\layout\\abc_action_menu_item_layout.xml"
     },
     {
-        "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\abc_alert_dialog_button_bar_material.xml",
-        "source": "C:\\Users\\little_bug\\.android\\build-cache\\f406617598f5a5689b140af35079d61c0806a085\\output\\res\\layout\\abc_alert_dialog_button_bar_material.xml"
-    },
-    {
-        "merged": "E:\\sx_repositories\\sx_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\base_indicator_layout.xml",
-        "source": "E:\\sx_repositories\\sx_Merchant\\common\\src\\main\\res\\layout\\base_indicator_layout.xml"
+        "merged": "E:\\sx_repositories\\sx_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\dialog_request_permission.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\82a3bb5bad060ddcdfa037bd070bddf4588761fd\\output\\res\\layout\\dialog_request_permission.xml"
     },
     {
         "merged": "E:\\sx_repositories\\sx_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\design_navigation_item_subheader.xml",
         "source": "C:\\Users\\Administrator\\.android\\build-cache\\39ea90904b1ecbc1667af9300a3add9f4bc64375\\output\\res\\layout\\design_navigation_item_subheader.xml"
     },
     {
+        "merged": "E:\\sx_repositories\\sx_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\base_indicator_layout.xml",
+        "source": "E:\\sx_repositories\\sx_Merchant\\common\\src\\main\\res\\layout\\base_indicator_layout.xml"
+    },
+    {
+        "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\abc_alert_dialog_button_bar_material.xml",
+        "source": "C:\\Users\\little_bug\\.android\\build-cache\\f406617598f5a5689b140af35079d61c0806a085\\output\\res\\layout\\abc_alert_dialog_button_bar_material.xml"
+    },
+    {
+        "merged": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\design_menu_item_action_area.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\39ea90904b1ecbc1667af9300a3add9f4bc64375\\output\\res\\layout\\design_menu_item_action_area.xml"
+    },
+    {
+        "merged": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\item_expand_shink.xml",
+        "source": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\src\\main\\res\\layout\\item_expand_shink.xml"
+    },
+    {
         "merged": "E:\\sx_repositories\\sx_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\layout_nostatus_navigation.xml",
         "source": "E:\\sx_repositories\\sx_Merchant\\common\\src\\main\\res\\layout\\layout_nostatus_navigation.xml"
     },
     {
+        "merged": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\design_layout_tab_text.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\39ea90904b1ecbc1667af9300a3add9f4bc64375\\output\\res\\layout\\design_layout_tab_text.xml"
+    },
+    {
         "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\design_layout_tab_icon.xml",
         "source": "C:\\Users\\little_bug\\.android\\build-cache\\58d3ef2b14de161b9ff2ea18bc647c496b56dc17\\output\\res\\layout\\design_layout_tab_icon.xml"
+    },
+    {
+        "merged": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\pickerview_options.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\d7f0fd002c884cf41186b1ca4efe82f65fa1898a\\output\\res\\layout\\pickerview_options.xml"
     },
     {
         "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\abc_popup_menu_header_item_layout.xml",
@@ -132,32 +196,44 @@
         "source": "C:\\Users\\Administrator\\.android\\build-cache\\b194eff9d79e6f03fb88b11af710d368968f313a\\output\\res\\layout\\abc_alert_dialog_title_material.xml"
     },
     {
-        "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\layout_app_share.xml",
-        "source": "E:\\sx_repositories\\SX_Merchant\\common\\src\\main\\res\\layout\\layout_app_share.xml"
+        "merged": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\mq_item_square_image.xml",
+        "source": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\src\\main\\res\\layout\\mq_item_square_image.xml"
     },
     {
         "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\select_dialog_singlechoice_material.xml",
         "source": "C:\\Users\\little_bug\\.android\\build-cache\\f406617598f5a5689b140af35079d61c0806a085\\output\\res\\layout\\select_dialog_singlechoice_material.xml"
     },
     {
+        "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\layout_app_share.xml",
+        "source": "E:\\sx_repositories\\SX_Merchant\\common\\src\\main\\res\\layout\\layout_app_share.xml"
+    },
+    {
         "merged": "E:\\sx_repositories\\sx_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\layout_base_dialog.xml",
         "source": "E:\\sx_repositories\\sx_Merchant\\common\\src\\main\\res\\layout\\layout_base_dialog.xml"
+    },
+    {
+        "merged": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\design_layout_snackbar.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\39ea90904b1ecbc1667af9300a3add9f4bc64375\\output\\res\\layout\\design_layout_snackbar.xml"
+    },
+    {
+        "merged": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\abc_screen_simple_overlay_action_mode.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\b194eff9d79e6f03fb88b11af710d368968f313a\\output\\res\\layout\\abc_screen_simple_overlay_action_mode.xml"
     },
     {
         "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_mode_close_item_material.xml",
         "source": "C:\\Users\\little_bug\\.android\\build-cache\\f406617598f5a5689b140af35079d61c0806a085\\output\\res\\layout\\abc_action_mode_close_item_material.xml"
     },
     {
-        "merged": "E:\\sx_repositories\\sx_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\dialog_game_history.xml",
-        "source": "E:\\sx_repositories\\sx_Merchant\\common\\src\\main\\res\\layout\\dialog_game_history.xml"
+        "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\layout_base_tabview.xml",
+        "source": "E:\\sx_repositories\\SX_Merchant\\common\\src\\main\\res\\layout\\layout_base_tabview.xml"
     },
     {
         "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\layout_base_notification.xml",
         "source": "E:\\sx_repositories\\SX_Merchant\\common\\src\\main\\res\\layout\\layout_base_notification.xml"
     },
     {
-        "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\layout_base_tabview.xml",
-        "source": "E:\\sx_repositories\\SX_Merchant\\common\\src\\main\\res\\layout\\layout_base_tabview.xml"
+        "merged": "E:\\sx_repositories\\sx_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\dialog_game_history.xml",
+        "source": "E:\\sx_repositories\\sx_Merchant\\common\\src\\main\\res\\layout\\dialog_game_history.xml"
     },
     {
         "merged": "E:\\sx_repositories\\sx_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\design_layout_snackbar.xml",
@@ -168,12 +244,12 @@
         "source": "C:\\Users\\Administrator\\.android\\build-cache\\b194eff9d79e6f03fb88b11af710d368968f313a\\output\\res\\layout\\notification_template_media_custom.xml"
     },
     {
-        "merged": "E:\\sx_repositories\\sx_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\base_search_viewes.xml",
-        "source": "E:\\sx_repositories\\sx_Merchant\\common\\src\\main\\res\\layout\\base_search_viewes.xml"
-    },
-    {
         "merged": "E:\\sx_repositories\\sx_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\layout_bottom_address.xml",
         "source": "E:\\sx_repositories\\sx_Merchant\\common\\src\\main\\res\\layout\\layout_bottom_address.xml"
+    },
+    {
+        "merged": "E:\\sx_repositories\\sx_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\base_search_viewes.xml",
+        "source": "E:\\sx_repositories\\sx_Merchant\\common\\src\\main\\res\\layout\\base_search_viewes.xml"
     },
     {
         "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\widget_loading_page.xml",
@@ -184,12 +260,16 @@
         "source": "C:\\Users\\little_bug\\.android\\build-cache\\f406617598f5a5689b140af35079d61c0806a085\\output\\res\\layout\\abc_action_mode_bar.xml"
     },
     {
+        "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_bar_title_item.xml",
+        "source": "C:\\Users\\little_bug\\.android\\build-cache\\f406617598f5a5689b140af35079d61c0806a085\\output\\res\\layout\\abc_action_bar_title_item.xml"
+    },
+    {
         "merged": "E:\\sx_repositories\\sx_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\abc_popup_menu_item_layout.xml",
         "source": "C:\\Users\\Administrator\\.android\\build-cache\\b194eff9d79e6f03fb88b11af710d368968f313a\\output\\res\\layout\\abc_popup_menu_item_layout.xml"
     },
     {
-        "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_bar_title_item.xml",
-        "source": "C:\\Users\\little_bug\\.android\\build-cache\\f406617598f5a5689b140af35079d61c0806a085\\output\\res\\layout\\abc_action_bar_title_item.xml"
+        "merged": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\layout_base_widge_btn.xml",
+        "source": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\src\\main\\res\\layout\\layout_base_widge_btn.xml"
     },
     {
         "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\design_menu_item_action_area.xml",
@@ -200,28 +280,48 @@
         "source": "C:\\Users\\Administrator\\.android\\build-cache\\b194eff9d79e6f03fb88b11af710d368968f313a\\output\\res\\layout\\abc_list_menu_item_layout.xml"
     },
     {
-        "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\notification_action_tombstone.xml",
-        "source": "C:\\Users\\little_bug\\.android\\build-cache\\f406617598f5a5689b140af35079d61c0806a085\\output\\res\\layout\\notification_action_tombstone.xml"
-    },
-    {
         "merged": "E:\\sx_repositories\\sx_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\include_horizontal_line.xml",
         "source": "E:\\sx_repositories\\sx_Merchant\\common\\src\\main\\res\\layout\\include_horizontal_line.xml"
+    },
+    {
+        "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\notification_action_tombstone.xml",
+        "source": "C:\\Users\\little_bug\\.android\\build-cache\\f406617598f5a5689b140af35079d61c0806a085\\output\\res\\layout\\notification_action_tombstone.xml"
     },
     {
         "merged": "E:\\sx_repositories\\sx_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\layout_base_widge_btn.xml",
         "source": "E:\\sx_repositories\\sx_Merchant\\common\\src\\main\\res\\layout\\layout_base_widge_btn.xml"
     },
     {
+        "merged": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\item_grid_keyboard.xml",
+        "source": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\src\\main\\res\\layout\\item_grid_keyboard.xml"
+    },
+    {
+        "merged": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\base_indicator_layout.xml",
+        "source": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\src\\main\\res\\layout\\base_indicator_layout.xml"
+    },
+    {
         "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\refresh_recyclerview_footer.xml",
         "source": "E:\\sx_repositories\\SX_Merchant\\common\\src\\main\\res\\layout\\refresh_recyclerview_footer.xml"
+    },
+    {
+        "merged": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\loadingview_layout.xml",
+        "source": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\src\\main\\res\\layout\\loadingview_layout.xml"
     },
     {
         "merged": "E:\\sx_repositories\\sx_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\abc_activity_chooser_view_list_item.xml",
         "source": "C:\\Users\\Administrator\\.android\\build-cache\\b194eff9d79e6f03fb88b11af710d368968f313a\\output\\res\\layout\\abc_activity_chooser_view_list_item.xml"
     },
     {
+        "merged": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\support_simple_spinner_dropdown_item.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\b194eff9d79e6f03fb88b11af710d368968f313a\\output\\res\\layout\\support_simple_spinner_dropdown_item.xml"
+    },
+    {
         "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\item_expand_shink.xml",
         "source": "E:\\sx_repositories\\SX_Merchant\\common\\src\\main\\res\\layout\\item_expand_shink.xml"
+    },
+    {
+        "merged": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\view_common_dialog.xml",
+        "source": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\src\\main\\res\\layout\\view_common_dialog.xml"
     },
     {
         "merged": "E:\\sx_repositories\\sx_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\design_layout_tab_text.xml",
@@ -232,6 +332,26 @@
         "source": "E:\\sx_repositories\\sx_Merchant\\common\\src\\main\\res\\layout\\mq_pw_photo_folder.xml"
     },
     {
+        "merged": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_media.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\b194eff9d79e6f03fb88b11af710d368968f313a\\output\\res\\layout\\notification_template_media.xml"
+    },
+    {
+        "merged": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\widget_empty_page.xml",
+        "source": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\src\\main\\res\\layout\\widget_empty_page.xml"
+    },
+    {
+        "merged": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\notification_action.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\b194eff9d79e6f03fb88b11af710d368968f313a\\output\\res\\layout\\notification_action.xml"
+    },
+    {
+        "merged": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\design_bottom_sheet_dialog.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\39ea90904b1ecbc1667af9300a3add9f4bc64375\\output\\res\\layout\\design_bottom_sheet_dialog.xml"
+    },
+    {
+        "merged": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_checkbox.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\b194eff9d79e6f03fb88b11af710d368968f313a\\output\\res\\layout\\abc_list_menu_item_checkbox.xml"
+    },
+    {
         "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\abc_dialog_title_material.xml",
         "source": "C:\\Users\\little_bug\\.android\\build-cache\\f406617598f5a5689b140af35079d61c0806a085\\output\\res\\layout\\abc_dialog_title_material.xml"
     },
@@ -240,12 +360,16 @@
         "source": "E:\\sx_repositories\\SX_Merchant\\common\\src\\main\\res\\layout\\layout_base_dialog.xml"
     },
     {
+        "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\layout_base_widge_btn.xml",
+        "source": "E:\\sx_repositories\\SX_Merchant\\common\\src\\main\\res\\layout\\layout_base_widge_btn.xml"
+    },
+    {
         "merged": "E:\\sx_repositories\\sx_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\view_keyboard.xml",
         "source": "E:\\sx_repositories\\sx_Merchant\\common\\src\\main\\res\\layout\\view_keyboard.xml"
     },
     {
-        "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\layout_base_widge_btn.xml",
-        "source": "E:\\sx_repositories\\SX_Merchant\\common\\src\\main\\res\\layout\\layout_base_widge_btn.xml"
+        "merged": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\design_navigation_item.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\39ea90904b1ecbc1667af9300a3add9f4bc64375\\output\\res\\layout\\design_navigation_item.xml"
     },
     {
         "merged": "E:\\sx_repositories\\sx_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_menu_layout.xml",
@@ -268,6 +392,22 @@
         "source": "E:\\sx_repositories\\SX_Merchant\\common\\src\\main\\res\\layout\\widget_error_page.xml"
     },
     {
+        "merged": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\refresh_recyclerview_footer_nodata.xml",
+        "source": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\src\\main\\res\\layout\\refresh_recyclerview_footer_nodata.xml"
+    },
+    {
+        "merged": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\layout_bottom_picker.xml",
+        "source": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\src\\main\\res\\layout\\layout_bottom_picker.xml"
+    },
+    {
+        "merged": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\refresh_recyclerview_header.xml",
+        "source": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\src\\main\\res\\layout\\refresh_recyclerview_header.xml"
+    },
+    {
+        "merged": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\include_vertical_line.xml",
+        "source": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\src\\main\\res\\layout\\include_vertical_line.xml"
+    },
+    {
         "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\base_indicator_layout.xml",
         "source": "E:\\sx_repositories\\SX_Merchant\\common\\src\\main\\res\\layout\\base_indicator_layout.xml"
     },
@@ -286,6 +426,10 @@
     {
         "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\activity_base_url.xml",
         "source": "E:\\sx_repositories\\SX_Merchant\\common\\src\\main\\res\\layout\\activity_base_url.xml"
+    },
+    {
+        "merged": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\abc_search_view.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\b194eff9d79e6f03fb88b11af710d368968f313a\\output\\res\\layout\\abc_search_view.xml"
     },
     {
         "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\layout_base_navigationbar.xml",
@@ -312,12 +456,20 @@
         "source": "E:\\sx_repositories\\SX_Merchant\\common\\src\\main\\res\\layout\\refresh_recyclerview_footer_nodata.xml"
     },
     {
+        "merged": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\mq_activity_photo_picker_preview.xml",
+        "source": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\src\\main\\res\\layout\\mq_activity_photo_picker_preview.xml"
+    },
+    {
         "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\activity_base.xml",
         "source": "E:\\sx_repositories\\SX_Merchant\\common\\src\\main\\res\\layout\\activity_base.xml"
     },
     {
         "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\abc_screen_simple.xml",
         "source": "C:\\Users\\little_bug\\.android\\build-cache\\f406617598f5a5689b140af35079d61c0806a085\\output\\res\\layout\\abc_screen_simple.xml"
+    },
+    {
+        "merged": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\layout_base_notification.xml",
+        "source": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\src\\main\\res\\layout\\layout_base_notification.xml"
     },
     {
         "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\mq_pw_photo_folder.xml",
@@ -348,6 +500,10 @@
         "source": "C:\\Users\\little_bug\\.android\\build-cache\\f406617598f5a5689b140af35079d61c0806a085\\output\\res\\layout\\abc_popup_menu_item_layout.xml"
     },
     {
+        "merged": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\mq_activity_photo_picker.xml",
+        "source": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\src\\main\\res\\layout\\mq_activity_photo_picker.xml"
+    },
+    {
         "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\design_layout_snackbar_include.xml",
         "source": "C:\\Users\\little_bug\\.android\\build-cache\\58d3ef2b14de161b9ff2ea18bc647c496b56dc17\\output\\res\\layout\\design_layout_snackbar_include.xml"
     },
@@ -360,8 +516,20 @@
         "source": "E:\\sx_repositories\\sx_Merchant\\common\\src\\main\\res\\layout\\base_search_layout.xml"
     },
     {
+        "merged": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\base_dialog_choosenums.xml",
+        "source": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\src\\main\\res\\layout\\base_dialog_choosenums.xml"
+    },
+    {
+        "merged": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\design_navigation_menu.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\39ea90904b1ecbc1667af9300a3add9f4bc64375\\output\\res\\layout\\design_navigation_menu.xml"
+    },
+    {
         "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\refresh_recyclerview_header.xml",
         "source": "E:\\sx_repositories\\SX_Merchant\\common\\src\\main\\res\\layout\\refresh_recyclerview_header.xml"
+    },
+    {
+        "merged": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\widget_nonetwork_page.xml",
+        "source": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\src\\main\\res\\layout\\widget_nonetwork_page.xml"
     },
     {
         "merged": "E:\\sx_repositories\\sx_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\view_pay_edit.xml",
@@ -372,8 +540,16 @@
         "source": "E:\\sx_repositories\\sx_Merchant\\common\\src\\main\\res\\layout\\layout_base_addreduce.xml"
     },
     {
+        "merged": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_bar_title_item.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\b194eff9d79e6f03fb88b11af710d368968f313a\\output\\res\\layout\\abc_action_bar_title_item.xml"
+    },
+    {
         "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\include_horizontal_space.xml",
         "source": "E:\\sx_repositories\\SX_Merchant\\common\\src\\main\\res\\layout\\include_horizontal_space.xml"
+    },
+    {
+        "merged": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\design_navigation_item_header.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\39ea90904b1ecbc1667af9300a3add9f4bc64375\\output\\res\\layout\\design_navigation_item_header.xml"
     },
     {
         "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\mq_activity_photo_picker.xml",
@@ -400,12 +576,48 @@
         "source": "C:\\Users\\little_bug\\.android\\build-cache\\f406617598f5a5689b140af35079d61c0806a085\\output\\res\\layout\\abc_activity_chooser_view_list_item.xml"
     },
     {
+        "merged": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\design_text_input_password_icon.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\39ea90904b1ecbc1667af9300a3add9f4bc64375\\output\\res\\layout\\design_text_input_password_icon.xml"
+    },
+    {
+        "merged": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\abc_screen_toolbar.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\b194eff9d79e6f03fb88b11af710d368968f313a\\output\\res\\layout\\abc_screen_toolbar.xml"
+    },
+    {
+        "merged": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\layout_basepickerview.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\d7f0fd002c884cf41186b1ca4efe82f65fa1898a\\output\\res\\layout\\layout_basepickerview.xml"
+    },
+    {
         "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\permission_info_item.xml",
         "source": "C:\\Users\\little_bug\\.android\\build-cache\\1c3d6ad6e05b75a460a6ba18a9f7a615cc270266\\output\\res\\layout\\permission_info_item.xml"
     },
     {
         "merged": "E:\\sx_repositories\\sx_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\design_navigation_item.xml",
         "source": "C:\\Users\\Administrator\\.android\\build-cache\\39ea90904b1ecbc1667af9300a3add9f4bc64375\\output\\res\\layout\\design_navigation_item.xml"
+    },
+    {
+        "merged": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\include_horizontal_line.xml",
+        "source": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\src\\main\\res\\layout\\include_horizontal_line.xml"
+    },
+    {
+        "merged": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\base_search_view.xml",
+        "source": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\src\\main\\res\\layout\\base_search_view.xml"
+    },
+    {
+        "merged": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\design_layout_snackbar_include.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\39ea90904b1ecbc1667af9300a3add9f4bc64375\\output\\res\\layout\\design_layout_snackbar_include.xml"
+    },
+    {
+        "merged": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_bar_view_list_nav_layout.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\b194eff9d79e6f03fb88b11af710d368968f313a\\output\\res\\layout\\abc_action_bar_view_list_nav_layout.xml"
+    },
+    {
+        "merged": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\layout_nostatus_navigation.xml",
+        "source": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\src\\main\\res\\layout\\layout_nostatus_navigation.xml"
+    },
+    {
+        "merged": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\abc_dialog_title_material.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\b194eff9d79e6f03fb88b11af710d368968f313a\\output\\res\\layout\\abc_dialog_title_material.xml"
     },
     {
         "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\mq_item_photo_folder.xml",
@@ -422,6 +634,10 @@
     {
         "merged": "E:\\sx_repositories\\sx_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\pickerview_time.xml",
         "source": "C:\\Users\\Administrator\\.android\\build-cache\\d7f0fd002c884cf41186b1ca4efe82f65fa1898a\\output\\res\\layout\\pickerview_time.xml"
+    },
+    {
+        "merged": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_layout.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\b194eff9d79e6f03fb88b11af710d368968f313a\\output\\res\\layout\\abc_list_menu_item_layout.xml"
     },
     {
         "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\base_dialog_choosenums.xml",
@@ -448,6 +664,10 @@
         "source": "E:\\sx_repositories\\sx_Merchant\\common\\src\\main\\res\\layout\\loadingview_layout.xml"
     },
     {
+        "merged": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\base_search_viewes.xml",
+        "source": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\src\\main\\res\\layout\\base_search_viewes.xml"
+    },
+    {
         "merged": "E:\\sx_repositories\\sx_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\notification_action_tombstone.xml",
         "source": "C:\\Users\\Administrator\\.android\\build-cache\\b194eff9d79e6f03fb88b11af710d368968f313a\\output\\res\\layout\\notification_action_tombstone.xml"
     },
@@ -464,12 +684,24 @@
         "source": "E:\\sx_repositories\\SX_Merchant\\common\\src\\main\\res\\layout\\include_horizontal_line.xml"
     },
     {
+        "merged": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_part_chronometer.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\b194eff9d79e6f03fb88b11af710d368968f313a\\output\\res\\layout\\notification_template_part_chronometer.xml"
+    },
+    {
         "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_checkbox.xml",
         "source": "C:\\Users\\little_bug\\.android\\build-cache\\f406617598f5a5689b140af35079d61c0806a085\\output\\res\\layout\\abc_list_menu_item_checkbox.xml"
     },
     {
+        "merged": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\abc_activity_chooser_view.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\b194eff9d79e6f03fb88b11af710d368968f313a\\output\\res\\layout\\abc_activity_chooser_view.xml"
+    },
+    {
         "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_part_time.xml",
         "source": "C:\\Users\\little_bug\\.android\\build-cache\\f406617598f5a5689b140af35079d61c0806a085\\output\\res\\layout\\notification_template_part_time.xml"
+    },
+    {
+        "merged": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\include_vertical_space.xml",
+        "source": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\src\\main\\res\\layout\\include_vertical_space.xml"
     },
     {
         "merged": "E:\\sx_repositories\\sx_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\pickerview_options.xml",
@@ -492,6 +724,18 @@
         "source": "E:\\sx_repositories\\sx_Merchant\\common\\src\\main\\res\\layout\\activity_base_url.xml"
     },
     {
+        "merged": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\base_search_text.xml",
+        "source": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\src\\main\\res\\layout\\base_search_text.xml"
+    },
+    {
+        "merged": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\base_search_layout.xml",
+        "source": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\src\\main\\res\\layout\\base_search_layout.xml"
+    },
+    {
+        "merged": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\abc_screen_content_include.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\b194eff9d79e6f03fb88b11af710d368968f313a\\output\\res\\layout\\abc_screen_content_include.xml"
+    },
+    {
         "merged": "E:\\sx_repositories\\sx_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\bga_banner_item_video.xml",
         "source": "E:\\sx_repositories\\sx_Merchant\\common\\src\\main\\res\\layout\\bga_banner_item_video.xml"
     },
@@ -508,6 +752,14 @@
         "source": "C:\\Users\\little_bug\\.android\\build-cache\\f406617598f5a5689b140af35079d61c0806a085\\output\\res\\layout\\notification_template_lines_media.xml"
     },
     {
+        "merged": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_part_time.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\b194eff9d79e6f03fb88b11af710d368968f313a\\output\\res\\layout\\notification_template_part_time.xml"
+    },
+    {
+        "merged": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\layout_base_dialog.xml",
+        "source": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\src\\main\\res\\layout\\layout_base_dialog.xml"
+    },
+    {
         "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\design_navigation_menu.xml",
         "source": "C:\\Users\\little_bug\\.android\\build-cache\\58d3ef2b14de161b9ff2ea18bc647c496b56dc17\\output\\res\\layout\\design_navigation_menu.xml"
     },
@@ -516,8 +768,16 @@
         "source": "C:\\Users\\Administrator\\.android\\build-cache\\82a3bb5bad060ddcdfa037bd070bddf4588761fd\\output\\res\\layout\\permission_info_item.xml"
     },
     {
+        "merged": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\select_dialog_multichoice_material.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\b194eff9d79e6f03fb88b11af710d368968f313a\\output\\res\\layout\\select_dialog_multichoice_material.xml"
+    },
+    {
         "merged": "E:\\sx_repositories\\sx_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\design_navigation_item_header.xml",
         "source": "C:\\Users\\Administrator\\.android\\build-cache\\39ea90904b1ecbc1667af9300a3add9f4bc64375\\output\\res\\layout\\design_navigation_item_header.xml"
+    },
+    {
+        "merged": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\bga_banner_item_video.xml",
+        "source": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\src\\main\\res\\layout\\bga_banner_item_video.xml"
     },
     {
         "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_media_custom.xml",
@@ -526,6 +786,22 @@
     {
         "merged": "E:\\sx_repositories\\sx_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\abc_alert_dialog_material.xml",
         "source": "C:\\Users\\Administrator\\.android\\build-cache\\b194eff9d79e6f03fb88b11af710d368968f313a\\output\\res\\layout\\abc_alert_dialog_material.xml"
+    },
+    {
+        "merged": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\design_navigation_item_separator.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\39ea90904b1ecbc1667af9300a3add9f4bc64375\\output\\res\\layout\\design_navigation_item_separator.xml"
+    },
+    {
+        "merged": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\dialog_request_permission.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\82a3bb5bad060ddcdfa037bd070bddf4588761fd\\output\\res\\layout\\dialog_request_permission.xml"
+    },
+    {
+        "merged": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_media_custom.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\b194eff9d79e6f03fb88b11af710d368968f313a\\output\\res\\layout\\notification_template_media_custom.xml"
+    },
+    {
+        "merged": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\abc_expanded_menu_layout.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\b194eff9d79e6f03fb88b11af710d368968f313a\\output\\res\\layout\\abc_expanded_menu_layout.xml"
     },
     {
         "merged": "E:\\sx_repositories\\sx_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\refresh_recyclerview_footer.xml",
@@ -556,6 +832,10 @@
         "source": "E:\\sx_repositories\\SX_Merchant\\common\\src\\main\\res\\layout\\item_grid_keyboard.xml"
     },
     {
+        "merged": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\abc_select_dialog_material.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\b194eff9d79e6f03fb88b11af710d368968f313a\\output\\res\\layout\\abc_select_dialog_material.xml"
+    },
+    {
         "merged": "E:\\sx_repositories\\sx_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\abc_popup_menu_header_item_layout.xml",
         "source": "C:\\Users\\Administrator\\.android\\build-cache\\b194eff9d79e6f03fb88b11af710d368968f313a\\output\\res\\layout\\abc_popup_menu_header_item_layout.xml"
     },
@@ -568,6 +848,10 @@
         "source": "C:\\Users\\little_bug\\.android\\build-cache\\f406617598f5a5689b140af35079d61c0806a085\\output\\res\\layout\\abc_action_bar_view_list_nav_layout.xml"
     },
     {
+        "merged": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\abc_alert_dialog_title_material.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\b194eff9d79e6f03fb88b11af710d368968f313a\\output\\res\\layout\\abc_alert_dialog_title_material.xml"
+    },
+    {
         "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\design_layout_snackbar.xml",
         "source": "C:\\Users\\little_bug\\.android\\build-cache\\58d3ef2b14de161b9ff2ea18bc647c496b56dc17\\output\\res\\layout\\design_layout_snackbar.xml"
     },
@@ -576,12 +860,32 @@
         "source": "E:\\sx_repositories\\SX_Merchant\\common\\src\\main\\res\\layout\\loadingview_layout.xml"
     },
     {
+        "merged": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\layout_bottom_address.xml",
+        "source": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\src\\main\\res\\layout\\layout_bottom_address.xml"
+    },
+    {
+        "merged": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\layout_base_toast.xml",
+        "source": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\src\\main\\res\\layout\\layout_base_toast.xml"
+    },
+    {
+        "merged": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\view_pay_edit.xml",
+        "source": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\src\\main\\res\\layout\\view_pay_edit.xml"
+    },
+    {
         "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_menu_layout.xml",
         "source": "C:\\Users\\little_bug\\.android\\build-cache\\f406617598f5a5689b140af35079d61c0806a085\\output\\res\\layout\\abc_action_menu_layout.xml"
     },
     {
+        "merged": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\view_keyboard.xml",
+        "source": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\src\\main\\res\\layout\\view_keyboard.xml"
+    },
+    {
         "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\design_navigation_item_separator.xml",
         "source": "C:\\Users\\little_bug\\.android\\build-cache\\58d3ef2b14de161b9ff2ea18bc647c496b56dc17\\output\\res\\layout\\design_navigation_item_separator.xml"
+    },
+    {
+        "merged": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\dialog_person_msgs.xml",
+        "source": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\src\\main\\res\\layout\\dialog_person_msgs.xml"
     },
     {
         "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\design_navigation_item_subheader.xml",
@@ -604,6 +908,10 @@
         "source": "E:\\sx_repositories\\sx_Merchant\\common\\src\\main\\res\\layout\\item_grid_keyboard_delete.xml"
     },
     {
+        "merged": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\mq_item_photo_folder.xml",
+        "source": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\src\\main\\res\\layout\\mq_item_photo_folder.xml"
+    },
+    {
         "merged": "E:\\sx_repositories\\sx_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\abc_screen_toolbar.xml",
         "source": "C:\\Users\\Administrator\\.android\\build-cache\\b194eff9d79e6f03fb88b11af710d368968f313a\\output\\res\\layout\\abc_screen_toolbar.xml"
     },
@@ -622,6 +930,10 @@
     {
         "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\dialog_game_history.xml",
         "source": "E:\\sx_repositories\\SX_Merchant\\common\\src\\main\\res\\layout\\dialog_game_history.xml"
+    },
+    {
+        "merged": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\abc_search_dropdown_item_icons_2line.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\b194eff9d79e6f03fb88b11af710d368968f313a\\output\\res\\layout\\abc_search_dropdown_item_icons_2line.xml"
     },
     {
         "merged": "E:\\sx_repositories\\sx_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\abc_expanded_menu_layout.xml",
@@ -668,6 +980,14 @@
         "source": "E:\\sx_repositories\\SX_Merchant\\common\\src\\main\\res\\layout\\widget_empty_page.xml"
     },
     {
+        "merged": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_icon_group.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\b194eff9d79e6f03fb88b11af710d368968f313a\\output\\res\\layout\\notification_template_icon_group.xml"
+    },
+    {
+        "merged": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\design_navigation_menu_item.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\39ea90904b1ecbc1667af9300a3add9f4bc64375\\output\\res\\layout\\design_navigation_menu_item.xml"
+    },
+    {
         "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\abc_alert_dialog_material.xml",
         "source": "C:\\Users\\little_bug\\.android\\build-cache\\f406617598f5a5689b140af35079d61c0806a085\\output\\res\\layout\\abc_alert_dialog_material.xml"
     },
@@ -704,6 +1024,14 @@
         "source": "E:\\sx_repositories\\sx_Merchant\\common\\src\\main\\res\\layout\\widget_nonetwork_page.xml"
     },
     {
+        "merged": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\layout_app_share.xml",
+        "source": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\src\\main\\res\\layout\\layout_app_share.xml"
+    },
+    {
+        "merged": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\dialog_game_history.xml",
+        "source": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\src\\main\\res\\layout\\dialog_game_history.xml"
+    },
+    {
         "merged": "E:\\sx_repositories\\sx_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\layout_base_tabview.xml",
         "source": "E:\\sx_repositories\\sx_Merchant\\common\\src\\main\\res\\layout\\layout_base_tabview.xml"
     },
@@ -714,6 +1042,14 @@
     {
         "merged": "E:\\sx_repositories\\sx_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_mode_bar.xml",
         "source": "C:\\Users\\Administrator\\.android\\build-cache\\b194eff9d79e6f03fb88b11af710d368968f313a\\output\\res\\layout\\abc_action_mode_bar.xml"
+    },
+    {
+        "merged": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\abc_screen_simple.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\b194eff9d79e6f03fb88b11af710d368968f313a\\output\\res\\layout\\abc_screen_simple.xml"
+    },
+    {
+        "merged": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\activity_base.xml",
+        "source": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\src\\main\\res\\layout\\activity_base.xml"
     },
     {
         "merged": "E:\\sx_repositories\\sx_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\bga_banner_item_image.xml",
@@ -728,12 +1064,28 @@
         "source": "C:\\Users\\little_bug\\.android\\build-cache\\f406617598f5a5689b140af35079d61c0806a085\\output\\res\\layout\\abc_expanded_menu_layout.xml"
     },
     {
+        "merged": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\layout_base_tabview.xml",
+        "source": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\src\\main\\res\\layout\\layout_base_tabview.xml"
+    },
+    {
         "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_radio.xml",
         "source": "C:\\Users\\little_bug\\.android\\build-cache\\f406617598f5a5689b140af35079d61c0806a085\\output\\res\\layout\\abc_list_menu_item_radio.xml"
     },
     {
+        "merged": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\notification_action_tombstone.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\b194eff9d79e6f03fb88b11af710d368968f313a\\output\\res\\layout\\notification_action_tombstone.xml"
+    },
+    {
+        "merged": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\pickerview_time.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\d7f0fd002c884cf41186b1ca4efe82f65fa1898a\\output\\res\\layout\\pickerview_time.xml"
+    },
+    {
         "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\mq_item_square_image.xml",
         "source": "E:\\sx_repositories\\SX_Merchant\\common\\src\\main\\res\\layout\\mq_item_square_image.xml"
+    },
+    {
+        "merged": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\widget_loading_page.xml",
+        "source": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\src\\main\\res\\layout\\widget_loading_page.xml"
     },
     {
         "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_layout.xml",
@@ -748,6 +1100,10 @@
         "source": "C:\\Users\\Administrator\\.android\\build-cache\\b194eff9d79e6f03fb88b11af710d368968f313a\\output\\res\\layout\\select_dialog_singlechoice_material.xml"
     },
     {
+        "merged": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\layout_base_addreduce.xml",
+        "source": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\src\\main\\res\\layout\\layout_base_addreduce.xml"
+    },
+    {
         "merged": "E:\\sx_repositories\\sx_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\mq_dialog_loading_photopicker.xml",
         "source": "E:\\sx_repositories\\sx_Merchant\\common\\src\\main\\res\\layout\\mq_dialog_loading_photopicker.xml"
     },
@@ -756,8 +1112,24 @@
         "source": "E:\\sx_repositories\\SX_Merchant\\common\\src\\main\\res\\layout\\base_search_view.xml"
     },
     {
+        "merged": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\mq_pw_photo_folder.xml",
+        "source": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\src\\main\\res\\layout\\mq_pw_photo_folder.xml"
+    },
+    {
+        "merged": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\design_layout_tab_icon.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\39ea90904b1ecbc1667af9300a3add9f4bc64375\\output\\res\\layout\\design_layout_tab_icon.xml"
+    },
+    {
         "merged": "E:\\sx_repositories\\sx_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\include_pickerview_topbar.xml",
         "source": "C:\\Users\\Administrator\\.android\\build-cache\\d7f0fd002c884cf41186b1ca4efe82f65fa1898a\\output\\res\\layout\\include_pickerview_topbar.xml"
+    },
+    {
+        "merged": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_lines_media.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\b194eff9d79e6f03fb88b11af710d368968f313a\\output\\res\\layout\\notification_template_lines_media.xml"
+    },
+    {
+        "merged": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\design_navigation_item_subheader.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\39ea90904b1ecbc1667af9300a3add9f4bc64375\\output\\res\\layout\\design_navigation_item_subheader.xml"
     },
     {
         "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\abc_screen_simple_overlay_action_mode.xml",
@@ -774,6 +1146,10 @@
     {
         "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\layout_basepickerview.xml",
         "source": "C:\\Users\\little_bug\\.android\\build-cache\\3b8486c8f5a09d02b3cd88c20565cddd79b99cf5\\output\\res\\layout\\layout_basepickerview.xml"
+    },
+    {
+        "merged": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\item_grid_keyboard_delete.xml",
+        "source": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\src\\main\\res\\layout\\item_grid_keyboard_delete.xml"
     },
     {
         "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\layout_bottom_address.xml",
@@ -804,8 +1180,16 @@
         "source": "E:\\sx_repositories\\sx_Merchant\\common\\src\\main\\res\\layout\\mq_activity_photo_picker_preview.xml"
     },
     {
+        "merged": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\refresh_recyclerview_footer.xml",
+        "source": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\src\\main\\res\\layout\\refresh_recyclerview_footer.xml"
+    },
+    {
         "merged": "E:\\sx_repositories\\sx_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_mode_close_item_material.xml",
         "source": "C:\\Users\\Administrator\\.android\\build-cache\\b194eff9d79e6f03fb88b11af710d368968f313a\\output\\res\\layout\\abc_action_mode_close_item_material.xml"
+    },
+    {
+        "merged": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_bar_up_container.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\b194eff9d79e6f03fb88b11af710d368968f313a\\output\\res\\layout\\abc_action_bar_up_container.xml"
     },
     {
         "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\widget_nonetwork_page.xml",
@@ -814,6 +1198,10 @@
     {
         "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\include_vertical_space.xml",
         "source": "E:\\sx_repositories\\SX_Merchant\\common\\src\\main\\res\\layout\\include_vertical_space.xml"
+    },
+    {
+        "merged": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_radio.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\b194eff9d79e6f03fb88b11af710d368968f313a\\output\\res\\layout\\abc_list_menu_item_radio.xml"
     },
     {
         "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\design_navigation_item_header.xml",
@@ -828,8 +1216,24 @@
         "source": "C:\\Users\\little_bug\\.android\\build-cache\\f406617598f5a5689b140af35079d61c0806a085\\output\\res\\layout\\notification_action.xml"
     },
     {
+        "merged": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_menu_item_layout.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\b194eff9d79e6f03fb88b11af710d368968f313a\\output\\res\\layout\\abc_action_menu_item_layout.xml"
+    },
+    {
+        "merged": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_mode_bar.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\b194eff9d79e6f03fb88b11af710d368968f313a\\output\\res\\layout\\abc_action_mode_bar.xml"
+    },
+    {
+        "merged": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\permission_info_item.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\82a3bb5bad060ddcdfa037bd070bddf4588761fd\\output\\res\\layout\\permission_info_item.xml"
+    },
+    {
         "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\design_navigation_item.xml",
         "source": "C:\\Users\\little_bug\\.android\\build-cache\\58d3ef2b14de161b9ff2ea18bc647c496b56dc17\\output\\res\\layout\\design_navigation_item.xml"
+    },
+    {
+        "merged": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\abc_popup_menu_header_item_layout.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\b194eff9d79e6f03fb88b11af710d368968f313a\\output\\res\\layout\\abc_popup_menu_header_item_layout.xml"
     },
     {
         "merged": "E:\\sx_repositories\\sx_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_radio.xml",
@@ -838,6 +1242,10 @@
     {
         "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\bga_banner_item_image.xml",
         "source": "E:\\sx_repositories\\SX_Merchant\\common\\src\\main\\res\\layout\\bga_banner_item_image.xml"
+    },
+    {
+        "merged": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_mode_close_item_material.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\b194eff9d79e6f03fb88b11af710d368968f313a\\output\\res\\layout\\abc_action_mode_close_item_material.xml"
     },
     {
         "merged": "E:\\sx_repositories\\sx_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\abc_select_dialog_material.xml",
@@ -852,6 +1260,10 @@
         "source": "C:\\Users\\little_bug\\.android\\build-cache\\58d3ef2b14de161b9ff2ea18bc647c496b56dc17\\output\\res\\layout\\design_bottom_navigation_item.xml"
     },
     {
+        "merged": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\widget_error_page.xml",
+        "source": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\src\\main\\res\\layout\\widget_error_page.xml"
+    },
+    {
         "merged": "E:\\sx_repositories\\sx_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\refresh_recyclerview_footer_nodata.xml",
         "source": "E:\\sx_repositories\\sx_Merchant\\common\\src\\main\\res\\layout\\refresh_recyclerview_footer_nodata.xml"
     },
@@ -860,7 +1272,27 @@
         "source": "E:\\sx_repositories\\sx_Merchant\\common\\src\\main\\res\\layout\\widget_empty_page.xml"
     },
     {
+        "merged": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\include_pickerview_topbar.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\d7f0fd002c884cf41186b1ca4efe82f65fa1898a\\output\\res\\layout\\include_pickerview_topbar.xml"
+    },
+    {
+        "merged": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\abc_popup_menu_item_layout.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\b194eff9d79e6f03fb88b11af710d368968f313a\\output\\res\\layout\\abc_popup_menu_item_layout.xml"
+    },
+    {
+        "merged": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\select_dialog_singlechoice_material.xml",
+        "source": "C:\\Users\\Administrator\\.android\\build-cache\\b194eff9d79e6f03fb88b11af710d368968f313a\\output\\res\\layout\\select_dialog_singlechoice_material.xml"
+    },
+    {
+        "merged": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\activity_base_url.xml",
+        "source": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\src\\main\\res\\layout\\activity_base_url.xml"
+    },
+    {
         "merged": "E:\\sx_repositories\\sx_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\dialog_person_msgs.xml",
         "source": "E:\\sx_repositories\\sx_Merchant\\common\\src\\main\\res\\layout\\dialog_person_msgs.xml"
+    },
+    {
+        "merged": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\mq_dialog_loading_photopicker.xml",
+        "source": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\src\\main\\res\\layout\\mq_dialog_loading_photopicker.xml"
     }
 ]

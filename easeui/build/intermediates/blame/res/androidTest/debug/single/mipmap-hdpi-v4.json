@@ -1,5 +1,9 @@
 [
     {
+        "merged": "E:\\sx_repositories\\merchant\\SX_Merchant\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\mipmap-hdpi-v4\\icon_app.png",
+        "source": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\build\\intermediates\\bundles\\default\\res\\mipmap-hdpi-v4\\icon_app.png"
+    },
+    {
         "merged": "E:\\as_pro\\Sx_Merchant\\sxappTwo\\sxappTwo\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\mipmap-hdpi-v4\\icon_app.png",
         "source": "E:\\as_pro\\Sx_Merchant\\sxappTwo\\sxappTwo\\common\\build\\intermediates\\bundles\\default\\res\\mipmap-hdpi-v4\\icon_app.png"
     },

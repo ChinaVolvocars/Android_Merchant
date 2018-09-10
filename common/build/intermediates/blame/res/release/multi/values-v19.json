@@ -1,5 +1,174 @@
 [
     {
+        "outputFile": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\build\\intermediates\\incremental\\mergeReleaseResources\\merged.dir\\values-v19\\values-v19.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 55,
+                    "endColumn": 49,
+                    "endOffset": 100
+                },
+                "from": {
+                    "file": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\src\\main\\res\\values-v19\\dimens.xml",
+                    "position": {
+                        "startLine": 1,
+                        "startColumn": 4,
+                        "startOffset": 17,
+                        "endColumn": 49,
+                        "endOffset": 62
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 3,
+                    "startColumn": 4,
+                    "startOffset": 105,
+                    "endColumn": 51,
+                    "endOffset": 152
+                },
+                "from": {
+                    "file": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\src\\main\\res\\values-v19\\styles.xml",
+                    "position": {
+                        "startLine": 1,
+                        "startColumn": 4,
+                        "startOffset": 17,
+                        "endColumn": 51,
+                        "endOffset": 64
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 4,
+                    "startColumn": 4,
+                    "startOffset": 157,
+                    "endLine": 9,
+                    "endColumn": 12,
+                    "endOffset": 478
+                },
+                "from": {
+                    "file": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\src\\main\\res\\values-v19\\styles.xml",
+                    "position": {
+                        "startLine": 3,
+                        "startColumn": 4,
+                        "startOffset": 72,
+                        "endLine": 8,
+                        "endColumn": 12,
+                        "endOffset": 398
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 10,
+                    "startColumn": 4,
+                    "startOffset": 483,
+                    "endLine": 13,
+                    "endColumn": 12,
+                    "endOffset": 711
+                },
+                "from": {
+                    "file": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\src\\main\\res\\values-v19\\styles.xml",
+                    "position": {
+                        "startLine": 30,
+                        "startColumn": 4,
+                        "startOffset": 1389,
+                        "endLine": 33,
+                        "endColumn": 12,
+                        "endOffset": 1620
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 14,
+                    "startColumn": 4,
+                    "startOffset": 716,
+                    "endLine": 19,
+                    "endColumn": 12,
+                    "endOffset": 1058
+                },
+                "from": {
+                    "file": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\src\\main\\res\\values-v19\\styles.xml",
+                    "position": {
+                        "startLine": 16,
+                        "startColumn": 4,
+                        "startOffset": 668,
+                        "endLine": 21,
+                        "endColumn": 12,
+                        "endOffset": 1015
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 20,
+                    "startColumn": 4,
+                    "startOffset": 1063,
+                    "endLine": 25,
+                    "endColumn": 12,
+                    "endOffset": 1416
+                },
+                "from": {
+                    "file": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\src\\main\\res\\values-v19\\styles.xml",
+                    "position": {
+                        "startLine": 23,
+                        "startColumn": 4,
+                        "startOffset": 1023,
+                        "endLine": 28,
+                        "endColumn": 12,
+                        "endOffset": 1381
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 26,
+                    "startColumn": 4,
+                    "startOffset": 1421,
+                    "endLine": 29,
+                    "endColumn": 12,
+                    "endOffset": 1650
+                },
+                "from": {
+                    "file": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\src\\main\\res\\values-v19\\styles.xml",
+                    "position": {
+                        "startLine": 11,
+                        "startColumn": 4,
+                        "startOffset": 428,
+                        "endLine": 14,
+                        "endColumn": 12,
+                        "endOffset": 660
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 30,
+                    "startColumn": 4,
+                    "startOffset": 1655,
+                    "endLine": 33,
+                    "endColumn": 12,
+                    "endOffset": 1877
+                },
+                "from": {
+                    "file": "E:\\sx_repositories\\merchant\\SX_Merchant\\common\\src\\main\\res\\values-v19\\styles.xml",
+                    "position": {
+                        "startLine": 38,
+                        "startColumn": 4,
+                        "startOffset": 1712,
+                        "endLine": 41,
+                        "endColumn": 12,
+                        "endOffset": 1937
+                    }
+                }
+            }
+        ]
+    },
+    {
         "outputFile": "E:\\sx_repositories\\sx_Merchant\\common\\build\\intermediates\\incremental\\mergeReleaseResources\\merged.dir\\values-v19\\values-v19.xml",
         "map": [
             {
