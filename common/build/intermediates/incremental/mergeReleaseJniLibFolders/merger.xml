@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merger version="3"><dataSet config="main"><source path="E:\sx_repositories\merchant\SX_Merchant\common\src\main\jniLibs"/></dataSet><dataSet config="release"><source path="E:\sx_repositories\merchant\SX_Merchant\common\src\release\jniLibs"/></dataSet></merger>
+<merger version="3"><dataSet config="main"><source path="E:\sx_repositories\SX_Merchant\common\src\main\jniLibs"/></dataSet><dataSet config="release"><source path="E:\sx_repositories\SX_Merchant\common\src\release\jniLibs"/></dataSet></merger>

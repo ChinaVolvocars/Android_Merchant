@@ -41,14 +41,17 @@ public class Constants {
             {Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.ACCESS_FINE_LOCATION,
                     Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE,
                     Manifest.permission.READ_PHONE_STATE};                         // 定位所有权限
+
+
     /**
      * 线上环境用
      */
-//    public static final String BaseUrl = "http://xmap1802009.php.hzxmnet.com/Api/";   //  线上环境
     public static final String BaseUrl = "http://app.zhongxinyingjia.com/Api/";                   //  高兴超线上测试环境用
     /**
      * 线下环境测试用
+     *
      */
+//    public static final String BaseUrl = "http://test.zhongxinyingjia.com/Api/";                   //  高兴超线下测试环境用
 //    public static final String BaseUrl = "http://app.zhongxinyingjia.com/Api/";                   //  高兴超线下测试环境用
     /**
      * 线下环境测试用
