@@ -49,7 +49,11 @@ public class SmsMethods extends BaseMethods {
      *
      * @param mobilePhone 手机号码  <br/>
      * @param checkType   checkType类型  <br/>
-     *                    checkType类型  <br/>1 为注册。  <br/>2 为找回密码。  <br/>3 手机短信登录。  <br/>4 解除绑定。  <br/>5 短信绑定（手机绑定）  <br/>6 绑定第三方。
+     *                    checkType类型  <br/>1 为注册。  <br/>2 为找回密码。  <br/>3 手机短信登录。  <br/>4 解除绑定。  <br/>5 短信绑定（手机绑定）  <br/>
+     *                    6 绑定第三方。  <br/>
+     *                    8 忘记账号找回。  <br/>
+     *                    9 更换手机号码 原手机号码。  <br/>
+     *                    10 更换手机号码 新手机号码。  <br/>
      * @return
      */
     public void sendVerCode(Subscriber<HttpRespBean> subscriber, String mobilePhone, String checkType) {

@@ -41,14 +41,15 @@ public class BankListBean {
          * card_logo : ABC
          * card_bank_logo : https://s3.pstatp.com/toutiao/static/img/logo.201f80d.png
          * card_bank_background : https://s3.pstatp.com/toutiao/static/img/logo.201f80d.png
+         * status 1为对私账户  2为对公账户
          */
-
         private String id;
         private String bank_name;
         private String card_number;
         private String card_logo;
         private String card_bank_logo;
         private String card_bank_background;
+        private String status;
 
         public String getId() {
             return id;
@@ -96,6 +97,14 @@ public class BankListBean {
 
         public void setCard_bank_background(String card_bank_background) {
             this.card_bank_background = card_bank_background;
+        }
+
+        public String getStatus() {
+            return status;
+        }
+
+        public void setStatus(String status) {
+            this.status = status;
         }
     }
 }

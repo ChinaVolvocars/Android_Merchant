@@ -37,19 +37,42 @@ public class CenterMethods extends BaseMethods {
         toSubscribe(observable, subscriber);
     }
 
+
     /**
-     *  添加银行卡
-     * @param subscriber 观察者
-     * @param cardNumber 银行卡号
-     * @param cardPhone 绑卡手机
-     * @param idCard 身份证
-     * @param banksNames 开户行
+     *  添加对私银行
+     * @param branch_bank  支行名称  <br/>
+     * @param card_number  银行卡账号  <br/>
+     * @param phone      手机<br/>
+     * @param idCard   身份证<br/>
+     * @param userName   持卡人名称<br/>
+     * @return
      */
-    public void addBank(Subscriber<Object> subscriber, String cardNumber, String cardPhone, String idCard,String banksNames) {
-        Observable observable = initService().addBank( System.currentTimeMillis() + "","7d09c4a6e6b8a45cc32d1e5e48ec91cf", DataCenter.UserId, DataCenter.HashId,
-                cardNumber,cardPhone,idCard,banksNames);
+    public void addBank(Subscriber<Object> subscriber, String branch_bank, String card_number, String phone, String idCard,String userName) {
+        Observable observable = initService().addBank( System.currentTimeMillis() + "","4ddd2bf4b16a5899646c115949c5e5f3", DataCenter.UserId,
+                branch_bank,card_number,phone,idCard,userName);
         toOtherSubscribe(observable, subscriber);
     }
+
+
+    /**
+     * 添加对公银行卡  <br/>
+     * @param card_number    银行卡账号       <br/>
+     * @param branch_bank   支行名称      <br/>
+     * @param bank_id     发卡银行    <br/>
+     * @param user_name    公司名称   <br/>
+     * @return
+     */
+    public void addBankCardToCompany(Subscriber<Object> subscriber, String card_number, String branch_bank, String bank_id,String user_name) {
+        Observable observable = initService().addBankCardToCompany( System.currentTimeMillis() + "","7d096c0756e5a60d727f37b345fbc4c7", DataCenter.UserId,
+                card_number,branch_bank,bank_id,user_name);
+        toOtherSubscribe(observable, subscriber);
+    }
+
+    /**
+     *  删除银行卡
+     * @param subscriber
+     * @param page
+     */
     public void delBank(Subscriber<Object> subscriber, String page) {
         Observable observable = initService().delBank( System.currentTimeMillis() + "","3435103f11f21993476fe72ff7a20b8f", DataCenter.UserId, DataCenter.HashId,page);
         toOtherSubscribe(observable, subscriber);

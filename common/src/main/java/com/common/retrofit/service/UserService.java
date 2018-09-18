@@ -1,6 +1,7 @@
 package com.common.retrofit.service;
 
 import com.common.retrofit.entity.result.AboutBean;
+import com.common.retrofit.entity.result.ActiveListEntity;
 import com.common.retrofit.entity.result.AddressBean;
 import com.common.retrofit.entity.result.AddressResBean;
 import com.common.retrofit.entity.result.BankListBean;
@@ -91,11 +92,39 @@ public interface UserService {
     Observable<Object> delBank(@Field("time") String hash, @Field("hash") String time
             , @Field("uid") int uid, @Field("hashid") String hashid, @Field("id") String page);
 
+
+    /**
+     *  添加对私银行
+     * @param branch_bank  支行名称  <br/>
+     * @param card_number  银行卡账号  <br/>
+     * @param phone      手机<br/>
+     * @param ID_card   身份证<br/>
+     * @param user_name   持卡人名称<br/>
+     * @return
+     */
     @FormUrlEncoded
     @POST("addBank.html")
-    Observable<Object> addBank(@Field("time") String hash, @Field("hash") String time
-            , @Field("uid") int uid, @Field("hashid") String hashid, @Field("bank_id") String bank_id, @Field("card_number") String card_number
-            , @Field("phone") String phone, @Field("ID_card") String ID_card);
+    Observable<Object> addBank(@Field("time") String time, @Field("hash") String hash, @Field("uid") int uid,
+                                @Field("branch_bank") String branch_bank, @Field("card_number") String card_number,
+                               @Field("phone") String phone, @Field("ID_card") String ID_card, @Field("user_name") String user_name);
+
+
+    /**
+     * 添加对公银行卡  <br/>
+     * @param time        <br/>
+     * @param hash            <br/>
+     * @param uid             <br/>
+     * @param card_number    银行卡账号       <br/>
+     * @param branch_bank   支行名称      <br/>
+     * @param bank_id     发卡银行    <br/>
+     * @param user_name    公司名称   <br/>
+     * @return
+     */
+    @FormUrlEncoded
+    @POST("addPublicBank.html")
+    Observable<Object> addBankCardToCompany(@Field("time") String time, @Field("hash") String hash , @Field("uid") int uid,
+                                            @Field("card_number") String card_number, @Field("branch_bank") String branch_bank,
+                                            @Field("bank_id") String bank_id, @Field("user_name") String user_name);
 
     @FormUrlEncoded
     @POST("bankType.html")
@@ -286,7 +315,7 @@ public interface UserService {
      * @param ID_front_img  正面照片   <br/>
      * @param ID_back_img   反面照片   <br/>
      * @param license_img   营业执照   <br/>
-     * @param name          法人授权代理人姓名   <br/>
+//     * @param name          法人授权代理人姓名   <br/>
      * @param phone         手机号   <br/>
      * @param pcode         手机验证码   <br/>
      * @return
@@ -310,6 +339,43 @@ public interface UserService {
 //            ,@Field("latitude") String latitude, @Field("longitude") String longitude);
 //     * @param latitude
 //     * @param longitude
+
+
+    /**
+     *  忘记账号找回   <br/>
+     * @param shop_name 商家名称 <br/>
+     * @param document_name 法人姓名 <br/>
+     * @param certificates_type 证件类型 <br/>
+     * @param certificates_number 证件号码 <br/>
+     * @param ID_front_img 身份证正面照片 <br/>
+     * @param ID_back_img 身份证反面照片 <br/>
+     * @param license_img 营业执照 <br/>
+     * @param phone 预留手机号 <br/>
+     * @param checkcode 验证码 <br/>
+     */
+    @FormUrlEncoded
+    @POST("retrieveUsername.html")
+    Observable<Object> forgetAccountGetBack(@Field("time") String time, @Field("hash") String hash
+            , @Field("shop_name") String shop_name, @Field("document_name") String document_name
+            , @Field("certificates_type") String certificates_type, @Field("certificates_number") String certificates_number
+            , @Field("ID_front_img") String ID_front_img,@Field("ID_back_img") String ID_back_img
+            , @Field("license_img") String license_img
+            , @Field("phone") String phone,@Field("checkcode") String checkcode);
+
+
+    /**
+     *  更换管理员手机号码   <br/>
+     * @param old_phone 旧手机号 <br/>
+     * @param old_checkcode 旧手机号验证码 <br/>
+     * @param new_phone 新手机号 <br/>
+     * @param new_checkcode 新手机号验证码 <br/>
+     */
+    @FormUrlEncoded
+    @POST("changePhone.html")
+    Observable<Object> changManagerPhone(@Field("time") String time, @Field("hash") String hash,@Field("uid") int uid
+            , @Field("old_phone") String old_phone, @Field("old_checkcode") String old_checkcode
+            , @Field("new_phone") String new_phone, @Field("new_checkcode") String new_checkcode);
+
 
     @FormUrlEncoded
     @POST("delData.html")
@@ -733,4 +799,11 @@ public interface UserService {
     Observable<Object> updatePwd(@Field("time") String hash, @Field("hash") String time, @Field("uid") int uid, @Field("hashid") String password,
                                  @Field("oldpwd") String oldpwd, @Field("newpwd") String newpwd,
                                  @Field("repeatpwd") String repeatpwd);
+
+
+    @FormUrlEncoded
+    @POST("shopActivity.html")
+    Observable<HttpRespBean<ActiveListEntity>> getActiveListData(@Field("time") String time, @Field("hash") String hash
+            , @Field("uid") int uid);
+
 }

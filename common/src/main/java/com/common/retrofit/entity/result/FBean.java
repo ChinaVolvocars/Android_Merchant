@@ -7,10 +7,10 @@ public class FBean {
     private String money;
     private String time;
     private String xindou;
-
     private String proportion;
     private String appreciation;
     private String ratio;
+    private String week;
 
     public String getXindou() {
         return xindou;
@@ -82,6 +82,14 @@ public class FBean {
         this.ratio = ratio;
     }
 
+    public String getWeek() {
+        return week;
+    }
+
+    public void setWeek(String week) {
+        this.week = week;
+    }
+
     @Override
     public String toString() {
         return "FBean{" +
@@ -91,6 +99,7 @@ public class FBean {
                 ", proportion='" + proportion + '\'' +
                 ", appreciation='" + appreciation + '\'' +
                 ", ratio='" + ratio + '\'' +
+                ", week='" + week + '\'' +
                 '}';
     }
 }

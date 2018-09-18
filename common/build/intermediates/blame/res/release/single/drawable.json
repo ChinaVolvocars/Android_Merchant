@@ -196,12 +196,12 @@
         "source": "E:\\sx_repositories\\SX_Merchant\\common\\src\\main\\res\\drawable\\mq_shape_photo_folder_pw_bg.xml"
     },
     {
-        "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\release\\drawable\\selector_base.xml",
-        "source": "E:\\sx_repositories\\SX_Merchant\\common\\src\\main\\res\\drawable\\selector_base.xml"
-    },
-    {
         "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\release\\drawable\\abc_btn_default_mtrl_shape.xml",
         "source": "C:\\Users\\little_bug\\.android\\build-cache\\f406617598f5a5689b140af35079d61c0806a085\\output\\res\\drawable\\abc_btn_default_mtrl_shape.xml"
+    },
+    {
+        "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\release\\drawable\\selector_base.xml",
+        "source": "E:\\sx_repositories\\SX_Merchant\\common\\src\\main\\res\\drawable\\selector_base.xml"
     },
     {
         "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\release\\drawable\\mq_selector_btn_photo_send.xml",
@@ -420,12 +420,12 @@
         "source": "C:\\Users\\little_bug\\.android\\build-cache\\f406617598f5a5689b140af35079d61c0806a085\\output\\res\\drawable\\abc_btn_colored_material.xml"
     },
     {
-        "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\release\\drawable\\shape_search_views.xml",
-        "source": "E:\\sx_repositories\\SX_Merchant\\common\\src\\main\\res\\drawable\\shape_search_views.xml"
-    },
-    {
         "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\release\\drawable\\abc_list_selector_holo_light.xml",
         "source": "C:\\Users\\little_bug\\.android\\build-cache\\f406617598f5a5689b140af35079d61c0806a085\\output\\res\\drawable\\abc_list_selector_holo_light.xml"
+    },
+    {
+        "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\release\\drawable\\shape_search_views.xml",
+        "source": "E:\\sx_repositories\\SX_Merchant\\common\\src\\main\\res\\drawable\\shape_search_views.xml"
     },
     {
         "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\release\\drawable\\shape_bg_dialog.xml",

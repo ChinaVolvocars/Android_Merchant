@@ -13,6 +13,7 @@
     <color name="grey">@color/view_background_color</color>
     <color name="grey_press">@color/view_background_color</color>
     <color name="black">#222222</color>
+    <color name="color_d2d2d2">#d2d2d2</color>
     <color name="white">#ffffff</color>
     <color name="blue">#4A9DE2</color>
     <color name="white_press">#a0ffffff</color>
@@ -20,10 +21,12 @@
 
     <!--app整体基调色-->
     <color name="base_text_color">#525252</color>
+    <color name="color_d2">#d2d2d2</color>
     <color name="base_grey_text_color">#767676</color>
     <color name="base_hint_text_color">#C3DDD5</color>
     <color name="base_loading_background">@color/view_background_color</color>
     <color name="base_color">#ff8314</color>
+    <color name="color_b59b72">#b59b72</color>
     <color name="base_color_press">#a0FB434A</color>
     <color name="c_FE6F4E">#FE6F4E</color>
     <color name="c_FE6F4E_press">#a0FE6F4E</color>

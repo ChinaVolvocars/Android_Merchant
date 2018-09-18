@@ -12,7 +12,6 @@ public class FiniBean {
      * list : [{"xindou":"100","money":"50","total_money":"200","withdraw_money":"30","create_time":"2018-05-05"},{"xindou":"80","money":"50","total_money":"90","withdraw_money":"10","create_time":"2018-05-05"}]
      * page : 1
      */
-
     private int page;
     private List<ListBean> list;
 

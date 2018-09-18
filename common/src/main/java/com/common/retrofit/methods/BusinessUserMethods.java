@@ -2,6 +2,7 @@ package com.common.retrofit.methods;
 
 import com.common.retrofit.base.BaseMethods;
 import com.common.retrofit.entity.DataCenter;
+import com.common.retrofit.entity.result.ActiveListEntity;
 import com.common.retrofit.entity.result.ChangeBean;
 import com.common.retrofit.entity.result.FBean;
 import com.common.retrofit.entity.result.FinanceDetailEntity;
@@ -11,11 +12,7 @@ import com.common.retrofit.entity.result.InfoBean;
 import com.common.retrofit.entity.result.NewTestBean;
 import com.common.retrofit.entity.resultImpl.HttpRespBean;
 import com.common.retrofit.service.UserService;
-import com.google.gson.internal.ObjectConstructor;
 
-import retrofit2.http.Field;
-import retrofit2.http.FormUrlEncoded;
-import retrofit2.http.POST;
 import rx.Observable;
 import rx.Subscriber;
 
@@ -224,6 +221,53 @@ public class BusinessUserMethods extends BaseMethods {
     }
 
     /**
+     *  忘记账号找回   <br/>
+     * @param shop_name 商家名称 <br/>
+     * @param document_name 法人姓名 <br/>
+     * @param certificates_type 证件类型 <br/>
+     * @param certificates_number 证件号码 <br/>
+     * @param ID_front_img 身份证正面照片 <br/>
+     * @param ID_back_img 身份证反面照片 <br/>
+     * @param license_img 营业执照 <br/>
+     * @param phone 预留手机号 <br/>
+     * @param checkcode 验证码 <br/>
+     */
+    public void forgetAccountGetBack(Subscriber<Object> subscriber,
+                                     String shop_name, String document_name,
+                                     String certificates_type, String certificates_number,
+                                     String ID_front_img, String ID_back_img,
+                                     String license_img, String phone, String checkcode) {
+
+        Observable observable = initService()
+                .forgetAccountGetBack(System.currentTimeMillis() + "", "11f61fb9463de1e6ec9c9a5bd9e146db"
+                        , shop_name, document_name
+                        , certificates_type, certificates_number
+                        , ID_front_img, ID_back_img
+                        , license_img, phone
+                        , checkcode);
+        toOtherSubscribe(observable, subscriber);
+    }
+
+
+    /**
+     *  忘记账号找回   <br/>
+     * @param old_phone 旧手机号 <br/>
+     * @param old_checkcode 旧手机号验证码 <br/>
+     * @param new_phone 新手机号 <br/>
+     * @param new_checkcode 新手机号验证码 <br/>
+     */
+    public void changManagerPhone(Subscriber<Object> subscriber,
+                                     String old_phone, String old_checkcode,
+                                     String new_phone, String new_checkcode) {
+        Observable observable = initService()
+                .changManagerPhone(System.currentTimeMillis() + "", "f5accd29f3dc15b5b9b88d07cf423bd7" , DataCenter.UserId
+                        , old_phone, old_checkcode
+                        , new_phone, new_checkcode);
+        toOtherSubscribe(observable, subscriber);
+    }
+
+
+    /**
      * 检测商户名称是是否唯一
      *
      * @param subscriber 观察者
@@ -245,6 +289,16 @@ public class BusinessUserMethods extends BaseMethods {
     public void resetUserPwd(Subscriber<HttpRespBean> subscriber, String userNmae, String pwd) {
 //        Observable observable = initService().resetPwd(System.currentTimeMillis() + "","3c437a1b469dc67c1e1a804b3a00270b",userNmae,pwd);
         Observable observable = initService().resetPwd(System.currentTimeMillis() + "", "3c437a1b469dc67c1e1a804b3a00270b", userNmae, pwd);
+        toSubscribe(observable, subscriber);
+    }
+    /**
+     * 活动列表
+     * @param subscriber
+     * @param page
+     */
+    public void getActiveListData(Subscriber<HttpRespBean<ActiveListEntity>> subscriber, int page) {
+        Observable observable = initService().getActiveListData(System.currentTimeMillis() + "",
+                "4b50512c9c732419a0d992ab9cd202bc", DataCenter.UserId);
         toSubscribe(observable, subscriber);
     }
 
