@@ -7,10 +7,10 @@ android {
         applicationId "com.hzxmkuar.sxmaketnew"
         minSdkVersion 16
         targetSdkVersion 25
-//        versionCode 13
-//        versionName "1.0.3"
-        versionCode 14
-        versionName "1.0.4"
+//        versionCode 18
+//        versionName "1.0.8"
+        versionCode 19
+        versionName "1.0.9"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         multiDexEnabled true
         manifestPlaceholders = [
@@ -38,13 +38,14 @@ android {
         abortOnError false
     }
     productFlavors{
-        xiaomi{}
+        sx_xiaomi{}
         sx_vivo{}
         sx_oppo{}
-        sx_tencent{}
+        sx_tc{}
         sx_baidu{}
         sx_360{}
         sx_huawei{}
+        sx_test{}
     }
     android.applicationVariants.all { variant ->
         variant.outputs.each { output ->
