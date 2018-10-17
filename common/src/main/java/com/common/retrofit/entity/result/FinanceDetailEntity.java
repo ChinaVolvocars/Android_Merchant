@@ -1,18 +1,17 @@
 package com.common.retrofit.entity.result;
 
 /**
- *
  * 财务管理详情
  * Created by little_bug on 2018/8/31.
  */
 public class FinanceDetailEntity {
-    private String money;
-    private String grade;
     private String xindou;
-
+    private String grade;
     private String proportion;
     private String appreciation;
     private String ratio;
+    private String money;
+    private String week;
 
     public String getMoney() {
         return money;
@@ -62,6 +61,14 @@ public class FinanceDetailEntity {
         this.ratio = ratio;
     }
 
+    public String getWeek() {
+        return week;
+    }
+
+    public void setWeek(String week) {
+        this.week = week;
+    }
+
     @Override
     public String toString() {
         return "FinanceDetailEntity{" +
@@ -71,6 +78,7 @@ public class FinanceDetailEntity {
                 ", proportion='" + proportion + '\'' +
                 ", appreciation='" + appreciation + '\'' +
                 ", ratio='" + ratio + '\'' +
+                ", week='" + week + '\'' +
                 '}';
     }
 }

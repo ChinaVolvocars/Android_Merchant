@@ -21,6 +21,7 @@ public class HeaderIntercepter implements Interceptor {
                 .addHeader("uuid", String.valueOf(APPUtil.getUniqueIMei()))
                 .addHeader("versioncode", String.valueOf(APPUtil.getVersionCode(ContextUtils.getAppContext())))
                 .addHeader("types","2")
+                .addHeader("is_shop","1")
                 .build();
         return chain.proceed(request);
     }

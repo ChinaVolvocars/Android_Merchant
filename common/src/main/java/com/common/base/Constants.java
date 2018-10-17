@@ -1,11 +1,14 @@
 package com.common.base;
 
 import android.Manifest;
+import android.util.Log;
 
 import com.common.retrofit.entity.DataCenter;
 import com.common.utils.MD5Utils;
 import com.common.utils.SPUtils;
 
+import java.lang.reflect.Array;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
@@ -15,17 +18,29 @@ import java.util.List;
  * @date: 2016/12/26
  */
 public class Constants {
+    private static final String TAG = "Constants";
+//    public static String getHash(List<String> list) {
+//        list.add("time");
+//        list.add("apiId");
+//        list.add("terminal");
+//        Collections.sort(list);
+//        int j;
+//        String string = "";
+//        for (j = 0; j < list.size(); j++) {
+//            string += list.get(j);
+//        }
+//        return MD5Utils.MD5Encode(string + "56733fdb9a8dd961c90ae8dc6b8c67da");
+//    }
+
     public static String getHash(List<String> list) {
-        list.add("time");
-        list.add("apiId");
-        list.add("terminal");
         Collections.sort(list);
         int j;
         String string = "";
         for (j = 0; j < list.size(); j++) {
             string += list.get(j);
         }
-        return MD5Utils.MD5Encode(string + "56733fdb9a8dd961c90ae8dc6b8c67da");
+//        Log.i(TAG, "getHashValue:  hashValue        "+string+ "k+_b}yC2Hx~:uZ/O=a9g-0{6^B|LhfwFlG@I?1MY");
+        return MD5Utils.MD5Encode(string + "k+_b}yC2Hx~:uZ/O=a9g-0{6^B|LhfwFlG@I?1MY");
     }
 
     public static String TOKEN = SPUtils.getShareString(DataCenter.TOKEN);
@@ -49,10 +64,11 @@ public class Constants {
     public static final String BaseUrl = "http://app.zhongxinyingjia.com/Api/";                   //  高兴超线上环境用
     /**
      * 线下环境测试用
-     *
      */
 //    public static final String BaseUrl = "http://test.zhongxinyingjia.com/Api/";                   //  高兴超线下测试环境用
-//    public static final String BaseUrl = "http://app.zhongxinyingjia.com/Api/";                   //  高兴超线下测试环境用
+//    public static final String BaseUrl = "http://app.zhongxinyingjia.com/Api/";
+//
+// 高兴超线下测试环境用
     /**
      * 线下环境测试用
      */

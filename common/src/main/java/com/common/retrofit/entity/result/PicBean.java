@@ -13,7 +13,6 @@ public class PicBean {
      * ApiUrl : /Api/Upload/uploadPicture.html
      * Data : http://sxpic.oss-cn-hangzhou.aliyuncs.com/file/2018-05-31/0737f3fd-c0ca-4e85-a533-94967aaddf50.JPEG
      */
-
     private int Code;
     private String Msg;
     private String Time;

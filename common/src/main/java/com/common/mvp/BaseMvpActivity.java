@@ -35,6 +35,8 @@ import com.common.widget.navigation.WidgetButton;
 import com.common.widget.progress.LoadDialog;
 import com.common.widget.toast.ToastManager;
 
+import org.greenrobot.eventbus.EventBus;
+
 import rx.functions.Action1;
 
 /**
@@ -156,6 +158,10 @@ public abstract class BaseMvpActivity<P extends BasePresenter> extends AppCompat
         m_statusBar.setLayoutParams(layoutParams);
     }
 
+    protected View getStatesBar(){
+        return m_statusBar;
+    }
+
     /**  设置titleBar */
     protected void setNavigation() {
         m_navigationBar.setVisibility(View.GONE);
@@ -241,6 +247,23 @@ public abstract class BaseMvpActivity<P extends BasePresenter> extends AppCompat
         m_navigationBar.setAppWidgeTitle(getResources().getString(titleRes));
     }
 
+    /**
+     *  注册EventBus
+     */
+    protected void registerEvent() {
+        if (!EventBus.getDefault().isRegistered(this)) {
+            EventBus.getDefault().register(this);
+        }
+    }
+
+    /**
+     *  取消注册EventBus
+     */
+    protected void unRegisterEvent() {
+        if (EventBus.getDefault() != null) {
+            EventBus.getDefault().unregister(this);
+        }
+    }
     private void initRootView() {
         m_inflater = LayoutInflater.from(this);
         m_root = (LinearLayout) this.findViewById(R.id.root);
@@ -474,6 +497,7 @@ public abstract class BaseMvpActivity<P extends BasePresenter> extends AppCompat
 
     @Override
     protected void onDestroy() {
+        unRegisterEvent();
         clearMemory();
         super.onDestroy();
     }

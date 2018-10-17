@@ -56,6 +56,10 @@
         "source": "E:\\sx_repositories\\SX_Merchant\\common\\src\\main\\res\\drawable\\mq_shape_dialog_bg.xml"
     },
     {
+        "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\drawable\\shap_oval.xml",
+        "source": "E:\\sx_repositories\\SX_Merchant\\common\\src\\main\\res\\drawable\\shap_oval.xml"
+    },
+    {
         "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_edit_text_material.xml",
         "source": "C:\\Users\\little_bug\\.android\\build-cache\\f406617598f5a5689b140af35079d61c0806a085\\output\\res\\drawable\\abc_edit_text_material.xml"
     },
@@ -200,6 +204,10 @@
         "source": "E:\\sx_repositories\\SX_Merchant\\common\\src\\main\\res\\drawable\\frame_circle_base.xml"
     },
     {
+        "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\drawable\\jx_10_w.xml",
+        "source": "E:\\sx_repositories\\SX_Merchant\\common\\src\\main\\res\\drawable\\jx_10_w.xml"
+    },
+    {
         "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\drawable\\selector_pickerview_btn.xml",
         "source": "C:\\Users\\little_bug\\.android\\build-cache\\3b8486c8f5a09d02b3cd88c20565cddd79b99cf5\\output\\res\\drawable\\selector_pickerview_btn.xml"
     },
@@ -228,12 +236,12 @@
         "source": "C:\\Users\\little_bug\\.android\\build-cache\\58d3ef2b14de161b9ff2ea18bc647c496b56dc17\\output\\res\\drawable\\design_password_eye.xml"
     },
     {
-        "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\drawable\\progressloading.xml",
-        "source": "E:\\sx_repositories\\SX_Merchant\\common\\src\\main\\res\\drawable\\progressloading.xml"
-    },
-    {
         "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_seekbar_track_material.xml",
         "source": "C:\\Users\\little_bug\\.android\\build-cache\\f406617598f5a5689b140af35079d61c0806a085\\output\\res\\drawable\\abc_seekbar_track_material.xml"
+    },
+    {
+        "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\drawable\\progressloading.xml",
+        "source": "E:\\sx_repositories\\SX_Merchant\\common\\src\\main\\res\\drawable\\progressloading.xml"
     },
     {
         "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ratingbar_indicator_material.xml",
@@ -432,6 +440,10 @@
         "source": "E:\\sx_repositories\\SX_Merchant\\common\\src\\main\\res\\drawable\\selector_shape_whites.xml"
     },
     {
+        "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\drawable\\bg_ractangle_shape.xml",
+        "source": "E:\\sx_repositories\\SX_Merchant\\common\\src\\main\\res\\drawable\\bg_ractangle_shape.xml"
+    },
+    {
         "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\drawable\\wc_nomal.xml",
         "source": "E:\\sx_repositories\\SX_Merchant\\common\\src\\main\\res\\drawable\\wc_nomal.xml"
     },
@@ -462,6 +474,10 @@
     {
         "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\drawable\\selector_shape_orange.xml",
         "source": "E:\\sx_repositories\\SX_Merchant\\common\\src\\main\\res\\drawable\\selector_shape_orange.xml"
+    },
+    {
+        "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\drawable\\shape_confirm_btn_bg.xml",
+        "source": "E:\\sx_repositories\\SX_Merchant\\common\\src\\main\\res\\drawable\\shape_confirm_btn_bg.xml"
     },
     {
         "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_seekbar_thumb_material.xml",

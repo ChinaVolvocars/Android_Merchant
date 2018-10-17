@@ -39,7 +39,6 @@ public class FiniBean {
          * withdraw_money : 30
          * create_time : 2018-05-05
          */
-
         private String xindou;
         private String money;
         private String total_money;
@@ -70,6 +69,10 @@ public class FiniBean {
             this.total_money = total_money;
         }
 
+        /**
+         *  withdraw_money 提现
+         * @return
+         */
         public String getWithdraw_money() {
             return withdraw_money;
         }

@@ -28,6 +28,8 @@ public class IndexBean {
     private String managementCode;
     private String new_shop_activity_name;
     private String new_shop_activity_url;
+    private String new_shop_activity_img;
+    private String managementLimit;
 
     public String getRatio() {
         return ratio;
@@ -120,5 +122,31 @@ public class IndexBean {
 
     public void setNew_shop_activity_url(String new_shop_activity_url) {
         this.new_shop_activity_url = new_shop_activity_url;
+    }
+
+    /**
+     *  商家活动图片
+     * @return
+     */
+    public String getNew_shop_activity_img() {
+        return new_shop_activity_img;
+    }
+
+    public void setNew_shop_activity_img(String new_shop_activity_img) {
+        this.new_shop_activity_img = new_shop_activity_img;
+    }
+
+    /**
+     *  设置账号消费功能的开户与否  <br/>
+     *  1 为限制
+     *  2 为不限制
+     * @return
+     */
+    public String getManagementLimit() {
+        return managementLimit;
+    }
+
+    public void setManagementLimit(String managementLimit) {
+        this.managementLimit = managementLimit;
     }
 }

@@ -240,6 +240,14 @@
         "source": "C:\\Users\\little_bug\\.android\\build-cache\\f406617598f5a5689b140af35079d61c0806a085\\output\\res\\drawable\\notification_tile_bg.xml"
     },
     {
+        "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\bg_ractangle_shape.xml",
+        "source": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\bundles\\debug\\res\\drawable\\bg_ractangle_shape.xml"
+    },
+    {
+        "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\jx_10_w.xml",
+        "source": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\bundles\\debug\\res\\drawable\\jx_10_w.xml"
+    },
+    {
         "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\selector_radius_shape_base.xml",
         "source": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\bundles\\debug\\res\\drawable\\selector_radius_shape_base.xml"
     },
@@ -384,6 +392,10 @@
         "source": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\bundles\\debug\\res\\drawable\\mq_selector_item_bottom.xml"
     },
     {
+        "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\shap_oval.xml",
+        "source": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\bundles\\debug\\res\\drawable\\shap_oval.xml"
+    },
+    {
         "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\selector_white.xml",
         "source": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\bundles\\debug\\res\\drawable\\selector_white.xml"
     },
@@ -422,6 +434,10 @@
     {
         "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\wc_nomal.xml",
         "source": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\bundles\\debug\\res\\drawable\\wc_nomal.xml"
+    },
+    {
+        "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\shape_confirm_btn_bg.xml",
+        "source": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\bundles\\debug\\res\\drawable\\shape_confirm_btn_bg.xml"
     },
     {
         "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\mq_selector_item_center.xml",

@@ -152,4 +152,17 @@ public class FileUtils {
 		SimpleDateFormat dateFormat = new SimpleDateFormat("'IMG'_yyyy_MM_dd_HH_mm_ss");
 		return dateFormat.format(date) + ".jpg";
 	}
+
+
+	/**
+	 * 判断SD卡是否挂载
+	 */
+	public static boolean isSDCardAvailable() {
+		if (Environment.MEDIA_MOUNTED.equals(Environment
+				.getExternalStorageState())) {
+			return true;
+		} else {
+			return false;
+		}
+	}
 }

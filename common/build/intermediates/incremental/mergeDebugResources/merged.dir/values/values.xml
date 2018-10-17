@@ -38,6 +38,7 @@
     <color name="base_loading_background">@color/view_background_color</color>
     <color name="base_text_color">#525252</color>
     <color name="black">#222222</color>
+    <color name="black_232323">#232323</color>
     <color name="blue">#4A9DE2</color>
     <color name="bright_foreground_disabled_material_dark">#80ffffff</color>
     <color name="bright_foreground_disabled_material_light">#80000000</color>
@@ -56,6 +57,17 @@
     <color name="colorAccent">#FA7C20</color>
     <color name="colorPrimary">#2196F3</color>
     <color name="colorPrimaryDark">#006EFF</color>
+    <color name="color_00fff">#00FFFFFF</color>
+    <color name="color_30a4ee">#30a4ee</color>
+    <color name="color_757575">#757575</color>
+    <color name="color_987654">#987654</color>
+    <color name="color_b59b72">#b59b72</color>
+    <color name="color_d2">#d2d2d2</color>
+    <color name="color_d2d2d2">#d2d2d2</color>
+    <color name="color_ddd">#dddddd</color>
+    <color name="color_f0f0f0">#f0f0f0</color>
+    <color name="color_f7f7f7">#f7f7f7</color>
+    <color name="color_ff9934">#ff9934</color>
     <color name="design_bottom_navigation_shadow_color">#14000000</color>
     <color name="design_fab_shadow_end_color">@android:color/transparent</color>
     <color name="design_fab_shadow_mid_color">#14000000</color>
@@ -2943,6 +2955,22 @@
         <item name="android:maxLines">1</item>
         <item name="android:singleLine">true</item>
         <item name="android:ellipsize">end</item>
+    </style>
+    <style name="custom_dialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <!-- Dialog的windowFrame框为无 -->
+        <item name="android:windowIsFloating">true</item>
+        <!-- 是否漂现在activity上 -->
+        <item name="android:windowIsTranslucent">true</item>
+        <!-- 是否半透明 -->
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:background">@null</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <!-- 去除黑色边框的关键设置项 -->
+        <item name="android:backgroundDimEnabled">true</item>
+        <!-- 屏幕背景是否变暗 -->
+        <item name="android:backgroundDimAmount">0.6</item>
     </style>
     <style name="custom_dialog2" parent="@android:style/Theme.Dialog">
         <item name="android:windowFrame">@null</item>

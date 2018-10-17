@@ -4,6 +4,7 @@ import com.common.retrofit.entity.result.AboutBean;
 import com.common.retrofit.entity.result.ActiveListEntity;
 import com.common.retrofit.entity.result.AddressBean;
 import com.common.retrofit.entity.result.AddressResBean;
+import com.common.retrofit.entity.result.AppVersionEntity;
 import com.common.retrofit.entity.result.BankListBean;
 import com.common.retrofit.entity.result.BankNameBean;
 import com.common.retrofit.entity.result.CCBean;
@@ -46,6 +47,7 @@ import com.common.retrofit.entity.result.TwoBean;
 import com.common.retrofit.entity.result.UserBean;
 import com.common.retrofit.entity.result.UserInfoBean;
 import com.common.retrofit.entity.result.WallBean;
+import com.common.retrofit.entity.result.WidthDrawEntity;
 import com.common.retrofit.entity.result.YSBean;
 import com.common.retrofit.entity.result.ZBDetil;
 import com.common.retrofit.entity.result.ZBDetilBean;
@@ -93,6 +95,20 @@ public interface UserService {
             , @Field("uid") int uid, @Field("hashid") String hashid, @Field("id") String page);
 
 
+//    /**
+//     *  添加对私银行
+//     * @param branch_bank  支行名称  <br/>
+//     * @param card_number  银行卡账号  <br/>
+//     * @param phone      手机<br/>
+//     * @param ID_card   身份证<br/>
+//     * @param user_name   持卡人名称<br/>
+//     * @return
+//     */
+//    @FormUrlEncoded
+//    @POST("addBank.html")
+//    Observable<Object> addBank(@Field("time") String time, @Field("hash") String hash, @Field("uid") int uid,
+//                                @Field("branch_bank") String branch_bank, @Field("card_number") String card_number,
+//                               @Field("phone") String phone, @Field("ID_card") String ID_card, @Field("user_name") String user_name);
     /**
      *  添加对私银行
      * @param branch_bank  支行名称  <br/>
@@ -103,7 +119,7 @@ public interface UserService {
      * @return
      */
     @FormUrlEncoded
-    @POST("addBank.html")
+    @POST("addBank_new.html")
     Observable<Object> addBank(@Field("time") String time, @Field("hash") String hash, @Field("uid") int uid,
                                 @Field("branch_bank") String branch_bank, @Field("card_number") String card_number,
                                @Field("phone") String phone, @Field("ID_card") String ID_card, @Field("user_name") String user_name);
@@ -135,7 +151,27 @@ public interface UserService {
     @POST("scategory.html")
     Observable<NewTestBean> scategory(@Field("time") String time, @Field("hash") String hash);
 
+//    /**
+//     * shop_name (请输入门店名称 String类型 必填)
+//     * category_id (请选择门店类型 Int类型 必填)
+//     * province (请选择省 String类型 必填)
+//     * area (请选择市 String类型 必填)
+//     * county (请选择区 String类型 必填)
+//     * address (请输入详细地址 String类型 必填)
+//     * desc (请输入店家详情介绍 String类型 必填)
+//     * face (请上传店头照片 String类型 必填)
+//     * shop_pic (请上传店家照片 String类型 必填)
+//     */
+//    @FormUrlEncoded
+//    @POST("shopInfoSubmit.html")
+//    Observable<Object> shopInfoSubmit(@Field("time") String time, @Field("hash") String hash, @Field("uid") int uid
+//            , @Field("hashid") String hashid, @Field("shop_name") String shop_name, @Field("category_id") String category_id
+//            , @Field("province") String province, @Field("area") String area, @Field("county") String county
+//            , @Field("address") String address, @Field("desc") String desc, @Field("face") String face
+//            , @Field("shop_pic") String shop_pic, @Field("latitude") String latitude, @Field("longitude") String longitude);
+
     /**
+     *  提交编辑后的店铺信息（新接口）
      * shop_name (请输入门店名称 String类型 必填)
      * category_id (请选择门店类型 Int类型 必填)
      * province (请选择省 String类型 必填)
@@ -147,12 +183,27 @@ public interface UserService {
      * shop_pic (请上传店家照片 String类型 必填)
      */
     @FormUrlEncoded
-    @POST("shopInfoSubmit.html")
-    Observable<Object> shopInfoSubmit(@Field("time") String hash, @Field("hash") String time, @Field("uid") int uid
+    @POST("shopInfoSubmitNew.html")
+    Observable<Object> shopInfoSubmit(@Field("time") String time, @Field("hash") String hash, @Field("uid") int uid
             , @Field("hashid") String hashid, @Field("shop_name") String shop_name, @Field("category_id") String category_id
             , @Field("province") String province, @Field("area") String area, @Field("county") String county
             , @Field("address") String address, @Field("desc") String desc, @Field("face") String face
-            , @Field("shop_pic") String shop_pic, @Field("latitude") String latitude, @Field("longitude") String longitude);
+            );
+
+
+    /**
+     *  商户图片上传
+     * @param time  time
+     * @param hash hash
+     * @param uid uid
+     * @param hashid hasid
+     * @param shop_name 上传的图片集合
+     * @return
+     */
+    @FormUrlEncoded
+    @POST("shopPicUpdate.html")
+    Observable<Object> updateShopImges(@Field("time") String time, @Field("hash") String hash, @Field("uid") int uid
+            , @Field("hashid") String hashid, @Field("shop_pic") String shop_name);
 
     @FormUrlEncoded
     @POST("storeSubmit.html")
@@ -162,10 +213,20 @@ public interface UserService {
 
     @FormUrlEncoded
     @POST("withdraw.html")
-    Observable<Object> withdraws(@Field("time") String hash, @Field("hash") String time, @Field("uid") int uid
+    Observable<HttpRespBean<WidthDrawEntity>> withdraws(@Field("time") String time, @Field("hash") String hash, @Field("uid") int uid
             , @Field("hashid") String hashid, @Field("money") String money, @Field("card_id") String card_id
             , @Field("proportion") String proportion);
 
+
+    /**
+     * 获取财务信息--列表信息
+     * @param hash
+     * @param time
+     * @param uid
+     * @param hashid
+     * @param page
+     * @return
+     */
     @FormUrlEncoded
     @POST("financeList.html")
     Observable<HttpRespBean<FiniBean>> financeList(@Field("time") String hash, @Field("hash") String time
@@ -202,7 +263,7 @@ public interface UserService {
     @FormUrlEncoded
     @POST("shopRetrievePwd.html")
 //    Observable<HttpRespBean<IndexBean>> forgetPwd(@Field("time") String hash, @Field("hash") String time,
-    Observable<HttpRespBean> forgetPwd(@Field("time") String hash, @Field("hash") String time,
+    Observable<HttpRespBean> forgetPwd(@Field("time") String time, @Field("hash") String hash,
                                                   @Field("username") String username, @Field("shop_name") String shop_name,
                                                   @Field("document_name") String document_name,@Field("certificates_type") String certificates_type,
                                                   @Field("certificates_number") String certificates_number,@Field("phone") String phone, @Field("pcode") String pcode);
@@ -241,12 +302,31 @@ public interface UserService {
     @FormUrlEncoded
     @POST("financeDetail.html")
     Observable<HttpRespBean<FinanceDetailEntity>> financeDetailNew(@Field("time") String time, @Field("hash") String hash, @Field("uid") int uid
+//    Observable<Object> financeDetailNew(@Field("time") String time, @Field("hash") String hash, @Field("uid") int uid
             , @Field("hashid") String hashid);
 
+
+//    @FormUrlEncoded
+//    @POST("shopInfo.html")
+//    Observable<HttpRespBean<InfoBean>> shopInfo(@Field("time") String hash, @Field("hash") String time, @Field("uid") int uid
+//            , @Field("hashid") String hashid);
+
+
+    /**
+     *  获取商家信息新接口
+     * @param hash
+     * @param time
+     * @param uid
+     * @param hashid
+     * @return
+     */
     @FormUrlEncoded
-    @POST("shopInfo.html")
-    Observable<HttpRespBean<InfoBean>> shopInfo(@Field("time") String hash, @Field("hash") String time, @Field("uid") int uid
+    @POST("shopInfoNew.html")
+    Observable<HttpRespBean<InfoBean>> shopInfo(@Field("time") String time, @Field("hash") String hash, @Field("uid") int uid
             , @Field("hashid") String hashid);
+
+
+
 
     @FormUrlEncoded
     @POST("store.html")
@@ -779,7 +859,7 @@ public interface UserService {
 
     @FormUrlEncoded
     @POST("login.html")
-    Observable<HttpRespBean<UserBean>> login(@Field("time") String hash, @Field("hash") String time,
+    Observable<HttpRespBean<UserBean>> login(@Field("time") String time, @Field("hash") String hash,
                                              @Field("username") String uid, @Field("password") String password,
                                              @Field("jpushid") String jpushid);
 
@@ -805,5 +885,35 @@ public interface UserService {
     @POST("shopActivity.html")
     Observable<HttpRespBean<ActiveListEntity>> getActiveListData(@Field("time") String time, @Field("hash") String hash
             , @Field("uid") int uid);
+
+
+    /**
+     *  设置消费功能的开或者是关
+     * @param time
+     * @param hash
+     * @param uid
+     * @param managementLimit
+     * @return
+     */
+    @FormUrlEncoded
+    @POST("managementLimit.html")
+    Observable<Object> setFunctionOpenOrClose(@Field("time") String time, @Field("hash") String hash, @Field("uid") int uid, @Field("managementLimit") String managementLimit);
+
+
+    /**
+     * 检查App版本更新
+     * @param time time    <br/>
+     * @param hash hash    <br/>
+     * @param types 安卓或苹果（1、ios，2、Android）（必填）   <br/>
+     * @param is_shop 商家端或客户端（1、商家端，2、客户端）（必填）   <br/>
+     * @param is_shop 商家端或客户端（1、商家端，2、客户端）（必填）   <br/>
+     * @param version_code 版本号（必填）   <br/>
+     * @return
+     */
+    @FormUrlEncoded
+    @POST("versionControl.html")
+    Observable<HttpRespBean<AppVersionEntity>> checkAppVersion(@Field("time") String time, @Field("hash") String hash, @Field("types") String types,
+                                                               @Field("is_shop") String is_shop, @Field("version_code") String version_code);
+
 
 }

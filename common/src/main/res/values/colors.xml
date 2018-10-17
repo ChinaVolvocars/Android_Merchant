@@ -17,6 +17,7 @@
     <color name="white">#ffffff</color>
     <color name="blue">#4A9DE2</color>
     <color name="white_press">#a0ffffff</color>
+    <color name="color_f7f7f7">#f7f7f7</color>
     <!--  general color end -->
 
     <!--app整体基调色-->
@@ -26,7 +27,6 @@
     <color name="base_hint_text_color">#C3DDD5</color>
     <color name="base_loading_background">@color/view_background_color</color>
     <color name="base_color">#ff8314</color>
-    <color name="color_b59b72">#b59b72</color>
     <color name="base_color_press">#a0FB434A</color>
     <color name="c_FE6F4E">#FE6F4E</color>
     <color name="c_FE6F4E_press">#a0FE6F4E</color>
@@ -68,6 +68,16 @@
     <!-- 透明半透明色值 -->
     <color name="transparent">#00000000</color>
     <color name="transparent_half">#66000000</color>
-
     <!-- 设计规范颜色值 end-->
+
+    <color name="color_30a4ee">#30a4ee</color>
+    <color name="color_b59b72">#b59b72</color>
+
+    <color name="color_987654">#987654</color>
+    <color name="color_00fff">#00FFFFFF</color>
+    <color name="color_ddd">#dddddd</color>
+    <color name="color_ff9934">#ff9934</color>
+    <color name="color_f0f0f0">#f0f0f0</color>
+    <color name="color_757575">#757575</color>
+    <color name="black_232323">#232323</color>
 </resources>

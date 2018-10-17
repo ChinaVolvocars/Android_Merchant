@@ -20,6 +20,10 @@
         "source": "E:\\sx_repositories\\SX_Merchant\\common\\src\\main\\res\\drawable\\base_progress_horizonbar.xml"
     },
     {
+        "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\release\\drawable\\bg_ractangle_shape.xml",
+        "source": "E:\\sx_repositories\\SX_Merchant\\common\\src\\main\\res\\drawable\\bg_ractangle_shape.xml"
+    },
+    {
         "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\release\\drawable\\abc_ic_voice_search_api_material.xml",
         "source": "C:\\Users\\little_bug\\.android\\build-cache\\f406617598f5a5689b140af35079d61c0806a085\\output\\res\\drawable\\abc_ic_voice_search_api_material.xml"
     },
@@ -124,6 +128,10 @@
         "source": "C:\\Users\\little_bug\\.android\\build-cache\\f406617598f5a5689b140af35079d61c0806a085\\output\\res\\drawable\\abc_ratingbar_indicator_material.xml"
     },
     {
+        "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\release\\drawable\\shap_oval.xml",
+        "source": "E:\\sx_repositories\\SX_Merchant\\common\\src\\main\\res\\drawable\\shap_oval.xml"
+    },
+    {
         "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\release\\drawable\\cz_nomal.xml",
         "source": "E:\\sx_repositories\\SX_Merchant\\common\\src\\main\\res\\drawable\\cz_nomal.xml"
     },
@@ -158,6 +166,10 @@
     {
         "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\release\\drawable\\mq_selector_item_folder.xml",
         "source": "E:\\sx_repositories\\SX_Merchant\\common\\src\\main\\res\\drawable\\mq_selector_item_folder.xml"
+    },
+    {
+        "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\release\\drawable\\jx_10_w.xml",
+        "source": "E:\\sx_repositories\\SX_Merchant\\common\\src\\main\\res\\drawable\\jx_10_w.xml"
     },
     {
         "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\release\\drawable\\abc_ic_ab_back_material.xml",
@@ -226,6 +238,10 @@
     {
         "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\release\\drawable\\selector_orange.xml",
         "source": "E:\\sx_repositories\\SX_Merchant\\common\\src\\main\\res\\drawable\\selector_orange.xml"
+    },
+    {
+        "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\release\\drawable\\shape_confirm_btn_bg.xml",
+        "source": "E:\\sx_repositories\\SX_Merchant\\common\\src\\main\\res\\drawable\\shape_confirm_btn_bg.xml"
     },
     {
         "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\release\\drawable\\cricle_5_nomal.xml",
@@ -308,16 +324,16 @@
         "source": "E:\\sx_repositories\\SX_Merchant\\common\\src\\main\\res\\drawable\\mq_rotate_progress_bar_photopicker.xml"
     },
     {
-        "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\release\\drawable\\selector_circle_shape_base_yellow.xml",
-        "source": "E:\\sx_repositories\\SX_Merchant\\common\\src\\main\\res\\drawable\\selector_circle_shape_base_yellow.xml"
+        "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\release\\drawable\\selector_shape_bottom_white.xml",
+        "source": "E:\\sx_repositories\\SX_Merchant\\common\\src\\main\\res\\drawable\\selector_shape_bottom_white.xml"
     },
     {
         "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\release\\drawable\\selector_shape_whites.xml",
         "source": "E:\\sx_repositories\\SX_Merchant\\common\\src\\main\\res\\drawable\\selector_shape_whites.xml"
     },
     {
-        "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\release\\drawable\\selector_shape_bottom_white.xml",
-        "source": "E:\\sx_repositories\\SX_Merchant\\common\\src\\main\\res\\drawable\\selector_shape_bottom_white.xml"
+        "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\release\\drawable\\selector_circle_shape_base_yellow.xml",
+        "source": "E:\\sx_repositories\\SX_Merchant\\common\\src\\main\\res\\drawable\\selector_circle_shape_base_yellow.xml"
     },
     {
         "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\release\\drawable\\abc_cab_background_top_material.xml",

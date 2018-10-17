@@ -4,23 +4,33 @@ package com.common.retrofit.entity.result;
  * Created by STH on 2018/6/11.
  */
 public class FBean {
-    private String money;
-    private String time;
+//    private String money;
+//    private String time;
+//    private String xindou;
+//    private String proportion;
+//    private String appreciation;
+//    private String ratio;
+//    private String week;
+
+
     private String xindou;
+    private String grade;
     private String proportion;
     private String appreciation;
     private String ratio;
+    private String money;
     private String week;
+
+
+
+    public void setXindou(String xindou) {
+        this.xindou = xindou;
+    }
 
     public String getXindou() {
         return xindou;
     }
 
-
-    public FBean(String money, String time) {
-        this.money = money;
-        this.time = time;
-    }
 
     public String getMoney() {
 
@@ -29,18 +39,6 @@ public class FBean {
 
     public void setMoney(String money) {
         this.money = money;
-    }
-
-    public String getTime() {
-        return time;
-    }
-
-    public void setTime(String time) {
-        this.time = time;
-    }
-
-    public void setXindou(String xindou) {
-        this.xindou = xindou;
     }
 
     /**
@@ -90,15 +88,23 @@ public class FBean {
         this.week = week;
     }
 
+    public String getGrade() {
+        return grade;
+    }
+
+    public void setGrade(String grade) {
+        this.grade = grade;
+    }
+
     @Override
     public String toString() {
         return "FBean{" +
-                "money='" + money + '\'' +
-                ", time='" + time + '\'' +
-                ", xindou='" + xindou + '\'' +
+                "xindou='" + xindou + '\'' +
+                ", grade='" + grade + '\'' +
                 ", proportion='" + proportion + '\'' +
                 ", appreciation='" + appreciation + '\'' +
                 ", ratio='" + ratio + '\'' +
+                ", money='" + money + '\'' +
                 ", week='" + week + '\'' +
                 '}';
     }

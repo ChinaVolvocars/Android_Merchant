@@ -9,22 +9,21 @@ import java.util.List;
 public class InfoBean {
 
     /**
-     * shop_name : 呢度后
-     * category_id : 1
-     * category_name :
-     * province :
-     * province_name :
-     * area :
-     * area_name :
-     * county :
-     * county_name :
-     * address : 的话
-     * desc : 11
-     * face : http:\/\/xmap1712132.php.hzxmnet.com\/Uploads\/Picture\/2018-02-27\/5a951e252e034.JPEG
-     * shop_pic_num : 4
-     * shop_pic : [{"id":"21","shop_id":"35","shop_pic":"图片一","shop_description":"http://xmap1712132.php.hzxmnet.com/Uploads/Picture/2018-02-27/5a951e252e034.JPEG"}]
+     * "shop_name"（商家名称）: "一扫光下沙和达城店",
+     * "category_id"（分类id）: "10002",
+     * "category_name"（分类名称）: "零食",
+     * "province"（省id）: "933",
+     * "province_name"（省名称）: "浙江省",
+     * "area"（市id）: "934",
+     * "area_name"（市名称）: "杭州市",
+     * "county"（区id）: "937",
+     * "county_name"（区名称）: "江干区",
+     * "address"（详细地址）: "2号大街1021号",
+     * "desc"（店家介绍）: "主营休闲零食，零食礼盒装",
+     * "face"（门店照片url）: "http://sxpic.oss-cn-hangzhou.aliyuncs.com/file/2018-09-10/%E9%A6%96%E9%A1%B5%E5%BA%97%E5%A4%B4.png",
+     * "shop_pic_num"（照片数量）: 4,
+     * "shop_pic"（照片）:
      */
-
     private String shop_name;
     private String category_id;
     private String category_name;
@@ -214,6 +213,16 @@ public class InfoBean {
 
         public void setShop_description(String shop_description) {
             this.shop_description = shop_description;
+        }
+
+        @Override
+        public String toString() {
+            return "ShopPicBean{" +
+                    "id='" + id + '\'' +
+                    ", shop_id='" + shop_id + '\'' +
+                    ", shop_pic='" + shop_pic + '\'' +
+                    ", shop_description='" + shop_description + '\'' +
+                    '}';
         }
     }
 }
