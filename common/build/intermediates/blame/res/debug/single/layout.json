@@ -12,12 +12,12 @@
         "source": "C:\\Users\\little_bug\\.android\\build-cache\\f406617598f5a5689b140af35079d61c0806a085\\output\\res\\layout\\abc_action_bar_up_container.xml"
     },
     {
-        "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\base_dialog_choosenums.xml",
-        "source": "E:\\sx_repositories\\SX_Merchant\\common\\src\\main\\res\\layout\\base_dialog_choosenums.xml"
-    },
-    {
         "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\design_layout_tab_text.xml",
         "source": "C:\\Users\\little_bug\\.android\\build-cache\\58d3ef2b14de161b9ff2ea18bc647c496b56dc17\\output\\res\\layout\\design_layout_tab_text.xml"
+    },
+    {
+        "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\base_dialog_choosenums.xml",
+        "source": "E:\\sx_repositories\\SX_Merchant\\common\\src\\main\\res\\layout\\base_dialog_choosenums.xml"
     },
     {
         "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\layout\\design_bottom_sheet_dialog.xml",

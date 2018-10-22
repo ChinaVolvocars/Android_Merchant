@@ -15,6 +15,7 @@ import com.common.retrofit.entity.result.FiniBean;
 import com.common.retrofit.entity.result.IndexBean;
 import com.common.retrofit.entity.result.InfoBean;
 import com.common.retrofit.entity.result.NewTestBean;
+import com.common.retrofit.entity.result.ShopShowsEntity;
 import com.common.retrofit.entity.result.WidthDrawEntity;
 import com.common.retrofit.entity.resultImpl.HttpRespBean;
 import com.common.retrofit.service.UserService;
@@ -384,7 +385,39 @@ public class BusinessUserMethods extends BaseMethods {
     public void checkAppVersion(Subscriber<AppVersionEntity> subscriber, List<String> reqList, String types, String is_shop, String version_code) {
         Observable observable = initService().checkAppVersion(System.currentTimeMillis() + "", Constants.getHash(reqList), types,
                 is_shop, version_code);
-        Log.i(TAG, "checkAppVersion:     hash   " + Constants.getHash(reqList));
         toSubscribe(observable, subscriber);
+    }
+
+    /**
+     *  商家个人活动列表   <br/>
+     * @param subscriber          <br/>
+     * @param reqList       请求参数的集合  <br/>
+     */
+    public void getShopAllActivesList(Subscriber<ShopShowsEntity> subscriber, List<String> reqList) {
+        Observable observable = initService().getShopActivesList(System.currentTimeMillis() + "", Constants.getHash(reqList), DataCenter.UserId+"");
+        toSubscribe(observable, subscriber);
+    }
+    /**
+     *  商家新增个人活动   <br/>
+     * @param subscriber          <br/>
+     * @param reqList       请求参数的集合  <br/>
+     * @param activityDesc    商家活动标题       <br/>
+     * @param activityInfo  商家活动内容          <br/>
+     */
+    public void addNewActive(Subscriber<Object> subscriber, List<String> reqList, String activityDesc, String activityInfo) {
+        Observable observable = initService().addNewActive(System.currentTimeMillis() + "", Constants.getHash(reqList), DataCenter.UserId+"",
+                activityDesc, activityInfo);
+        toOtherSubscribe(observable, subscriber);
+    }
+
+    /**
+     *  商家个人活动删除接口   <br/>
+     * @param subscriber          <br/>
+     * @param reqList       请求参数的集合  <br/>
+     * @param aId    商家活动id       <br/>
+     */
+    public void deletShopActive(Subscriber<Object> subscriber, List<String> reqList, String aId) {
+        Observable observable = initService().deletShopActivie(System.currentTimeMillis() + "", Constants.getHash(reqList), aId);
+        toOtherSubscribe(observable, subscriber);
     }
 }

@@ -8,10 +8,9 @@ import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
 
 import com.common.event.BaseEvent;
-import com.common.event.TimeDownConstants;
+import com.common.event.EventBusConstants;
 
 import org.greenrobot.eventbus.EventBus;
 
@@ -169,7 +168,7 @@ public class CountdownButton extends Button implements View.OnClickListener {
             CountdownButton.this.setText(length / 1000 + afterText);
             length -= 1000;
             if (length == 30000){
-                EventBus.getDefault().post(new BaseEvent(TimeDownConstants.TIME_OUT));
+                EventBus.getDefault().post(new BaseEvent(EventBusConstants.TIME_OUT));
             }
             if (length < 0) {
                 CountdownButton.this.setEnabled(true);

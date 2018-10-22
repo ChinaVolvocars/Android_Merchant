@@ -8,12 +8,12 @@
         "source": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\bundles\\debug\\res\\layout\\base_indicator_layout_no_scroll.xml"
     },
     {
-        "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\dialog_phone_verify.xml",
-        "source": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\bundles\\debug\\res\\layout\\dialog_phone_verify.xml"
-    },
-    {
         "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\base_search_layout.xml",
         "source": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\bundles\\debug\\res\\layout\\base_search_layout.xml"
+    },
+    {
+        "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\dialog_phone_verify.xml",
+        "source": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\bundles\\debug\\res\\layout\\dialog_phone_verify.xml"
     },
     {
         "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\bga_banner_item_video.xml",
@@ -60,24 +60,24 @@
         "source": "C:\\Users\\little_bug\\.android\\build-cache\\58d3ef2b14de161b9ff2ea18bc647c496b56dc17\\output\\res\\layout\\design_navigation_item_header.xml"
     },
     {
-        "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\design_navigation_menu.xml",
-        "source": "C:\\Users\\little_bug\\.android\\build-cache\\58d3ef2b14de161b9ff2ea18bc647c496b56dc17\\output\\res\\layout\\design_navigation_menu.xml"
-    },
-    {
         "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\base_dialog_choosenums.xml",
         "source": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\bundles\\debug\\res\\layout\\base_dialog_choosenums.xml"
+    },
+    {
+        "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\design_navigation_menu.xml",
+        "source": "C:\\Users\\little_bug\\.android\\build-cache\\58d3ef2b14de161b9ff2ea18bc647c496b56dc17\\output\\res\\layout\\design_navigation_menu.xml"
     },
     {
         "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\refresh_recyclerview_header.xml",
         "source": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\bundles\\debug\\res\\layout\\refresh_recyclerview_header.xml"
     },
     {
-        "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\view_pay_edit.xml",
-        "source": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\bundles\\debug\\res\\layout\\view_pay_edit.xml"
-    },
-    {
         "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\widget_empty_page.xml",
         "source": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\bundles\\debug\\res\\layout\\widget_empty_page.xml"
+    },
+    {
+        "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\view_pay_edit.xml",
+        "source": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\bundles\\debug\\res\\layout\\view_pay_edit.xml"
     },
     {
         "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\bga_banner_item_image.xml",

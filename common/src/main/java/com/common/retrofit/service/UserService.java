@@ -40,6 +40,7 @@ import com.common.retrofit.entity.result.SPFLBean;
 import com.common.retrofit.entity.result.SPListBean;
 import com.common.retrofit.entity.result.SPPJBean;
 import com.common.retrofit.entity.result.ShopCarBean;
+import com.common.retrofit.entity.result.ShopShowsEntity;
 import com.common.retrofit.entity.result.ThreeBean;
 import com.common.retrofit.entity.result.TimeBean;
 import com.common.retrofit.entity.result.TokenBean;
@@ -914,6 +915,41 @@ public interface UserService {
     @POST("versionControl.html")
     Observable<HttpRespBean<AppVersionEntity>> checkAppVersion(@Field("time") String time, @Field("hash") String hash, @Field("types") String types,
                                                                @Field("is_shop") String is_shop, @Field("version_code") String version_code);
+
+    /**
+     * 商家个人活动列表接口文档    <br/>
+     * @param time time    <br/>
+     * @param hash hash    <br/>
+     * @param uid 用户id<br/>
+     * @return
+     */
+    @FormUrlEncoded
+    @POST("shopPersonalActivity.html")
+    Observable<HttpRespBean<ShopShowsEntity>> getShopActivesList(@Field("time") String time, @Field("hash") String hash, @Field("uid") String uid);
+
+    /**
+     * 商家新增个人活动    <br/>
+     * @param time time    <br/>
+     * @param hash hash    <br/>
+     * @param uid 用户id<br/>
+     * @param activity_desc 商家活动标题   <br/>
+     * @param activity_info 商家活动内容   <br/>
+     * @return
+     */
+    @FormUrlEncoded
+    @POST("shopPersonalActivityAdd.html")
+    Observable<Object> addNewActive(@Field("time") String time, @Field("hash") String hash, @Field("uid") String uid,
+                                                               @Field("activity_desc") String activity_desc, @Field("activity_info") String activity_info);
+    /**
+     * 商家个人活动删除接口    <br/>
+     * @param time time    <br/>
+     * @param hash hash    <br/>
+     * @param aid   活动id<br/>
+     * @return
+     */
+    @FormUrlEncoded
+    @POST("shopPersonalActivityDel.html")
+    Observable<Object> deletShopActivie(@Field("time") String time, @Field("hash") String hash, @Field("aid") String aid);
 
 
 }

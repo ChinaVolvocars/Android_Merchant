@@ -11,4 +11,10 @@ public class SpConstants {
      */
     public static final String PIC_AND_DESC_LIST = "picAndDescList";
 
+    /**
+     * intentType  意图类型
+     */
+    public static final String INTENT_TYPE = "intentType";
+
+
 }
