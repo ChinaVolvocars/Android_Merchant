@@ -1,4 +1,4 @@
-package com.hzxmkuar.sxmaketnew;
+package com.hzxmkuar.sxmaketnew.login_register;
 
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -16,9 +16,10 @@ import android.widget.TextView;
 
 import com.bigkoo.pickerview.OptionsPickerView;
 import com.common.base.Constants;
+import com.common.event.BaseEvent;
+import com.common.event.EventBusConstants;
 import com.common.mvp.BaseMvpActivity;
 import com.common.mvp.BasePresenter;
-import com.common.retrofit.entity.result.ChangeBean;
 import com.common.retrofit.entity.result.NewTestBean;
 import com.common.retrofit.entity.result.PicBean;
 import com.common.retrofit.entity.result.TestBean;
@@ -38,10 +39,15 @@ import com.common.utils.PhotoUtils;
 import com.common.widget.editview.DeleteEditText;
 import com.common.widget.imageview.image.ImageLoaderUtils;
 import com.common.widget.textview.CountdownButton;
-import com.hzxmkuar.sxmaketnew.common.BaseUrlActivity;
+import com.hzxmkuar.sxmaketnew.R;
+import com.hzxmkuar.sxmaketnew.base.BaseUrlActivity;
 import com.hzxmkuar.sxmaketnew.common.PictureCheckDialogFragment;
 import com.hzxmkuar.sxmaketnew.common.photoPcker.MQPhotoPickerActivity;
 import com.hzxmkuar.sxmaketnew.utils.BottomPickerUtils;
+import com.hzxmkuar.sxmaketnew.view.dialog.JoinSucceedDialog;
+
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 import java.io.File;
 import java.io.IOException;
@@ -206,7 +212,7 @@ public class NewZCActivity extends BaseMvpActivity {
 
 //    private String mLng;
 //    private String mLat;
-
+    private TextView tv_phone_verify_new_add;
     @Override
     protected BasePresenter createPresenterInstance() {
         return null;
@@ -223,7 +229,7 @@ public class NewZCActivity extends BaseMvpActivity {
 
     @Override
     protected void onViewCreated() {
-
+        registerEvent();
         mEdtAccountSetting = (DeleteEditText) findViewById(R.id.edt_account_setting);
         mEdtPwdSetting = (DeleteEditText) findViewById(R.id.edt_pwd_setting);
         mEdtPwdConfirm = (DeleteEditText) findViewById(R.id.edt_pwd_confirm);
@@ -257,6 +263,8 @@ public class NewZCActivity extends BaseMvpActivity {
         mBack = (ImageView) findViewById(R.id.back);
         mXieyi = (TextView) findViewById(R.id.xieyi);
         mNext = (Button) findViewById(R.id.next);
+        tv_phone_verify_new_add = (TextView) findViewById(R.id.tv_phone_verify_new_add);
+        tv_phone_verify_new_add.setVisibility(View.INVISIBLE);
 
         initImgPicker();
         if (ContextCompat.checkSelfPermission(this, "android.permission.CAMERA") != PackageManager.PERMISSION_GRANTED) {
@@ -296,6 +304,7 @@ public class NewZCActivity extends BaseMvpActivity {
         attachClickListener(mLlCredentialsType);
         attachClickListener(mNext);
         attachClickListener(mCdBtnSendMsg);
+        attachClickListener(tv_phone_verify_new_add);
         goToHttpReqs();
         initProfitsPickers();
         initCredentialsTypePickers();
@@ -391,11 +400,13 @@ public class NewZCActivity extends BaseMvpActivity {
         credentialsTypeList.add("护照");
         credentialsTypeList.add("法人身份证");
         credentialsTypeList.add("港澳台证件");
+        // 选择证件类型
         credentialsTypePickers = new OptionsPickerView.Builder(context, new OptionsPickerView.OnOptionsSelectListener() {
             @Override
             public void onOptionsSelect(int options1, int options2, int options3, View v) {
                 mTvCredentialsType.setText(credentialsTypeList.get(options1));
                 mCertificates_type = credentialsTypeList.get(options1);
+
             }
         }).setSubmitText(getString(R.string.app_confirm)).
                 setCancelText(getString(R.string.app_cancel)).
@@ -419,6 +430,9 @@ public class NewZCActivity extends BaseMvpActivity {
             type = 3;
             showPicCheck();
         } else if (view.getId() == mLlStoreType.getId() || view.getId() == mTvStoreType.getId()) {
+//            if (null == storeTypePicker){
+//
+//            }
             storeTypePicker.show();
         } else if (view.getId() == mTvProfits.getId()) {
             profitsPickers.show();
@@ -448,6 +462,18 @@ public class NewZCActivity extends BaseMvpActivity {
         } else if (view.getId() == mNext.getId()) {
             // 提交审核
             checkInputInfo(mNext);
+        } else if (view.getId() == tv_phone_verify_new_add.getId()){
+//            SendPhoneVerifyDialog dialog = new SendPhoneVerifyDialog(context,RegisterActivity.this);
+//            dialog.show();
+        }
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void newAdd(BaseEvent event) {
+        switch (event.getTag()) {
+            case EventBusConstants.TIME_OUT:
+//                tv_phone_verify_new_add.setVisibility(View.VISIBLE);
+                break;
         }
     }
 
@@ -542,6 +568,7 @@ public class NewZCActivity extends BaseMvpActivity {
         }
     /* 如果当前按钮发送验证码，则不需要走后面的判断。如果当前点击的按钮为提交按钮，则需要判断前面所有的逻辑都需要判断，包括后面的逻辑判断。 */
         if (view.getId() == mCdBtnSendMsg.getId()) {
+            mCdBtnSendMsg.getInputContent(getEditTextStr(mEdtManagerPhoneNo));
             sendVerifyCodeMsg();
         } else if (view.getId() == mNext.getId()) {
             if (EmptyUtils.isEmpty(getEditTextStr(mEdtInputVerCode))) {
@@ -582,7 +609,6 @@ public class NewZCActivity extends BaseMvpActivity {
         CommonSubscriber<HttpRespBean> userNmaeSub = new CommonSubscriber<>(new SubscriberListener() {
             @Override
             public void onNext(Object o) {
-                mCdBtnSendMsg.getInputContent(getEditTextStr(mEdtManagerPhoneNo));
                 sendVerifyCodeRequest();
             }
 
@@ -660,7 +686,9 @@ public class NewZCActivity extends BaseMvpActivity {
             @Override
             public void onNext(Object o) {
                 dismissProgressDialog();
-                finish();
+//                finish();
+//                 TODO: 2018/10/23     新会员入驻申请提交审核
+                new JoinSucceedDialog(context,NewZCActivity.this).show();
             }
 
             @Override
