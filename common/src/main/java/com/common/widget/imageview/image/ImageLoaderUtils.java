@@ -66,6 +66,8 @@ public class ImageLoaderUtils {
                 .placeholder(placeholderRes)
                 .error(errorRes)
                 .crossFade(1000).into(imageView);
+
+
     }
 
     /**

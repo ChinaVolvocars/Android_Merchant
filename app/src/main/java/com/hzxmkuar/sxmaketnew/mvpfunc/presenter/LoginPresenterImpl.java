@@ -9,15 +9,13 @@ import com.hzxmkuar.sxmaketnew.R;
 import com.hzxmkuar.sxmaketnew.mvpfunc.contract.LoginContract;
 
 /*******************************
-* 登录逻辑
-* created at 2017/3/17 下午 2:27
-********************************/
-public class LoginPresenterImpl extends LoginContract.Presenter
-{
+ * 登录逻辑
+ * created at 2017/3/17 下午 2:27
+ ********************************/
+public class LoginPresenterImpl extends LoginContract.Presenter {
     @Override
-    public void goToLogin(String account, String password)
-    {
-        if(verify(account, password)){
+    public void goToLogin(String account, String password) {
+        if (verify(account, password)) {
             return;
         }
 
@@ -47,11 +45,12 @@ public class LoginPresenterImpl extends LoginContract.Presenter
 
     /**
      * 表单验证
-     * @param account        账号名
-     * @param password       密码
+     *
+     * @param account  账号名
+     * @param password 密码
      * @return true为不通过
      */
-    public boolean verify(String account, String password){
+    public boolean verify(String account, String password) {
         if (EmptyUtils.isEmpty(account)) {
             mView.showToastMsg(context.getString(R.string.string_login_t_input));
             return true;

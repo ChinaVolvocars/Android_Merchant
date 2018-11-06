@@ -9,14 +9,14 @@ import android.support.v4.content.ContextCompat;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bigkoo.pickerview.OptionsPickerView;
 import com.common.base.Constants;
+import com.common.event.BaseEvent;
+import com.common.event.EventBusConstants;
 import com.common.mvp.BaseMvpActivity;
 import com.common.mvp.BasePresenter;
-import com.common.retrofit.entity.result.IndexBean;
 import com.common.retrofit.entity.result.PicBean;
 import com.common.retrofit.entity.resultImpl.HttpRespBean;
 import com.common.retrofit.methods.BusinessUserMethods;
@@ -33,10 +33,12 @@ import com.common.utils.PhotoUtils;
 import com.common.widget.editview.DeleteEditText;
 import com.common.widget.imageview.image.ImageLoaderUtils;
 import com.common.widget.textview.CountdownButton;
-import com.hzxmkuar.sxmaketnew.NewPwdActivity;
 import com.hzxmkuar.sxmaketnew.R;
 import com.hzxmkuar.sxmaketnew.common.PictureCheckDialogFragment;
 import com.hzxmkuar.sxmaketnew.common.photoPcker.MQPhotoPickerActivity;
+
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 import java.io.File;
 import java.io.IOException;
@@ -48,6 +50,7 @@ import java.util.List;
  * Created by Administrator on 2018/8/22.
  */
 public class GetBackAccountActivity extends BaseMvpActivity {
+    private static final String TAG = "GetBackAccountActivity";
     private ImageView iv_getback_account_back;
     private DeleteEditText edt_input_shop_name;
     private DeleteEditText edt_legal_name_getback;
@@ -73,6 +76,7 @@ public class GetBackAccountActivity extends BaseMvpActivity {
     private List<String> idTypeList = new ArrayList<>();
     private PictureCheckDialogFragment pickerPhotoDialog;
     private LQRPhotoSelectUtils mLqrPhotoSelectUtils;
+    private TextView tv_phone_verify_getback_account;
     @Override
     protected BasePresenter createPresenterInstance() {
         return null;
@@ -85,7 +89,7 @@ public class GetBackAccountActivity extends BaseMvpActivity {
 
     @Override
     protected void onViewCreated() {
-
+        registerEvent();
         iv_getback_account_back = (ImageView) findViewById(R.id.iv_getback_account_back);
         edt_input_shop_name = (DeleteEditText) findViewById(R.id.edt_input_shop_name);
         edt_legal_name_getback = (DeleteEditText) findViewById(R.id.edt_legal_name_getback);
@@ -98,6 +102,8 @@ public class GetBackAccountActivity extends BaseMvpActivity {
         edt_input_ver_code_getback = (DeleteEditText) findViewById(R.id.edt_input_ver_code_getback);
         cd_btn_send_msg_getback = (CountdownButton) findViewById(R.id.cd_btn_send_msg_getback);
         btn_commit_getback = (Button) findViewById(R.id.btn_commit_getback);
+        tv_phone_verify_getback_account = (TextView) findViewById(R.id.tv_phone_verify_getback_account);
+        tv_phone_verify_getback_account.setVisibility(View.INVISIBLE);
 
     }
 
@@ -114,6 +120,7 @@ public class GetBackAccountActivity extends BaseMvpActivity {
         attachClickListener(tv_credentials_type);
         attachClickListener(cd_btn_send_msg_getback);
         attachClickListener(btn_commit_getback);
+        attachClickListener(tv_phone_verify_getback_account);
         initCertificateTypePicker();
         initImgPicker();
         if (ContextCompat.checkSelfPermission(this, "android.permission.CAMERA") != PackageManager.PERMISSION_GRANTED) {
@@ -125,9 +132,11 @@ public class GetBackAccountActivity extends BaseMvpActivity {
     @Override
     protected void onViewClicked(View view) {
         if (view.getId() == iv_getback_account_back.getId()) {
-            verifyInput(cd_btn_send_msg_getback);
+            finish();
         } else if (view.getId() == btn_commit_getback.getId()) {
             verifyInput(btn_commit_getback);
+        }  else if (view.getId() == cd_btn_send_msg_getback.getId()) {
+            verifyInput(cd_btn_send_msg_getback);
         } else if (view.getId() == iv_getback_account_back.getId()) {
             finish();
         } else if (view.getId() == tv_credentials_type.getId()) {
@@ -141,15 +150,26 @@ public class GetBackAccountActivity extends BaseMvpActivity {
         }else if ( view.getId() == iv_business_license_getback.getId()){
             type = 3;
             showPicCheck();
+        }else if ( view.getId() == tv_phone_verify_getback_account.getId()){
+//            tv_phone_verify_getback_account
+//            SendPhoneVerifyDialog dialog = new SendPhoneVerifyDialog(context,RegisterActivity.this);
+//            dialog.show();
         }
     }
 
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void getBackAccountTimeOut(BaseEvent event) {
+        switch (event.getTag()) {
+            case EventBusConstants.TIME_OUT:
+//                tv_phone_verify_getback_account.setVisibility(View.VISIBLE);
+                break;
+        }
+    }
 
     /**
      * 验证商户输入的合法性
      */
     private void verifyInput(View view) {
-
        if (EmptyUtils.isEmpty(getEditTextStr(edt_input_shop_name))) {
             showToastMsg("商家名称不能为空，请输入您的商铺名称");
             return;
@@ -189,6 +209,7 @@ public class GetBackAccountActivity extends BaseMvpActivity {
         }
         /* 如果当前按钮发送验证码，则不需要走后面的判断。如果当前点击的按钮为提交按钮，则需要判断前面所有的逻辑都需要判断，包括后面的逻辑判断。 */
         if (view.getId() == cd_btn_send_msg_getback.getId()) {
+            cd_btn_send_msg_getback.getInputContent(getEditTextStr(edt_reserved_phone_no_getback));
             sendVerifyCodeMsg();
         } else if (view.getId() == btn_commit_getback.getId()) {
             if (EmptyUtils.isEmpty(getEditTextStr(edt_input_ver_code_getback))) {
@@ -198,49 +219,71 @@ public class GetBackAccountActivity extends BaseMvpActivity {
                 showToastMsg("验证码格式不对，请重新输入");
                 return;
             }
-//            commitInputInfo(getEditTextStr(mEdtInputAccount), getEditTextStr(mEdtInputStroeName),
-//                    getEditTextStr(mEdtInputLegalName), getTextViewStr(mTvChoseCertificateType),
-//                    getEditTextStr(mEdtInputLegalIdNo), getEditTextStr(mEdtInputPhoneNo),
-//                    getEditTextStr(mEdtInputVerificationCode));
+            commitInputInfo(getEditTextStr(edt_input_shop_name), getEditTextStr(edt_legal_name_getback),
+                            getTextViewStr(tv_credentials_type), getTextViewStr(edt_credentials_no_getback),
+                            id_front_img_getBack, id_back_img_getBack,
+                            license_img,getEditTextStr(edt_reserved_phone_no_getback),
+                            getEditTextStr(edt_input_ver_code_getback));
         }
     }
 
     /**
-     * 提交商户输入内容、请求找回密码
+     *  提交用户输入的信息
+     * @param shopName 商家名称 <br/>
+     * @param documentName 法人姓名 <br/>
+     * @param certificatesType 证件类型 <br/>
+     * @param certificatesNumber 证件号码 <br/>
+     * @param ID_front_img 身份证正面照片 <br/>
+     * @param ID_back_img 身份证反面照片 <br/>
+     * @param license_img 营业执照 <br/>
+     * @param phone 预留手机号 <br/>
+     * @param checkcode 验证码 <br/>
      */
-//    private void commitInputInfo(String userName, String storeName,
-//                                 String legalNmae, String certificateType,
-//                                 String legalIdNo, String phoneNo, String inputVerCode) {
-//
-//        CommonSubscriber<IndexBean> subscriber = new CommonSubscriber<>(new SubscriberListener() {
-//            @Override
-//            public void onNext(Object o) {
-//                statusContent();
-//                Intent resetPwdIntent = new Intent(GetBackAccountActivity.this, NewPwdActivity.class);
-//                resetPwdIntent.putExtra("userName", getEditTextStr(mEdtInputAccount));
-//                startActivity(resetPwdIntent);
-//                finish();
-//            }
-//
-//            @Override
-//            public void onError(String e, int code) {
-//                statusContent();
-//                showToastMsg(e);
-//            }
-//        });
-//        BusinessUserMethods.getInstance().forgetPwd(subscriber, userName, storeName,
-//                legalNmae, certificateType,
-//                legalIdNo, phoneNo, inputVerCode);
-//        rxManager.add(subscriber);
-//
-//    }
+    private void commitInputInfo(String shopName, String documentName,
+                                 String certificatesType, String certificatesNumber,
+                                 String ID_front_img, String ID_back_img,
+                                 String license_img,
+                                 String phone,String checkcode) {
+        CommonSubscriber<Object> subscriber = new CommonSubscriber<>(new SubscriberListener() {
+            @Override
+            public void onNext(Object o) {
+                dismissProgressDialog();
+                showToastMsg("申请已提交");
+                finish();
+            }
+
+            @Override
+            public void onError(String e, int code) {
+                dismissProgressDialog();
+                showToastMsg(e);
+            }
+        });
+        BusinessUserMethods.getInstance().forgetAccountGetBack(subscriber, shopName, documentName,
+                certificatesType, certificatesNumber,
+                ID_front_img, ID_back_img, license_img,phone,checkcode);
+        rxManager.add(subscriber);
+
+    }
 
     /**
      * 发送验证码
      */
     private void sendVerifyCodeMsg() {
-        sendVerifyCodeRequest();
-//        mBtnSendMsg.getInputContent(getEditTextStr(mEdtInputPhoneNo));
+        CommonSubscriber<HttpRespBean> sendVerCodeSub = new CommonSubscriber<>(new SubscriberListener() {
+            @Override
+            public void onNext(Object o) {
+                dismissProgressDialog();
+                showToastMsg("短信验证码已发送成功");
+            }
+
+            @Override
+            public void onError(String e, int code) {
+                dismissProgressDialog();
+                showToastMsg(e);
+            }
+        });
+        SmsMethods.getInstance().sendVerCode(sendVerCodeSub, getEditTextStr(edt_reserved_phone_no_getback), "8");
+        rxManager.add(sendVerCodeSub);
     }
 
     /**
@@ -262,28 +305,6 @@ public class GetBackAccountActivity extends BaseMvpActivity {
                 setCancelColor(getResources().getColor(R.color.normal_text_color)).
                 build();
         mCertificatesTypePicker.setPicker(idTypeList);
-    }
-
-    /**
-     * 发送手机验证码的请求
-     */
-    private void sendVerifyCodeRequest() {
-//
-//        CommonSubscriber<HttpRespBean> sendVerCodeSub = new CommonSubscriber<>(new SubscriberListener() {
-//            @Override
-//            public void onNext(Object o) {
-//                dismissProgressDialog();
-//                showToastMsg("短信验证码已发送成功");
-//            }
-//
-//            @Override
-//            public void onError(String e, int code) {
-//                dismissProgressDialog();
-//                showToastMsg(e);
-//            }
-//        });
-//        SmsMethods.getInstance().sendVerCode(sendVerCodeSub, getEditTextStr(mEdtInputPhoneNo), "2");
-//        rxManager.add(sendVerCodeSub);
     }
 
 

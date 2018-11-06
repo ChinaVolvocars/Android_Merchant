@@ -47,14 +47,22 @@
             android:textColor="#333"
             android:textSize="15sp"/>
 
-        <com.common.widget.editview.DeleteEditText
-            android:id="@+id/money"
+        <!--<com.common.widget.editview.DeleteEditText-->
+            <!--android:id="@+id/money"-->
+            <!--style="@style/inputView_style"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="@dimen/view_size_45"-->
+            <!--android:background="@color/white"-->
+            <!--android:hint="请输入鑫豆数量"-->
+            <!--android:inputType="number"-->
+            <!--android:paddingLeft="@dimen/view_size_15"-->
+            <!--android:paddingRight="@dimen/view_size_15"/>-->
+        <TextView
+            android:id="@+id/tv_can_take_xindou"
             style="@style/inputView_style"
             android:layout_width="wrap_content"
             android:layout_height="@dimen/view_size_45"
             android:background="@color/white"
-            android:hint="请输入鑫豆数量"
-            android:inputType="number"
             android:paddingLeft="@dimen/view_size_15"
             android:paddingRight="@dimen/view_size_15"/>
         />
@@ -116,7 +124,7 @@
             android:textColor="#333"
             android:textSize="15sp"/>
         <TextView
-            android:id="@+id/num"
+            android:id="@+id/tv_can_take_money"
             style="@style/inputView_style"
             android:background="@color/white"
             android:text="0.00"
@@ -132,7 +140,7 @@
         android:layout_height="@dimen/view_size_0_5"
         android:background="#ddd"/>
     <LinearLayout
-        android:id="@+id/ll_one"
+        android:id="@+id/ll_chose_bank_card"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:background="@color/white"
@@ -178,7 +186,7 @@
         android:layout_marginTop="70dp"
         android:background="@drawable/jx_10_base"
         android:clickable="true"
-        android:text="完成"
+        android:text="提现"
         android:textColor="@color/white"
         android:textStyle="bold"/>
 

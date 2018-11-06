@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:orientation="vertical"
+    android:overScrollMode="never"
+    android:scrollbars="none">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:background="@mipmap/titles_bac">
+
+            <TextView
+                style="@style/TitleBarTitleStyle"
+                android:text="添加对公账户" />
+
+            <ImageView
+                android:id="@+id/tv_add_bank_card_to_company_back"
+                style="@style/TitleBarBackStyle" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="15dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true">
+                </LinearLayout>
+            </RelativeLayout>
+        </FrameLayout>
+
+        <ImageView style="@style/DivideLine" />
+
+        <LinearLayout style="@style/BindBankCardContent">
+
+            <TextView
+                style="@style/BindBankCardContentLeft"
+                android:text="公司名称" />
+
+            <com.common.widget.editview.DeleteEditText
+                android:id="@+id/edt_company_to_public"
+                style="@style/BindBankCardContentRight"
+                android:hint="请输入公司名称" />
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/view_size_0_5"
+            android:background="#ddd" />
+
+        <LinearLayout
+            android:id="@+id/choose_bank_to_public"
+            style="@style/BindBankCardContent">
+
+            <TextView
+                style="@style/BindBankCardContentLeft"
+                android:text="发卡银行" />
+
+            <TextView
+                android:id="@+id/tv_bank_cadrd_name_to_public"
+                style="@style/MyStoreContentRight"
+                android:textColorHint="@color/color_d2"
+                android:hint="请选择发卡银行" />
+        </LinearLayout>
+        <ImageView style="@style/DivideLine" />
+
+        <LinearLayout style="@style/BindBankCardContent">
+
+            <TextView
+                style="@style/BindBankCardContentLeft"
+                android:text="开户支行" />
+
+            <com.common.widget.editview.DeleteEditText
+                android:id="@+id/edt_bank_address_to_public"
+                style="@style/BindBankCardContentRight"
+                android:hint="请输入开户支行" />
+        </LinearLayout>
+
+        <ImageView
+            style="@style/DivideLine" />
+
+        <LinearLayout style="@style/BindBankCardContent">
+
+            <TextView
+                style="@style/BindBankCardContentLeft"
+                android:text="银行账号" />
+
+            <com.common.widget.editview.DeleteEditText
+                android:id="@+id/edt_bank_cadr_no_to_public"
+                style="@style/BindBankCardContentRight"
+                android:hint="请输入公司银行账号"
+                android:inputType="number"
+                android:maxLength="21" />
+        </LinearLayout>
+
+
+        <Button
+            android:id="@+id/btn_commoit_info_to_public"
+            style="@style/BaseCustomButton"
+            android:layout_width="match_parent"
+            android:layout_alignParentBottom="true"
+            android:layout_gravity="center"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="45dp"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/jx_10_base"
+            android:clickable="true"
+            android:text="确定"
+            android:textColor="@color/white"
+            android:textStyle="bold" />
+    </LinearLayout>
+</ScrollView>

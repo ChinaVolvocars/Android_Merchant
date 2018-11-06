@@ -119,4 +119,12 @@
         </attr>
     </declare-styleable>
 
+
+    <!--滑动开关-->
+    <declare-styleable name="SwitchButton">
+        <attr name="hasShadow" format="boolean"/>
+        <attr name="primaryColor" format="color"/>
+        <attr name="primaryColorDark" format="color"/>
+        <attr name="isOpened" format="boolean"/>
+    </declare-styleable>
 </resources>

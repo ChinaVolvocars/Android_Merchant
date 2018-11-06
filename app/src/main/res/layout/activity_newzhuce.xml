@@ -178,7 +178,7 @@
             <com.common.widget.editview.DeleteEditText
                 android:id="@+id/edt_invite_code"
                 style="@style/MyStoreDescEditorNoHeight"
-                android:inputType="number"
+                android:digits="@string/digets"
                 android:hint="请输入邀请码" />
         </LinearLayout>
 
@@ -231,10 +231,12 @@
                 style="@style/MyStoreContentLeft"
                 android:text="法人证件号" />
             <!--mEdtCredentialsNo-->
+
+
             <com.common.widget.editview.DeleteEditText
                 android:id="@+id/edt_credentials_no"
                 style="@style/MyStoreDescEditorNoHeight"
-                android:digits="@string/digets"
+                android:digits="@string/id_card_digets"
                 android:hint="请输入法人的证件号" />
         </LinearLayout>
 
@@ -286,11 +288,17 @@
                 android:layout_marginTop="@dimen/view_size_8">
 
                 <TextView
-                    style="@style/MyStoreAddImgSytle"
+                    android:gravity="center"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
                     android:text="正面" />
 
                 <TextView
-                    style="@style/MyStoreAddImgSytle"
+                    android:gravity="center"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
                     android:text="反面" />
             </LinearLayout>
         </LinearLayout>
@@ -342,10 +350,17 @@
                 android:gravity="center">
 
                 <TextView
-                    style="@style/MyStoreAddImgSytle"
+                    android:gravity="center"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
                     android:text="营业执照" />
 
-                <TextView style="@style/MyStoreAddImgSytle" />
+                <TextView
+                    android:gravity="center"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content" />
             </LinearLayout>
         </LinearLayout>
 
@@ -411,6 +426,19 @@
                 style="@style/SendMsgButton" />
 
         </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_phone_verify_new_add"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_marginRight="16dp"
+            android:layout_marginTop="@dimen/view_size_8"
+            android:gravity="right"
+            android:text="未收到验证码 >"
+            android:textColor="@color/base_color"
+            android:textSize="@dimen/text_size_10"
+            android:visibility="invisible"/>
 
         <LinearLayout
             android:layout_width="match_parent"

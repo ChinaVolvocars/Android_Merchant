@@ -9,5 +9,13 @@
     <color name="base_color">#ff8314</color>
     <color name="black333">#333333</color>
     <color name="color_ddd">#dddddd</color>
+    <color name="color_d2">#d2d2d2</color>
     <color name="color_f7_bg">#f7f7f7</color>
+    <color name="color_30a4ee">#30a4ee</color>
+    <color name="color_b59b72">#b59b72</color>
+    <color name="switch_close_color">#e5e5e5</color>
+    <color name="switch_open_color">#52d864</color>
+    <color name="color_ff5a00">#ff5a00</color>
+    <color name="color_ff7c35">#ff7c35</color>
+    <color name="color_aaaaaa">#aaaaaa</color>
 </resources>

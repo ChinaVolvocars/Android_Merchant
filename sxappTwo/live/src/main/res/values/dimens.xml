@@ -1,6 +1,0 @@
-<resources>
-    <!-- 飘星 -->
-    <dimen name="heart_anim_bezier_x_rand">50.0dp</dimen>
-    <dimen name="heart_anim_length">400.0dp</dimen>
-    <dimen name="heart_anim_length_rand">350.0dp</dimen>
-</resources>

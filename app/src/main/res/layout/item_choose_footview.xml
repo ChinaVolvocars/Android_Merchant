@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_horizontal"
+    android:background="@color/color_f0f0f0"
+    android:orientation="vertical">
+
+    <Button
+        android:id="@+id/btn_confirm_upload"
+        android:layout_width="340dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="18dp"
+        android:layout_marginBottom="24dp"
+        android:text="确认上传"
+        android:textSize="18sp"
+        android:textColor="@color/white"
+        android:background="@drawable/jx_10_base"
+        />
+
+</LinearLayout>

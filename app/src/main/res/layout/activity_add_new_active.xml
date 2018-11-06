@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:background="@mipmap/titles_bac">
+
+        <TextView
+            android:id="@+id/add_new_active_title"
+            style="@style/TitleBarTitleStyle"
+            android:text="新增活动" />
+
+        <ImageView
+            android:id="@+id/iv_add_new_active_back"
+            style="@style/TitleBarBackStyle" />
+    </FrameLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/black_F3F3F3"
+        android:orientation="vertical"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="12dp">
+
+        <com.common.widget.editview.DeleteEditText
+            android:id="@+id/edt_input_active_them"
+            android:layout_width="match_parent"
+            android:layout_height="36dp"
+            android:background="@drawable/jx_10_w"
+            android:hint="请输入活动标题"
+            android:textSize="15sp"
+            android:textColor="@color/black"  />
+
+        <com.common.widget.editview.DeleteEditText
+            android:id="@+id/edt_input_active_content"
+            android:layout_width="match_parent"
+            android:layout_height="237dp"
+            android:textSize="15sp"
+            android:layout_below="@+id/edt_input_active_them"
+            android:layout_marginTop="14dp"
+            android:background="@drawable/jx_10_w"
+            android:gravity="left"
+            android:hint="请输入活动详情"
+            android:textColor="@color/black" />
+
+        <Button
+            android:id="@+id/btn_commoit_active"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="@dimen/view_size_60"
+            android:background="@drawable/jx_10_base"
+            android:text="提交"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+
+    </RelativeLayout>
+
+</LinearLayout>

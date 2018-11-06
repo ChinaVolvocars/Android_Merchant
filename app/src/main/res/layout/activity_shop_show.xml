@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:background="@mipmap/titles_bac">
+
+        <TextView
+            style="@style/TitleBarTitleStyle"
+            android:text="众商联盟-我要展示" />
+
+        <ImageView
+            android:id="@+id/iv_show_back"
+            style="@style/TitleBarBackStyle" />
+    </FrameLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/black_F3F3F3"
+            android:orientation="vertical"
+            android:paddingBottom="@dimen/view_size_8"
+            android:paddingLeft="@dimen/view_size_8"
+            android:paddingRight="@dimen/view_size_8">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/view_size_10"
+                android:background="@drawable/jx_10_w"
+                android:paddingBottom="@dimen/view_size_14"
+                android:paddingLeft="@dimen/view_size_12"
+                android:paddingRight="@dimen/view_size_12"
+                >
+
+                <LinearLayout
+                    android:id="@+id/ll_show_possition"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/view_size_8"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:id="@+id/tv_show_possition"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="展示位置"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_size_15" />
+
+                    <!--android:background="@mipmap/shop_show_arrow_up_icon"-->
+                    <ImageView
+                        android:id="@+id/tv_show_or_hide"
+                        android:layout_width="18dp"
+                        android:layout_height="12dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="2dp"/>
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/iv_shop_show_details"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/ll_show_possition"
+                    android:layout_marginTop="@dimen/view_size_8"
+                    android:background="@mipmap/shop_show_detail_bg"
+                    android:visibility="gone"/>
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:background="@drawable/jx_10_w"
+                android:orientation="vertical"
+                android:paddingBottom="@dimen/view_size_6"
+                android:paddingLeft="@dimen/view_size_12"
+                android:paddingRight="@dimen/view_size_12">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/view_size_8"
+                    android:text="展示内容"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size_15" />
+
+                <!--<com.common.widget.recyclerview.refresh.recycleview.XRecyclerView-->
+                <com.common.widget.recyclerview.refresh.recycleview.XRecyclerView
+                    android:id="@+id/rv_shop_shows_list"
+                    xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:layout_marginTop="@dimen/view_size_10">
+
+                </com.common.widget.recyclerview.refresh.recycleview.XRecyclerView>
+
+                <TextView
+                    android:id="@+id/tv_add_new_shows"
+                    android:layout_width="38dp"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="6dp"
+                    android:background="@mipmap/shop_show_add_new_shows_icon"/>
+
+            </LinearLayout>
+        </LinearLayout>
+
+    </ScrollView>
+</LinearLayout>

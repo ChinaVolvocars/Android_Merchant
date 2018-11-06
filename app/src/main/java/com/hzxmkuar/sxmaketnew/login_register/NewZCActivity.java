@@ -378,7 +378,6 @@ public class NewZCActivity extends BaseMvpActivity {
         mProfitsList.add("30%");
         mProfitsList.add("35%");
         mProfitsList.add("40%");
-        mProfitsList.add("50%");
         profitsPickers = new OptionsPickerView.Builder(context, new OptionsPickerView.OnOptionsSelectListener() {
             @Override
             public void onOptionsSelect(int options1, int options2, int options3, View v) {
@@ -686,8 +685,6 @@ public class NewZCActivity extends BaseMvpActivity {
             @Override
             public void onNext(Object o) {
                 dismissProgressDialog();
-//                finish();
-//                 TODO: 2018/10/23     新会员入驻申请提交审核
                 new JoinSucceedDialog(context,NewZCActivity.this).show();
             }
 

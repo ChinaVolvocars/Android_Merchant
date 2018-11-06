@@ -62,6 +62,35 @@
             android:text=""/>
     </LinearLayout>
 
+    <LinearLayout style="@style/BindBankCardContent"
+        android:gravity="center_vertical">
+
+        <TextView
+            style="@style/MyStoreContentLeft"
+            android:text="管理账号消费功能" />
+
+        <TextView
+            android:id="@+id/btn_req"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_marginLeft="@dimen/view_size_2"
+            android:background="@mipmap/btn_requestion"/>
+
+
+        <TextView
+            style="@style/MyStoreContentRight"
+            android:drawableRight="@null"
+            android:text=""/>
+
+        <com.hzxmkuar.sxmaketnew.widget.SwitchButton
+            android:id="@+id/switch_bt"
+            android:layout_width="48dp"
+            android:layout_height="28dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"/>
+
+    </LinearLayout>
+
 
     <LinearLayout
         android:layout_width="250dp"

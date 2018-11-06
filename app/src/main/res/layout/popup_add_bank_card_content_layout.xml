@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="vertical"
+    android:padding="1dp">
+
+    <LinearLayout
+        android:layout_width="112dp"
+        android:paddingTop="8dp"
+        android:background="@mipmap/add_bank_card_pop_bg"
+        android:layout_height="72dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/menu_item1"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="添加对私账号"
+            android:textColor="#505050"
+            android:textSize="12sp"/>
+
+
+        <TextView
+            android:id="@+id/menu_item2"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="添加对公账号"
+            android:textColor="#505050"
+            android:textSize="12sp" />
+
+
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -35,12 +35,11 @@ import java.io.File;
 import java.util.ArrayList;
 
 /*******************************
-* 图片选择弹窗
-* @author syc
-* created at 2017/4/14 下午 12:52
-********************************/
-public class PictureCheckDialogFragment extends BaseDialogFragment
-{
+ * 图片选择弹窗
+ * @author syc
+ * created at 2017/4/14 下午 12:52
+ ********************************/
+public class PictureCheckDialogFragment extends BaseDialogFragment {
     private TextView tvTakePic;
     private TextView tvAlbum;
     private TextView tvCancel;
@@ -59,8 +58,7 @@ public class PictureCheckDialogFragment extends BaseDialogFragment
     }
 
     @Override
-    protected void initView(Dialog dialog)
-    {
+    protected void initView(Dialog dialog) {
         tvTakePic = (TextView) dialog.findViewById(R.id.tv_takepic);
         tvAlbum = (TextView) dialog.findViewById(R.id.tv_album);
         tvCancel = (TextView) dialog.findViewById(R.id.tv_cancel);
@@ -74,8 +72,7 @@ public class PictureCheckDialogFragment extends BaseDialogFragment
     private boolean outSidedismiss = true;
 
     @Override
-    protected void setView()
-    {
+    protected void setView() {
         dialog.setCanceledOnTouchOutside(outSidedismiss);
         final Window window = dialog.getWindow();
         final WindowManager.LayoutParams lp = window.getAttributes();
@@ -84,7 +81,7 @@ public class PictureCheckDialogFragment extends BaseDialogFragment
         lp.gravity = Gravity.BOTTOM;
 
         window.setAttributes(lp);
-        if(!outSidedismiss){
+        if (!outSidedismiss) {
             getDialog().setOnKeyListener(new DialogInterface.OnKeyListener() {
                 @Override
                 public boolean onKey(DialogInterface dialog, int keyCode, KeyEvent event) {
@@ -99,8 +96,7 @@ public class PictureCheckDialogFragment extends BaseDialogFragment
     }
 
     @Override
-    protected void onViewClicked(View view)
-    {
+    protected void onViewClicked(View view) {
         if (view.getId() == tvTakePic.getId()) {
             if (checkStoragePermission()) {
                 // 打开相机
@@ -127,6 +123,7 @@ public class PictureCheckDialogFragment extends BaseDialogFragment
 
     /**
      * 检查存储权限
+     *
      * @return true, 已经获取权限;false,没有权限,尝试获取
      */
     private boolean checkStoragePermission() {
@@ -229,6 +226,7 @@ public class PictureCheckDialogFragment extends BaseDialogFragment
 
     public interface onTakePhotoListener {
         void takePhoto();
+
         void takePicker();
     }
 }

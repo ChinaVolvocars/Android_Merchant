@@ -35,8 +35,8 @@
         <item name="android:layout_height">@dimen/view_size_50</item>
         <item name="android:background">@color/white</item>
         <item name="android:orientation">horizontal</item>
-        <item name="android:paddingLeft">@dimen/view_size_15</item>
-        <item name="android:paddingRight">@dimen/view_size_15</item>
+        <item name="android:paddingLeft">@dimen/view_size_12</item>
+        <item name="android:paddingRight">@dimen/view_size_14</item>
     </style>
 
 
@@ -53,7 +53,7 @@
     <!--银行卡绑定容器右侧输入-->
     <style name="BindBankCardContentRight">
         <item name="android:textColor">@color/base_text_color</item>
-        <item name="android:textColorHint">@color/base_grey_text_color</item>
+        <item name="android:textColorHint">@color/color_d2</item>
         <item name="android:paddingLeft">@dimen/view_size_10</item>
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">match_parent</item>
@@ -111,8 +111,9 @@
         <item name="android:background">@color/white</item>
         <item name="android:orientation">vertical</item>
         <item name="android:gravity">center_vertical</item>
-        <item name="android:paddingLeft">@dimen/view_size_15</item>
-        <item name="android:paddingRight">@dimen/view_size_15</item>
+        <item name="android:paddingLeft">@dimen/view_size_12</item>
+        <item name="android:paddingRight">@dimen/view_size_14</item>
+
     </style>
     <!-- 我的店铺 条目横向容器 -->
     <style name="MyStoreItemContentHorizontal">
@@ -169,7 +170,7 @@
     <style name="MyStoreAddImgSytle">
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_weight">1</item>
-        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_height">88dp</item>
         <item name="android:scaleType">fitXY</item>
         <item name="android:src">@mipmap/add_card</item>
         <item name="android:gravity">center</item>
@@ -277,7 +278,7 @@
         <!-- 去除黑色边框的关键设置项 -->
         <item name="android:backgroundDimEnabled">true</item>
         <!-- 屏幕背景是否变暗 -->
-        <item name="android:backgroundDimAmount">0.3</item>
+        <item name="android:backgroundDimAmount">0.6</item>
     </style>
 
 </resources>

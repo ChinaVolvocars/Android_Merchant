@@ -98,9 +98,17 @@
             android:gravity="center_vertical"
             android:text="店头照片（0/1）" />
 
+        <!--<ImageView-->
+            <!--android:id="@+id/iv_store_card_bg_show"-->
+            <!--style="@style/MyStoreBg" />-->
+
         <ImageView
             android:id="@+id/iv_store_card_bg_show"
-            style="@style/MyStoreBg" />
+            android:layout_width="match_parent"
+            android:layout_height="178dp"
+            android:src="@mipmap/edit_shop_face_img_bg"
+            android:scaleType="fitXY"
+            android:layout_marginTop="@dimen/view_size_6"/>
 
         <TextView
             style="@style/MyStoreDescTitle"
@@ -109,6 +117,8 @@
             android:text="请按规定上传720*300的照片"
             android:textColor="@color/base_grey_text_color"
             android:textSize="11sp" />
+
+
     </LinearLayout>
 
     <TextView style="@style/DivideLine" />
@@ -129,13 +139,38 @@
                 android:gravity="center_vertical"
                 android:text="店家照片（0/4）" />
 
-            <!--android:id="@+id/tv_modify_or_add_img_show"-->
-            <TextView
-                style="@style/MyStoreDescTitle"
+            <Button
+                android:id="@+id/btn_store_bg_reset_show"
+                android:layout_width="38dp"
+                android:layout_height="18dp"
+                android:layout_marginRight="@dimen/view_size_6"
+                android:layout_marginTop="15dp"
+                android:layout_toLeftOf="@+id/tv_store_bg_add_show"
+                android:background="@drawable/shap_oval"
+                android:text="修改"
+                android:textColor="@color/white"
+                android:textSize="12sp" />
+
+            <Button
+                android:id="@+id/tv_store_bg_add_show"
+                android:layout_width="38dp"
+                android:layout_height="18dp"
                 android:layout_alignParentRight="true"
-                android:drawableRight="@mipmap/alls_back"
-                android:text="修改/增加"
-                android:textColor="@color/base_grey_text_color" />
+                android:layout_marginTop="15dp"
+                android:background="@drawable/shap_oval"
+                android:text="增加"
+                android:textColor="@color/white"
+                android:textSize="12sp" />
+
+
+            <!--android:id="@+id/tv_modify_or_add_img_show"-->
+            <!--<TextView-->
+                <!--style="@style/MyStoreDescTitle"-->
+                <!--android:layout_alignParentRight="true"-->
+                <!--android:drawableRight="@mipmap/alls_back"-->
+                <!--android:text="修改/增加"-->
+                <!--android:textColor="@color/base_grey_text_color" />-->
+
         </RelativeLayout>
     </LinearLayout>
 </LinearLayout>

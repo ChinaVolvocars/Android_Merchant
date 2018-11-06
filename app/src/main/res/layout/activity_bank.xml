@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ll_add_back_card_root_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
-    android:orientation="vertical"
-    android:overScrollMode="never"
-    android:scrollbars="none">
+    android:orientation="vertical">
 
     <FrameLayout
         android:layout_width="match_parent"
@@ -13,8 +12,8 @@
         android:background="@mipmap/titles_bac">
 
         <TextView
-            android:text="众鑫赢家-我的银行卡"
-            style="@style/TitleBarTitleStyle"/>
+            style="@style/TitleBarTitleStyle"
+            android:text="众鑫赢家-我的银行卡" />
 
         <ImageView
             android:id="@+id/back"
@@ -43,9 +42,21 @@
         </RelativeLayout>
     </FrameLayout>
 
-    <com.common.widget.recyclerview.refresh.recycleview.XRecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/recyclerview"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/view_background_color" />
+        android:layout_height="match_parent">
+        <TextView
+            android:id="@+id/tv_pop_location"
+            android:layout_width="112dp"
+            android:layout_height="1dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="4dp"
+            android:layout_marginRight="22dp"/>
+
+        <com.common.widget.recyclerview.refresh.recycleview.XRecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/recyclerview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/view_background_color" />
+    </RelativeLayout>
 </LinearLayout>
