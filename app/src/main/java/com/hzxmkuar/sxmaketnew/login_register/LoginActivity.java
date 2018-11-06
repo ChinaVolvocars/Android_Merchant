@@ -1,16 +1,15 @@
-package com.hzxmkuar.sxmaketnew.common;
+package com.hzxmkuar.sxmaketnew.login_register;
 
 import android.Manifest;
 import android.content.Intent;
-import android.text.Editable;
-import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.common.listener.OnOnceClickListener;
+import com.common.base.Constants;
 import com.common.mvp.BaseMvpActivity;
 import com.common.mvp.BasePresenter;
 import com.common.retrofit.entity.DataCenter;
@@ -18,15 +17,10 @@ import com.common.retrofit.entity.result.UserBean;
 import com.common.retrofit.methods.UserMethods;
 import com.common.retrofit.subscriber.CommonSubscriber;
 import com.common.retrofit.subscriber.SubscriberListener;
-import com.common.utils.EmptyUtils;
 import com.common.utils.LogUtils;
-import com.common.utils.RegexUtils;
 import com.common.widget.editview.DeleteEditText;
-import com.common.widget.textview.CountdownButton;
-import com.hzxmkuar.sxmaketnew.ForgetPwdActivity;
-import com.hzxmkuar.sxmaketnew.MainActivity;
-import com.hzxmkuar.sxmaketnew.NewPwdActivity;
-import com.hzxmkuar.sxmaketnew.NewZCActivity;
+import com.hzxmkuar.sxmaketnew.base.BaseUrlActivity;
+import com.hzxmkuar.sxmaketnew.home.MainActivity;
 import com.hzxmkuar.sxmaketnew.R;
 import com.xmkj.payandlogin.ShareConfig;
 import com.xmkj.payandlogin.ShareManager;
@@ -36,23 +30,27 @@ import com.xmkj.payandlogin.login.LoginResult;
 import com.xmkj.payandlogin.login.result.QQUser;
 import com.xmkj.payandlogin.login.result.WxUser;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import me.weyye.hipermission.HiPermission;
 import me.weyye.hipermission.PermissionCallback;
+import retrofit2.http.Field;
 
 public class LoginActivity extends BaseMvpActivity {
-
+    private static final String TAG = "LoginActivity";
     private Button btnLogin;
     private Button btnQQ;
     private Button btnWechat;
     private TextView mNewShopJoin;
     private DeleteEditText evPhone;
     private DeleteEditText evCode;
-    private CountdownButton tvVerify;
     private Button btnWebo;
     private Button btnali;
     private CheckBox mCheckBox;
     private TextView xieyi;
     private TextView mTvForgetPwd;
+    private TextView mTvGetBackAccount;
 
 
     @Override
@@ -73,12 +71,12 @@ public class LoginActivity extends BaseMvpActivity {
         btnWechat = (Button) findViewById(R.id.iv_wechat);
         btnWebo = (Button) findViewById(R.id.iv_webo);
         btnali = (Button) findViewById(R.id.iv_ali);
-        tvVerify = (CountdownButton) findViewById(R.id.tv_verify);
         evCode = (DeleteEditText) findViewById(R.id.ev_code);
         mNewShopJoin = (TextView) findViewById(R.id.tv_new_shop_join);
         mCheckBox = (CheckBox) findViewById(R.id.checkbox);
         xieyi = (TextView) findViewById(R.id.xieyi);
         mTvForgetPwd = (TextView) findViewById(R.id.tv_forget_pwd);
+        mTvGetBackAccount = (TextView) findViewById(R.id.tv_get_back_account);
     }
 
     @Override
@@ -96,41 +94,11 @@ public class LoginActivity extends BaseMvpActivity {
         attachClickListener(mNewShopJoin);
         attachClickListener(xieyi);
         attachClickListener(mTvForgetPwd);
-        setVerifyView();
-    }
-    private void setVerifyView() {
-        tvVerify.setEnabled(false);
-        tvVerify.setOnClickListener(new OnOnceClickListener() {
-            @Override
-            public void onOnceClick(View v) {
-                if (EmptyUtils.isEmpty(getEditTextStr(evPhone))) {
-                    showToastMsg("请输入手机号");
-                    return;
-                } else if (!RegexUtils.isMobileExact(getEditTextStr(evPhone))) {
-                    showToastMsg("手机号不正确");
-                    return;
-                }
-                //发送短信
-                //gotoReqs(getEditTextStr(evPhone), 3);
-            }
-        });
-        evPhone.addTextChangedListener(textWatcher);
+        attachClickListener(mTvGetBackAccount);
+
+
     }
 
-    private TextWatcher textWatcher = new TextWatcher() {
-        @Override
-        public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {}
-
-        @Override
-        public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-            if (EmptyUtils.isNotEmpty(getEditTextStr(evPhone)) && RegexUtils.isMobileExact(getEditTextStr(evPhone))) {
-                tvVerify.setEnabled(true);
-            }
-        }
-
-        @Override
-        public void afterTextChanged(Editable editable) {}
-    };
     private void initLogin() {
         ShareConfig config = ShareConfig.instance()
                 .qqId("101431881")
@@ -224,7 +192,13 @@ public class LoginActivity extends BaseMvpActivity {
                 showToastMsg(e);
             }
         });
-        UserMethods.getInstance().login(subscriber,qqauthId,qqauthName, "");
+
+        List<String> reqList = new ArrayList<>();
+        reqList.add("time");
+        reqList.add("username");
+        reqList.add("password");
+        reqList.add("jpushid");
+        UserMethods.getInstance().login(subscriber,reqList,qqauthId,qqauthName, "");
         rxManager.add(subscriber);
     }
    /* private void loginEase(UserBean userBean) {
@@ -260,26 +234,32 @@ public class LoginActivity extends BaseMvpActivity {
         }  else if (view.getId() == btnQQ.getId()) {
             //LoginUtil.login(this, LoginPlatform.QQ, mLoginListener);
             //showToastMsg("暂未开放");
-        } else if (view.getId() == btnWechat.getId()) {
-            gotoActivity(BDPhoneActivity.class);
-            //LoginUtil.login(this, LoginPlatform.WX, mLoginListener);
-            //showToastMsg("暂未开放");
-        }else if (view.getId() == btnWebo.getId()) {
-            gotoActivity(BDPhoneActivity.class);
-            //LoginUtil.login(this, LoginPlatform.WX, mLoginListener);
-            //showToastMsg("暂未开放");
-        }else if (view.getId() == btnali.getId()) {
-            //LoginUtil.login(this, LoginPlatform.WX, mLoginListener);
-            //showToastMsg("暂未开放");
-            gotoActivity(BDPhoneActivity.class);
-        }else if (view.getId()==mNewShopJoin.getId()){
+        }
+//        else if (view.getId() == btnWechat.getId()) {
+//            gotoActivity(BDPhoneActivity.class);
+//            //LoginUtil.login(this, LoginPlatform.WX, mLoginListener);
+//            //showToastMsg("暂未开放");
+//        }else if (view.getId() == btnWebo.getId()) {
+//            gotoActivity(BDPhoneActivity.class);
+//            //LoginUtil.login(this, LoginPlatform.WX, mLoginListener);
+//            //showToastMsg("暂未开放");
+//        }else if (view.getId() == btnali.getId()) {
+//            //LoginUtil.login(this, LoginPlatform.WX, mLoginListener);
+//            //showToastMsg("暂未开放");
+//            gotoActivity(BDPhoneActivity.class);
+//        }
+        else if (view.getId()==mNewShopJoin.getId()){
             gotoActivity(NewZCActivity.class);
 //            gotoActivity(NewPwdActivity.class);
         }else if (view.getId()==mTvForgetPwd.getId()){
             gotoActivity(ForgetPwdActivity.class);
+            // 忘记账号
+        }else if (view.getId()==mTvGetBackAccount.getId()){
+            gotoActivity(GetBackAccountActivity.class);
+
         }else if (view.getId()==xieyi.getId()){
             Intent urlIntent = new Intent(context, BaseUrlActivity.class);
-            urlIntent.putExtra(BaseUrlActivity.MAIN_URL, "http://xmap1802009.php.hzxmnet.com/Home/Index/article/type/9.html");
+            urlIntent.putExtra(BaseUrlActivity.MAIN_URL, "http://app.zhongxinyingjia.com/Home/Index/article/type/8.html");
             startActivity(urlIntent);
         }
     }
