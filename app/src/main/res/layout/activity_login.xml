@@ -142,42 +142,38 @@
                     android:inputType="textPassword"
                     android:textColor="@color/normal_text_color" />
 
-                <ImageView
-                    android:layout_width="0.5dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginBottom="10dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
-                    android:layout_marginTop="10dp"
-                    android:src="#333"
-                    android:visibility="gone" />
-
-                <com.common.widget.textview.CountdownButton
-                    android:id="@+id/tv_verify"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:background="@null"
-                    android:gravity="center"
-                    android:paddingLeft="@dimen/view_size_10"
-                    android:paddingRight="@dimen/view_size_10"
-                    android:text="发送验证码"
-                    android:textColor="@color/base_color"
-                    android:textSize="@dimen/text_size_13"
-                    android:visibility="gone" />
             </LinearLayout>
 
         </LinearLayout>
 
-        <TextView
-            android:id="@+id/tv_forget_pwd"
-            android:layout_width="wrap_content"
+        <RelativeLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="right"
-            android:layout_marginRight="20dp"
-            android:layout_marginTop="12dp"
-            android:text="忘记密码"
-            android:textColor="@color/c_999999"
-            android:textSize="12sp" />
+            android:orientation="horizontal"
+            android:layout_marginTop="16dp"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:padding="4dp">
+
+            <TextView
+                android:id="@+id/tv_get_back_account"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_marginLeft="20dp"
+                android:text="忘记账号"
+                android:textColor="@color/c_999999"
+                android:textSize="12sp" />
+            <TextView
+                android:id="@+id/tv_forget_pwd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="20dp"
+                android:text="忘记密码"
+                android:textColor="@color/c_999999"
+                android:textSize="12sp" />
+        </RelativeLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
