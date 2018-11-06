@@ -36,6 +36,7 @@ public class JoinSucceedDialog extends Dialog {
     private Activity mActivity;
     public JoinSucceedDialog(@NonNull Context context, Activity activity) {
 //        super(context, R.style.cus_dialog);
+
         super(context);
         this.mContext = context;
         this.mActivity = activity;
