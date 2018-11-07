@@ -8,52 +8,48 @@
         "source": "C:\\Users\\little_bug\\.android\\build-cache\\f406617598f5a5689b140af35079d61c0806a085\\output\\res\\anim\\abc_popup_enter.xml"
     },
     {
-        "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\anim\\push_bottom_out.xml",
-        "source": "E:\\sx_repositories\\SX_Merchant\\common\\src\\main\\res\\anim\\push_bottom_out.xml"
+        "merged": "D:\\Company\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\anim\\abc_popup_exit.xml",
+        "source": "C:\\Users\\Log\\.android\\build-cache\\80eb88dfaca901c46c8b20301a19dbabf86dc2bf\\output\\res\\anim\\abc_popup_exit.xml"
+    },
+    {
+        "merged": "D:\\Company\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\anim\\base_popup_fade_out.xml",
+        "source": "D:\\Company\\SX_Merchant\\common\\src\\main\\res\\anim\\base_popup_fade_out.xml"
+    },
+    {
+        "merged": "D:\\Company\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\anim\\slide_in_right.xml",
+        "source": "D:\\Company\\SX_Merchant\\common\\src\\main\\res\\anim\\slide_in_right.xml"
+    },
+    {
+        "merged": "D:\\Company\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\anim\\fade_in.xml",
+        "source": "D:\\Company\\SX_Merchant\\common\\src\\main\\res\\anim\\fade_in.xml"
     },
     {
         "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\anim\\abc_shrink_fade_out_from_bottom.xml",
         "source": "C:\\Users\\little_bug\\.android\\build-cache\\f406617598f5a5689b140af35079d61c0806a085\\output\\res\\anim\\abc_shrink_fade_out_from_bottom.xml"
     },
     {
-        "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\anim\\abc_slide_in_top.xml",
-        "source": "C:\\Users\\little_bug\\.android\\build-cache\\f406617598f5a5689b140af35079d61c0806a085\\output\\res\\anim\\abc_slide_in_top.xml"
-    },
-    {
         "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\anim\\fade_out_a.xml",
         "source": "E:\\sx_repositories\\SX_Merchant\\common\\src\\main\\res\\anim\\fade_out_a.xml"
-    },
-    {
-        "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\anim\\abc_slide_in_bottom.xml",
-        "source": "C:\\Users\\little_bug\\.android\\build-cache\\f406617598f5a5689b140af35079d61c0806a085\\output\\res\\anim\\abc_slide_in_bottom.xml"
-    },
-    {
-        "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\anim\\abc_slide_out_bottom.xml",
-        "source": "C:\\Users\\little_bug\\.android\\build-cache\\f406617598f5a5689b140af35079d61c0806a085\\output\\res\\anim\\abc_slide_out_bottom.xml"
     },
     {
         "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\anim\\push_bottom_in.xml",
         "source": "E:\\sx_repositories\\SX_Merchant\\common\\src\\main\\res\\anim\\push_bottom_in.xml"
     },
     {
-        "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\anim\\abc_fade_out.xml",
-        "source": "C:\\Users\\little_bug\\.android\\build-cache\\f406617598f5a5689b140af35079d61c0806a085\\output\\res\\anim\\abc_fade_out.xml"
+        "merged": "D:\\Company\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\anim\\abc_slide_in_top.xml",
+        "source": "C:\\Users\\Log\\.android\\build-cache\\80eb88dfaca901c46c8b20301a19dbabf86dc2bf\\output\\res\\anim\\abc_slide_in_top.xml"
     },
     {
-        "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\anim\\abc_popup_exit.xml",
-        "source": "C:\\Users\\little_bug\\.android\\build-cache\\f406617598f5a5689b140af35079d61c0806a085\\output\\res\\anim\\abc_popup_exit.xml"
+        "merged": "D:\\Company\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\anim\\abc_fade_out.xml",
+        "source": "C:\\Users\\Log\\.android\\build-cache\\80eb88dfaca901c46c8b20301a19dbabf86dc2bf\\output\\res\\anim\\abc_fade_out.xml"
     },
     {
         "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\anim\\base_popup_fade_out.xml",
         "source": "E:\\sx_repositories\\SX_Merchant\\common\\src\\main\\res\\anim\\base_popup_fade_out.xml"
     },
     {
-        "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\anim\\design_snackbar_out.xml",
-        "source": "C:\\Users\\little_bug\\.android\\build-cache\\58d3ef2b14de161b9ff2ea18bc647c496b56dc17\\output\\res\\anim\\design_snackbar_out.xml"
-    },
-    {
-        "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\anim\\pickerview_slide_in_bottom.xml",
-        "source": "C:\\Users\\little_bug\\.android\\build-cache\\3b8486c8f5a09d02b3cd88c20565cddd79b99cf5\\output\\res\\anim\\pickerview_slide_in_bottom.xml"
+        "merged": "D:\\Company\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\anim\\slide_out_left.xml",
+        "source": "D:\\Company\\SX_Merchant\\common\\src\\main\\res\\anim\\slide_out_left.xml"
     },
     {
         "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\anim\\abc_slide_out_top.xml",
@@ -64,8 +60,164 @@
         "source": "E:\\sx_repositories\\SX_Merchant\\common\\src\\main\\res\\anim\\location_jump.xml"
     },
     {
+        "merged": "D:\\Company\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\anim\\design_fab_out.xml",
+        "source": "C:\\Users\\Log\\.android\\build-cache\\429b84122169a44cc1bd68bec3f93f606e7812f9\\output\\res\\anim\\design_fab_out.xml"
+    },
+    {
         "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\anim\\bottomview_anim_enter.xml",
         "source": "E:\\sx_repositories\\SX_Merchant\\common\\src\\main\\res\\anim\\bottomview_anim_enter.xml"
+    },
+    {
+        "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\anim\\pickerview_dialog_scale_in.xml",
+        "source": "C:\\Users\\little_bug\\.android\\build-cache\\3b8486c8f5a09d02b3cd88c20565cddd79b99cf5\\output\\res\\anim\\pickerview_dialog_scale_in.xml"
+    },
+    {
+        "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\anim\\pickerview_dialog_scale_out.xml",
+        "source": "C:\\Users\\little_bug\\.android\\build-cache\\3b8486c8f5a09d02b3cd88c20565cddd79b99cf5\\output\\res\\anim\\pickerview_dialog_scale_out.xml"
+    },
+    {
+        "merged": "D:\\Company\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\anim\\design_snackbar_out.xml",
+        "source": "C:\\Users\\Log\\.android\\build-cache\\429b84122169a44cc1bd68bec3f93f606e7812f9\\output\\res\\anim\\design_snackbar_out.xml"
+    },
+    {
+        "merged": "D:\\Company\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\anim\\abc_shrink_fade_out_from_bottom.xml",
+        "source": "C:\\Users\\Log\\.android\\build-cache\\80eb88dfaca901c46c8b20301a19dbabf86dc2bf\\output\\res\\anim\\abc_shrink_fade_out_from_bottom.xml"
+    },
+    {
+        "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\anim\\design_snackbar_in.xml",
+        "source": "C:\\Users\\little_bug\\.android\\build-cache\\58d3ef2b14de161b9ff2ea18bc647c496b56dc17\\output\\res\\anim\\design_snackbar_in.xml"
+    },
+    {
+        "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\anim\\bottomview_anim_exit.xml",
+        "source": "E:\\sx_repositories\\SX_Merchant\\common\\src\\main\\res\\anim\\bottomview_anim_exit.xml"
+    },
+    {
+        "merged": "D:\\Company\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\anim\\push_bottom_in.xml",
+        "source": "D:\\Company\\SX_Merchant\\common\\src\\main\\res\\anim\\push_bottom_in.xml"
+    },
+    {
+        "merged": "D:\\Company\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\anim\\base_popup_fade_in.xml",
+        "source": "D:\\Company\\SX_Merchant\\common\\src\\main\\res\\anim\\base_popup_fade_in.xml"
+    },
+    {
+        "merged": "D:\\Company\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\anim\\design_bottom_sheet_slide_in.xml",
+        "source": "C:\\Users\\Log\\.android\\build-cache\\429b84122169a44cc1bd68bec3f93f606e7812f9\\output\\res\\anim\\design_bottom_sheet_slide_in.xml"
+    },
+    {
+        "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\anim\\slide_out_right.xml",
+        "source": "E:\\sx_repositories\\SX_Merchant\\common\\src\\main\\res\\anim\\slide_out_right.xml"
+    },
+    {
+        "merged": "D:\\Company\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\anim\\push_bottom_out.xml",
+        "source": "D:\\Company\\SX_Merchant\\common\\src\\main\\res\\anim\\push_bottom_out.xml"
+    },
+    {
+        "merged": "D:\\Company\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\anim\\abc_slide_out_top.xml",
+        "source": "C:\\Users\\Log\\.android\\build-cache\\80eb88dfaca901c46c8b20301a19dbabf86dc2bf\\output\\res\\anim\\abc_slide_out_top.xml"
+    },
+    {
+        "merged": "D:\\Company\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\anim\\abc_slide_out_bottom.xml",
+        "source": "C:\\Users\\Log\\.android\\build-cache\\80eb88dfaca901c46c8b20301a19dbabf86dc2bf\\output\\res\\anim\\abc_slide_out_bottom.xml"
+    },
+    {
+        "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\anim\\fade_in_a.xml",
+        "source": "E:\\sx_repositories\\SX_Merchant\\common\\src\\main\\res\\anim\\fade_in_a.xml"
+    },
+    {
+        "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\anim\\base_popup_fade_in.xml",
+        "source": "E:\\sx_repositories\\SX_Merchant\\common\\src\\main\\res\\anim\\base_popup_fade_in.xml"
+    },
+    {
+        "merged": "D:\\Company\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\anim\\slide_in_left.xml",
+        "source": "D:\\Company\\SX_Merchant\\common\\src\\main\\res\\anim\\slide_in_left.xml"
+    },
+    {
+        "merged": "D:\\Company\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\anim\\abc_grow_fade_in_from_bottom.xml",
+        "source": "C:\\Users\\Log\\.android\\build-cache\\80eb88dfaca901c46c8b20301a19dbabf86dc2bf\\output\\res\\anim\\abc_grow_fade_in_from_bottom.xml"
+    },
+    {
+        "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\anim\\design_bottom_sheet_slide_in.xml",
+        "source": "C:\\Users\\little_bug\\.android\\build-cache\\58d3ef2b14de161b9ff2ea18bc647c496b56dc17\\output\\res\\anim\\design_bottom_sheet_slide_in.xml"
+    },
+    {
+        "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\anim\\design_fab_out.xml",
+        "source": "C:\\Users\\little_bug\\.android\\build-cache\\58d3ef2b14de161b9ff2ea18bc647c496b56dc17\\output\\res\\anim\\design_fab_out.xml"
+    },
+    {
+        "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\anim\\pickerview_slide_out_bottom.xml",
+        "source": "C:\\Users\\little_bug\\.android\\build-cache\\3b8486c8f5a09d02b3cd88c20565cddd79b99cf5\\output\\res\\anim\\pickerview_slide_out_bottom.xml"
+    },
+    {
+        "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\anim\\abc_fade_in.xml",
+        "source": "C:\\Users\\little_bug\\.android\\build-cache\\f406617598f5a5689b140af35079d61c0806a085\\output\\res\\anim\\abc_fade_in.xml"
+    },
+    {
+        "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\anim\\fade_out.xml",
+        "source": "E:\\sx_repositories\\SX_Merchant\\common\\src\\main\\res\\anim\\fade_out.xml"
+    },
+    {
+        "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\anim\\push_bottom_out.xml",
+        "source": "E:\\sx_repositories\\SX_Merchant\\common\\src\\main\\res\\anim\\push_bottom_out.xml"
+    },
+    {
+        "merged": "D:\\Company\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\anim\\slide_out_right.xml",
+        "source": "D:\\Company\\SX_Merchant\\common\\src\\main\\res\\anim\\slide_out_right.xml"
+    },
+    {
+        "merged": "D:\\Company\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\anim\\pickerview_dialog_scale_in.xml",
+        "source": "C:\\Users\\Log\\.android\\build-cache\\301fe0fe567baa14b894f895c23032e881b82261\\output\\res\\anim\\pickerview_dialog_scale_in.xml"
+    },
+    {
+        "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\anim\\abc_slide_in_top.xml",
+        "source": "C:\\Users\\little_bug\\.android\\build-cache\\f406617598f5a5689b140af35079d61c0806a085\\output\\res\\anim\\abc_slide_in_top.xml"
+    },
+    {
+        "merged": "D:\\Company\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\anim\\design_bottom_sheet_slide_out.xml",
+        "source": "C:\\Users\\Log\\.android\\build-cache\\429b84122169a44cc1bd68bec3f93f606e7812f9\\output\\res\\anim\\design_bottom_sheet_slide_out.xml"
+    },
+    {
+        "merged": "D:\\Company\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\anim\\abc_slide_in_bottom.xml",
+        "source": "C:\\Users\\Log\\.android\\build-cache\\80eb88dfaca901c46c8b20301a19dbabf86dc2bf\\output\\res\\anim\\abc_slide_in_bottom.xml"
+    },
+    {
+        "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\anim\\abc_slide_in_bottom.xml",
+        "source": "C:\\Users\\little_bug\\.android\\build-cache\\f406617598f5a5689b140af35079d61c0806a085\\output\\res\\anim\\abc_slide_in_bottom.xml"
+    },
+    {
+        "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\anim\\abc_slide_out_bottom.xml",
+        "source": "C:\\Users\\little_bug\\.android\\build-cache\\f406617598f5a5689b140af35079d61c0806a085\\output\\res\\anim\\abc_slide_out_bottom.xml"
+    },
+    {
+        "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\anim\\abc_fade_out.xml",
+        "source": "C:\\Users\\little_bug\\.android\\build-cache\\f406617598f5a5689b140af35079d61c0806a085\\output\\res\\anim\\abc_fade_out.xml"
+    },
+    {
+        "merged": "D:\\Company\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\anim\\pickerview_dialog_scale_out.xml",
+        "source": "C:\\Users\\Log\\.android\\build-cache\\301fe0fe567baa14b894f895c23032e881b82261\\output\\res\\anim\\pickerview_dialog_scale_out.xml"
+    },
+    {
+        "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\anim\\abc_popup_exit.xml",
+        "source": "C:\\Users\\little_bug\\.android\\build-cache\\f406617598f5a5689b140af35079d61c0806a085\\output\\res\\anim\\abc_popup_exit.xml"
+    },
+    {
+        "merged": "D:\\Company\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\anim\\design_fab_in.xml",
+        "source": "C:\\Users\\Log\\.android\\build-cache\\429b84122169a44cc1bd68bec3f93f606e7812f9\\output\\res\\anim\\design_fab_in.xml"
+    },
+    {
+        "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\anim\\design_snackbar_out.xml",
+        "source": "C:\\Users\\little_bug\\.android\\build-cache\\58d3ef2b14de161b9ff2ea18bc647c496b56dc17\\output\\res\\anim\\design_snackbar_out.xml"
+    },
+    {
+        "merged": "D:\\Company\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\anim\\bottomview_anim_exit.xml",
+        "source": "D:\\Company\\SX_Merchant\\common\\src\\main\\res\\anim\\bottomview_anim_exit.xml"
+    },
+    {
+        "merged": "D:\\Company\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\anim\\bottomview_anim_enter.xml",
+        "source": "D:\\Company\\SX_Merchant\\common\\src\\main\\res\\anim\\bottomview_anim_enter.xml"
+    },
+    {
+        "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\anim\\pickerview_slide_in_bottom.xml",
+        "source": "C:\\Users\\little_bug\\.android\\build-cache\\3b8486c8f5a09d02b3cd88c20565cddd79b99cf5\\output\\res\\anim\\pickerview_slide_in_bottom.xml"
     },
     {
         "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\anim\\slide_in_left.xml",
@@ -84,44 +236,32 @@
         "source": "E:\\sx_repositories\\SX_Merchant\\common\\src\\main\\res\\anim\\slide_in_right.xml"
     },
     {
-        "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\anim\\pickerview_dialog_scale_in.xml",
-        "source": "C:\\Users\\little_bug\\.android\\build-cache\\3b8486c8f5a09d02b3cd88c20565cddd79b99cf5\\output\\res\\anim\\pickerview_dialog_scale_in.xml"
+        "merged": "D:\\Company\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\anim\\location_jump.xml",
+        "source": "D:\\Company\\SX_Merchant\\common\\src\\main\\res\\anim\\location_jump.xml"
     },
     {
-        "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\anim\\pickerview_dialog_scale_out.xml",
-        "source": "C:\\Users\\little_bug\\.android\\build-cache\\3b8486c8f5a09d02b3cd88c20565cddd79b99cf5\\output\\res\\anim\\pickerview_dialog_scale_out.xml"
+        "merged": "D:\\Company\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\anim\\pickerview_slide_out_bottom.xml",
+        "source": "C:\\Users\\Log\\.android\\build-cache\\301fe0fe567baa14b894f895c23032e881b82261\\output\\res\\anim\\pickerview_slide_out_bottom.xml"
     },
     {
-        "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\anim\\bottomview_anim_exit.xml",
-        "source": "E:\\sx_repositories\\SX_Merchant\\common\\src\\main\\res\\anim\\bottomview_anim_exit.xml"
+        "merged": "D:\\Company\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\anim\\fade_out.xml",
+        "source": "D:\\Company\\SX_Merchant\\common\\src\\main\\res\\anim\\fade_out.xml"
     },
     {
-        "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\anim\\design_snackbar_in.xml",
-        "source": "C:\\Users\\little_bug\\.android\\build-cache\\58d3ef2b14de161b9ff2ea18bc647c496b56dc17\\output\\res\\anim\\design_snackbar_in.xml"
+        "merged": "D:\\Company\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\anim\\pickerview_slide_in_bottom.xml",
+        "source": "C:\\Users\\Log\\.android\\build-cache\\301fe0fe567baa14b894f895c23032e881b82261\\output\\res\\anim\\pickerview_slide_in_bottom.xml"
     },
     {
-        "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\anim\\slide_out_right.xml",
-        "source": "E:\\sx_repositories\\SX_Merchant\\common\\src\\main\\res\\anim\\slide_out_right.xml"
+        "merged": "D:\\Company\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\anim\\abc_popup_enter.xml",
+        "source": "C:\\Users\\Log\\.android\\build-cache\\80eb88dfaca901c46c8b20301a19dbabf86dc2bf\\output\\res\\anim\\abc_popup_enter.xml"
     },
     {
-        "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\anim\\fade_in_a.xml",
-        "source": "E:\\sx_repositories\\SX_Merchant\\common\\src\\main\\res\\anim\\fade_in_a.xml"
+        "merged": "D:\\Company\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\anim\\abc_fade_in.xml",
+        "source": "C:\\Users\\Log\\.android\\build-cache\\80eb88dfaca901c46c8b20301a19dbabf86dc2bf\\output\\res\\anim\\abc_fade_in.xml"
     },
     {
-        "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\anim\\base_popup_fade_in.xml",
-        "source": "E:\\sx_repositories\\SX_Merchant\\common\\src\\main\\res\\anim\\base_popup_fade_in.xml"
-    },
-    {
-        "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\anim\\design_bottom_sheet_slide_in.xml",
-        "source": "C:\\Users\\little_bug\\.android\\build-cache\\58d3ef2b14de161b9ff2ea18bc647c496b56dc17\\output\\res\\anim\\design_bottom_sheet_slide_in.xml"
-    },
-    {
-        "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\anim\\design_fab_out.xml",
-        "source": "C:\\Users\\little_bug\\.android\\build-cache\\58d3ef2b14de161b9ff2ea18bc647c496b56dc17\\output\\res\\anim\\design_fab_out.xml"
-    },
-    {
-        "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\anim\\pickerview_slide_out_bottom.xml",
-        "source": "C:\\Users\\little_bug\\.android\\build-cache\\3b8486c8f5a09d02b3cd88c20565cddd79b99cf5\\output\\res\\anim\\pickerview_slide_out_bottom.xml"
+        "merged": "D:\\Company\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\anim\\fade_out_a.xml",
+        "source": "D:\\Company\\SX_Merchant\\common\\src\\main\\res\\anim\\fade_out_a.xml"
     },
     {
         "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\anim\\design_fab_in.xml",
@@ -132,11 +272,11 @@
         "source": "E:\\sx_repositories\\SX_Merchant\\common\\src\\main\\res\\anim\\slide_out_left.xml"
     },
     {
-        "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\anim\\abc_fade_in.xml",
-        "source": "C:\\Users\\little_bug\\.android\\build-cache\\f406617598f5a5689b140af35079d61c0806a085\\output\\res\\anim\\abc_fade_in.xml"
+        "merged": "D:\\Company\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\anim\\fade_in_a.xml",
+        "source": "D:\\Company\\SX_Merchant\\common\\src\\main\\res\\anim\\fade_in_a.xml"
     },
     {
-        "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\anim\\fade_out.xml",
-        "source": "E:\\sx_repositories\\SX_Merchant\\common\\src\\main\\res\\anim\\fade_out.xml"
+        "merged": "D:\\Company\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\anim\\design_snackbar_in.xml",
+        "source": "C:\\Users\\Log\\.android\\build-cache\\429b84122169a44cc1bd68bec3f93f606e7812f9\\output\\res\\anim\\design_snackbar_in.xml"
     }
 ]

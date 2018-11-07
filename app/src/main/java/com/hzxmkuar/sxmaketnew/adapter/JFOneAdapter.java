@@ -1,14 +1,11 @@
 package com.hzxmkuar.sxmaketnew.adapter;
 
 import android.content.Context;
-import android.widget.FrameLayout;
 
-import com.common.retrofit.entity.result.FBean;
 import com.common.retrofit.entity.result.FiniBean;
 import com.common.widget.recyclerview.refresh.adapter.CommonAdapter;
 import com.common.widget.recyclerview.refresh.adapter.ViewHolder;
 import com.hzxmkuar.sxmaketnew.R;
-import com.hzxmkuar.sxmaketnew.login_register.ForgetPwdActivity;
 
 import java.util.List;
 
