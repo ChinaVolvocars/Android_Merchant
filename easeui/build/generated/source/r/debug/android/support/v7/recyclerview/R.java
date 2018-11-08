@@ -14,9 +14,9 @@ public final class R {
         public static int stackFromEnd = 0x7f010196;
     }
     public static final class dimen {
-        public static int item_touch_helper_max_drag_scroll_per_frame = 0x7f090081;
-        public static int item_touch_helper_swipe_escape_max_velocity = 0x7f090082;
-        public static int item_touch_helper_swipe_escape_velocity = 0x7f090083;
+        public static int item_touch_helper_max_drag_scroll_per_frame = 0x7f0900e5;
+        public static int item_touch_helper_swipe_escape_max_velocity = 0x7f0900e6;
+        public static int item_touch_helper_swipe_escape_velocity = 0x7f0900e7;
     }
     public static final class id {
         public static int item_touch_helper_previous_elevation = 0x7f0f0010;

@@ -5,6 +5,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
 import com.bigkoo.pickerview.OptionsPickerView;
 import com.common.mvp.BaseMvpActivity;
 import com.common.mvp.BasePresenter;
@@ -14,6 +15,7 @@ import com.common.retrofit.subscriber.CommonSubscriber;
 import com.common.retrofit.subscriber.SubscriberListener;
 import com.common.widget.editview.DeleteEditText;
 import com.hzxmkuar.sxmaketnew.R;
+
 import java.util.ArrayList;
 import java.util.List;
 
