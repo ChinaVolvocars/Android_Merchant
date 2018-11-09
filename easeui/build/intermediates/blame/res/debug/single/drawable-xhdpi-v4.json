@@ -1,11 +1,11 @@
 [
     {
-        "merged": "D:\\Company\\SX_Merchant\\easeui\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\icon_chat_camera.png",
-        "source": "D:\\Company\\SX_Merchant\\easeui\\src\\main\\res\\drawable-xhdpi\\icon_chat_camera.png"
-    },
-    {
         "merged": "D:\\Company\\SX_Merchant\\easeui\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\ease_default_expression.png",
         "source": "D:\\Company\\SX_Merchant\\easeui\\src\\main\\res\\drawable-xhdpi\\ease_default_expression.png"
+    },
+    {
+        "merged": "D:\\Company\\SX_Merchant\\easeui\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\icon_chat_camera.png",
+        "source": "D:\\Company\\SX_Merchant\\easeui\\src\\main\\res\\drawable-xhdpi\\icon_chat_camera.png"
     },
     {
         "merged": "D:\\Company\\SX_Merchant\\easeui\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\ease_open_icon.png",

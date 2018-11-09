@@ -8,12 +8,12 @@
         "source": "D:\\Company\\SX_Merchant\\common\\build\\intermediates\\bundles\\default\\res\\mipmap-xhdpi-v4\\progress.png"
     },
     {
-        "merged": "D:\\Company\\SX_Merchant\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\mipmap-xhdpi-v4\\test.jpg",
-        "source": "D:\\Company\\SX_Merchant\\common\\build\\intermediates\\bundles\\default\\res\\mipmap-xhdpi-v4\\test.jpg"
-    },
-    {
         "merged": "D:\\Company\\SX_Merchant\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\mipmap-xhdpi-v4\\icon_share_qq.png",
         "source": "D:\\Company\\SX_Merchant\\common\\build\\intermediates\\bundles\\default\\res\\mipmap-xhdpi-v4\\icon_share_qq.png"
+    },
+    {
+        "merged": "D:\\Company\\SX_Merchant\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\mipmap-xhdpi-v4\\test.jpg",
+        "source": "D:\\Company\\SX_Merchant\\common\\build\\intermediates\\bundles\\default\\res\\mipmap-xhdpi-v4\\test.jpg"
     },
     {
         "merged": "D:\\Company\\SX_Merchant\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\mipmap-xhdpi-v4\\icon_voice_right1.png",
@@ -40,12 +40,12 @@
         "source": "D:\\Company\\SX_Merchant\\common\\build\\intermediates\\bundles\\default\\res\\mipmap-xhdpi-v4\\refresh_recyclerview_loading_11.png"
     },
     {
-        "merged": "D:\\Company\\SX_Merchant\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\mipmap-xhdpi-v4\\icbc_.png",
-        "source": "D:\\Company\\SX_Merchant\\common\\build\\intermediates\\bundles\\default\\res\\mipmap-xhdpi-v4\\icbc_.png"
-    },
-    {
         "merged": "D:\\Company\\SX_Merchant\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\mipmap-xhdpi-v4\\refresh_recyclerview_loading_10.png",
         "source": "D:\\Company\\SX_Merchant\\common\\build\\intermediates\\bundles\\default\\res\\mipmap-xhdpi-v4\\refresh_recyclerview_loading_10.png"
+    },
+    {
+        "merged": "D:\\Company\\SX_Merchant\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\mipmap-xhdpi-v4\\icbc_.png",
+        "source": "D:\\Company\\SX_Merchant\\common\\build\\intermediates\\bundles\\default\\res\\mipmap-xhdpi-v4\\icbc_.png"
     },
     {
         "merged": "D:\\Company\\SX_Merchant\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\mipmap-xhdpi-v4\\gdb_.png",
@@ -84,16 +84,16 @@
         "source": "D:\\Company\\SX_Merchant\\common\\build\\intermediates\\bundles\\default\\res\\mipmap-xhdpi-v4\\icon_search_base.png"
     },
     {
-        "merged": "D:\\Company\\SX_Merchant\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\mipmap-xhdpi-v4\\bcm_.png",
-        "source": "D:\\Company\\SX_Merchant\\common\\build\\intermediates\\bundles\\default\\res\\mipmap-xhdpi-v4\\bcm_.png"
+        "merged": "D:\\Company\\SX_Merchant\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\mipmap-xhdpi-v4\\icon_arrow_up_grey.png",
+        "source": "D:\\Company\\SX_Merchant\\common\\build\\intermediates\\bundles\\default\\res\\mipmap-xhdpi-v4\\icon_arrow_up_grey.png"
     },
     {
         "merged": "D:\\Company\\SX_Merchant\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\mipmap-xhdpi-v4\\icon_close_white.png",
         "source": "D:\\Company\\SX_Merchant\\common\\build\\intermediates\\bundles\\default\\res\\mipmap-xhdpi-v4\\icon_close_white.png"
     },
     {
-        "merged": "D:\\Company\\SX_Merchant\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\mipmap-xhdpi-v4\\icon_arrow_up_grey.png",
-        "source": "D:\\Company\\SX_Merchant\\common\\build\\intermediates\\bundles\\default\\res\\mipmap-xhdpi-v4\\icon_arrow_up_grey.png"
+        "merged": "D:\\Company\\SX_Merchant\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\mipmap-xhdpi-v4\\bcm_.png",
+        "source": "D:\\Company\\SX_Merchant\\common\\build\\intermediates\\bundles\\default\\res\\mipmap-xhdpi-v4\\bcm_.png"
     },
     {
         "merged": "D:\\Company\\SX_Merchant\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\mipmap-xhdpi-v4\\img_up.png",
@@ -132,12 +132,12 @@
         "source": "D:\\Company\\SX_Merchant\\common\\build\\intermediates\\bundles\\default\\res\\mipmap-xhdpi-v4\\icon_green_arrow_up.png"
     },
     {
-        "merged": "D:\\Company\\SX_Merchant\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\mipmap-xhdpi-v4\\icon_back_white.png",
-        "source": "D:\\Company\\SX_Merchant\\common\\build\\intermediates\\bundles\\default\\res\\mipmap-xhdpi-v4\\icon_back_white.png"
-    },
-    {
         "merged": "D:\\Company\\SX_Merchant\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\mipmap-xhdpi-v4\\icon_voice_left3.png",
         "source": "D:\\Company\\SX_Merchant\\easeui\\build\\intermediates\\bundles\\debug\\res\\mipmap-xhdpi-v4\\icon_voice_left3.png"
+    },
+    {
+        "merged": "D:\\Company\\SX_Merchant\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\mipmap-xhdpi-v4\\icon_back_white.png",
+        "source": "D:\\Company\\SX_Merchant\\common\\build\\intermediates\\bundles\\default\\res\\mipmap-xhdpi-v4\\icon_back_white.png"
     },
     {
         "merged": "D:\\Company\\SX_Merchant\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\mipmap-xhdpi-v4\\record_top.png",
@@ -156,12 +156,12 @@
         "source": "D:\\Company\\SX_Merchant\\common\\build\\intermediates\\bundles\\default\\res\\mipmap-xhdpi-v4\\icon_edit_delete.png"
     },
     {
-        "merged": "D:\\Company\\SX_Merchant\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\mipmap-xhdpi-v4\\icon_green_arrow_down.png",
-        "source": "D:\\Company\\SX_Merchant\\common\\build\\intermediates\\bundles\\default\\res\\mipmap-xhdpi-v4\\icon_green_arrow_down.png"
-    },
-    {
         "merged": "D:\\Company\\SX_Merchant\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\mipmap-xhdpi-v4\\refresh_recyclerview_loading_07.png",
         "source": "D:\\Company\\SX_Merchant\\common\\build\\intermediates\\bundles\\default\\res\\mipmap-xhdpi-v4\\refresh_recyclerview_loading_07.png"
+    },
+    {
+        "merged": "D:\\Company\\SX_Merchant\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\mipmap-xhdpi-v4\\icon_green_arrow_down.png",
+        "source": "D:\\Company\\SX_Merchant\\common\\build\\intermediates\\bundles\\default\\res\\mipmap-xhdpi-v4\\icon_green_arrow_down.png"
     },
     {
         "merged": "D:\\Company\\SX_Merchant\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\mipmap-xhdpi-v4\\refresh_recyclerview_loading_04.png",

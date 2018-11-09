@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="65dp"
-    android:background="@mipmap/titles_bac">
+    android:layout_height="50dp"
+    android:background="@color/white">
 
     <TextView
         style="@style/TitleBarTitleStyle"
@@ -10,7 +10,7 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginTop="15dp">
 
         <TextView
@@ -20,9 +20,9 @@
             android:layout_marginLeft="16dp"
             android:gravity="center"
             android:text="测试环境"
-            android:textColor="@color/white"
+            android:textColor="@color/color_303030"
             android:textSize="16sp"
-            android:visibility="gone" />
+            android:visibility="visible" />
 
         <ImageView
             android:id="@+id/iv_setting"
@@ -33,7 +33,7 @@
             android:layout_alignParentTop="true"
             android:layout_marginEnd="15dp"
             android:layout_marginRight="15dp"
-            android:src="@mipmap/set_wait" />
+            android:src="@mipmap/ic_home_setting" />
     </RelativeLayout>
 
 </FrameLayout>

@@ -60,24 +60,24 @@
         "source": "C:\\Users\\Log\\.android\\build-cache\\80eb88dfaca901c46c8b20301a19dbabf86dc2bf\\output\\res\\drawable\\abc_ratingbar_small_material.xml"
     },
     {
-        "merged": "D:\\Company\\SX_Merchant\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\base_dialog_all.xml",
-        "source": "D:\\Company\\SX_Merchant\\common\\build\\intermediates\\bundles\\default\\res\\drawable\\base_dialog_all.xml"
-    },
-    {
         "merged": "D:\\Company\\SX_Merchant\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_edit_text_material.xml",
         "source": "C:\\Users\\Log\\.android\\build-cache\\80eb88dfaca901c46c8b20301a19dbabf86dc2bf\\output\\res\\drawable\\abc_edit_text_material.xml"
     },
     {
-        "merged": "D:\\Company\\SX_Merchant\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\shape_confirm_btn_bg.xml",
-        "source": "D:\\Company\\SX_Merchant\\common\\build\\intermediates\\bundles\\default\\res\\drawable\\shape_confirm_btn_bg.xml"
+        "merged": "D:\\Company\\SX_Merchant\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\base_dialog_all.xml",
+        "source": "D:\\Company\\SX_Merchant\\common\\build\\intermediates\\bundles\\default\\res\\drawable\\base_dialog_all.xml"
+    },
+    {
+        "merged": "D:\\Company\\SX_Merchant\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\jx_10_w.xml",
+        "source": "D:\\Company\\SX_Merchant\\common\\build\\intermediates\\bundles\\default\\res\\drawable\\jx_10_w.xml"
     },
     {
         "merged": "D:\\Company\\SX_Merchant\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\shap_oval.xml",
         "source": "D:\\Company\\SX_Merchant\\common\\build\\intermediates\\bundles\\default\\res\\drawable\\shap_oval.xml"
     },
     {
-        "merged": "D:\\Company\\SX_Merchant\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\jx_10_w.xml",
-        "source": "D:\\Company\\SX_Merchant\\common\\build\\intermediates\\bundles\\default\\res\\drawable\\jx_10_w.xml"
+        "merged": "D:\\Company\\SX_Merchant\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\shape_confirm_btn_bg.xml",
+        "source": "D:\\Company\\SX_Merchant\\common\\build\\intermediates\\bundles\\default\\res\\drawable\\shape_confirm_btn_bg.xml"
     },
     {
         "merged": "D:\\Company\\SX_Merchant\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\spacer_30.xml",
@@ -120,12 +120,12 @@
         "source": "D:\\Company\\SX_Merchant\\easeui\\build\\intermediates\\bundles\\debug\\res\\drawable\\ease_edit_text_bg.xml"
     },
     {
-        "merged": "D:\\Company\\SX_Merchant\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\selector_pickerview_btn.xml",
-        "source": "C:\\Users\\Log\\.android\\build-cache\\301fe0fe567baa14b894f895c23032e881b82261\\output\\res\\drawable\\selector_pickerview_btn.xml"
-    },
-    {
         "merged": "D:\\Company\\SX_Merchant\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\loadingview_black_bg.xml",
         "source": "D:\\Company\\SX_Merchant\\common\\build\\intermediates\\bundles\\default\\res\\drawable\\loadingview_black_bg.xml"
+    },
+    {
+        "merged": "D:\\Company\\SX_Merchant\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\selector_pickerview_btn.xml",
+        "source": "C:\\Users\\Log\\.android\\build-cache\\301fe0fe567baa14b894f895c23032e881b82261\\output\\res\\drawable\\selector_pickerview_btn.xml"
     },
     {
         "merged": "D:\\Company\\SX_Merchant\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\shape_btn_next.xml",

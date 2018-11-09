@@ -16,16 +16,16 @@
         "source": "D:\\Company\\SX_Merchant\\easeui\\build\\intermediates\\bundles\\debug\\res\\layout\\ease_row_received_bigexpression.xml"
     },
     {
-        "merged": "D:\\Company\\SX_Merchant\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\mq_activity_photo_picker.xml",
-        "source": "D:\\Company\\SX_Merchant\\common\\build\\intermediates\\bundles\\default\\res\\layout\\mq_activity_photo_picker.xml"
+        "merged": "D:\\Company\\SX_Merchant\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\ease_widget_emojicon_tab_bar.xml",
+        "source": "D:\\Company\\SX_Merchant\\easeui\\build\\intermediates\\bundles\\debug\\res\\layout\\ease_widget_emojicon_tab_bar.xml"
     },
     {
         "merged": "D:\\Company\\SX_Merchant\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\abc_action_bar_title_item.xml",
         "source": "C:\\Users\\Log\\.android\\build-cache\\80eb88dfaca901c46c8b20301a19dbabf86dc2bf\\output\\res\\layout\\abc_action_bar_title_item.xml"
     },
     {
-        "merged": "D:\\Company\\SX_Merchant\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\ease_widget_emojicon_tab_bar.xml",
-        "source": "D:\\Company\\SX_Merchant\\easeui\\build\\intermediates\\bundles\\debug\\res\\layout\\ease_widget_emojicon_tab_bar.xml"
+        "merged": "D:\\Company\\SX_Merchant\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\mq_activity_photo_picker.xml",
+        "source": "D:\\Company\\SX_Merchant\\common\\build\\intermediates\\bundles\\default\\res\\layout\\mq_activity_photo_picker.xml"
     },
     {
         "merged": "D:\\Company\\SX_Merchant\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\abc_action_mode_close_item_material.xml",
@@ -56,28 +56,28 @@
         "source": "C:\\Users\\Log\\.android\\build-cache\\80eb88dfaca901c46c8b20301a19dbabf86dc2bf\\output\\res\\layout\\notification_template_media_custom.xml"
     },
     {
-        "merged": "D:\\Company\\SX_Merchant\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\include_vertical_line.xml",
-        "source": "D:\\Company\\SX_Merchant\\common\\build\\intermediates\\bundles\\default\\res\\layout\\include_vertical_line.xml"
+        "merged": "D:\\Company\\SX_Merchant\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\layout_base_toast.xml",
+        "source": "D:\\Company\\SX_Merchant\\common\\build\\intermediates\\bundles\\default\\res\\layout\\layout_base_toast.xml"
     },
     {
         "merged": "D:\\Company\\SX_Merchant\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\ease_row_contact.xml",
         "source": "D:\\Company\\SX_Merchant\\easeui\\build\\intermediates\\bundles\\debug\\res\\layout\\ease_row_contact.xml"
     },
     {
-        "merged": "D:\\Company\\SX_Merchant\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\layout_base_toast.xml",
-        "source": "D:\\Company\\SX_Merchant\\common\\build\\intermediates\\bundles\\default\\res\\layout\\layout_base_toast.xml"
+        "merged": "D:\\Company\\SX_Merchant\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\include_vertical_line.xml",
+        "source": "D:\\Company\\SX_Merchant\\common\\build\\intermediates\\bundles\\default\\res\\layout\\include_vertical_line.xml"
     },
     {
         "merged": "D:\\Company\\SX_Merchant\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\abc_action_mode_bar.xml",
         "source": "C:\\Users\\Log\\.android\\build-cache\\80eb88dfaca901c46c8b20301a19dbabf86dc2bf\\output\\res\\layout\\abc_action_mode_bar.xml"
     },
     {
-        "merged": "D:\\Company\\SX_Merchant\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\ease_chat_menu_item.xml",
-        "source": "D:\\Company\\SX_Merchant\\easeui\\build\\intermediates\\bundles\\debug\\res\\layout\\ease_chat_menu_item.xml"
-    },
-    {
         "merged": "D:\\Company\\SX_Merchant\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\abc_alert_dialog_material.xml",
         "source": "C:\\Users\\Log\\.android\\build-cache\\80eb88dfaca901c46c8b20301a19dbabf86dc2bf\\output\\res\\layout\\abc_alert_dialog_material.xml"
+    },
+    {
+        "merged": "D:\\Company\\SX_Merchant\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\ease_chat_menu_item.xml",
+        "source": "D:\\Company\\SX_Merchant\\easeui\\build\\intermediates\\bundles\\debug\\res\\layout\\ease_chat_menu_item.xml"
     },
     {
         "merged": "D:\\Company\\SX_Merchant\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\ease_layout_emojicon_menu.xml",
@@ -88,12 +88,12 @@
         "source": "C:\\Users\\Log\\.android\\build-cache\\80eb88dfaca901c46c8b20301a19dbabf86dc2bf\\output\\res\\layout\\abc_list_menu_item_layout.xml"
     },
     {
-        "merged": "D:\\Company\\SX_Merchant\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\base_search_view.xml",
-        "source": "D:\\Company\\SX_Merchant\\common\\build\\intermediates\\bundles\\default\\res\\layout\\base_search_view.xml"
-    },
-    {
         "merged": "D:\\Company\\SX_Merchant\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\widget_nonetwork_page.xml",
         "source": "D:\\Company\\SX_Merchant\\common\\build\\intermediates\\bundles\\default\\res\\layout\\widget_nonetwork_page.xml"
+    },
+    {
+        "merged": "D:\\Company\\SX_Merchant\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\base_search_view.xml",
+        "source": "D:\\Company\\SX_Merchant\\common\\build\\intermediates\\bundles\\default\\res\\layout\\base_search_view.xml"
     },
     {
         "merged": "D:\\Company\\SX_Merchant\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\design_menu_item_action_area.xml",
@@ -108,12 +108,12 @@
         "source": "D:\\Company\\SX_Merchant\\common\\build\\intermediates\\bundles\\default\\res\\layout\\item_game_history.xml"
     },
     {
-        "merged": "D:\\Company\\SX_Merchant\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\layout_base_notification.xml",
-        "source": "D:\\Company\\SX_Merchant\\common\\build\\intermediates\\bundles\\default\\res\\layout\\layout_base_notification.xml"
-    },
-    {
         "merged": "D:\\Company\\SX_Merchant\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\ease_expression_gridview.xml",
         "source": "D:\\Company\\SX_Merchant\\easeui\\build\\intermediates\\bundles\\debug\\res\\layout\\ease_expression_gridview.xml"
+    },
+    {
+        "merged": "D:\\Company\\SX_Merchant\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\layout_base_notification.xml",
+        "source": "D:\\Company\\SX_Merchant\\common\\build\\intermediates\\bundles\\default\\res\\layout\\layout_base_notification.xml"
     },
     {
         "merged": "D:\\Company\\SX_Merchant\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\design_navigation_item.xml",

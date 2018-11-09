@@ -48,12 +48,12 @@
         "source": "C:\\Users\\Log\\.android\\build-cache\\80eb88dfaca901c46c8b20301a19dbabf86dc2bf\\output\\res\\drawable\\abc_list_selector_background_transition_holo_light.xml"
     },
     {
-        "merged": "D:\\Company\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_edit_text_material.xml",
-        "source": "C:\\Users\\Log\\.android\\build-cache\\80eb88dfaca901c46c8b20301a19dbabf86dc2bf\\output\\res\\drawable\\abc_edit_text_material.xml"
-    },
-    {
         "merged": "D:\\Company\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\shape_bg_dialog.xml",
         "source": "D:\\Company\\SX_Merchant\\common\\build\\intermediates\\bundles\\debug\\res\\drawable\\shape_bg_dialog.xml"
+    },
+    {
+        "merged": "D:\\Company\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_edit_text_material.xml",
+        "source": "C:\\Users\\Log\\.android\\build-cache\\80eb88dfaca901c46c8b20301a19dbabf86dc2bf\\output\\res\\drawable\\abc_edit_text_material.xml"
     },
     {
         "merged": "D:\\Company\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\frame_shape_grey.xml",
@@ -104,12 +104,12 @@
         "source": "D:\\Company\\SX_Merchant\\common\\build\\intermediates\\bundles\\debug\\res\\drawable\\shape_search_views.xml"
     },
     {
-        "merged": "D:\\Company\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\notification_bg.xml",
-        "source": "C:\\Users\\Log\\.android\\build-cache\\80eb88dfaca901c46c8b20301a19dbabf86dc2bf\\output\\res\\drawable\\notification_bg.xml"
-    },
-    {
         "merged": "D:\\Company\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\shape_input_view.xml",
         "source": "D:\\Company\\SX_Merchant\\common\\build\\intermediates\\bundles\\debug\\res\\drawable\\shape_input_view.xml"
+    },
+    {
+        "merged": "D:\\Company\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\notification_bg.xml",
+        "source": "C:\\Users\\Log\\.android\\build-cache\\80eb88dfaca901c46c8b20301a19dbabf86dc2bf\\output\\res\\drawable\\notification_bg.xml"
     },
     {
         "merged": "D:\\Company\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_ic_voice_search_api_material.xml",
@@ -128,12 +128,12 @@
         "source": "C:\\Users\\Log\\.android\\build-cache\\80eb88dfaca901c46c8b20301a19dbabf86dc2bf\\output\\res\\drawable\\abc_btn_check_material.xml"
     },
     {
-        "merged": "D:\\Company\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\frame_shape_white_grey.xml",
-        "source": "D:\\Company\\SX_Merchant\\common\\build\\intermediates\\bundles\\debug\\res\\drawable\\frame_shape_white_grey.xml"
-    },
-    {
         "merged": "D:\\Company\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_btn_radio_material.xml",
         "source": "C:\\Users\\Log\\.android\\build-cache\\80eb88dfaca901c46c8b20301a19dbabf86dc2bf\\output\\res\\drawable\\abc_btn_radio_material.xml"
+    },
+    {
+        "merged": "D:\\Company\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\frame_shape_white_grey.xml",
+        "source": "D:\\Company\\SX_Merchant\\common\\build\\intermediates\\bundles\\debug\\res\\drawable\\frame_shape_white_grey.xml"
     },
     {
         "merged": "D:\\Company\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\selector_grey.xml",
@@ -152,12 +152,12 @@
         "source": "C:\\Users\\Log\\.android\\build-cache\\80eb88dfaca901c46c8b20301a19dbabf86dc2bf\\output\\res\\drawable\\abc_ic_menu_overflow_material.xml"
     },
     {
-        "merged": "D:\\Company\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\loadingview_black_bg.xml",
-        "source": "D:\\Company\\SX_Merchant\\common\\build\\intermediates\\bundles\\debug\\res\\drawable\\loadingview_black_bg.xml"
-    },
-    {
         "merged": "D:\\Company\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\shape_search_view.xml",
         "source": "D:\\Company\\SX_Merchant\\common\\build\\intermediates\\bundles\\debug\\res\\drawable\\shape_search_view.xml"
+    },
+    {
+        "merged": "D:\\Company\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\loadingview_black_bg.xml",
+        "source": "D:\\Company\\SX_Merchant\\common\\build\\intermediates\\bundles\\debug\\res\\drawable\\loadingview_black_bg.xml"
     },
     {
         "merged": "D:\\Company\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\mq_selector_item_top.xml",

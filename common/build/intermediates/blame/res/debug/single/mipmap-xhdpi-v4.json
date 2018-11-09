@@ -1,11 +1,11 @@
 [
     {
-        "merged": "D:\\Company\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi-v4\\icon_share_wechatd.png",
-        "source": "D:\\Company\\SX_Merchant\\common\\src\\main\\res\\mipmap-xhdpi\\icon_share_wechatd.png"
-    },
-    {
         "merged": "D:\\Company\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi-v4\\refresh_recyclerview_loading_05.png",
         "source": "D:\\Company\\SX_Merchant\\common\\src\\main\\res\\mipmap-xhdpi\\refresh_recyclerview_loading_05.png"
+    },
+    {
+        "merged": "D:\\Company\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi-v4\\icon_share_wechatd.png",
+        "source": "D:\\Company\\SX_Merchant\\common\\src\\main\\res\\mipmap-xhdpi\\icon_share_wechatd.png"
     },
     {
         "merged": "D:\\Company\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi-v4\\jrgwc.png",

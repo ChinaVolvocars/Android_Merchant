@@ -120,7 +120,8 @@ public class MainActivity extends BaseMvpActivity {
             gotoActivity(SettingsActivity.class);
         } else if (view.getId() == mLlEditeInfo.getId()) {
             //资料编辑
-            gotoActivity(ShopInfoActivity.class);
+//            gotoActivity(ShopInfoActivity.class);
+            gotoActivity(NewMainActivity.class);
         } else if (view.getId() == mLlActiveList.getId()) {
             // 活动列表
             gotoActivity(ActiveListActivity.class);

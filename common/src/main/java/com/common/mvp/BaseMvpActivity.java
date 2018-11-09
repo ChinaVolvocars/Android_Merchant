@@ -103,11 +103,17 @@ public abstract class BaseMvpActivity<P extends BasePresenter> extends AppCompat
 
         View view = m_inflater.inflate(getLayoutId(), m_root, false);
         m_contentView.addView(view);
-        bind = ButterKnife.bind(view);
+        bind = ButterKnife.bind(this,view);
         ActivityStack.getInstance().addActivity(this);
+
+        onViewCreated(view,savedInstanceState);
         onViewCreated();
         observeIsLogin();
         doLogicFunc();
+    }
+
+    protected void onViewCreated(View view,Bundle savedInstanceState){
+
     }
 
     private int backRes;

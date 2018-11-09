@@ -1,1 +1,1 @@
-include ':app', ':payandlogin', ':common', ':zxinglite', ':library', ':live', ':easeui', ':jcvideoplayer-lib'
+include ':app', ':payandlogin', ':common', ':zxinglite', ':library', ':live', ':easeui', ':jcvideoplayer-lib', ':lib_viewpager', ':lib_indicator'

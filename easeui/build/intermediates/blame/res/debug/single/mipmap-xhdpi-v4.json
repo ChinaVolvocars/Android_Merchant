@@ -4,16 +4,16 @@
         "source": "D:\\Company\\SX_Merchant\\common\\build\\intermediates\\bundles\\default\\res\\mipmap-xhdpi-v4\\sdb_.png"
     },
     {
-        "merged": "D:\\Company\\SX_Merchant\\easeui\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi-v4\\main_ph.png",
-        "source": "D:\\Company\\SX_Merchant\\common\\build\\intermediates\\bundles\\default\\res\\mipmap-xhdpi-v4\\main_ph.png"
+        "merged": "D:\\Company\\SX_Merchant\\easeui\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi-v4\\close.png",
+        "source": "D:\\Company\\SX_Merchant\\easeui\\src\\main\\res\\mipmap-xhdpi\\close.png"
     },
     {
         "merged": "D:\\Company\\SX_Merchant\\easeui\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi-v4\\record_top.png",
         "source": "D:\\Company\\SX_Merchant\\easeui\\src\\main\\res\\mipmap-xhdpi\\record_top.png"
     },
     {
-        "merged": "D:\\Company\\SX_Merchant\\easeui\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi-v4\\close.png",
-        "source": "D:\\Company\\SX_Merchant\\easeui\\src\\main\\res\\mipmap-xhdpi\\close.png"
+        "merged": "D:\\Company\\SX_Merchant\\easeui\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi-v4\\main_ph.png",
+        "source": "D:\\Company\\SX_Merchant\\common\\build\\intermediates\\bundles\\default\\res\\mipmap-xhdpi-v4\\main_ph.png"
     },
     {
         "merged": "D:\\Company\\SX_Merchant\\easeui\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi-v4\\eb_.png",
@@ -76,12 +76,12 @@
         "source": "D:\\Company\\SX_Merchant\\common\\build\\intermediates\\bundles\\default\\res\\mipmap-xhdpi-v4\\pic_order_cancel.png"
     },
     {
-        "merged": "D:\\Company\\SX_Merchant\\easeui\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi-v4\\default_pic.png",
-        "source": "D:\\Company\\SX_Merchant\\common\\build\\intermediates\\bundles\\default\\res\\mipmap-xhdpi-v4\\default_pic.png"
-    },
-    {
         "merged": "D:\\Company\\SX_Merchant\\easeui\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi-v4\\refresh_recyclerview_loading_rotate.png",
         "source": "D:\\Company\\SX_Merchant\\common\\build\\intermediates\\bundles\\default\\res\\mipmap-xhdpi-v4\\refresh_recyclerview_loading_rotate.png"
+    },
+    {
+        "merged": "D:\\Company\\SX_Merchant\\easeui\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi-v4\\default_pic.png",
+        "source": "D:\\Company\\SX_Merchant\\common\\build\\intermediates\\bundles\\default\\res\\mipmap-xhdpi-v4\\default_pic.png"
     },
     {
         "merged": "D:\\Company\\SX_Merchant\\easeui\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi-v4\\mq_ic_camera_active.png",
@@ -144,12 +144,12 @@
         "source": "D:\\Company\\SX_Merchant\\common\\build\\intermediates\\bundles\\default\\res\\mipmap-xhdpi-v4\\refresh_recyclerview_loading_01.png"
     },
     {
-        "merged": "D:\\Company\\SX_Merchant\\easeui\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi-v4\\icon_add.png",
-        "source": "D:\\Company\\SX_Merchant\\common\\build\\intermediates\\bundles\\default\\res\\mipmap-xhdpi-v4\\icon_add.png"
-    },
-    {
         "merged": "D:\\Company\\SX_Merchant\\easeui\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi-v4\\pic_order_ing.png",
         "source": "D:\\Company\\SX_Merchant\\common\\build\\intermediates\\bundles\\default\\res\\mipmap-xhdpi-v4\\pic_order_ing.png"
+    },
+    {
+        "merged": "D:\\Company\\SX_Merchant\\easeui\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi-v4\\icon_add.png",
+        "source": "D:\\Company\\SX_Merchant\\common\\build\\intermediates\\bundles\\default\\res\\mipmap-xhdpi-v4\\icon_add.png"
     },
     {
         "merged": "D:\\Company\\SX_Merchant\\easeui\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi-v4\\icon_voice_left2.png",

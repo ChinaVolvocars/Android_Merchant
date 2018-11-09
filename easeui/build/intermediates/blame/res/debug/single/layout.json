@@ -28,12 +28,12 @@
         "source": "D:\\Company\\SX_Merchant\\easeui\\src\\main\\res\\layout\\ease_row_sent_voice.xml"
     },
     {
-        "merged": "D:\\Company\\SX_Merchant\\easeui\\build\\intermediates\\res\\merged\\debug\\layout\\base_search_text.xml",
-        "source": "D:\\Company\\SX_Merchant\\common\\build\\intermediates\\bundles\\default\\res\\layout\\base_search_text.xml"
-    },
-    {
         "merged": "D:\\Company\\SX_Merchant\\easeui\\build\\intermediates\\res\\merged\\debug\\layout\\em_context_menu_for_image.xml",
         "source": "D:\\Company\\SX_Merchant\\easeui\\src\\main\\res\\layout\\em_context_menu_for_image.xml"
+    },
+    {
+        "merged": "D:\\Company\\SX_Merchant\\easeui\\build\\intermediates\\res\\merged\\debug\\layout\\base_search_text.xml",
+        "source": "D:\\Company\\SX_Merchant\\common\\build\\intermediates\\bundles\\default\\res\\layout\\base_search_text.xml"
     },
     {
         "merged": "D:\\Company\\SX_Merchant\\easeui\\build\\intermediates\\res\\merged\\debug\\layout\\abc_alert_dialog_title_material.xml",

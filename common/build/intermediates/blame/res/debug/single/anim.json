@@ -1,27 +1,27 @@
 [
     {
-        "merged": "D:\\Company\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\anim\\fade_in.xml",
-        "source": "D:\\Company\\SX_Merchant\\common\\src\\main\\res\\anim\\fade_in.xml"
-    },
-    {
-        "merged": "D:\\Company\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\anim\\slide_in_right.xml",
-        "source": "D:\\Company\\SX_Merchant\\common\\src\\main\\res\\anim\\slide_in_right.xml"
+        "merged": "D:\\Company\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\anim\\base_popup_fade_out.xml",
+        "source": "D:\\Company\\SX_Merchant\\common\\src\\main\\res\\anim\\base_popup_fade_out.xml"
     },
     {
         "merged": "D:\\Company\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\anim\\abc_popup_exit.xml",
         "source": "C:\\Users\\Log\\.android\\build-cache\\80eb88dfaca901c46c8b20301a19dbabf86dc2bf\\output\\res\\anim\\abc_popup_exit.xml"
     },
     {
-        "merged": "D:\\Company\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\anim\\base_popup_fade_out.xml",
-        "source": "D:\\Company\\SX_Merchant\\common\\src\\main\\res\\anim\\base_popup_fade_out.xml"
+        "merged": "D:\\Company\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\anim\\slide_in_right.xml",
+        "source": "D:\\Company\\SX_Merchant\\common\\src\\main\\res\\anim\\slide_in_right.xml"
     },
     {
-        "merged": "D:\\Company\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\anim\\pickerview_dialog_scale_in.xml",
-        "source": "C:\\Users\\Log\\.android\\build-cache\\301fe0fe567baa14b894f895c23032e881b82261\\output\\res\\anim\\pickerview_dialog_scale_in.xml"
+        "merged": "D:\\Company\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\anim\\fade_in.xml",
+        "source": "D:\\Company\\SX_Merchant\\common\\src\\main\\res\\anim\\fade_in.xml"
     },
     {
         "merged": "D:\\Company\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\anim\\slide_out_right.xml",
         "source": "D:\\Company\\SX_Merchant\\common\\src\\main\\res\\anim\\slide_out_right.xml"
+    },
+    {
+        "merged": "D:\\Company\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\anim\\pickerview_dialog_scale_in.xml",
+        "source": "C:\\Users\\Log\\.android\\build-cache\\301fe0fe567baa14b894f895c23032e881b82261\\output\\res\\anim\\pickerview_dialog_scale_in.xml"
     },
     {
         "merged": "D:\\Company\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\debug\\anim\\design_bottom_sheet_slide_out.xml",

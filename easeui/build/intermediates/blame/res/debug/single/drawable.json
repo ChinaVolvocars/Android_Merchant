@@ -20,16 +20,16 @@
         "source": "C:\\Users\\Log\\.android\\build-cache\\80eb88dfaca901c46c8b20301a19dbabf86dc2bf\\output\\res\\drawable\\abc_cab_background_internal_bg.xml"
     },
     {
-        "merged": "D:\\Company\\SX_Merchant\\easeui\\build\\intermediates\\res\\merged\\debug\\drawable\\mq_shape_photo_folder_pw_bg.xml",
-        "source": "D:\\Company\\SX_Merchant\\common\\build\\intermediates\\bundles\\default\\res\\drawable\\mq_shape_photo_folder_pw_bg.xml"
+        "merged": "D:\\Company\\SX_Merchant\\easeui\\build\\intermediates\\res\\merged\\debug\\drawable\\navigation_empty_icon.xml",
+        "source": "C:\\Users\\Log\\.android\\build-cache\\429b84122169a44cc1bd68bec3f93f606e7812f9\\output\\res\\drawable\\navigation_empty_icon.xml"
     },
     {
         "merged": "D:\\Company\\SX_Merchant\\easeui\\build\\intermediates\\res\\merged\\debug\\drawable\\selector_circle_shape_base_yellow.xml",
         "source": "D:\\Company\\SX_Merchant\\common\\build\\intermediates\\bundles\\default\\res\\drawable\\selector_circle_shape_base_yellow.xml"
     },
     {
-        "merged": "D:\\Company\\SX_Merchant\\easeui\\build\\intermediates\\res\\merged\\debug\\drawable\\navigation_empty_icon.xml",
-        "source": "C:\\Users\\Log\\.android\\build-cache\\429b84122169a44cc1bd68bec3f93f606e7812f9\\output\\res\\drawable\\navigation_empty_icon.xml"
+        "merged": "D:\\Company\\SX_Merchant\\easeui\\build\\intermediates\\res\\merged\\debug\\drawable\\mq_shape_photo_folder_pw_bg.xml",
+        "source": "D:\\Company\\SX_Merchant\\common\\build\\intermediates\\bundles\\default\\res\\drawable\\mq_shape_photo_folder_pw_bg.xml"
     },
     {
         "merged": "D:\\Company\\SX_Merchant\\easeui\\build\\intermediates\\res\\merged\\debug\\drawable\\shape_pay_edit.xml",
@@ -64,12 +64,12 @@
         "source": "C:\\Users\\Log\\.android\\build-cache\\80eb88dfaca901c46c8b20301a19dbabf86dc2bf\\output\\res\\drawable\\abc_list_selector_holo_light.xml"
     },
     {
-        "merged": "D:\\Company\\SX_Merchant\\easeui\\build\\intermediates\\res\\merged\\debug\\drawable\\selector_pickerview_btn.xml",
-        "source": "C:\\Users\\Log\\.android\\build-cache\\301fe0fe567baa14b894f895c23032e881b82261\\output\\res\\drawable\\selector_pickerview_btn.xml"
-    },
-    {
         "merged": "D:\\Company\\SX_Merchant\\easeui\\build\\intermediates\\res\\merged\\debug\\drawable\\selector_shape_orange.xml",
         "source": "D:\\Company\\SX_Merchant\\common\\build\\intermediates\\bundles\\default\\res\\drawable\\selector_shape_orange.xml"
+    },
+    {
+        "merged": "D:\\Company\\SX_Merchant\\easeui\\build\\intermediates\\res\\merged\\debug\\drawable\\selector_pickerview_btn.xml",
+        "source": "C:\\Users\\Log\\.android\\build-cache\\301fe0fe567baa14b894f895c23032e881b82261\\output\\res\\drawable\\selector_pickerview_btn.xml"
     },
     {
         "merged": "D:\\Company\\SX_Merchant\\easeui\\build\\intermediates\\res\\merged\\debug\\drawable\\ease_btn_blue_selector.xml",
@@ -104,12 +104,12 @@
         "source": "D:\\Company\\SX_Merchant\\common\\build\\intermediates\\bundles\\default\\res\\drawable\\bg_circle_shape_yes.xml"
     },
     {
-        "merged": "D:\\Company\\SX_Merchant\\easeui\\build\\intermediates\\res\\merged\\debug\\drawable\\ease_btn_cancel_normal_shape.xml",
-        "source": "D:\\Company\\SX_Merchant\\easeui\\src\\main\\res\\drawable\\ease_btn_cancel_normal_shape.xml"
-    },
-    {
         "merged": "D:\\Company\\SX_Merchant\\easeui\\build\\intermediates\\res\\merged\\debug\\drawable\\cricle_5.xml",
         "source": "D:\\Company\\SX_Merchant\\common\\build\\intermediates\\bundles\\default\\res\\drawable\\cricle_5.xml"
+    },
+    {
+        "merged": "D:\\Company\\SX_Merchant\\easeui\\build\\intermediates\\res\\merged\\debug\\drawable\\ease_btn_cancel_normal_shape.xml",
+        "source": "D:\\Company\\SX_Merchant\\easeui\\src\\main\\res\\drawable\\ease_btn_cancel_normal_shape.xml"
     },
     {
         "merged": "D:\\Company\\SX_Merchant\\easeui\\build\\intermediates\\res\\merged\\debug\\drawable\\shap_oval.xml",
