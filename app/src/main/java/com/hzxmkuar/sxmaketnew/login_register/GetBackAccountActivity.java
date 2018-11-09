@@ -30,6 +30,7 @@ import com.common.utils.EmptyUtils;
 import com.common.utils.FileUtils;
 import com.common.utils.LQRPhotoSelectUtils;
 import com.common.utils.PhotoUtils;
+import com.common.widget.dialog.SendPhoneVerifyDialog;
 import com.common.widget.editview.DeleteEditText;
 import com.common.widget.imageview.image.ImageLoaderUtils;
 import com.common.widget.textview.CountdownButton;
@@ -77,6 +78,12 @@ public class GetBackAccountActivity extends BaseMvpActivity {
     private PictureCheckDialogFragment pickerPhotoDialog;
     private LQRPhotoSelectUtils mLqrPhotoSelectUtils;
     private TextView tv_phone_verify_getback_account;
+
+    private boolean canClickAble = true;
+    /**
+     *  是否发送语音验证码的弹窗
+     */
+    private SendPhoneVerifyDialog phoneVerifyDialog;
     @Override
     protected BasePresenter createPresenterInstance() {
         return null;
@@ -104,6 +111,26 @@ public class GetBackAccountActivity extends BaseMvpActivity {
         btn_commit_getback = (Button) findViewById(R.id.btn_commit_getback);
         tv_phone_verify_getback_account = (TextView) findViewById(R.id.tv_phone_verify_getback_account);
         tv_phone_verify_getback_account.setVisibility(View.INVISIBLE);
+
+
+        phoneVerifyDialog = new SendPhoneVerifyDialog(context, GetBackAccountActivity.this);
+        phoneVerifyDialog.setOnDialogButtonClickListener(new SendPhoneVerifyDialog.OnDialogButtonClickListener() {
+            @Override
+            public void cancelLick() {
+                canClickAble = true;
+            }
+
+            @Override
+            public void confirmClick() {
+                canClickAble = false;
+                cd_btn_send_msg_getback.restart();
+                if (!EmptyUtils.isEmpty(getEditTextStr(edt_reserved_phone_no_getback))){
+                    sendVoiceVerifyCodeReq();
+                }else {
+                    showToastMsg("手机号码格式不正确");
+                }
+            }
+        });
 
     }
 
@@ -151,21 +178,49 @@ public class GetBackAccountActivity extends BaseMvpActivity {
             type = 3;
             showPicCheck();
         }else if ( view.getId() == tv_phone_verify_getback_account.getId()){
-//            tv_phone_verify_getback_account
-//            SendPhoneVerifyDialog dialog = new SendPhoneVerifyDialog(context,RegisterActivity.this);
-//            dialog.show();
+            if (canClickAble){
+                phoneVerifyDialog.show();
+            }
         }
+    }
+
+    /**
+     * 发送语音短信验证码
+     */
+    private void sendVoiceVerifyCodeReq() {
+        CommonSubscriber<Object> subscriber = new CommonSubscriber<>(new SubscriberListener() {
+            @Override
+            public void onNext(Object o) {
+                showToastMsg("发送成功");
+            }
+
+            @Override
+            public void onError(String e, int code) {
+                showToastMsg(e);
+            }
+        });
+        List<String> paramaList = new ArrayList<>();
+        paramaList.add("time");
+        paramaList.add("mobile");
+        paramaList.add("checktype");
+        SmsMethods.getInstance().sendVoiceVerifyCode(subscriber,getEditTextStr(edt_reserved_phone_no_getback),8, paramaList);
+        rxManager.add(subscriber);
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
-    public void getBackAccountTimeOut(BaseEvent event) {
+    public void newAdd(BaseEvent event) {
         switch (event.getTag()) {
             case EventBusConstants.TIME_OUT:
-//                tv_phone_verify_getback_account.setVisibility(View.VISIBLE);
+                tv_phone_verify_getback_account.setVisibility(View.VISIBLE);
+                String eventStr = (String)event.getS();
+                if ("show".equals(eventStr)){
+//                    canClickAble = false;
+                }else if ("canRestart".equals(eventStr)){
+                    canClickAble = true;
+                }
                 break;
         }
     }
-
     /**
      * 验证商户输入的合法性
      */
