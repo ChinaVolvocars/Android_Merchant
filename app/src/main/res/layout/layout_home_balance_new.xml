@@ -27,7 +27,9 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:gravity="center"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:paddingLeft="@dimen/dp_5"
+            android:paddingRight="@dimen/dp_5">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -42,7 +44,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/dp_4"
                 android:background="@drawable/shape_rectangle_conversion"
-                android:elevation="@dimen/dp_4"
+                android:elevation="@dimen/dp_2"
                 android:gravity="center"
                 android:text="换算"
                 android:textColor="@color/color_fcca23"

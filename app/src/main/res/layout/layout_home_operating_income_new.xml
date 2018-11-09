@@ -40,6 +40,7 @@
             android:paddingRight="@dimen/dp_20">
 
             <TextView
+                android:id="@+id/tv_settlement_accumulation"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="200.00元"
@@ -81,6 +82,7 @@
                     android:textSize="@dimen/sp_16" />
 
                 <TextView
+                    android:id="@+id/tv_xindou_settlement"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="100.00 元"
@@ -109,6 +111,7 @@
                     android:textSize="@dimen/sp_16" />
 
                 <TextView
+                    android:id="@+id/tv_cash_settlement"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="100.00 元"

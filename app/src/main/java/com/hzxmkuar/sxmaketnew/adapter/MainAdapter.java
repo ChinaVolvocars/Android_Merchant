@@ -3,9 +3,11 @@ package com.hzxmkuar.sxmaketnew.adapter;
 import android.content.Context;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.hzxmkuar.sxmaketnew.R;
 import com.indicator.LinePageIndicator;
@@ -75,27 +77,103 @@ public class MainAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     }
 
     @Override
-    public void onBindViewHolder(RecyclerView.ViewHolder viewHolder, int position) {
-
+    public void onBindViewHolder(RecyclerView.ViewHolder viewHolder, final int position) {
         if (viewHolder instanceof BalanceViewHolder) {
+            final BalanceViewHolder holder = (BalanceViewHolder) viewHolder;
+            holder.tvBalance.setText(String.valueOf(88.25));
 
+            holder.tvConversion.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if (listener != null) listener.onOtherItemClick(view, "Conversion");
+                }
+            });
+
+            holder.tvCollectionCode.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if (listener != null) listener.onOtherItemClick(view, "CollectionCode");
+                }
+            });
+            holder.tvScanCheck.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if (listener != null) listener.onOtherItemClick(view, "ScanCheck");
+                }
+            });
+            holder.tvBank.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if (listener != null) listener.onOtherItemClick(view, "Bank");
+                }
+            });
         } else if (viewHolder instanceof FunctionViewHolder) {
+            FunctionViewHolder holder = (FunctionViewHolder) viewHolder;
+            //提现申请
+            holder.tvWithdrawalApplication.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if (listener != null) listener.onOtherItemClick(view, "WithdrawalApplication");
+                }
+            });
+            //提现账款
+            holder.tvWithdrawalAccounts.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if (listener != null) listener.onOtherItemClick(view, "WithdrawalAccounts");
+                }
+            });
+            //营收统计
+            holder.tvRevenueStatistics.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if (listener != null) listener.onOtherItemClick(view, "RevenueStatistics");
+                }
+            });
+            //发票信息
+            holder.tvInvoiceInformation.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if (listener != null) listener.onOtherItemClick(view, "InvoiceInformation");
+                }
+            });
+            //消费权限
+            holder.tvConsumptionAuthority.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if (listener != null) listener.onOtherItemClick(view, "ConsumptionAuthority");
+                }
+            });
 
         } else if (viewHolder instanceof AdvViewHolder) {
             AdvViewHolder holder = (AdvViewHolder) viewHolder;
             LoopViewPager loopViewPager = holder.loopViewPager;
             LinePageIndicator indicator = holder.indicator;
-
-            HomeAdvAdapter imageAdapter = new HomeAdvAdapter(context);
+            HomeAdvAdapter adapter = new HomeAdvAdapter(context);
             ArrayList<String> pages = new ArrayList<>();
             pages.add("http://seopic.699pic.com/photo/50035/0520.jpg_wh1200.jpg");
             pages.add("https://pic3.zhimg.com/80/v2-5faa2ffcac1992a2663c8746abbde9ae_hd.jpg");
             pages.add("https://pic1.zhimg.com/80/v2-78b72fb37fbcd6224940b7f15d76ef64_hd.jpg");
             pages.add("https://pic4.zhimg.com/80/v2-84c93abead7d8744422af35167aeeb2b_hd.jpg");
-            imageAdapter.setPages(pages);
-            loopViewPager.setAdapter(imageAdapter);
+            adapter.setPages(pages);
+            loopViewPager.setAdapter(adapter);
             indicator.setViewPager(loopViewPager);
+            loopViewPager.setBoundaryCaching(false);
+
+            adapter.setOnItemClickListener(new HomeAdvAdapter.OnItemClickListener() {
+                @Override
+                public void onItemClick(View view, int position) {
+                    Log.e("广告点击事件", "onItemClick: " + position);
+                    if (listener != null) listener.onViewPagerItemClick(view, position);
+
+                }
+            });
+
         } else if (viewHolder instanceof OperatingIncomeViewHolder) {
+            OperatingIncomeViewHolder holder = (OperatingIncomeViewHolder) viewHolder;
+//            holder.tvSettlementAccumulation.setText();
+//            holder.tvXindouSettlement.setText();
+//            holder.tvCashSettlement.setText();
 
         } else if (viewHolder instanceof ServiceViewHolder) {
             ServiceViewHolder holder = (ServiceViewHolder) viewHolder;
@@ -111,6 +189,13 @@ public class MainAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             pages.add("https://pic4.zhimg.com/80/v2-84c93abead7d8744422af35167aeeb2b_hd.jpg");
             adapter.setPages(pages);
 
+            adapter.setOnItemClickListener(new HomeServiceAdapter.OnItemClickListener() {
+                @Override
+                public void onItemClick(View view, int position) {
+                    Log.e("服务点击事件", "onItemClick: " + position);
+                    if (listener != null) listener.onServiceItemClick(view, position);
+                }
+            });
 
         } else if (viewHolder instanceof ActivityViewHolder) {
             ActivityViewHolder holder = (ActivityViewHolder) viewHolder;
@@ -127,21 +212,51 @@ public class MainAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             pages.add("https://pic4.zhimg.com/80/v2-84c93abead7d8744422af35167aeeb2b_hd.jpg");
             adapter.setPages(pages);
 
+            adapter.setOnItemClickListener(new HomeActivityAdapter.OnItemClickListener() {
+                @Override
+                public void onItemClick(View view, int position) {
+                    Log.e("活动点击事件", "onItemClick: " + position);
+                    if (listener != null) listener.onActivityItemClick(view, position);
+                }
+            });
+
         }
     }
 
-
     public class BalanceViewHolder extends RecyclerView.ViewHolder {
+        @BindView(R.id.tv_balance)
+        TextView tvBalance;
+        @BindView(R.id.tv_conversion)
+        TextView tvConversion;
+        @BindView(R.id.tv_collection_code)
+        TextView tvCollectionCode;
+        @BindView(R.id.tv_scan_check)
+        TextView tvScanCheck;
+        @BindView(R.id.tv_bank)
+        TextView tvBank;
 
         public BalanceViewHolder(View itemView) {
             super(itemView);
+            ButterKnife.bind(this, itemView);
         }
     }
 
+
     public class FunctionViewHolder extends RecyclerView.ViewHolder {
+        @BindView(R.id.tv_withdrawal_application)
+        TextView tvWithdrawalApplication;
+        @BindView(R.id.tv_withdrawal_accounts)
+        TextView tvWithdrawalAccounts;
+        @BindView(R.id.tv_revenue_statistics)
+        TextView tvRevenueStatistics;
+        @BindView(R.id.tv_invoice_information)
+        TextView tvInvoiceInformation;
+        @BindView(R.id.tv_consumption_authority)
+        TextView tvConsumptionAuthority;
 
         public FunctionViewHolder(View itemView) {
             super(itemView);
+            ButterKnife.bind(this, itemView);
         }
     }
 
@@ -167,10 +282,18 @@ public class MainAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         }
     }
 
+
     public class OperatingIncomeViewHolder extends RecyclerView.ViewHolder {
+        @BindView(R.id.tv_settlement_accumulation)
+        TextView tvSettlementAccumulation;
+        @BindView(R.id.tv_xindou_settlement)
+        TextView tvXindouSettlement;
+        @BindView(R.id.tv_cash_settlement)
+        TextView tvCashSettlement;
 
         public OperatingIncomeViewHolder(View itemView) {
             super(itemView);
+            ButterKnife.bind(this, itemView);
         }
     }
 
@@ -182,6 +305,24 @@ public class MainAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             super(itemView);
             ButterKnife.bind(this, itemView);
         }
+    }
+
+
+    private OnItemClickListener listener;
+
+    public interface OnItemClickListener {
+        void onViewPagerItemClick(View view, int position);
+
+        void onServiceItemClick(View view, int position);
+
+        void onActivityItemClick(View view, int position);
+
+        void onOtherItemClick(View view, String tag);
+
+    }
+
+    public void setOnItemClickListener(OnItemClickListener listener) {
+        this.listener = listener;
     }
 
 

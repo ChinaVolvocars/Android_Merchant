@@ -38,12 +38,22 @@ public class HomeActivityAdapter extends RecyclerView.Adapter<HomeActivityAdapte
     }
 
     @Override
-    public void onBindViewHolder(HomeActivityViewHolder holder, int position) {
+    public void onBindViewHolder(final HomeActivityViewHolder holder, final int position) {
         RoundedImageView imageView = holder.imageView;
 
         Glide.with(context)
                 .load(pages.get(position))
                 .into(imageView);
+
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (null != listener) {
+                    listener.onItemClick(view, position);
+                }
+            }
+        });
+
 
     }
 
@@ -60,6 +70,16 @@ public class HomeActivityAdapter extends RecyclerView.Adapter<HomeActivityAdapte
             super(itemView);
             ButterKnife.bind(this, itemView);
         }
+    }
+
+    private OnItemClickListener listener;
+
+    public interface OnItemClickListener {
+        void onItemClick(View view, int position);
+    }
+
+    public void setOnItemClickListener(OnItemClickListener listener) {
+        this.listener = listener;
     }
 
 }

@@ -45,14 +45,13 @@ public class HomeAdvAdapter extends PagerAdapter {
         itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                System.out.println("=================================" + position);
+                if (null != listener) {
+                    listener.onItemClick(v, position);
+                }
             }
         });
 
-
         return itemView;
-
-
     }
 
     @Override
@@ -70,4 +69,16 @@ public class HomeAdvAdapter extends PagerAdapter {
     public void destroyItem(@NonNull ViewGroup container, int position, @NonNull Object object) {
         container.removeView((View) object);
     }
+
+
+    private OnItemClickListener listener;
+
+    public interface OnItemClickListener {
+        void onItemClick(View view, int position);
+    }
+
+    public void setOnItemClickListener(OnItemClickListener listener) {
+        this.listener = listener;
+    }
+
 }
