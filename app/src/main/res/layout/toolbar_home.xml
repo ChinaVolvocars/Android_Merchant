@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="65dp"
+    android:background="@mipmap/titles_bac">
+
+    <TextView
+        style="@style/TitleBarTitleStyle"
+        android:text="众商联盟-我的店" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="15dp">
+
+        <TextView
+            android:id="@+id/tv_is_test"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="16dp"
+            android:gravity="center"
+            android:text="测试环境"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/iv_setting"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginEnd="15dp"
+            android:layout_marginRight="15dp"
+            android:src="@mipmap/set_wait" />
+    </RelativeLayout>
+
+</FrameLayout>

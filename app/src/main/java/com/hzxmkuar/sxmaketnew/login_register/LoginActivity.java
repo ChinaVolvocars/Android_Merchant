@@ -22,6 +22,7 @@ import com.common.widget.editview.DeleteEditText;
 import com.hzxmkuar.sxmaketnew.base.BaseUrlActivity;
 import com.hzxmkuar.sxmaketnew.home.MainActivity;
 import com.hzxmkuar.sxmaketnew.R;
+import com.hzxmkuar.sxmaketnew.view.dialog.DialogHomeWay;
 import com.xmkj.payandlogin.ShareConfig;
 import com.xmkj.payandlogin.ShareManager;
 import com.xmkj.payandlogin.login.LoginListener;
@@ -108,7 +109,6 @@ public class LoginActivity extends BaseMvpActivity {
     }
 
 
-
     private LoginListener mLoginListener = new LoginListener() {
         @Override
         public void loginSuccess(LoginResult result) {
@@ -118,7 +118,7 @@ public class LoginActivity extends BaseMvpActivity {
                     String qqauthId = user.getOpenId();
                     String qqauthName = user.getNickname();
                     String qqauthHead = user.getHeadImageUrl();
-                    String qqauthGender = user.getSex()+"";
+                    String qqauthGender = user.getSex() + "";
                     //gotoReq(2,qqauthId,qqauthName,qqauthHead,qqauthGender);
                     break;
                 case LoginPlatform.WX:
@@ -126,7 +126,7 @@ public class LoginActivity extends BaseMvpActivity {
                     String wxauthId = wxUser.getOpenId();
                     String wxauthName = wxUser.getNickname();
                     String wxauthHead = wxUser.getHeadImageUrl();
-                    String wxauthGender = wxUser.getSex()+"";
+                    String wxauthGender = wxUser.getSex() + "";
                     //gotoReq(3,wxauthId,wxauthName,wxauthHead,wxauthGender);
                     break;
             }
@@ -166,8 +166,8 @@ public class LoginActivity extends BaseMvpActivity {
             UserMethods.getInstance().thirdPartyLogin(subscriber,i, qqauthId,qqauthName,qqauthHead,qqauthGender);
             rxManager.add(subscriber);
     }*/
-    private void gotoReqss( String qqauthId, String qqauthName) {
-        if (!mCheckBox.isChecked()){
+    private void gotoReqss(String qqauthId, String qqauthName) {
+        if (!mCheckBox.isChecked()) {
             showToastMsg("请同意入驻说明！");
             return;
         }
@@ -175,18 +175,19 @@ public class LoginActivity extends BaseMvpActivity {
             @Override
             public void onNext(Object o) {
                 UserBean userBean = (UserBean) o;
-                if (userBean!=null){
-                    if (userBean.getCheck_status().equals("1")){
+                if (userBean != null) {
+                    if (userBean.getCheck_status().equals("1")) {
                         showToastMsg("账号正在审核中");
-                    }else if (userBean.getCheck_status().equals("2")){
+                    } else if (userBean.getCheck_status().equals("2")) {
                         DataCenter.saveLoginDataInfo(userBean);
                         gotoActivity(MainActivity.class);
                         finish();
-                    }else {
+                    } else {
                         showToastMsg("账号审核不通过");
                     }
                 }
             }
+
             @Override
             public void onError(String e, int code) {
                 showToastMsg(e);
@@ -198,7 +199,7 @@ public class LoginActivity extends BaseMvpActivity {
         reqList.add("username");
         reqList.add("password");
         reqList.add("jpushid");
-        UserMethods.getInstance().login(subscriber,reqList,qqauthId,qqauthName, "");
+        UserMethods.getInstance().login(subscriber, reqList, qqauthId, qqauthName, "");
         rxManager.add(subscriber);
     }
    /* private void loginEase(UserBean userBean) {
@@ -231,7 +232,7 @@ public class LoginActivity extends BaseMvpActivity {
     protected void onViewClicked(View view) {
         if (view.getId() == btnLogin.getId()) {
             requestCodePermission();
-        }  else if (view.getId() == btnQQ.getId()) {
+        } else if (view.getId() == btnQQ.getId()) {
             //LoginUtil.login(this, LoginPlatform.QQ, mLoginListener);
             //showToastMsg("暂未开放");
         }
@@ -248,16 +249,20 @@ public class LoginActivity extends BaseMvpActivity {
 //            //showToastMsg("暂未开放");
 //            gotoActivity(BDPhoneActivity.class);
 //        }
-        else if (view.getId()==mNewShopJoin.getId()){
+        else if (view.getId() == mNewShopJoin.getId()) {
             gotoActivity(NewZCActivity.class);
 //            gotoActivity(NewPwdActivity.class);
-        }else if (view.getId()==mTvForgetPwd.getId()){
-            gotoActivity(ForgetPwdActivity.class);
+        } else if (view.getId() == mTvForgetPwd.getId()) {
+
+            DialogHomeWay dialog = DialogHomeWay.newInstance();
+            dialog.show(getSupportFragmentManager(), "DialogHomeWay");
+
+//            gotoActivity(ForgetPwdActivity.class);
             // 忘记账号
-        }else if (view.getId()==mTvGetBackAccount.getId()){
+        } else if (view.getId() == mTvGetBackAccount.getId()) {
             gotoActivity(GetBackAccountActivity.class);
 
-        }else if (view.getId()==xieyi.getId()){
+        } else if (view.getId() == xieyi.getId()) {
             Intent urlIntent = new Intent(context, BaseUrlActivity.class);
             urlIntent.putExtra(BaseUrlActivity.MAIN_URL, "http://app.zhongxinyingjia.com/Home/Index/article/type/8.html");
             startActivity(urlIntent);
@@ -268,19 +273,25 @@ public class LoginActivity extends BaseMvpActivity {
         HiPermission.create(context)
                 .checkSinglePermission(Manifest.permission.READ_PHONE_STATE, new PermissionCallback() {
                     @Override
-                    public void onClose() { }
+                    public void onClose() {
+                    }
+
                     @Override
                     public void onFinish() {
-                        gotoReqss(getEditTextStr(evPhone),getEditTextStr(evCode));
+                        gotoReqss(getEditTextStr(evPhone), getEditTextStr(evCode));
                     }
+
                     @Override
                     public void onDeny(String permisson, int position) {
                         LogUtils.i("ondeny");
                     }
+
                     @Override
                     public void onGuarantee(String permisson, int position) {
-                        gotoReqss(getEditTextStr(evPhone),getEditTextStr(evCode));
+                        gotoReqss(getEditTextStr(evPhone), getEditTextStr(evCode));
                     }
                 });
     }
+
+
 }

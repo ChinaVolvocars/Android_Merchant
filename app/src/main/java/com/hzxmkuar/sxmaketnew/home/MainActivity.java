@@ -197,7 +197,6 @@ public class MainActivity extends BaseMvpActivity {
 
     private void goToHttpReqs() {
         CommonSubscriber<IndexBean> subscriber = new CommonSubscriber<>(new SubscriberListener() {
-
             @Override
             public void onNext(Object o) {
                 statusContent();

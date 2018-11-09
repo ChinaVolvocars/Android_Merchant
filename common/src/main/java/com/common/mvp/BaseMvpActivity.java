@@ -37,13 +37,15 @@ import com.common.widget.toast.ToastManager;
 
 import org.greenrobot.eventbus.EventBus;
 
+import butterknife.ButterKnife;
+import butterknife.Unbinder;
 import rx.functions.Action1;
 
 /**
- * @desc:         MVP模式
- * @author:       Leo
- * @date:         2016/10/26
- * @param <P>     扩展Presenter
+ * @param <P> 扩展Presenter
+ * @desc: MVP模式
+ * @author: Leo
+ * @date: 2016/10/26
  */
 public abstract class BaseMvpActivity<P extends BasePresenter> extends AppCompatActivity implements BaseMView {
 
@@ -57,6 +59,7 @@ public abstract class BaseMvpActivity<P extends BasePresenter> extends AppCompat
     protected LinearLayout m_navigation;
     private NavigationBar m_navigationBar;
     protected View m_statusBar;                  // 状态栏
+    private Unbinder bind;
 
     public NavigationBar getNavigationBar() {
         return m_navigationBar;
@@ -65,9 +68,9 @@ public abstract class BaseMvpActivity<P extends BasePresenter> extends AppCompat
     public final static int mPageSize = 5;
     protected int mPageIndex = 1;
     /**
-     *   下拉刷新或加载更多<br/>
-     *  0 是刷新 <br/>
-     *  1 是加载更多 <br/>
+     * 下拉刷新或加载更多<br/>
+     * 0 是刷新 <br/>
+     * 1 是加载更多 <br/>
      */
     protected int mIsRefreshOrLoadMore = 0;
     protected boolean mIsHasNoData;
@@ -100,6 +103,7 @@ public abstract class BaseMvpActivity<P extends BasePresenter> extends AppCompat
 
         View view = m_inflater.inflate(getLayoutId(), m_root, false);
         m_contentView.addView(view);
+        bind = ButterKnife.bind(view);
         ActivityStack.getInstance().addActivity(this);
         onViewCreated();
         observeIsLogin();
@@ -110,7 +114,8 @@ public abstract class BaseMvpActivity<P extends BasePresenter> extends AppCompat
 
     /**
      * 设置标题栏类型
-     * @param isSub    true 为二级标题栏
+     *
+     * @param isSub true 为二级标题栏
      */
     protected void setNavigationType(boolean isSub) {
         // 设置状态栏字体颜色为白色
@@ -144,13 +149,17 @@ public abstract class BaseMvpActivity<P extends BasePresenter> extends AppCompat
         }));
     }
 
-    /**  状态栏背景透明  */
+    /**
+     * 状态栏背景透明
+     */
     protected void hideStatusBar() {
         ScreenUtils.translateStatusBar((Activity) context);
         setTheme(R.style.TranslucentTheme);
     }
 
-    /**  设置状态栏高度  */
+    /**
+     * 设置状态栏高度
+     */
     protected void setStatusBar() {
         m_statusBar.setVisibility(View.VISIBLE);
         ViewGroup.LayoutParams layoutParams = m_statusBar.getLayoutParams();
@@ -158,16 +167,20 @@ public abstract class BaseMvpActivity<P extends BasePresenter> extends AppCompat
         m_statusBar.setLayoutParams(layoutParams);
     }
 
-    protected View getStatesBar(){
+    protected View getStatesBar() {
         return m_statusBar;
     }
 
-    /**  设置titleBar */
+    /**
+     * 设置titleBar
+     */
     protected void setNavigation() {
         m_navigationBar.setVisibility(View.GONE);
     }
 
-    /**  设置返回键  */
+    /**
+     * 设置返回键
+     */
     protected void setNavigationBack() {
         m_navigationBar.setVisibility(View.VISIBLE);
         WidgetButton btnBack = new WidgetButton(context);
@@ -181,7 +194,9 @@ public abstract class BaseMvpActivity<P extends BasePresenter> extends AppCompat
         getNavigationBar().setLeftMenu(btnBack);
     }
 
-    /**  设置返回键  */
+    /**
+     * 设置返回键
+     */
     protected void setNavigationBack(View.OnClickListener listener) {
         m_navigationBar.setVisibility(View.VISIBLE);
         WidgetButton btnBack = new WidgetButton(context);
@@ -192,7 +207,8 @@ public abstract class BaseMvpActivity<P extends BasePresenter> extends AppCompat
 
     /**
      * 设置右边功能键
-     * @param titleRes    右侧标题
+     *
+     * @param titleRes 右侧标题
      */
     protected void setNavigationRight(int titleRes) {
         m_navigationBar.setVisibility(View.VISIBLE);
@@ -202,8 +218,9 @@ public abstract class BaseMvpActivity<P extends BasePresenter> extends AppCompat
 
     /**
      * 设置返回键
-     * @param resId      返回图标资源
-     * @param titleRes   标题名
+     *
+     * @param resId    返回图标资源
+     * @param titleRes 标题名
      */
     protected void setNavigationBack(int resId, int titleRes) {
         m_navigationBar.setVisibility(View.VISIBLE);
@@ -222,6 +239,7 @@ public abstract class BaseMvpActivity<P extends BasePresenter> extends AppCompat
 
     /**
      * 设置返回键
+     *
      * @param titleStr title名
      */
     protected void setNavigationBack(String titleStr) {
@@ -231,6 +249,7 @@ public abstract class BaseMvpActivity<P extends BasePresenter> extends AppCompat
 
     /**
      * 设置返回键
+     *
      * @param titleStr title名
      */
     protected void setNavigationBack(String titleStr, View.OnClickListener listener) {
@@ -240,6 +259,7 @@ public abstract class BaseMvpActivity<P extends BasePresenter> extends AppCompat
 
     /**
      * 设置返回键
+     *
      * @param titleRes title名
      */
     protected void setNavigationBack(int titleRes) {
@@ -248,7 +268,7 @@ public abstract class BaseMvpActivity<P extends BasePresenter> extends AppCompat
     }
 
     /**
-     *  注册EventBus
+     * 注册EventBus
      */
     protected void registerEvent() {
         if (!EventBus.getDefault().isRegistered(this)) {
@@ -257,13 +277,14 @@ public abstract class BaseMvpActivity<P extends BasePresenter> extends AppCompat
     }
 
     /**
-     *  取消注册EventBus
+     * 取消注册EventBus
      */
     protected void unRegisterEvent() {
         if (EventBus.getDefault() != null) {
             EventBus.getDefault().unregister(this);
         }
     }
+
     private void initRootView() {
         m_inflater = LayoutInflater.from(this);
         m_root = (LinearLayout) this.findViewById(R.id.root);
@@ -273,23 +294,31 @@ public abstract class BaseMvpActivity<P extends BasePresenter> extends AppCompat
         m_statusBar = this.findViewById(R.id.m_statusBar);
     }
 
-    /**  初始化Presenter在setContentView之前  */
+    /**
+     * 初始化Presenter在setContentView之前
+     */
     protected abstract P createPresenterInstance();
 
     protected abstract int getLayoutId();
 
-    /**  初始化界面控件  */
+    /**
+     * 初始化界面控件
+     */
     protected abstract void onViewCreated();
 
-    /**  执行逻辑操作  */
+    /**
+     * 执行逻辑操作
+     */
     protected abstract void doLogicFunc();
 
     protected Activity getActivity() {
         return this;
     }
 
-    public void gotoActivity(Class<?> cls){
-        if (null == cls) {  return;  }
+    public void gotoActivity(Class<?> cls) {
+        if (null == cls) {
+            return;
+        }
         Intent intent = new Intent();
         intent.setClass(this, cls);
         startActivity(intent);
@@ -312,12 +341,12 @@ public abstract class BaseMvpActivity<P extends BasePresenter> extends AppCompat
 
     protected LoadDialog loadDialog;
     protected String loadText;//加载中提示文字
-    protected boolean loadCancelable=true;
+    protected boolean loadCancelable = true;
 
     @Override
     public void showProgressingDialog() {
-        loadText=getResources().getString(R.string.string_loadText);
-        loadDialog = new LoadDialog(context,loadText, loadCancelable);
+        loadText = getResources().getString(R.string.string_loadText);
+        loadDialog = new LoadDialog(context, loadText, loadCancelable);
         loadDialog.show();
     }
 
@@ -330,8 +359,9 @@ public abstract class BaseMvpActivity<P extends BasePresenter> extends AppCompat
 
     /**
      * 创建通用对话框
-     * @param text              提示文本
-     * @param outSideCancel     点击窗外是否取消<默认<true>
+     *
+     * @param text          提示文本
+     * @param outSideCancel 点击窗外是否取消<默认<true>
      * @return
      */
     public CommonDialog newCommonDialog(String text, Boolean outSideCancel) {
@@ -373,21 +403,27 @@ public abstract class BaseMvpActivity<P extends BasePresenter> extends AppCompat
 
     /**
      * 填充文本兼容空对象
-     * @param textView    textview
-     * @param content     content
+     *
+     * @param textView textview
+     * @param content  content
      */
-    public void setTextView(TextView textView, String content){
-        if (EmptyUtils.isNull(textView)) {  return; }
+    public void setTextView(TextView textView, String content) {
+        if (EmptyUtils.isNull(textView)) {
+            return;
+        }
         textView.setText(StringUtils.nullToStr(content));
     }
 
     /**
      * 填充文本兼容空对象
-     * @param textView    textview
-     * @param content     content
+     *
+     * @param textView textview
+     * @param content  content
      */
-    public void setTextViewVisibe(TextView textView, String content){
-        if (EmptyUtils.isNull(textView)) { return;  }
+    public void setTextViewVisibe(TextView textView, String content) {
+        if (EmptyUtils.isNull(textView)) {
+            return;
+        }
 
         if (EmptyUtils.isEmpty(content)) {
             textView.setVisibility(View.GONE);
@@ -399,18 +435,23 @@ public abstract class BaseMvpActivity<P extends BasePresenter> extends AppCompat
 
     /**
      * 填充图片兼容空对象
-     * @param imageview    imageview
-     * @param url          content
+     *
+     * @param imageview imageview
+     * @param url       content
      */
-    public void setImageView(ImageView imageview, String url){
-        if (EmptyUtils.isNull(imageview)) {  return; }
+    public void setImageView(ImageView imageview, String url) {
+        if (EmptyUtils.isNull(imageview)) {
+            return;
+        }
 
         ImageLoaderUtils.display(imageview, StringUtils.nullToStr(url));
     }
 
     @Override
-    public void statusReTry(LoadingLayout.OnReloadListener listener){
-        if (EmptyUtils.isNull(listener)) {   return;   }
+    public void statusReTry(LoadingLayout.OnReloadListener listener) {
+        if (EmptyUtils.isNull(listener)) {
+            return;
+        }
 
         m_contentView.setOnReloadListener(listener);
     }
@@ -438,7 +479,7 @@ public abstract class BaseMvpActivity<P extends BasePresenter> extends AppCompat
         return super.onKeyDown(keyCode, event);
     }
 
-    public void clearMemory(){
+    public void clearMemory() {
         if (presenter != null) {
             presenter.detachView();
         }
@@ -451,10 +492,12 @@ public abstract class BaseMvpActivity<P extends BasePresenter> extends AppCompat
         // 清除栈
         ActivityStack.getInstance().finishActivity(this);
     }
+
     /**
      * 获取编辑框文本
+     *
      * @param editText
-     * @return      编辑框中文本
+     * @return 编辑框中文本
      */
     protected String getEditTextStr(EditText editText) {
         if (EmptyUtils.isNotNull(editText)) {
@@ -465,8 +508,9 @@ public abstract class BaseMvpActivity<P extends BasePresenter> extends AppCompat
 
     /**
      * 获取编辑框文本
+     *
      * @param textView
-     * @return      编辑框中文本
+     * @return 编辑框中文本
      */
     protected String getTextViewStr(TextView textView) {
         if (EmptyUtils.isNotNull(textView)) {
@@ -477,6 +521,7 @@ public abstract class BaseMvpActivity<P extends BasePresenter> extends AppCompat
 
     /**
      * 为控件添加单次点击事件
+     *
      * @param view
      */
     protected void attachClickListener(View view) {
@@ -500,10 +545,13 @@ public abstract class BaseMvpActivity<P extends BasePresenter> extends AppCompat
         unRegisterEvent();
         clearMemory();
         super.onDestroy();
+        if (null != bind) bind.unbind();
+
     }
 
     /**
      * 点击空白区域隐藏键盘
+     *
      * @param ev
      * @return
      */
