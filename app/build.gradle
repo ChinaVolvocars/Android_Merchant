@@ -23,7 +23,7 @@ android {
         ]
         ndk {
             //选择要添加的对应cpu类型的.so库。
-            abiFilters  'armeabi-v7a'
+            abiFilters 'armeabi-v7a'
             // 还可以添加 'x86', 'x86_64', 'mips', 'mips64'
         }
     }
@@ -39,15 +39,15 @@ android {
         // but continue the build even when errors are found:
         abortOnError false
     }
-    productFlavors{
-        sx_xiaomi{}
-        sx_vivo{}
-        sx_oppo{}
-        sx_tc{}
-        sx_baidu{}
-        sx_360{}
-        sx_huawei{}
-        sx_test{}
+    productFlavors {
+        sx_xiaomi {}
+        sx_vivo {}
+        sx_oppo {}
+        sx_tc {}
+        sx_baidu {}
+        sx_360 {}
+        sx_huawei {}
+        sx_test {}
     }
     android.applicationVariants.all { variant ->
         variant.outputs.each { output ->

@@ -254,10 +254,9 @@ public class LoginActivity extends BaseMvpActivity {
 //            gotoActivity(NewPwdActivity.class);
         } else if (view.getId() == mTvForgetPwd.getId()) {
 
-            DialogHomeWay dialog = DialogHomeWay.newInstance();
-            dialog.show(getSupportFragmentManager(), "DialogHomeWay");
 
-//            gotoActivity(ForgetPwdActivity.class);
+
+            gotoActivity(ForgetPwdActivity.class);
             // 忘记账号
         } else if (view.getId() == mTvGetBackAccount.getId()) {
             gotoActivity(GetBackAccountActivity.class);

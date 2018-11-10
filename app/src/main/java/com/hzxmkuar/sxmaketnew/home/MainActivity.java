@@ -27,6 +27,7 @@ import com.common.widget.imageview.image.ImageLoaderUtils;
 import com.hzxmkuar.sxmaketnew.R;
 import com.hzxmkuar.sxmaketnew.base.BaseUrlActivity;
 import com.hzxmkuar.sxmaketnew.event.AccountConstants;
+import com.hzxmkuar.sxmaketnew.newversion.NewMainActivity;
 import com.hzxmkuar.sxmaketnew.view.dialog.VersionCompareDialog;
 
 import java.util.ArrayList;

@@ -23,7 +23,7 @@
                 android:layout_height="match_parent"
                 android:layout_marginLeft="15dp"
                 android:layout_marginTop="15dp"
-                android:src="@mipmap/allback_blaack"
+                android:src="@mipmap/ic_back_gray"
                 android:visibility="gone" />
 
             <RelativeLayout

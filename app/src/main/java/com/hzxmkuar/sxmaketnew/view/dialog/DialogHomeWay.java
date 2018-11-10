@@ -1,6 +1,7 @@
 package com.hzxmkuar.sxmaketnew.view.dialog;
 
 import android.app.Dialog;
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -14,12 +15,16 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.hzxmkuar.sxmaketnew.R;
+import com.hzxmkuar.sxmaketnew.newversion.WithdrawalActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class DialogHomeWay extends BottomSheetDialogFragment {
+    public static final int COLLECTION_PAYMENT = 0;
+    public static final int INVOICE_WITHDRAWAL = 1;
+    public static final String COLLECTION_KEY = "COLLECTION";
 
     @BindView(R.id.tv_collection_payment)
     TextView tvCollectionPayment;
@@ -65,17 +70,30 @@ public class DialogHomeWay extends BottomSheetDialogFragment {
 
     @OnClick(R.id.ll_cancel)
     public void onCancelClicked() {
-        Toast.makeText(getContext(), "取消", Toast.LENGTH_SHORT).show();
+        dismiss();
     }
+
 
     @OnClick(R.id.tv_collection_payment)
     public void onCollectionPaymentClicked() {
-        Toast.makeText(getContext(), "==", Toast.LENGTH_SHORT).show();
+        dismiss();
+        Intent intent = new Intent();
+        Bundle bundle = new Bundle();
+        bundle.putInt(COLLECTION_KEY, COLLECTION_PAYMENT);
+        intent.putExtras(bundle);
+        intent.setClass(getContext(), WithdrawalActivity.class);
+        startActivity(intent);
     }
 
     @OnClick(R.id.tv_invoice_withdrawal)
     public void onInvoiceWithdrawalClicked() {
-        Toast.makeText(getContext(), "取--消", Toast.LENGTH_SHORT).show();
+        dismiss();
+        Intent intent = new Intent();
+        Bundle bundle = new Bundle();
+        bundle.putInt(COLLECTION_KEY, INVOICE_WITHDRAWAL);
+        intent.putExtras(bundle);
+        intent.setClass(getContext(), WithdrawalActivity.class);
+        startActivity(intent);
     }
 
 }

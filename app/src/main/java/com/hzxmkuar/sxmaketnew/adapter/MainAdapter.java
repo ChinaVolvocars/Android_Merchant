@@ -20,6 +20,17 @@ import butterknife.ButterKnife;
 
 public class MainAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
+    public static final String Conversion = "Conversion";
+    public static final String CollectionCode = "CollectionCode";
+    public static final String ScanCheck = "ScanCheck";
+    public static final String Bank = "Bank";
+    public static final String WithdrawalApplication = "WithdrawalApplication";
+    public static final String WithdrawalAccounts = "WithdrawalAccounts";
+    public static final String RevenueStatistics = "RevenueStatistics";
+    public static final String InvoiceInformation = "InvoiceInformation";
+    public static final String ConsumptionAuthority = "ConsumptionAuthority";
+    public static final String TodayRevenue = "TodayRevenue";
+
     public static final int VIEWTYPE_BALANCE = 0;
     public static final int VIEWTYPE_FUNCTION = 1;
     public static final int VIEWTYPE_ADV = 2;
@@ -85,26 +96,26 @@ public class MainAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             holder.tvConversion.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    if (listener != null) listener.onOtherItemClick(view, "Conversion");
+                    if (listener != null) listener.onOtherItemClick(view, Conversion);
                 }
             });
 
             holder.tvCollectionCode.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    if (listener != null) listener.onOtherItemClick(view, "CollectionCode");
+                    if (listener != null) listener.onOtherItemClick(view, CollectionCode);
                 }
             });
             holder.tvScanCheck.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    if (listener != null) listener.onOtherItemClick(view, "ScanCheck");
+                    if (listener != null) listener.onOtherItemClick(view, ScanCheck);
                 }
             });
             holder.tvBank.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    if (listener != null) listener.onOtherItemClick(view, "Bank");
+                    if (listener != null) listener.onOtherItemClick(view, Bank);
                 }
             });
         } else if (viewHolder instanceof FunctionViewHolder) {
@@ -113,35 +124,35 @@ public class MainAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             holder.tvWithdrawalApplication.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    if (listener != null) listener.onOtherItemClick(view, "WithdrawalApplication");
+                    if (listener != null) listener.onOtherItemClick(view, WithdrawalApplication);
                 }
             });
             //提现账款
             holder.tvWithdrawalAccounts.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    if (listener != null) listener.onOtherItemClick(view, "WithdrawalAccounts");
+                    if (listener != null) listener.onOtherItemClick(view, WithdrawalAccounts);
                 }
             });
             //营收统计
             holder.tvRevenueStatistics.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    if (listener != null) listener.onOtherItemClick(view, "RevenueStatistics");
+                    if (listener != null) listener.onOtherItemClick(view, RevenueStatistics);
                 }
             });
             //发票信息
             holder.tvInvoiceInformation.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    if (listener != null) listener.onOtherItemClick(view, "InvoiceInformation");
+                    if (listener != null) listener.onOtherItemClick(view, InvoiceInformation);
                 }
             });
             //消费权限
             holder.tvConsumptionAuthority.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    if (listener != null) listener.onOtherItemClick(view, "ConsumptionAuthority");
+                    if (listener != null) listener.onOtherItemClick(view, ConsumptionAuthority);
                 }
             });
 
@@ -174,6 +185,13 @@ public class MainAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 //            holder.tvSettlementAccumulation.setText();
 //            holder.tvXindouSettlement.setText();
 //            holder.tvCashSettlement.setText();
+
+            holder.tvTodayRevenue.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if (listener != null) listener.onOtherItemClick(view, TodayRevenue);
+                }
+            });
 
         } else if (viewHolder instanceof ServiceViewHolder) {
             ServiceViewHolder holder = (ServiceViewHolder) viewHolder;
@@ -290,6 +308,8 @@ public class MainAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         TextView tvXindouSettlement;
         @BindView(R.id.tv_cash_settlement)
         TextView tvCashSettlement;
+        @BindView(R.id.tv_today_revenue)
+        TextView tvTodayRevenue;
 
         public OperatingIncomeViewHolder(View itemView) {
             super(itemView);

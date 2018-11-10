@@ -1,17 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="@color/color_f0f0f0"
     android:layout_height="match_parent"
+    android:background="@color/color_f0f0f0"
     android:orientation="vertical">
+
+    <include layout="@layout/toolbar_common" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp_51"
+        android:layout_marginTop="@dimen/dp_3"
         android:background="@color/white"
-        android:orientation="horizontal"
-        android:paddingLeft="@dimen/dp_14"
-        android:paddingRight="@dimen/dp_14">
+        android:orientation="horizontal">
 
         <FrameLayout
             android:layout_width="0dp"
@@ -19,25 +21,33 @@
             android:layout_weight="1">
 
             <TextView
+                android:id="@+id/tv_add_bank"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:drawableRight="@mipmap/ic_arrow_right_gray"
                 android:gravity="center_vertical"
+                android:paddingLeft="@dimen/dp_14"
+                android:paddingRight="@dimen/dp_14"
                 android:text="请添加银行卡"
                 android:textColor="@color/color_303030"
-                android:textSize="@dimen/sp_17" />
-
+                android:textSize="@dimen/sp_17"
+                android:visibility="visible" />
 
             <LinearLayout
+                android:id="@+id/ll_bank_info"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center_vertical"
                 android:orientation="horizontal"
+                android:paddingLeft="@dimen/dp_14"
+                android:paddingRight="@dimen/dp_14"
                 android:visibility="gone">
 
                 <ImageView
+                    android:id="@+id/iv_bank"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@mipmap/zbgl" />
+                    tools:src="@mipmap/zbgl" />
 
                 <LinearLayout
                     android:layout_width="@dimen/dp_0"
@@ -48,6 +58,7 @@
                     android:paddingLeft="@dimen/dp_12">
 
                     <TextView
+                        android:id="@+id/tv_bank_name"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="中国建设银行"
@@ -55,29 +66,25 @@
                         android:textSize="@dimen/sp_16" />
 
                     <TextView
+                        android:id="@+id/tv_bank_num"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="尾号0417储蓄卡"
                         android:textColor="@color/color_747373"
                         android:textSize="@dimen/sp_14" />
 
-
                 </LinearLayout>
 
-
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_vertical"
+                    android:src="@mipmap/ic_arrow_right_gray" />
             </LinearLayout>
-
 
         </FrameLayout>
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:src="@mipmap/arrow" />
-
     </LinearLayout>
-
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -88,6 +95,7 @@
         android:padding="@dimen/dp_13">
 
         <TextView
+            android:id="@+id/tv_service_fee"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="提现金额(鑫豆*服务扣点5%)"
@@ -110,6 +118,7 @@
                 android:textSize="@dimen/sp_27" />
 
             <TextView
+                android:id="@+id/tv_amount"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="2000"
@@ -121,6 +130,7 @@
     </LinearLayout>
 
     <TextView
+        android:id="@+id/tv_confirm"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp_46"
         android:layout_marginLeft="@dimen/dp_10"
@@ -133,6 +143,7 @@
         android:textSize="@dimen/sp_19" />
 
     <TextView
+        android:id="@+id/tv_view_record"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp_46"
         android:layout_marginLeft="@dimen/dp_10"
@@ -143,6 +154,5 @@
         android:text="查看申请记录"
         android:textColor="@color/color_ffae05"
         android:textSize="@dimen/sp_19" />
-
 
 </LinearLayout>
