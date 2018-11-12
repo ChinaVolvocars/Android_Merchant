@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_f0f0f0"
+    android:orientation="vertical"
+    tools:context="com.hzxmkuar.sxmaketnew.newversion.InvoiceInformationActivity">
+
+    <include layout="@layout/toolbar_common" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_31"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/color_fda804"
+            android:paddingBottom="@dimen/dp_2"
+            android:paddingLeft="@dimen/dp_9"
+            android:paddingRight="@dimen/dp_9"
+            android:paddingTop="@dimen/dp_3"
+            android:text="杭州省鑫信息科技有限公司"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sp_20" />
+
+
+    </LinearLayout>
+
+
+
+
+
+</LinearLayout>

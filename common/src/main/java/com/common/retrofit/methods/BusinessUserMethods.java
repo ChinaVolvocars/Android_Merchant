@@ -18,10 +18,12 @@ import com.common.retrofit.entity.result.NewTestBean;
 import com.common.retrofit.entity.result.ShopShowsEntity;
 import com.common.retrofit.entity.result.WidthDrawEntity;
 import com.common.retrofit.entity.resultImpl.HttpRespBean;
+import com.common.retrofit.model.Home;
 import com.common.retrofit.service.UserService;
 
 import java.util.List;
 
+import okhttp3.ResponseBody;
 import rx.Observable;
 import rx.Subscriber;
 
@@ -81,6 +83,7 @@ public class BusinessUserMethods extends BaseMethods {
 
     /**
      * 修改商铺信息提交（新接口）
+     *
      * @param subscriber
      * @param shopName
      * @param shopTypeId
@@ -93,7 +96,7 @@ public class BusinessUserMethods extends BaseMethods {
      * @param reqList
      */
     public void shopInfoEditedCommitt(Subscriber<Object> subscriber, String shopName, String shopTypeId, String shengId, String shiId, String quId,
-                               String adddes, String shopDesc, String pic,List<String> reqList) {
+                                      String adddes, String shopDesc, String pic, List<String> reqList) {
         Observable observable = initService().shopInfoSubmit(System.currentTimeMillis() + "", Constants.getHash(reqList), DataCenter.UserId, DataCenter.HashId,
                 shopName, shopTypeId, shengId, shiId, quId, adddes, shopDesc, pic);
         toOtherSubscribe(observable, subscriber);
@@ -101,17 +104,18 @@ public class BusinessUserMethods extends BaseMethods {
 
     /**
      * 商户上传店铺图片（新增接口）
+     *
      * @param subscriber
-     * @param picLists  上传的图片及描述
-     * @param reqList 请求的参数集合
+     * @param picLists   上传的图片及描述
+     * @param reqList    请求的参数集合
      */
-    public void updateShopImgs(Subscriber<Object> subscriber, String picLists,List<String> reqList) {
-        Observable observable = initService().updateShopImges(System.currentTimeMillis() + "", Constants.getHash(reqList), DataCenter.UserId, DataCenter.HashId,picLists
-                );
+    public void updateShopImgs(Subscriber<Object> subscriber, String picLists, List<String> reqList) {
+        Observable observable = initService().updateShopImges(System.currentTimeMillis() + "", Constants.getHash(reqList), DataCenter.UserId, DataCenter.HashId, picLists
+        );
         toOtherSubscribe(observable, subscriber);
     }
 
-    public void storeSubmit(Subscriber<Object> subscriber, String name, String typeid, String shengid ) {
+    public void storeSubmit(Subscriber<Object> subscriber, String name, String typeid, String shengid) {
         Observable observable = initService().storeSubmit(System.currentTimeMillis() + "", "23afbb21099d52421b0d5930cd870512", DataCenter.UserId, DataCenter.HashId, name, typeid, shengid);
         toOtherSubscribe(observable, subscriber);
     }
@@ -121,8 +125,9 @@ public class BusinessUserMethods extends BaseMethods {
 //        toOtherSubscribe(observable, subscriber);
 //    }
 
-    public void withdraw(Subscriber<WidthDrawEntity> subscriber, String name, String typeid, String shengid ) {
-        Observable observable = initService().withdraws(System.currentTimeMillis() + "", "9bd814e2ffc73f7fbf48f1e36c4bce90", DataCenter.UserId, DataCenter.HashId, name, typeid, shengid);
+    public void withdraw(Subscriber<WidthDrawEntity> subscriber, String name, String typeid, String shengid) {
+        Observable observable = initService()
+                .withdraws(System.currentTimeMillis() + "", "9bd814e2ffc73f7fbf48f1e36c4bce90", DataCenter.UserId, DataCenter.HashId, name, typeid, shengid);
         toSubscribe(observable, subscriber);
     }
 
@@ -199,8 +204,10 @@ public class BusinessUserMethods extends BaseMethods {
 //        Observable observable = initService().shopInfo(System.currentTimeMillis() + "", "e785f07736bde4d62b77d03214d29647", DataCenter.UserId, DataCenter.HashId);
 //        toSubscribe(observable, subscriber);
 //    }
+
     /**
      * 获取店铺信息(新接口)
+     *
      * @param subscriber
      */
     public void getShopInfo(Subscriber<InfoBean> subscriber, List<String> generateHashList) {
@@ -364,13 +371,14 @@ public class BusinessUserMethods extends BaseMethods {
 
 
     /**
-     *  设置消费功能开或者关
+     * 设置消费功能开或者关
+     *
      * @param subscriber
      * @param reqList
      * @param managementLimit
      */
     public void setFunctionOpenOrClose(Subscriber<Object> subscriber, List<String> reqList, String managementLimit) {
-        Observable observable = initService().setFunctionOpenOrClose(System.currentTimeMillis() + "", Constants.getHash(reqList), DataCenter.UserId,managementLimit);
+        Observable observable = initService().setFunctionOpenOrClose(System.currentTimeMillis() + "", Constants.getHash(reqList), DataCenter.UserId, managementLimit);
         toOtherSubscribe(observable, subscriber);
     }
 
@@ -389,35 +397,53 @@ public class BusinessUserMethods extends BaseMethods {
     }
 
     /**
-     *  商家个人活动列表   <br/>
-     * @param subscriber          <br/>
-     * @param reqList       请求参数的集合  <br/>
+     * 商家个人活动列表   <br/>
+     *
+     * @param subscriber <br/>
+     * @param reqList    请求参数的集合  <br/>
      */
     public void getShopAllActivesList(Subscriber<ShopShowsEntity> subscriber, List<String> reqList) {
-        Observable observable = initService().getShopActivesList(System.currentTimeMillis() + "", Constants.getHash(reqList), DataCenter.UserId+"");
+        Observable observable = initService().getShopActivesList(System.currentTimeMillis() + "", Constants.getHash(reqList), DataCenter.UserId + "");
         toSubscribe(observable, subscriber);
     }
+
     /**
-     *  商家新增个人活动   <br/>
-     * @param subscriber          <br/>
-     * @param reqList       请求参数的集合  <br/>
-     * @param activityDesc    商家活动标题       <br/>
-     * @param activityInfo  商家活动内容          <br/>
+     * 商家新增个人活动   <br/>
+     *
+     * @param subscriber   <br/>
+     * @param reqList      请求参数的集合  <br/>
+     * @param activityDesc 商家活动标题       <br/>
+     * @param activityInfo 商家活动内容          <br/>
      */
     public void addNewActive(Subscriber<Object> subscriber, List<String> reqList, String activityDesc, String activityInfo) {
-        Observable observable = initService().addNewActive(System.currentTimeMillis() + "", Constants.getHash(reqList), DataCenter.UserId+"",
+        Observable observable = initService().addNewActive(System.currentTimeMillis() + "", Constants.getHash(reqList), DataCenter.UserId + "",
                 activityDesc, activityInfo);
         toOtherSubscribe(observable, subscriber);
     }
 
     /**
-     *  商家个人活动删除接口   <br/>
-     * @param subscriber          <br/>
-     * @param reqList       请求参数的集合  <br/>
-     * @param aId    商家活动id       <br/>
+     * 商家个人活动删除接口   <br/>
+     *
+     * @param subscriber <br/>
+     * @param reqList    请求参数的集合  <br/>
+     * @param aId        商家活动id       <br/>
      */
     public void deletShopActive(Subscriber<Object> subscriber, List<String> reqList, String aId) {
         Observable observable = initService().deletShopActivie(System.currentTimeMillis() + "", Constants.getHash(reqList), aId);
+        toOtherSubscribe(observable, subscriber);
+    }
+
+
+    /**
+     * 改版后的首页新接口
+     *
+     * @param subscriber
+     */
+    public void newIndex(Subscriber<HttpRespBean<Home>> subscriber, List<String> reqList) {
+        Observable observable = initService().newIndex(System.currentTimeMillis() + ""
+                ,Constants.getHash(reqList), DataCenter.UserId
+        );
+//        toSubscribe(observable, subscriber);
         toOtherSubscribe(observable, subscriber);
     }
 }

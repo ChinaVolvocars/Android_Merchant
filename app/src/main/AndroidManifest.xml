@@ -348,7 +348,9 @@
         -->
         /************极光推送的必须***************/
         <activity android:name=".newversion.NewMainActivity" />
-        <activity android:name=".newversion.WithdrawalActivity"></activity>
+        <activity android:name=".newversion.WithdrawalActivity" />
+        <activity android:name=".newversion.RecordActivity" />
+        <activity android:name=".newversion.InvoiceInformationActivity"></activity>
     </application>
 
 </manifest>

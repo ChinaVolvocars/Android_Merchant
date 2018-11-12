@@ -8,6 +8,7 @@ import com.common.retrofit.jsoncoverter.CustomGsonConverterFactory;
 import java.net.Proxy;
 
 import okhttp3.OkHttpClient;
+import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import rx.Observable;
@@ -29,6 +30,10 @@ public abstract class BaseMethods {
 
         OkHttpClient.Builder httpClient = new OkHttpClient.Builder().proxy(Proxy.NO_PROXY);
         httpClient.addInterceptor(new HeaderIntercepter());
+        HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
+        logging.setLevel(HttpLoggingInterceptor.Level.BODY);
+        httpClient.addInterceptor(logging);
+
         return new Retrofit.Builder()
 //                .client(OkHttpManager.getClient().getOkHttp())
                 .client(httpClient.build())

@@ -5,8 +5,10 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.common.retrofit.model.ActivityList;
 import com.hzxmkuar.sxmaketnew.R;
 import com.makeramen.roundedimageview.RoundedImageView;
 
@@ -20,9 +22,9 @@ public class HomeActivityAdapter extends RecyclerView.Adapter<HomeActivityAdapte
 
     private Context context;
     private final LayoutInflater layoutInflater;
-    private ArrayList<String> pages = new ArrayList<>();
+    private ArrayList<ActivityList> pages = new ArrayList<>();
 
-    public void setPages(ArrayList<String> pages) {
+    public void setPages(ArrayList<ActivityList> pages) {
         this.pages = pages;
         notifyDataSetChanged();
     }
@@ -40,10 +42,12 @@ public class HomeActivityAdapter extends RecyclerView.Adapter<HomeActivityAdapte
     @Override
     public void onBindViewHolder(final HomeActivityViewHolder holder, final int position) {
         RoundedImageView imageView = holder.imageView;
-
+        ActivityList activity = pages.get(position);
         Glide.with(context)
-                .load(pages.get(position))
+                .load(activity.getPic())
                 .into(imageView);
+        holder.tvTitle.setText(activity.getTitle());
+        holder.tvTime.setText(context.getString(R.string.end_time, activity.getTime()));
 
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -63,8 +67,12 @@ public class HomeActivityAdapter extends RecyclerView.Adapter<HomeActivityAdapte
     }
 
     public class HomeActivityViewHolder extends RecyclerView.ViewHolder {
-        @BindView(R.id.imageView1)
+        @BindView(R.id.imageView)
         RoundedImageView imageView;
+        @BindView(R.id.tv_title)
+        TextView tvTitle;
+        @BindView(R.id.tv_time)
+        TextView tvTime;
 
         public HomeActivityViewHolder(View itemView) {
             super(itemView);

@@ -1,6 +1,8 @@
 package com.hzxmkuar.sxmaketnew.newversion;
 
 
+import android.content.Intent;
+import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -9,7 +11,9 @@ import android.view.View;
 import com.common.mvp.BaseMvpActivity;
 import com.common.mvp.BasePresenter;
 import com.common.retrofit.entity.result.IndexBean;
+import com.common.retrofit.entity.resultImpl.HttpRespBean;
 import com.common.retrofit.methods.BusinessUserMethods;
+import com.common.retrofit.model.Home;
 import com.common.retrofit.subscriber.CommonSubscriber;
 import com.common.retrofit.subscriber.SubscriberListener;
 import com.common.utils.EmptyUtils;
@@ -17,6 +21,7 @@ import com.common.utils.ListUtils;
 import com.common.utils.SPUtils;
 import com.common.widget.imageview.image.ImageLoaderUtils;
 import com.hzxmkuar.sxmaketnew.R;
+import com.hzxmkuar.sxmaketnew.activity.MyBankActivity;
 import com.hzxmkuar.sxmaketnew.adapter.MainAdapter;
 import com.hzxmkuar.sxmaketnew.event.AccountConstants;
 import com.hzxmkuar.sxmaketnew.home.SettingsActivity;
@@ -35,8 +40,11 @@ import rx.schedulers.Schedulers;
 
 public class NewMainActivity extends BaseMvpActivity {
 
+    public static final String KEY_MONEY = "money";
     @BindView(R.id.recycler_view)
     RecyclerView rv;
+    private MainAdapter adapter;
+    private HttpRespBean<Home> result;
 
     @Override
     protected BasePresenter createPresenterInstance() {
@@ -51,15 +59,12 @@ public class NewMainActivity extends BaseMvpActivity {
 
     @Override
     protected void onViewCreated() {
-
-
-        getHomeInfo();
-
         rv.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
         rv.setHasFixedSize(true);
 
-        MainAdapter adapter = new MainAdapter(this);
+        adapter = new MainAdapter(this);
         rv.setAdapter(adapter);
+        getHomeInfo();
 
         adapter.setOnItemClickListener(new MainAdapter.OnItemClickListener() {
             @Override
@@ -84,8 +89,12 @@ public class NewMainActivity extends BaseMvpActivity {
                 } else if (tag.equals(MainAdapter.CollectionCode)) {
                 } else if (tag.equals(MainAdapter.ScanCheck)) {
                 } else if (tag.equals(MainAdapter.Bank)) {
+                    startActivity(new Intent(context, MyBankActivity.class).putExtra("name", "000"));
                 } else if (tag.equals(MainAdapter.WithdrawalApplication)) {
-                    DialogHomeWay dialog = DialogHomeWay.newInstance();
+                    Bundle bundle = new Bundle();
+                    String money = result.getData().getMoney();
+                    bundle.putString(KEY_MONEY, money);
+                    DialogHomeWay dialog = DialogHomeWay.newInstance(bundle);
                     dialog.show(getSupportFragmentManager(), "DialogHomeWay");
                 } else if (tag.equals(MainAdapter.WithdrawalAccounts)) {
                 } else if (tag.equals(MainAdapter.RevenueStatistics)) {
@@ -99,28 +108,49 @@ public class NewMainActivity extends BaseMvpActivity {
     }
 
     private void getHomeInfo() {
+//        CommonSubscriber<HttpRespBean<Home>> subscriber = new CommonSubscriber<>(new SubscriberListener<HttpRespBean<Home>>() {
+//            @Override
+//            public void onNext(HttpRespBean<Home> o) {
+//                if (o.getCode() == 0) {
+//                    if (null != o.getData()) {
+//                        adapter.setData(o.getData());
+//                    }
+//                }
+//            }
+//
+//            @Override
+//            public void onError(String e, int code) {
+//
+//            }
+//        });
 
 
-        CommonSubscriber<Object> subscriber = new CommonSubscriber<>(new SubscriberListener() {
-            @Override
-            public void onNext(Object o) {
-                statusContent();
-                Log.e("onNext", "onNext: "+o);
-
-            }
-
-            @Override
-            public void onError(String e, int code) {
-                statusContent();
-                showToastMsg(e);
-            }
-        });
         List<String> reqLis = new ArrayList<>();
         reqLis.add("time");
         reqLis.add("uid");
 
-        BusinessUserMethods.getInstance().newIndex(subscriber,reqLis);
-        rxManager.add(subscriber);
+        BusinessUserMethods.getInstance().newIndex(new Subscriber<HttpRespBean<Home>>() {
+            @Override
+            public void onCompleted() {
+
+            }
+
+            @Override
+            public void onError(Throwable e) {
+
+            }
+
+            @Override
+            public void onNext(HttpRespBean<Home> o) {
+                result = o;
+                if (o.getCode() == 0) {
+                    if (null != o.getData()) {
+                        adapter.setData(o.getData());
+                    }
+                }
+            }
+        }, reqLis);
+//        rxManager.add(subscriber);
 
     }
 

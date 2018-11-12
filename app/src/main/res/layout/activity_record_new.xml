@@ -5,15 +5,21 @@
     android:background="@color/color_f0f0f0"
     android:orientation="vertical">
     <!--代收代付申请记录-->
+
+    <include layout="@layout/toolbar_common" />
+
     <ImageView
         android:id="@+id/iv_adv"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp_70"
-        android:scaleType="fitXY" />
+        android:scaleType="fitXY"
+        android:src="@mipmap/adv_withdrawal_time" />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycler_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/dp_5"
+        android:background="@color/white" />
 
 </LinearLayout>

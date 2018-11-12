@@ -15,6 +15,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.hzxmkuar.sxmaketnew.R;
+import com.hzxmkuar.sxmaketnew.newversion.NewMainActivity;
 import com.hzxmkuar.sxmaketnew.newversion.WithdrawalActivity;
 
 import butterknife.BindView;
@@ -32,6 +33,7 @@ public class DialogHomeWay extends BottomSheetDialogFragment {
     TextView tvInvoiceWithdrawal;
     @BindView(R.id.ll_cancel)
     LinearLayout llCancel;
+    private String money;
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
@@ -49,8 +51,9 @@ public class DialogHomeWay extends BottomSheetDialogFragment {
         setStyle(BottomSheetDialogFragment.STYLE_NORMAL, R.style.CustomBottomSheetDialogTheme);
     }
 
-    public static DialogHomeWay newInstance() {
+    public static DialogHomeWay newInstance(Bundle bundle) {
         DialogHomeWay dialogHomeWay = new DialogHomeWay();
+        dialogHomeWay.setArguments(bundle);
         return dialogHomeWay;
     }
 
@@ -66,6 +69,8 @@ public class DialogHomeWay extends BottomSheetDialogFragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         ButterKnife.bind(this, view);
+        Bundle bundle = getArguments();
+        money = bundle.getString(NewMainActivity.KEY_MONEY, "0.00");
     }
 
     @OnClick(R.id.ll_cancel)
@@ -80,6 +85,7 @@ public class DialogHomeWay extends BottomSheetDialogFragment {
         Intent intent = new Intent();
         Bundle bundle = new Bundle();
         bundle.putInt(COLLECTION_KEY, COLLECTION_PAYMENT);
+        bundle.putString(NewMainActivity.KEY_MONEY, money);
         intent.putExtras(bundle);
         intent.setClass(getContext(), WithdrawalActivity.class);
         startActivity(intent);
@@ -91,6 +97,7 @@ public class DialogHomeWay extends BottomSheetDialogFragment {
         Intent intent = new Intent();
         Bundle bundle = new Bundle();
         bundle.putInt(COLLECTION_KEY, INVOICE_WITHDRAWAL);
+        bundle.putString(NewMainActivity.KEY_MONEY, money);
         intent.putExtras(bundle);
         intent.setClass(getContext(), WithdrawalActivity.class);
         startActivity(intent);

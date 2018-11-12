@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.bumptech.glide.Glide;
+import com.common.retrofit.model.ServiceFunction;
 import com.hzxmkuar.sxmaketnew.R;
 import com.makeramen.roundedimageview.RoundedImageView;
 
@@ -22,9 +23,9 @@ public class HomeServiceAdapter extends RecyclerView.Adapter<HomeServiceAdapter.
 
     private Context context;
     private final LayoutInflater layoutInflater;
-    private ArrayList<String> pages = new ArrayList<>();
+    private ArrayList<ServiceFunction> pages = new ArrayList<>();
 
-    public void setPages(ArrayList<String> pages) {
+    public void setPages(ArrayList<ServiceFunction> pages) {
         this.pages = pages;
         notifyDataSetChanged();
     }
@@ -44,7 +45,7 @@ public class HomeServiceAdapter extends RecyclerView.Adapter<HomeServiceAdapter.
         RoundedImageView imageView = holder.imageView;
 
         Glide.with(context)
-                .load(pages.get(position))
+                .load(pages.get(position).getPicture())
                 .into(imageView);
 
         imageView.setOnClickListener(new View.OnClickListener() {

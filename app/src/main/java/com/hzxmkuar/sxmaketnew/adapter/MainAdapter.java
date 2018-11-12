@@ -3,17 +3,26 @@ package com.hzxmkuar.sxmaketnew.adapter;
 import android.content.Context;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.SpannableStringBuilder;
+import android.text.Spanned;
+import android.text.style.RelativeSizeSpan;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.common.retrofit.model.ActivityList;
+import com.common.retrofit.model.Home;
+import com.common.retrofit.model.ServiceFunction;
+import com.common.retrofit.model.ShopBanner;
+import com.common.utils.SpannableStringUtils;
 import com.hzxmkuar.sxmaketnew.R;
 import com.indicator.LinePageIndicator;
 import com.looping.viewpager.LoopViewPager;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -38,10 +47,17 @@ public class MainAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     public static final int VIEWTYPE_SERVICE = 4;
     public static final int VIEWTYPE_ACTIVITY = 5;
 
+    private boolean flag = true;
+    private Home home;
     private Context context;
 
     public MainAdapter(Context context) {
         this.context = context;
+    }
+
+    public void setData(Home home) {
+        this.home = home;
+        notifyDataSetChanged();
     }
 
     @Override
@@ -63,7 +79,7 @@ public class MainAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     @Override
     public int getItemCount() {
-        return 6;
+        return null == home ? 0 : 6;
     }
 
     @Override
@@ -91,11 +107,24 @@ public class MainAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     public void onBindViewHolder(RecyclerView.ViewHolder viewHolder, final int position) {
         if (viewHolder instanceof BalanceViewHolder) {
             final BalanceViewHolder holder = (BalanceViewHolder) viewHolder;
-            holder.tvBalance.setText(String.valueOf(88.25));
 
+            final String money = home.getMoney();
+            final String xindou = home.getXindou();
+            holder.tvBalance.setText(money);
+            holder.tvConversionContent.setText("账户余额(元)");
             holder.tvConversion.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+                    if (flag) {
+                        flag = false;
+                        holder.tvBalance.setText(xindou);
+                        holder.tvConversionContent.setText("账户余额(豆)");
+                    } else {
+                        flag = true;
+                        holder.tvBalance.setText(money);
+                        holder.tvConversionContent.setText("账户余额(元)");
+                    }
+
                     if (listener != null) listener.onOtherItemClick(view, Conversion);
                 }
             });
@@ -161,11 +190,8 @@ public class MainAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             LoopViewPager loopViewPager = holder.loopViewPager;
             LinePageIndicator indicator = holder.indicator;
             HomeAdvAdapter adapter = new HomeAdvAdapter(context);
-            ArrayList<String> pages = new ArrayList<>();
-            pages.add("http://seopic.699pic.com/photo/50035/0520.jpg_wh1200.jpg");
-            pages.add("https://pic3.zhimg.com/80/v2-5faa2ffcac1992a2663c8746abbde9ae_hd.jpg");
-            pages.add("https://pic1.zhimg.com/80/v2-78b72fb37fbcd6224940b7f15d76ef64_hd.jpg");
-            pages.add("https://pic4.zhimg.com/80/v2-84c93abead7d8744422af35167aeeb2b_hd.jpg");
+            ArrayList<ShopBanner> pages = new ArrayList<>();
+            pages.addAll(home.getShop_banner());
             adapter.setPages(pages);
             loopViewPager.setAdapter(adapter);
             indicator.setViewPager(loopViewPager);
@@ -182,9 +208,47 @@ public class MainAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
         } else if (viewHolder instanceof OperatingIncomeViewHolder) {
             OperatingIncomeViewHolder holder = (OperatingIncomeViewHolder) viewHolder;
-//            holder.tvSettlementAccumulation.setText();
-//            holder.tvXindouSettlement.setText();
-//            holder.tvCashSettlement.setText();
+            String pay_xindou = home.getPay_xindou();
+            String pay_money = home.getPay_money();
+            String accumulative = home.getAccumulative();//累计
+            //00 .  00
+            //35 39 25
+            //#fe6500
+            SpannableStringBuilder stringAccumulative = new SpannableStringBuilder();
+            stringAccumulative.append(accumulative);
+            stringAccumulative.append("元");
+            RelativeSizeSpan sizeSpan01 = new RelativeSizeSpan(1.0f);
+            RelativeSizeSpan sizeSpan02 = new RelativeSizeSpan(1.1142f);
+            RelativeSizeSpan sizeSpan03 = new RelativeSizeSpan(0.714f);
+            RelativeSizeSpan sizeSpan04 = new RelativeSizeSpan(0.371f);
+            stringAccumulative.setSpan(sizeSpan01, 0, stringAccumulative.length() - 4, Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
+            stringAccumulative.setSpan(sizeSpan02, stringAccumulative.length() - 4, stringAccumulative.length() - 3, Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
+            stringAccumulative.setSpan(sizeSpan03, stringAccumulative.length() - 3, stringAccumulative.length() - 1, Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
+            stringAccumulative.setSpan(sizeSpan04, stringAccumulative.length() - 1, stringAccumulative.length(), Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
+            holder.tvSettlementAccumulation.setText(stringAccumulative);
+
+            //25 18 10
+            SpannableStringBuilder stringXindou = new SpannableStringBuilder();
+            stringXindou.append(pay_xindou);
+            stringXindou.append("元");
+            RelativeSizeSpan xindousize01 = new RelativeSizeSpan(1.0f);
+            RelativeSizeSpan xindousize02 = new RelativeSizeSpan(0.72f);
+            RelativeSizeSpan xindousize03 = new RelativeSizeSpan(0.4f);
+            stringXindou.setSpan(xindousize01, 0, stringXindou.length() - 3, Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
+            stringXindou.setSpan(xindousize02, stringXindou.length() - 3, stringXindou.length() - 1, Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
+            stringXindou.setSpan(xindousize03, stringXindou.length() - 1, stringXindou.length(), Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
+            holder.tvXindouSettlement.setText(stringXindou);
+
+            SpannableStringBuilder stringCash = new SpannableStringBuilder();
+            stringCash.append(pay_money);
+            stringCash.append("元");
+            RelativeSizeSpan cashsize01 = new RelativeSizeSpan(1.0f);
+            RelativeSizeSpan cashsize02 = new RelativeSizeSpan(0.72f);
+            RelativeSizeSpan cashsize03 = new RelativeSizeSpan(0.4f);
+            stringCash.setSpan(cashsize01, 0, stringCash.length() - 3, Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
+            stringCash.setSpan(cashsize02, stringCash.length() - 3, stringCash.length() - 1, Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
+            stringCash.setSpan(cashsize03, stringCash.length() - 1, stringCash.length(), Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
+            holder.tvCashSettlement.setText(stringCash);
 
             holder.tvTodayRevenue.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -200,11 +264,9 @@ public class MainAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             recyclerview.setHasFixedSize(true);
             HomeServiceAdapter adapter = new HomeServiceAdapter(context);
             recyclerview.setAdapter(adapter);
-            ArrayList<String> pages = new ArrayList<>();
-            pages.add("http://seopic.699pic.com/photo/50035/0520.jpg_wh1200.jpg");
-            pages.add("https://pic3.zhimg.com/80/v2-5faa2ffcac1992a2663c8746abbde9ae_hd.jpg");
-            pages.add("https://pic1.zhimg.com/80/v2-78b72fb37fbcd6224940b7f15d76ef64_hd.jpg");
-            pages.add("https://pic4.zhimg.com/80/v2-84c93abead7d8744422af35167aeeb2b_hd.jpg");
+            ArrayList<ServiceFunction> pages = new ArrayList<>();
+            List<ServiceFunction> serviceFunction = home.getService_function();
+            pages.addAll(serviceFunction);
             adapter.setPages(pages);
 
             adapter.setOnItemClickListener(new HomeServiceAdapter.OnItemClickListener() {
@@ -223,11 +285,8 @@ public class MainAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
             HomeActivityAdapter adapter = new HomeActivityAdapter(context);
             recyclerview.setAdapter(adapter);
-            ArrayList<String> pages = new ArrayList<>();
-            pages.add("http://seopic.699pic.com/photo/50035/0520.jpg_wh1200.jpg");
-            pages.add("https://pic3.zhimg.com/80/v2-5faa2ffcac1992a2663c8746abbde9ae_hd.jpg");
-            pages.add("https://pic1.zhimg.com/80/v2-78b72fb37fbcd6224940b7f15d76ef64_hd.jpg");
-            pages.add("https://pic4.zhimg.com/80/v2-84c93abead7d8744422af35167aeeb2b_hd.jpg");
+            ArrayList<ActivityList> pages = new ArrayList<>();
+            pages.addAll(home.getList());
             adapter.setPages(pages);
 
             adapter.setOnItemClickListener(new HomeActivityAdapter.OnItemClickListener() {
@@ -246,6 +305,8 @@ public class MainAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         TextView tvBalance;
         @BindView(R.id.tv_conversion)
         TextView tvConversion;
+        @BindView(R.id.tv_conversion_content)
+        TextView tvConversionContent;
         @BindView(R.id.tv_collection_code)
         TextView tvCollectionCode;
         @BindView(R.id.tv_scan_check)

@@ -3,13 +3,20 @@ package com.hzxmkuar.sxmaketnew.activity;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v7.widget.LinearLayoutManager;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.TextView;
 
+import com.bumptech.glide.BitmapTypeRequest;
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.drawable.GlideDrawable;
+import com.bumptech.glide.request.animation.GlideAnimation;
+import com.bumptech.glide.request.target.ViewTarget;
 import com.common.adapter.helper.IRecyclerViewHelper;
 import com.common.mvp.BaseMvpActivity;
 import com.common.mvp.BasePresenter;
@@ -17,7 +24,7 @@ import com.common.retrofit.entity.result.BankListBean;
 import com.common.retrofit.methods.CenterMethods;
 import com.common.retrofit.subscriber.CommonSubscriber;
 import com.common.retrofit.subscriber.SubscriberListener;
-import com.common.utils.BankFormBean;
+import com.common.utils.BankUtil;
 import com.common.utils.EmptyUtils;
 import com.common.utils.SizeUtils;
 import com.common.widget.DividerDecoration.MarginDecoration;
@@ -28,9 +35,7 @@ import com.common.widget.recyclerview.refresh.recycleview.XRecyclerView;
 import com.hzxmkuar.sxmaketnew.R;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 
 /**
@@ -41,11 +46,13 @@ public class MyBankActivity extends BaseMvpActivity {
     private XRecyclerView recyclerView;
     private MsgCenterAdapter adapter;
     private List<BankListBean.ListBean> bean = new ArrayList<>();
-//    private Map<String, BankFormBean> mBankFormBeanList = new HashMap<>();
+    //    private Map<String, BankFormBean> mBankFormBeanList = new HashMap<>();
     private TextView mTvAddCard;
     private ImageView mBack;
     private PopupWindow mPopupWindow;
     private TextView tv_pop_location;
+
+    public static final String ITEM = "item";
 
     @Override
     protected BasePresenter createPresenterInstance() {
@@ -64,9 +71,15 @@ public class MyBankActivity extends BaseMvpActivity {
     @Override
     protected void onViewCreated() {
         recyclerView = (XRecyclerView) findViewById(R.id.recyclerview);
-        mTvAddCard = (TextView) findViewById(R.id.tv_add_card);
+        mTvAddCard = (TextView) findViewById(R.id.tv_right);
         tv_pop_location = (TextView) findViewById(R.id.tv_pop_location);
+        TextView tvName = (TextView) findViewById(R.id.t_name);
         mBack = (ImageView) findViewById(R.id.back);
+        tvName.setText("我的银行卡");
+        mTvAddCard.setText("添加");
+        mTvAddCard.setTextColor(getResources().getColor(R.color.white));
+        mTvAddCard.setTextSize(TypedValue.COMPLEX_UNIT_SP, 15);
+        mTvAddCard.setBackgroundResource(R.drawable.shape_rectangle_bank_blue);
     }
 
     @Override
@@ -224,25 +237,38 @@ public class MyBankActivity extends BaseMvpActivity {
 
         @Override
         protected void convert(final ViewHolder holder, final BankListBean.ListBean item, final int position) {
-            holder.setText(R.id.name, item.getBank_name());
-            holder.setText(R.id.card, item.getCard_number());
-            ImageLoaderUtils.displayCircle((ImageView) holder.getParentView().findViewById(R.id.iv_bank_logo), item.getCard_bank_logo());
-            ImageLoaderUtils.displaySmallPhoto((ImageView) holder.getParentView().findViewById(R.id.iv_picture), item.getCard_bank_background());
-            holder.setOnClickListener(R.id.mLlDelete, new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    //showdialog(item,"是否删除尾数"+item.getBank_id_num().substring(item.getBank_id_num().length()-4,item.getBank_id_num().length())+"银行卡");
-                    goToHttpReqdel(item.getId());
-                }
 
-            });
-//            tv_card_type
-            if ("1".equals(item.getStatus())){
-                holder.setText(R.id.tv_card_type, "对私账户");
-            }else if ("2".equals(item.getStatus())){
-                holder.setText(R.id.tv_card_type, "对公账户");
-            }
-            holder.setOnClickListener(R.id.ll_ll, new View.OnClickListener() {
+            holder.setText(R.id.tv_bank_num, BankUtil.hideBank(item.getCard_number()));
+            LinearLayout view = holder.getView(R.id.ll_bank);
+
+            Glide.with(context).load(item.getCard_bank_background())
+                    .into(new ViewTarget<View, GlideDrawable>(view) {
+                        //括号里为需要加载的控件
+                        @Override
+                        public void onResourceReady(GlideDrawable resource, GlideAnimation<? super GlideDrawable> glideAnimation) {
+                            this.view.setBackground(resource.getCurrent());
+                        }
+                    });
+
+//            holder.setText(R.id.name, item.getBank_name());
+//            holder.setText(R.id.card, item.getCard_number());
+//            ImageLoaderUtils.displayCircle((ImageView) holder.getParentView().findViewById(R.id.iv_bank_logo), item.getCard_bank_logo());
+//            ImageLoaderUtils.displaySmallPhoto((ImageView) holder.getParentView().findViewById(R.id.iv_picture), item.getCard_bank_background());
+//            holder.setOnClickListener(R.id.mLlDelete, new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    //showdialog(item,"是否删除尾数"+item.getBank_id_num().substring(item.getBank_id_num().length()-4,item.getBank_id_num().length())+"银行卡");
+//                    goToHttpReqdel(item.getId());
+//                }
+//
+//            });
+////            tv_card_type
+//            if ("1".equals(item.getStatus())) {
+//                holder.setText(R.id.tv_card_type, "对私账户");
+//            } else if ("2".equals(item.getStatus())) {
+//                holder.setText(R.id.tv_card_type, "对公账户");
+//            }
+            holder.setOnClickListener(R.id.ll_bank, new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     String name = item.getCard_number();
@@ -250,6 +276,7 @@ public class MyBankActivity extends BaseMvpActivity {
                     Intent intent = new Intent();
                     intent.putExtra("name", name);
                     intent.putExtra("id", item.getId());
+                    intent.putExtra(ITEM, item);
                     setResult(100, intent);
                     finish();
                 }
@@ -258,7 +285,7 @@ public class MyBankActivity extends BaseMvpActivity {
 
         @Override
         protected int getItemViewLayoutId(int position, BankListBean.ListBean item) {
-            return R.layout.item_mybank;
+            return R.layout.item_bank_new;
         }
     }
 }

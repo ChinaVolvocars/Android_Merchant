@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
+import com.common.retrofit.model.ShopBanner;
 import com.hzxmkuar.sxmaketnew.R;
 import com.makeramen.roundedimageview.RoundedImageView;
 
@@ -18,9 +19,9 @@ public class HomeAdvAdapter extends PagerAdapter {
 
     private Context context;
     private final LayoutInflater layoutInflater;
-    private ArrayList<String> pages = new ArrayList<>();
+    private ArrayList<ShopBanner> pages = new ArrayList<>();
 
-    public void setPages(ArrayList<String> pages) {
+    public void setPages(ArrayList<ShopBanner> pages) {
         this.pages = pages;
         notifyDataSetChanged();
     }
@@ -39,7 +40,7 @@ public class HomeAdvAdapter extends PagerAdapter {
         RoundedImageView image = (RoundedImageView) itemView.findViewById(R.id.imageView1);
 
         Glide.with(context)
-                .load(pages.get(position))
+                .load(pages.get(position).getPicture())
                 .into(image);
 
         itemView.setOnClickListener(new View.OnClickListener() {

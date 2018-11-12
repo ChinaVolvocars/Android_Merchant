@@ -1,12 +1,15 @@
 package com.common.retrofit.entity.result;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.util.List;
 
 /**
  * Created by STH on 2018/6/9.
  */
 
-public class BankListBean {
+public class BankListBean implements Parcelable{
 
 
     /**
@@ -33,7 +36,7 @@ public class BankListBean {
         this.list = list;
     }
 
-    public static class ListBean {
+    public static class ListBean implements Parcelable{
         /**
          * id : 15
          * bank_name : 中国建设银行
@@ -106,5 +109,77 @@ public class BankListBean {
         public void setStatus(String status) {
             this.status = status;
         }
+
+        @Override
+        public int describeContents() {
+            return 0;
+        }
+
+        @Override
+        public void writeToParcel(Parcel dest, int flags) {
+            dest.writeString(this.id);
+            dest.writeString(this.bank_name);
+            dest.writeString(this.card_number);
+            dest.writeString(this.card_logo);
+            dest.writeString(this.card_bank_logo);
+            dest.writeString(this.card_bank_background);
+            dest.writeString(this.status);
+        }
+
+        public ListBean() {
+        }
+
+        protected ListBean(Parcel in) {
+            this.id = in.readString();
+            this.bank_name = in.readString();
+            this.card_number = in.readString();
+            this.card_logo = in.readString();
+            this.card_bank_logo = in.readString();
+            this.card_bank_background = in.readString();
+            this.status = in.readString();
+        }
+
+        public static final Creator<ListBean> CREATOR = new Creator<ListBean>() {
+            @Override
+            public ListBean createFromParcel(Parcel source) {
+                return new ListBean(source);
+            }
+
+            @Override
+            public ListBean[] newArray(int size) {
+                return new ListBean[size];
+            }
+        };
     }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(this.page);
+        dest.writeTypedList(this.list);
+    }
+
+    public BankListBean() {
+    }
+
+    protected BankListBean(Parcel in) {
+        this.page = in.readInt();
+        this.list = in.createTypedArrayList(ListBean.CREATOR);
+    }
+
+    public static final Creator<BankListBean> CREATOR = new Creator<BankListBean>() {
+        @Override
+        public BankListBean createFromParcel(Parcel source) {
+            return new BankListBean(source);
+        }
+
+        @Override
+        public BankListBean[] newArray(int size) {
+            return new BankListBean[size];
+        }
+    };
 }
