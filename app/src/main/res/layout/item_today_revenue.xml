@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:paddingBottom="@dimen/dp_6"
+    android:paddingLeft="@dimen/dp_11"
+    android:paddingRight="@dimen/dp_11"
+    android:paddingTop="@dimen/dp_6">
+
+    <TextView
+        android:id="@+id/tv_time"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="09:30:59"
+        android:textColor="@color/color_747373"
+        android:textSize="@dimen/sp_18" />
+
+    <TextView
+        android:id="@+id/tv_withdraw_value"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:text="+3.00"
+        android:textColor="@color/color_747373"
+        android:textSize="@dimen/sp_18" />
+
+    <TextView
+        android:id="@+id/tv_cash_value"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="right"
+        android:text="+3.01"
+        android:textColor="@color/color_747373"
+        android:textSize="@dimen/sp_18" />
+
+</LinearLayout>

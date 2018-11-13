@@ -38,6 +38,7 @@ import com.common.widget.toast.ToastManager;
 import org.greenrobot.eventbus.EventBus;
 
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import butterknife.Unbinder;
 import rx.functions.Action1;
 
@@ -60,6 +61,7 @@ public abstract class BaseMvpActivity<P extends BasePresenter> extends AppCompat
     private NavigationBar m_navigationBar;
     protected View m_statusBar;                  // 状态栏
     private Unbinder bind;
+
 
     public NavigationBar getNavigationBar() {
         return m_navigationBar;

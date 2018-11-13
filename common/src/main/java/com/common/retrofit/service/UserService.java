@@ -55,6 +55,7 @@ import com.common.retrofit.entity.result.ZBDetilBean;
 import com.common.retrofit.entity.result.ZBListBean;
 import com.common.retrofit.entity.resultImpl.HttpRespBean;
 import com.common.retrofit.model.Home;
+import com.common.retrofit.model.TodayRevenue;
 
 import java.util.List;
 import java.util.Map;
@@ -977,7 +978,8 @@ public interface UserService {
     Observable<Object> deletShopActivie(@Field("time") String time, @Field("hash") String hash, @Field("aid") String aid);
 
     /**
-     *  新版首页接口
+     * 新版首页接口
+     *
      * @param time
      * @param hash
      * @param uid
@@ -988,6 +990,15 @@ public interface UserService {
     Observable<HttpRespBean<Home>> newIndex(@Field("time") String time,
                                             @Field("hash") String hash,
                                             @Field("uid") int uid);
+
+
+    @FormUrlEncoded
+    @POST("ShopTodayRevenue")
+    Observable<HttpRespBean<TodayRevenue>> todayRevenue(@Field("time") String time,
+                                                        @Field("hash") String hash,
+                                                        @Field("uid") int uid,
+                                                        @Field("page") int page,
+                                                        @Field("dates") String data);
 
 
 }

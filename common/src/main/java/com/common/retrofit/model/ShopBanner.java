@@ -1,7 +1,10 @@
 package com.common.retrofit.model;
 
 
-public class ShopBanner {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class ShopBanner implements Parcelable{
 
 
     /**
@@ -37,4 +40,37 @@ public class ShopBanner {
     public void setLink(String link) {
         this.link = link;
     }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(this.id);
+        dest.writeString(this.picture);
+        dest.writeString(this.link);
+    }
+
+    public ShopBanner() {
+    }
+
+    protected ShopBanner(Parcel in) {
+        this.id = in.readString();
+        this.picture = in.readString();
+        this.link = in.readString();
+    }
+
+    public static final Creator<ShopBanner> CREATOR = new Creator<ShopBanner>() {
+        @Override
+        public ShopBanner createFromParcel(Parcel source) {
+            return new ShopBanner(source);
+        }
+
+        @Override
+        public ShopBanner[] newArray(int size) {
+            return new ShopBanner[size];
+        }
+    };
 }

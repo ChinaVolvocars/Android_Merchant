@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.hzxmkuar.sxmaketnew.newversion.QRCodeActivity">
+
+    <include layout="@layout/toolbar_common" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/color_ddb941">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp_18"
+            android:layout_marginRight="@dimen/dp_18"
+            android:layout_marginTop="@dimen/dp_18"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_48">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:drawableLeft="@mipmap/ic_launcher"
+                    android:drawablePadding="@dimen/dp_9"
+                    android:gravity="center_vertical"
+                    android:text="二维码收款"
+                    android:textColor="@color/color_ddb941"
+                    android:textSize="@dimen/sp_13" />
+
+
+                <ImageView
+                    android:id="@+id/iv_voice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="@dimen/dp_25"
+                    android:src="@mipmap/ic_launcher" />
+
+
+            </LinearLayout>
+
+
+            <ImageView
+                android:id="@+id/iv_qr"
+                android:layout_width="178dp"
+                android:layout_height="178dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/dp_40"
+                android:src="@mipmap/ic_launcher" />
+
+            <TextView
+                android:id="@+id/tv_save_qr"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/dp_26"
+                android:text="保存收款码"
+                android:textColor="@color/color_636c97"
+                android:textSize="@dimen/sp_13" />
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_marginLeft="@dimen/dp_17"
+                android:layout_marginRight="@dimen/dp_17"
+                android:layout_marginTop="@dimen/dp_28"
+                android:background="@color/color_e0e0e0" />
+
+
+            <TextView
+                android:id="@+id/tv_book"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_51"
+                android:drawableLeft="@mipmap/ic_launcher"
+                android:drawablePadding="@dimen/dp_9"
+                android:drawableRight="@mipmap/ic_arrow_right_gray"
+                android:gravity="center_vertical"
+                android:paddingLeft="@dimen/dp_28"
+                android:paddingRight="@dimen/dp_25"
+                android:text="收款小账本"
+                android:textColor="@color/color_222222"
+                android:textSize="@dimen/sp_13" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

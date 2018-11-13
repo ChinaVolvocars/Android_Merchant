@@ -22,37 +22,27 @@
             android:textSize="@dimen/text_size_48"
             android:textStyle="bold" />
 
-        <LinearLayout
+        <TextView
+            android:id="@+id/tv_conversion_content"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:text="账户余额(元)"
+            android:textColor="@color/color_303030"
+            android:textSize="@dimen/sp_17" />
+
+        <TextView
+            android:id="@+id/tv_conversion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/dp_4"
+            android:background="@drawable/shape_rectangle_conversion"
+            android:elevation="@dimen/dp_2"
             android:gravity="center"
-            android:orientation="horizontal"
-            android:paddingLeft="@dimen/dp_5"
-            android:paddingRight="@dimen/dp_5">
-
-            <TextView
-                android:id="@+id/tv_conversion_content"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="账户余额(元)"
-                android:textColor="@color/color_303030"
-                android:textSize="@dimen/sp_17" />
-
-            <TextView
-                android:id="@+id/tv_conversion"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/dp_4"
-                android:background="@drawable/shape_rectangle_conversion"
-                android:elevation="@dimen/dp_2"
-                android:gravity="center"
-                android:text="换算"
-                android:textColor="@color/color_fcca23"
-                android:textSize="@dimen/sp_12" />
-
-        </LinearLayout>
-
+            android:text="换算"
+            android:textColor="@color/color_fcca23"
+            android:textSize="@dimen/sp_12" />
 
         <View
             android:layout_width="match_parent"

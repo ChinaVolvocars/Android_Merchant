@@ -38,7 +38,7 @@ public class MainAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     public static final String RevenueStatistics = "RevenueStatistics";
     public static final String InvoiceInformation = "InvoiceInformation";
     public static final String ConsumptionAuthority = "ConsumptionAuthority";
-    public static final String TodayRevenue = "TodayRevenue";
+    public static final String TodayRevenue = "TodaysRevenue";
 
     public static final int VIEWTYPE_BALANCE = 0;
     public static final int VIEWTYPE_FUNCTION = 1;
@@ -118,7 +118,7 @@ public class MainAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
                     if (flag) {
                         flag = false;
                         holder.tvBalance.setText(xindou);
-                        holder.tvConversionContent.setText("账户余额(豆)");
+                        holder.tvConversionContent.setText("账户余额(鑫利积分)");
                     } else {
                         flag = true;
                         holder.tvBalance.setText(money);

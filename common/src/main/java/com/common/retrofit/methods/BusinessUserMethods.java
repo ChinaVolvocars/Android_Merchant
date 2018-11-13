@@ -19,6 +19,7 @@ import com.common.retrofit.entity.result.ShopShowsEntity;
 import com.common.retrofit.entity.result.WidthDrawEntity;
 import com.common.retrofit.entity.resultImpl.HttpRespBean;
 import com.common.retrofit.model.Home;
+import com.common.retrofit.model.TodayRevenue;
 import com.common.retrofit.service.UserService;
 
 import java.util.List;
@@ -441,9 +442,17 @@ public class BusinessUserMethods extends BaseMethods {
      */
     public void newIndex(Subscriber<HttpRespBean<Home>> subscriber, List<String> reqList) {
         Observable observable = initService().newIndex(System.currentTimeMillis() + ""
-                ,Constants.getHash(reqList), DataCenter.UserId
+                , Constants.getHash(reqList), DataCenter.UserId
         );
 //        toSubscribe(observable, subscriber);
+        toOtherSubscribe(observable, subscriber);
+    }
+
+
+    public void todayRevenue(Subscriber<HttpRespBean<TodayRevenue>> subscriber, List<String> reqList, String date) {
+        Observable observable = initService().todayRevenue(System.currentTimeMillis() + ""
+                , Constants.getHash(reqList), DataCenter.UserId, 1, date
+        );
         toOtherSubscribe(observable, subscriber);
     }
 }

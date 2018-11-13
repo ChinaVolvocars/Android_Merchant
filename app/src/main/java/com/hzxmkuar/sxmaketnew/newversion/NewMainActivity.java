@@ -14,6 +14,7 @@ import com.common.retrofit.entity.result.IndexBean;
 import com.common.retrofit.entity.resultImpl.HttpRespBean;
 import com.common.retrofit.methods.BusinessUserMethods;
 import com.common.retrofit.model.Home;
+import com.common.retrofit.model.TodayRevenue;
 import com.common.retrofit.subscriber.CommonSubscriber;
 import com.common.retrofit.subscriber.SubscriberListener;
 import com.common.utils.EmptyUtils;
@@ -87,6 +88,7 @@ public class NewMainActivity extends BaseMvpActivity {
                 Log.e("其他的点击事件", "onOtherItemClick: " + tag);
                 if (tag.equals(MainAdapter.Conversion)) {
                 } else if (tag.equals(MainAdapter.CollectionCode)) {
+                    startActivity(new Intent(context, QRCodeActivity.class));
                 } else if (tag.equals(MainAdapter.ScanCheck)) {
                 } else if (tag.equals(MainAdapter.Bank)) {
                     startActivity(new Intent(context, MyBankActivity.class).putExtra("name", "000"));
@@ -101,6 +103,8 @@ public class NewMainActivity extends BaseMvpActivity {
                 } else if (tag.equals(MainAdapter.InvoiceInformation)) {
                 } else if (tag.equals(MainAdapter.ConsumptionAuthority)) {
                 } else if (tag.equals(MainAdapter.TodayRevenue)) {
+                    startActivity(new Intent(context, TodayRevenueActivity.class));
+
                 }
             }
         });

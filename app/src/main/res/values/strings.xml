@@ -16,4 +16,9 @@
     <string name="id_card_digets">1234567890Xx</string>
     <string name="end_time">%1$d天后结束</string>
     <string name="bank_num">尾号%s储蓄卡</string>
+    <string name="transactions">共%d笔</string>
+    <string name="withdrawal_settlement">提现结算%1$.2f元</string>
+    <string name="cash_settlement">现金结算%1$.2f元</string>
+    <string name="total">合计%1$.2f元</string>
+    <string name="plus">+%s</string>
 </resources>
