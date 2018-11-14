@@ -1,11 +1,11 @@
 [
     {
-        "merged": "E:\\sx_repositories\\SX_Merchant\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\ease_row_chat_history.xml",
-        "source": "E:\\sx_repositories\\SX_Merchant\\easeui\\build\\intermediates\\bundles\\debug\\res\\layout\\ease_row_chat_history.xml"
-    },
-    {
         "merged": "E:\\sx_repositories\\SX_Merchant\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\notification_template_part_chronometer.xml",
         "source": "C:\\Users\\little_bug\\.android\\build-cache\\f406617598f5a5689b140af35079d61c0806a085\\output\\res\\layout\\notification_template_part_chronometer.xml"
+    },
+    {
+        "merged": "E:\\sx_repositories\\SX_Merchant\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\ease_row_chat_history.xml",
+        "source": "E:\\sx_repositories\\SX_Merchant\\easeui\\build\\intermediates\\bundles\\debug\\res\\layout\\ease_row_chat_history.xml"
     },
     {
         "merged": "E:\\sx_repositories\\SX_Merchant\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\abc_action_bar_view_list_nav_layout.xml",
@@ -24,12 +24,12 @@
         "source": "C:\\Users\\little_bug\\.android\\build-cache\\3b8486c8f5a09d02b3cd88c20565cddd79b99cf5\\output\\res\\layout\\pickerview_time.xml"
     },
     {
-        "merged": "E:\\sx_repositories\\SX_Merchant\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\abc_screen_content_include.xml",
-        "source": "C:\\Users\\little_bug\\.android\\build-cache\\f406617598f5a5689b140af35079d61c0806a085\\output\\res\\layout\\abc_screen_content_include.xml"
-    },
-    {
         "merged": "E:\\sx_repositories\\SX_Merchant\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\mq_dialog_loading_photopicker.xml",
         "source": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\bundles\\default\\res\\layout\\mq_dialog_loading_photopicker.xml"
+    },
+    {
+        "merged": "E:\\sx_repositories\\SX_Merchant\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\abc_screen_content_include.xml",
+        "source": "C:\\Users\\little_bug\\.android\\build-cache\\f406617598f5a5689b140af35079d61c0806a085\\output\\res\\layout\\abc_screen_content_include.xml"
     },
     {
         "merged": "E:\\sx_repositories\\SX_Merchant\\easeui\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\ease_widget_contact_list.xml",
