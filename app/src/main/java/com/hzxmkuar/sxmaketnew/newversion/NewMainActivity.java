@@ -105,13 +105,13 @@ public class NewMainActivity extends BaseMvpActivity {
                     DialogHomeWay dialog = DialogHomeWay.newInstance(bundle);
                     dialog.show(getSupportFragmentManager(), "DialogHomeWay");
                 } else if (tag.equals(MainAdapter.WithdrawalAccounts)) {
-
+                    showToastMsg("提现账款");
                 } else if (tag.equals(MainAdapter.RevenueStatistics)) {
-
+                    showToastMsg("营收统计");
                 } else if (tag.equals(MainAdapter.InvoiceInformation)) {
-
+                    showToastMsg("发票信息");
                 } else if (tag.equals(MainAdapter.ConsumptionAuthority)) {
-
+                    showToastMsg("该功能暂未开放，敬请期待！");
                 } else if (tag.equals(MainAdapter.TodayRevenue)) {
                     startActivity(new Intent(context, TodayRevenueActivity.class));
 
