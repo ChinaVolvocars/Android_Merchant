@@ -50,6 +50,7 @@ public class CountdownButton extends Button implements View.OnClickListener {
     private OnClickListener onClickListener;
 
     private String inputContent;
+
     /**
      * 获取输入内容以确定倒计时是否运行
      *
@@ -150,6 +151,14 @@ public class CountdownButton extends Button implements View.OnClickListener {
     }
 
     /**
+     *  重置时间
+     */
+    public void restart(){
+        clearTimer();
+        length = 60 * 1000;
+        start();
+    }
+    /**
      * 开始倒计时
      */
     public void start() {
@@ -168,13 +177,14 @@ public class CountdownButton extends Button implements View.OnClickListener {
             CountdownButton.this.setText(length / 1000 + afterText);
             length -= 1000;
             if (length == 30000){
-                EventBus.getDefault().post(new BaseEvent(EventBusConstants.TIME_OUT));
+                EventBus.getDefault().post(new BaseEvent(EventBusConstants.TIME_OUT,"show"));
             }
             if (length < 0) {
                 CountdownButton.this.setEnabled(true);
                 CountdownButton.this.setText(beforeText);
                 clearTimer();
                 length = 60 * 1000;
+                EventBus.getDefault().post(new BaseEvent(EventBusConstants.TIME_OUT,"canRestart"));
             }
         }
     }
@@ -191,6 +201,7 @@ public class CountdownButton extends Button implements View.OnClickListener {
             timer.cancel();
             timer = null;
         }
+        length = 0;
     }
 
     /**

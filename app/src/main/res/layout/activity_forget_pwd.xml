@@ -142,8 +142,7 @@
         android:gravity="right"
         android:text="未收到验证码 >"
         android:textColor="@color/base_color"
-        android:textSize="@dimen/text_size_10"
-        android:visibility="invisible"/>
+        android:textSize="@dimen/text_size_10"/>
 
 
     <Button

@@ -60,4 +60,23 @@ public class SmsMethods extends BaseMethods {
         Observable observable = initService().sendCode(System.currentTimeMillis() + "", "c5ea4773f8c6122731ef99bcf1b960a8", mobilePhone, checkType);
         toSubscribe(observable, subscriber);
     }
+
+
+    /**
+     *  用户端登录发送语音短信验证码
+     *  请求类型（//1商家管理员注册短信 2商家密码找回 3 个人短信登录 7个人版用户注册短信 8商家找回账号 11支付宝扫一扫快速登录）
+     * @param subscriber
+     * @param mobole
+     * @param checkTypeCode  发送短信的类型：   <br/>
+     *       checkTypeCode 为 1 ： 商家新入驻        <br/>
+     *       checkTypeCode 为 2 ：  商家密码找回              <br/>
+     *       checkTypeCode 为 3 ： 个人短信登录           <br/>
+     *       checkTypeCode 为 7 ： 个人版用户注册短信            <br/>
+     *       checkTypeCode 为 8 ： 商家找回账号           <br/>
+     *       checkTypeCode 为 11 ： 支付宝扫一扫快速登录            <br/>
+     */
+    public void sendVoiceVerifyCode(Subscriber<Object> subscriber, String mobole, int checkTypeCode, List<String> reqList) {
+        Observable observable = initService().sendVoiceVerifyCode( System.currentTimeMillis() + "", Constants.getHash(reqList), mobole,checkTypeCode );
+        toOtherSubscribe(observable, subscriber);
+    }
 }

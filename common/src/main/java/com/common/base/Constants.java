@@ -61,12 +61,11 @@ public class Constants {
     /**
      * 线上环境用
      */
-    public static final String BaseUrl = "http://app.zhongxinyingjia.com/Api/";                   //  高兴超线上环境用
+//    public static final String BaseUrl = "http://app.zhongxinyingjia.com/Api/";                   //  高兴超线上环境用
     /**
      * 线下环境测试用
      */
-//    public static final String BaseUrl = "http://test.zhongxinyingjia.com/Api/";                   //  高兴超线下测试环境用
-//    public static final String BaseUrl = "http://app.zhongxinyingjia.com/Api/";
+    public static final String BaseUrl = "http://test.zhongxinyingjia.com/Api/";                   //  高兴超线下测试环境用
 //
 // 高兴超线下测试环境用
     /**
