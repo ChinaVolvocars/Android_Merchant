@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.hzxmkuar.sxmaketnew">
 
     <uses-permission android:name="android.permission.RECEIVE_USER_PRESENT" />
@@ -121,7 +122,7 @@
         <activity android:name=".activity.AddBankCardToCompanyActivity" />
         <activity android:name=".activity.UploadPicAndDescActivity" />
         <activity android:name=".home.ShopShowActivity" />
-        <activity android:name=".home.AddNewActiveActivity"/>
+        <activity android:name=".home.AddNewActiveActivity" />
         <!--特殊界面-->
         <!-- 直播界面 -->
         <!--<activity android:name="com.live.activity.StartLivePlayActivity"
@@ -188,6 +189,7 @@
             </intent-filter>
         </receiver>-->
         /**********************环信**************************/
+
         /************极光推送的必须***************/
         <receiver android:name="com.hzxmkuar.sxmaketnew.listener.MyReceiver" />
         <provider
@@ -227,6 +229,7 @@
          <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
          <uses-permission android:name="android.permission.GET_TASKS" />
          &lt;!&ndash; fabric end &ndash;&gt;
+
          &lt;!&ndash; Rich push 核心功能 since 2.0.6&ndash;&gt;
          <activity
              android:name="cn.jpush.android.ui.PopWinActivity"
@@ -254,6 +257,7 @@
 
          &lt;!&ndash; Required SDK 核心功能&ndash;&gt;
          &lt;!&ndash; option since 2.0.5 可配置PushService，DaemonService,PushReceiver,AlarmReceiver的android:process参数 将JPush相关组件设置为一个独立进程 &ndash;&gt;
+
          &lt;!&ndash; 如：android:process=":remote" &ndash;&gt;
          <service
              android:name="cn.jpush.android.service.PushService"
@@ -334,6 +338,21 @@
              android:name="JPUSH_APPKEY"
              android:value="025008c3164a65bacc50bbed"/>-->
         /************极光推送的必须***************/
+
+
+        /************极光推送start***************/
+        // 自动集成JPush SDK在Manifest中的配置
+        <service
+            android:name="cn.jpush.android.service.PushService"
+            android:process=":multiprocess"
+            tools:node="replace">
+
+        </service>
+
+
+        /************极光推送end*****************/
+
+
     </application>
 
 </manifest>
