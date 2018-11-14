@@ -69,16 +69,19 @@ public class WithdrawDialogFragment extends DialogFragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        setCancelable(false);
         ButterKnife.bind(this, view);
         Bundle bundle = getArguments();
         boolean flag = bundle.getBoolean("flag", true);
-
+        ivImage.setImageResource(flag ? R.mipmap.ic_withdraw_yellow : R.mipmap.ic_withdraw_blue);
+        tvConfirm.setBackgroundResource(flag ? R.drawable.shape_dialog_withdraw : R.drawable.shape_dialog_withdraw_blue);
 
     }
 
     @OnClick(R.id.tv_confirm)
     public void onViewClicked() {
         dismiss();
+        getActivity().finish();
     }
 
     @Override

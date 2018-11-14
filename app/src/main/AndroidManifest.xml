@@ -352,6 +352,7 @@
         <activity android:name=".newversion.RecordActivity" />
         <activity android:name=".newversion.InvoiceInformationActivity" />
         <activity android:name=".newversion.TodayRevenueActivity" />
+        <activity android:name=".newversion.WebViewActivity" />
         <activity android:name=".newversion.QRCodeActivity"></activity>
     </application>
 

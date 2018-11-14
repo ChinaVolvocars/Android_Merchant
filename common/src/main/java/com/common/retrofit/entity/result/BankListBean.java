@@ -9,7 +9,7 @@ import java.util.List;
  * Created by STH on 2018/6/9.
  */
 
-public class BankListBean implements Parcelable{
+public class BankListBean implements Parcelable {
 
 
     /**
@@ -36,7 +36,7 @@ public class BankListBean implements Parcelable{
         this.list = list;
     }
 
-    public static class ListBean implements Parcelable{
+    public static class ListBean implements Parcelable {
         /**
          * id : 15
          * bank_name : 中国建设银行
@@ -53,6 +53,7 @@ public class BankListBean implements Parcelable{
         private String card_bank_logo;
         private String card_bank_background;
         private String status;
+        private int grade;
 
         public String getId() {
             return id;
@@ -110,6 +111,14 @@ public class BankListBean implements Parcelable{
             this.status = status;
         }
 
+        public int getGrade() {
+            return grade;
+        }
+
+        public void setGrade(int grade) {
+            this.grade = grade;
+        }
+
         @Override
         public int describeContents() {
             return 0;
@@ -124,6 +133,7 @@ public class BankListBean implements Parcelable{
             dest.writeString(this.card_bank_logo);
             dest.writeString(this.card_bank_background);
             dest.writeString(this.status);
+            dest.writeInt(this.grade);
         }
 
         public ListBean() {
@@ -137,6 +147,7 @@ public class BankListBean implements Parcelable{
             this.card_bank_logo = in.readString();
             this.card_bank_background = in.readString();
             this.status = in.readString();
+            this.grade = in.readInt();
         }
 
         public static final Creator<ListBean> CREATOR = new Creator<ListBean>() {
