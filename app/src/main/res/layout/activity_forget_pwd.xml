@@ -13,10 +13,10 @@
         <TextView
             style="@style/TitleBarTitleStyle"
             android:text="找回密码" />
-
+  
 
         <ImageView
-            android:id="@+id/iv_forget_pwd_back"
+            android:id="@+id/iv_forget_pwd_back"  
             style="@style/TitleBarBackStyle" />
     </FrameLayout>  
 
