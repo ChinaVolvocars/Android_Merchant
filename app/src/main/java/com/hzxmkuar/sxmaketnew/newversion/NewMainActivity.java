@@ -88,8 +88,14 @@ public class NewMainActivity extends BaseMvpActivity {
                 Log.e("其他的点击事件", "onOtherItemClick: " + tag);
                 if (tag.equals(MainAdapter.Conversion)) {
                 } else if (tag.equals(MainAdapter.CollectionCode)) {
-                    startActivity(new Intent(context, QRCodeActivity.class));
+                    if (result != null) {
+                        String pay_img = result.getData().getPay_img();
+                        Intent intent = new Intent(context, QRCodeActivity.class);
+                        intent.putExtra("qr_img", pay_img);
+                        startActivity(intent);
+                    }
                 } else if (tag.equals(MainAdapter.ScanCheck)) {
+
                 } else if (tag.equals(MainAdapter.Bank)) {
                     startActivity(new Intent(context, MyBankActivity.class).putExtra("name", "000"));
                 } else if (tag.equals(MainAdapter.WithdrawalApplication)) {
@@ -99,9 +105,13 @@ public class NewMainActivity extends BaseMvpActivity {
                     DialogHomeWay dialog = DialogHomeWay.newInstance(bundle);
                     dialog.show(getSupportFragmentManager(), "DialogHomeWay");
                 } else if (tag.equals(MainAdapter.WithdrawalAccounts)) {
+
                 } else if (tag.equals(MainAdapter.RevenueStatistics)) {
+
                 } else if (tag.equals(MainAdapter.InvoiceInformation)) {
+
                 } else if (tag.equals(MainAdapter.ConsumptionAuthority)) {
+
                 } else if (tag.equals(MainAdapter.TodayRevenue)) {
                     startActivity(new Intent(context, TodayRevenueActivity.class));
 

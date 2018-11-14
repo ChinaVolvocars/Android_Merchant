@@ -88,12 +88,10 @@ public class TodayRevenueActivity extends BaseMvpActivity {
         BusinessUserMethods.getInstance().todayRevenue(new Subscriber<HttpRespBean<TodayRevenue>>() {
             @Override
             public void onCompleted() {
-
             }
 
             @Override
             public void onError(Throwable e) {
-
             }
 
             @Override

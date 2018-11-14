@@ -12,6 +12,8 @@ import com.bumptech.glide.Glide;
 import com.common.mvp.BaseMvpActivity;
 import com.common.mvp.BasePresenter;
 import com.common.retrofit.entity.result.BankListBean;
+import com.common.retrofit.entity.resultImpl.HttpRespBean;
+import com.common.retrofit.methods.BusinessUserMethods;
 import com.hzxmkuar.sxmaketnew.R;
 import com.hzxmkuar.sxmaketnew.activity.MyBankActivity;
 import com.hzxmkuar.sxmaketnew.view.dialog.DialogHomeWay;
@@ -19,6 +21,7 @@ import com.hzxmkuar.sxmaketnew.view.dialog.WithdrawDialogFragment;
 
 import butterknife.BindView;
 import butterknife.OnClick;
+import rx.Subscriber;
 
 /**
  * 代收代付，发票提现
@@ -50,6 +53,7 @@ public class WithdrawalActivity extends BaseMvpActivity {
 
     private boolean flag = true;
     private BankListBean.ListBean itemBank;
+    private String money;
 
     @Override
     protected BasePresenter createPresenterInstance() {
@@ -70,7 +74,7 @@ public class WithdrawalActivity extends BaseMvpActivity {
     protected void onViewCreated() {
         Bundle bundle = getIntent().getExtras();
         int collectionValue = bundle.getInt(DialogHomeWay.COLLECTION_KEY, 0);
-        String money = bundle.getString(NewMainActivity.KEY_MONEY, "0.00");
+        money = bundle.getString(NewMainActivity.KEY_MONEY, "0.00");
         flag = collectionValue == 0 ? true : false;
 
         tName.setText(flag ? "代收代付" : "发票提现");
@@ -100,11 +104,7 @@ public class WithdrawalActivity extends BaseMvpActivity {
 
     @OnClick(R.id.tv_confirm)
     public void onConfirmClicked() {
-        if (flag) {
-            collectionPayment();
-        } else {
-            invoiceWithdrawal();
-        }
+        applyWithdrawal(money);
     }
 
     @OnClick(R.id.tv_view_record)
@@ -123,10 +123,32 @@ public class WithdrawalActivity extends BaseMvpActivity {
 
 
     //代收代付
-    private void collectionPayment() {
+    private void applyWithdrawal(String money) {
+        //type提现类型值为1或2（1为代收代付，2为发票提现）
+        if (null == itemBank) {
+            showToastMsg("请选择银行卡");
+            return;
+        }
+        BusinessUserMethods.getInstance().applyWithdrawal(new Subscriber<HttpRespBean>() {
+            @Override
+            public void onCompleted() {
+
+            }
+
+            @Override
+            public void onError(Throwable e) {
+
+            }
+
+            @Override
+            public void onNext(HttpRespBean httpRespBean) {
+
+            }
+        }, itemBank.getId(), flag ? 1 : 2, itemBank.getCard_number(), itemBank.getBank_name(), money);
+
+
         WithdrawDialogFragment dialog = WithdrawDialogFragment.newInstance(new Bundle());
         dialog.show(getSupportFragmentManager(), "WithdrawDialogFragment");
-
     }
 
     //发票提现

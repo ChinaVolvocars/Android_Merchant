@@ -29,23 +29,24 @@
 
                 <TextView
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:drawableLeft="@mipmap/ic_launcher"
+                    android:drawableLeft="@mipmap/ic_qr_code"
                     android:drawablePadding="@dimen/dp_9"
                     android:gravity="center_vertical"
+                    android:paddingLeft="@dimen/dp_28"
                     android:text="二维码收款"
                     android:textColor="@color/color_ddb941"
                     android:textSize="@dimen/sp_13" />
 
 
-                <ImageView
-                    android:id="@+id/iv_voice"
+                <TextView
+                    android:id="@+id/tv_voice"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_gravity="center"
-                    android:layout_marginRight="@dimen/dp_25"
-                    android:src="@mipmap/ic_launcher" />
+                    android:paddingRight="@dimen/dp_25"
+                    android:drawableRight="@mipmap/ic_qr_code_dialog" />
 
 
             </LinearLayout>
@@ -57,7 +58,7 @@
                 android:layout_height="178dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="@dimen/dp_40"
-                android:src="@mipmap/ic_launcher" />
+                tools:src="@mipmap/ic_launcher" />
 
             <TextView
                 android:id="@+id/tv_save_qr"
@@ -69,7 +70,6 @@
                 android:textColor="@color/color_636c97"
                 android:textSize="@dimen/sp_13" />
 
-
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1px"
@@ -78,12 +78,11 @@
                 android:layout_marginTop="@dimen/dp_28"
                 android:background="@color/color_e0e0e0" />
 
-
             <TextView
                 android:id="@+id/tv_book"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dp_51"
-                android:drawableLeft="@mipmap/ic_launcher"
+                android:drawableLeft="@mipmap/ic_book"
                 android:drawablePadding="@dimen/dp_9"
                 android:drawableRight="@mipmap/ic_arrow_right_gray"
                 android:gravity="center_vertical"
