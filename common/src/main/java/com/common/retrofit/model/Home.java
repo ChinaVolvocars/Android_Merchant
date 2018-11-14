@@ -23,6 +23,8 @@ public class Home implements Parcelable {
      */
 
     private String pay_img;
+    private String closed_pay_url;
+    private String invoice_url;
     private String xindou;
     private String money;
     private String managementLimit;
@@ -39,6 +41,22 @@ public class Home implements Parcelable {
 
     public void setPay_img(String pay_img) {
         this.pay_img = pay_img;
+    }
+
+    public String getClosed_pay_url() {
+        return closed_pay_url;
+    }
+
+    public void setClosed_pay_url(String closed_pay_url) {
+        this.closed_pay_url = closed_pay_url;
+    }
+
+    public String getInvoice_url() {
+        return invoice_url;
+    }
+
+    public void setInvoice_url(String invoice_url) {
+        this.invoice_url = invoice_url;
     }
 
     public String getXindou() {
@@ -121,15 +139,17 @@ public class Home implements Parcelable {
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeString(this.pay_img);
+        dest.writeString(this.closed_pay_url);
+        dest.writeString(this.invoice_url);
         dest.writeString(this.xindou);
         dest.writeString(this.money);
         dest.writeString(this.managementLimit);
         dest.writeString(this.pay_xindou);
         dest.writeString(this.pay_money);
         dest.writeString(this.accumulative);
-        dest.writeList(this.shop_banner);
-        dest.writeList(this.service_function);
-        dest.writeList(this.list);
+        dest.writeTypedList(this.shop_banner);
+        dest.writeTypedList(this.service_function);
+        dest.writeTypedList(this.list);
     }
 
     public Home() {
@@ -137,18 +157,17 @@ public class Home implements Parcelable {
 
     protected Home(Parcel in) {
         this.pay_img = in.readString();
+        this.closed_pay_url = in.readString();
+        this.invoice_url = in.readString();
         this.xindou = in.readString();
         this.money = in.readString();
         this.managementLimit = in.readString();
         this.pay_xindou = in.readString();
         this.pay_money = in.readString();
         this.accumulative = in.readString();
-        this.shop_banner = new ArrayList<ShopBanner>();
-        in.readList(this.shop_banner, ShopBanner.class.getClassLoader());
-        this.service_function = new ArrayList<ServiceFunction>();
-        in.readList(this.service_function, ServiceFunction.class.getClassLoader());
-        this.list = new ArrayList<ActivityList>();
-        in.readList(this.list, ActivityList.class.getClassLoader());
+        this.shop_banner = in.createTypedArrayList(ShopBanner.CREATOR);
+        this.service_function = in.createTypedArrayList(ServiceFunction.CREATOR);
+        this.list = in.createTypedArrayList(ActivityList.CREATOR);
     }
 
     public static final Creator<Home> CREATOR = new Creator<Home>() {

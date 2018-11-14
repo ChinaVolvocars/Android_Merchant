@@ -142,18 +142,17 @@ public class WithdrawalActivity extends BaseMvpActivity {
 
             @Override
             public void onNext(HttpRespBean httpRespBean) {
-
+                successDialog();
             }
         }, itemBank.getId(), flag ? 1 : 2, itemBank.getCard_number(), itemBank.getBank_name(), money);
 
 
-        WithdrawDialogFragment dialog = WithdrawDialogFragment.newInstance(new Bundle());
-        dialog.show(getSupportFragmentManager(), "WithdrawDialogFragment");
     }
 
-    //发票提现
-    private void invoiceWithdrawal() {
-        WithdrawDialogFragment dialog = WithdrawDialogFragment.newInstance(new Bundle());
+    private void successDialog() {
+        Bundle bundle = new Bundle();
+        bundle.putBoolean("flag", flag);
+        WithdrawDialogFragment dialog = WithdrawDialogFragment.newInstance(bundle);
         dialog.show(getSupportFragmentManager(), "WithdrawDialogFragment");
     }
 

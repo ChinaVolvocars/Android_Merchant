@@ -24,12 +24,12 @@
         "source": "C:\\Users\\Log\\.android\\build-cache\\301fe0fe567baa14b894f895c23032e881b82261\\output\\res\\drawable\\selector_pickerview_btn.xml"
     },
     {
-        "merged": "D:\\Company\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\design_fab_background.xml",
-        "source": "C:\\Users\\Log\\.android\\build-cache\\429b84122169a44cc1bd68bec3f93f606e7812f9\\output\\res\\drawable\\design_fab_background.xml"
-    },
-    {
         "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\shape_input_view.xml",
         "source": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\bundles\\debug\\res\\drawable\\shape_input_view.xml"
+    },
+    {
+        "merged": "D:\\Company\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\design_fab_background.xml",
+        "source": "C:\\Users\\Log\\.android\\build-cache\\429b84122169a44cc1bd68bec3f93f606e7812f9\\output\\res\\drawable\\design_fab_background.xml"
     },
     {
         "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\selector_orange.xml",
@@ -40,12 +40,12 @@
         "source": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\bundles\\debug\\res\\drawable\\progressbar.xml"
     },
     {
-        "merged": "D:\\Company\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_edit_text_material.xml",
-        "source": "C:\\Users\\Log\\.android\\build-cache\\80eb88dfaca901c46c8b20301a19dbabf86dc2bf\\output\\res\\drawable\\abc_edit_text_material.xml"
-    },
-    {
         "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\selector_pickerview_btn.xml",
         "source": "C:\\Users\\little_bug\\.android\\build-cache\\3b8486c8f5a09d02b3cd88c20565cddd79b99cf5\\output\\res\\drawable\\selector_pickerview_btn.xml"
+    },
+    {
+        "merged": "D:\\Company\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_edit_text_material.xml",
+        "source": "C:\\Users\\Log\\.android\\build-cache\\80eb88dfaca901c46c8b20301a19dbabf86dc2bf\\output\\res\\drawable\\abc_edit_text_material.xml"
     },
     {
         "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\frame_shape_white_grey.xml",
@@ -96,12 +96,12 @@
         "source": "C:\\Users\\Log\\.android\\build-cache\\80eb88dfaca901c46c8b20301a19dbabf86dc2bf\\output\\res\\drawable\\notification_bg.xml"
     },
     {
-        "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\bg_frame_grey.xml",
-        "source": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\bundles\\debug\\res\\drawable\\bg_frame_grey.xml"
-    },
-    {
         "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_seekbar_track_material.xml",
         "source": "C:\\Users\\little_bug\\.android\\build-cache\\f406617598f5a5689b140af35079d61c0806a085\\output\\res\\drawable\\abc_seekbar_track_material.xml"
+    },
+    {
+        "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\bg_frame_grey.xml",
+        "source": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\bundles\\debug\\res\\drawable\\bg_frame_grey.xml"
     },
     {
         "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\shape_bg_dialog.xml",
@@ -144,12 +144,12 @@
         "source": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\bundles\\debug\\res\\drawable\\selector_shape_bottom_white.xml"
     },
     {
-        "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_list_selector_background_transition_holo_light.xml",
-        "source": "C:\\Users\\little_bug\\.android\\build-cache\\f406617598f5a5689b140af35079d61c0806a085\\output\\res\\drawable\\abc_list_selector_background_transition_holo_light.xml"
-    },
-    {
         "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_btn_default_mtrl_shape.xml",
         "source": "C:\\Users\\little_bug\\.android\\build-cache\\f406617598f5a5689b140af35079d61c0806a085\\output\\res\\drawable\\abc_btn_default_mtrl_shape.xml"
+    },
+    {
+        "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_list_selector_background_transition_holo_light.xml",
+        "source": "C:\\Users\\little_bug\\.android\\build-cache\\f406617598f5a5689b140af35079d61c0806a085\\output\\res\\drawable\\abc_list_selector_background_transition_holo_light.xml"
     },
     {
         "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_cab_background_top_material.xml",

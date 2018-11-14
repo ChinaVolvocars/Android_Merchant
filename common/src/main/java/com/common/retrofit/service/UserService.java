@@ -992,6 +992,7 @@ public interface UserService {
                                             @Field("uid") int uid);
 
 
+    //今日营收
     @FormUrlEncoded
     @POST("ShopTodayRevenue")
     Observable<HttpRespBean<TodayRevenue>> todayRevenue(@Field("time") String time,
@@ -999,6 +1000,18 @@ public interface UserService {
                                                         @Field("uid") int uid,
                                                         @Field("page") int page,
                                                         @Field("dates") String data);
+
+    //申请提现  type提现类型值为1或2（1为代收代付，2为发票提现）
+    @FormUrlEncoded
+    @POST("applyWithdrawal")
+    Observable<HttpRespBean> applyWithdrawal(@Field("time") String time,
+                                             @Field("hash") String hash,
+                                             @Field("uid") int uid,
+                                             @Field("bank_id") String bank_id,
+                                             @Field("type") int type,
+                                             @Field("card_number") String card_number,
+                                             @Field("card_name") String card_name,
+                                             @Field("money") String money);
 
 
 }

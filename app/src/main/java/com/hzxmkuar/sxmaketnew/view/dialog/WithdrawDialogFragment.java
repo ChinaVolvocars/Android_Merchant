@@ -70,6 +70,9 @@ public class WithdrawDialogFragment extends DialogFragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         ButterKnife.bind(this, view);
+        Bundle bundle = getArguments();
+        boolean flag = bundle.getBoolean("flag", true);
+
 
     }
 
