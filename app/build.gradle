@@ -72,9 +72,6 @@ dependencies {
     testCompile 'junit:junit:4.12'
     compile project(':common')
     compile project(':payandlogin')
-    compile project(':jcvideoplayer-lib')
-    //compile project(':easeui')
-    //compile project(':live')
     compile 'com.parse:parse-android:1.13.1'
     compile 'com.squareup.picasso:picasso:2.5.1'
     compile project(path: ':zxinglite')

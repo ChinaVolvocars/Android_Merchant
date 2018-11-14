@@ -8,15 +8,13 @@
       <module fileurl="file://E:\sx_repositories\merchant\SX_Merchant\app\app.iml" filepath="E:\sx_repositories\merchant\SX_Merchant\app\app.iml" />
       <module fileurl="file://$PROJECT_DIR$/common/common.iml" filepath="$PROJECT_DIR$/common/common.iml" />
       <module fileurl="file://E:\sx_repositories\merchant\SX_Merchant\common\common.iml" filepath="E:\sx_repositories\merchant\SX_Merchant\common\common.iml" />
-      <module fileurl="file://$PROJECT_DIR$/easeui/easeui.iml" filepath="$PROJECT_DIR$/easeui/easeui.iml" />
       <module fileurl="file://E:\sx_repositories\merchant\SX_Merchant\easeui\easeui.iml" filepath="E:\sx_repositories\merchant\SX_Merchant\easeui\easeui.iml" />
-      <module fileurl="file://$PROJECT_DIR$/jcvideoplayer-lib/jcvideoplayer-lib.iml" filepath="$PROJECT_DIR$/jcvideoplayer-lib/jcvideoplayer-lib.iml" />
       <module fileurl="file://E:\sx_repositories\merchant\SX_Merchant\jcvideoplayer-lib\jcvideoplayer-lib.iml" filepath="E:\sx_repositories\merchant\SX_Merchant\jcvideoplayer-lib\jcvideoplayer-lib.iml" />
       <module fileurl="file://$PROJECT_DIR$/lib_indicator/lib_indicator.iml" filepath="$PROJECT_DIR$/lib_indicator/lib_indicator.iml" />
+      <module fileurl="file://E:\sx_repositories\SX_Merchant\lib_indicator\lib_indicator.iml" filepath="E:\sx_repositories\SX_Merchant\lib_indicator\lib_indicator.iml" />
       <module fileurl="file://$PROJECT_DIR$/lib_viewpager/lib_viewpager.iml" filepath="$PROJECT_DIR$/lib_viewpager/lib_viewpager.iml" />
-      <module fileurl="file://$PROJECT_DIR$/library/library.iml" filepath="$PROJECT_DIR$/library/library.iml" />
+      <module fileurl="file://E:\sx_repositories\SX_Merchant\lib_viewpager\lib_viewpager.iml" filepath="E:\sx_repositories\SX_Merchant\lib_viewpager\lib_viewpager.iml" />
       <module fileurl="file://E:\sx_repositories\merchant\SX_Merchant\library\library.iml" filepath="E:\sx_repositories\merchant\SX_Merchant\library\library.iml" />
-      <module fileurl="file://$PROJECT_DIR$/live/live.iml" filepath="$PROJECT_DIR$/live/live.iml" />
       <module fileurl="file://E:\sx_repositories\merchant\SX_Merchant\live\live.iml" filepath="E:\sx_repositories\merchant\SX_Merchant\live\live.iml" />
       <module fileurl="file://$PROJECT_DIR$/payandlogin/payandlogin.iml" filepath="$PROJECT_DIR$/payandlogin/payandlogin.iml" />
       <module fileurl="file://E:\sx_repositories\merchant\SX_Merchant\payandlogin\payandlogin.iml" filepath="E:\sx_repositories\merchant\SX_Merchant\payandlogin\payandlogin.iml" />

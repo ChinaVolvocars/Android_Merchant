@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?><!-- view的各种状态(正常无焦点,焦点,onclick按下、放开等等 -->
-<shape xmlns:android="http://schemas.android.com/apk/res/android"
-    android:shape="rectangle">
-
-    <solid android:color="#40000000" />
-    <stroke android:color="#40000000" />
-
-</shape>
