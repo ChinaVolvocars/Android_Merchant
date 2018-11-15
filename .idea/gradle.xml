@@ -12,6 +12,8 @@
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/common" />
             <option value="$PROJECT_DIR$/lib_indicator" />
+            <option value="$PROJECT_DIR$/lib_pieview" />
+            <option value="$PROJECT_DIR$/lib_tablayout" />
             <option value="$PROJECT_DIR$/lib_viewpager" />
             <option value="$PROJECT_DIR$/payandlogin" />
             <option value="$PROJECT_DIR$/zxinglite" />

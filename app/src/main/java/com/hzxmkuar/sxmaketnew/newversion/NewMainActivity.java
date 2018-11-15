@@ -108,8 +108,12 @@ public class NewMainActivity extends BaseMvpActivity {
                     showToastMsg("提现账款");
                 } else if (tag.equals(MainAdapter.RevenueStatistics)) {
                     showToastMsg("营收统计");
+                    Intent intent = new Intent(context, RevenueActivity.class);
+                    startActivity(intent);
+
                 } else if (tag.equals(MainAdapter.InvoiceInformation)) {
                     showToastMsg("发票信息");
+
                 } else if (tag.equals(MainAdapter.ConsumptionAuthority)) {
                     showToastMsg("该功能暂未开放，敬请期待！");
                 } else if (tag.equals(MainAdapter.TodayRevenue)) {
