@@ -9,8 +9,10 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.common.base.Constants;
 import com.common.mvp.BaseMvpActivity;
 import com.common.mvp.BasePresenter;
+import com.common.retrofit.base.BaseMethods;
 import com.common.retrofit.entity.result.BankListBean;
 import com.common.retrofit.entity.resultImpl.HttpRespBean;
 import com.common.retrofit.methods.BusinessUserMethods;
@@ -86,13 +88,54 @@ public class WithdrawalActivity extends BaseMvpActivity {
         tvViewRecord.setTextColor(flag ? getResources().getColor(R.color.color_ffae05) : getResources().getColor(R.color.color_60aeff));
 
         tvAmount.setText(money);
-//        if (false) {//有卡
-//            tvAddBank.setVisibility(View.GONE);
-//            llBankInfo.setVisibility(View.VISIBLE);
-//        } else {
-//            tvAddBank.setVisibility(View.VISIBLE);
-//            llBankInfo.setVisibility(View.GONE);
-//        }
+
+        tvRight.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String url = Constants.BaseUrl.replace("Api", "Home");
+                if (flag) {
+//                   "http://test.zhongxinyingjia.com/Api/";                   //  高兴超线下测试环境用
+//                    http://test.zhongxinyingjia.com/Home/Financial/dsdfRules.html
+                    WebViewActivity.runWebActivity(WithdrawalActivity.this, "代收代付提现规则", url + "/Financial/dsdfRules.html");
+                } else {
+//                    http://test.zhongxinyingjia.com/Home/Financial/invoiceRules.html
+                    WebViewActivity.runWebActivity(WithdrawalActivity.this, "发票提现规则", url + "/Financial/invoiceRules.html");
+
+                }
+            }
+        });
+
+
+        BusinessUserMethods.getInstance().withdrawNew(new Subscriber<HttpRespBean<BankListBean.ListBean>>() {
+            @Override
+            public void onCompleted() {
+
+            }
+
+            @Override
+            public void onError(Throwable e) {
+
+            }
+
+            @Override
+            public void onNext(HttpRespBean<BankListBean.ListBean> bank) {
+                if (null != bank.getData()) {
+                    tvServiceFee.setText(getString(R.string.service_fee, bank.getData().getGrade()));
+                    itemBank = bank.getData();
+                    tvAddBank.setVisibility(View.GONE);
+                    llBankInfo.setVisibility(View.VISIBLE);
+                    Glide.with(WithdrawalActivity.this)
+                            .load(bank.getData().getCard_logo())
+                            .into(ivBank);
+                    tvBankName.setText(itemBank.getBank_name());
+                    tvBankNum.setText(getString(R.string.bank_num, itemBank.getCard_number().substring(itemBank.getCard_number().length() - 4, itemBank.getCard_number().length())));
+                } else {
+                    tvAddBank.setVisibility(View.VISIBLE);
+                    llBankInfo.setVisibility(View.GONE);
+                }
+            }
+        });
+
     }
 
 
@@ -144,7 +187,7 @@ public class WithdrawalActivity extends BaseMvpActivity {
             public void onNext(HttpRespBean httpRespBean) {
                 successDialog();
             }
-        }, itemBank.getId(), flag ? 1 : 2, itemBank.getCard_number(), itemBank.getBank_name(), money);
+        }, itemBank.getId(), flag ? 2 : 1, money);
 
 
     }

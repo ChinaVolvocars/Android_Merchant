@@ -1009,9 +1009,14 @@ public interface UserService {
                                              @Field("uid") int uid,
                                              @Field("bank_id") String bank_id,
                                              @Field("type") int type,
-                                             @Field("card_number") String card_number,
-                                             @Field("card_name") String card_name,
                                              @Field("money") String money);
+
+    //申请提现  界面数据
+    @FormUrlEncoded
+    @POST("withdrawNew")
+    Observable<HttpRespBean<BankListBean.ListBean>> withdrawNew(@Field("time") String time,
+                                                                @Field("hash") String hash,
+                                                                @Field("uid") int uid);
 
 
 }

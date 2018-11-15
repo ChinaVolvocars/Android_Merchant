@@ -8,6 +8,7 @@ import com.common.retrofit.base.BaseMethods;
 import com.common.retrofit.entity.DataCenter;
 import com.common.retrofit.entity.result.ActiveListEntity;
 import com.common.retrofit.entity.result.AppVersionEntity;
+import com.common.retrofit.entity.result.BankListBean;
 import com.common.retrofit.entity.result.ChangeBean;
 import com.common.retrofit.entity.result.FBean;
 import com.common.retrofit.entity.result.FinanceDetailEntity;
@@ -456,17 +457,30 @@ public class BusinessUserMethods extends BaseMethods {
         toOtherSubscribe(observable, subscriber);
     }
 
-    public void applyWithdrawal(Subscriber<HttpRespBean> subscriber, String bankId, int type, String cardNumber, String cardName, String money) {
+    public void applyWithdrawal(Subscriber<HttpRespBean> subscriber, String bankId, int type, String money) {
         List<String> reqLis = new ArrayList<>();
         reqLis.add("time");
         reqLis.add("uid");
         reqLis.add("bank_id");
         reqLis.add("type");
-        reqLis.add("card_number");
-        reqLis.add("card_name");
         reqLis.add("money");
 
-        Observable observable = initService().applyWithdrawal(System.currentTimeMillis() + "", Constants.getHash(reqLis), DataCenter.UserId, bankId, type, cardNumber, cardName, money);
+        Observable observable = initService()
+                .applyWithdrawal(System.currentTimeMillis() + "",
+                        Constants.getHash(reqLis),
+                        DataCenter.UserId, bankId,
+                        type, money);
+        toOtherSubscribe(observable, subscriber);
+    }
+
+    public void withdrawNew(Subscriber<HttpRespBean<BankListBean.ListBean>> subscriber) {
+        List<String> reqLis = new ArrayList<>();
+        reqLis.add("time");
+        reqLis.add("uid");
+        Observable observable = initService()
+                .withdrawNew(System.currentTimeMillis() + "",
+                        Constants.getHash(reqLis),
+                        DataCenter.UserId);
         toOtherSubscribe(observable, subscriber);
     }
 
