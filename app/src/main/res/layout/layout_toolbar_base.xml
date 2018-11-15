@@ -2,7 +2,7 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="65dp"
-    android:background="@mipmap/titles_bac">
+    android:background="@color/white">
 
     <TextView
         android:id="@+id/tv_title"
@@ -10,15 +10,17 @@
         android:layout_height="50dp"
         android:layout_marginTop="15dp"
         android:gravity="center"
+        android:layout_gravity="center_vertical"
         android:text=""
-        android:textColor="@color/white"
+        android:textColor="@color/color_303030"
         android:textSize="18sp" />
 
     <ImageView
         android:id="@+id/iv_back"
-        android:layout_width="30dp"
-        android:layout_height="match_parent"
-        android:layout_marginLeft="10dp"
+        android:layout_width="14dp"
+        android:layout_height="46dp"
+        android:layout_marginLeft="12dp"
+        android:layout_gravity="center_vertical"
         android:layout_marginTop="15dp"
-        android:src="@mipmap/whait_back" />
+        android:src="@mipmap/left_arrow_icon" />
 </FrameLayout>

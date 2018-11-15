@@ -92,6 +92,7 @@ public class WithdrawBillActivity extends BaseMvpActivity {
         changeViewState(true);
         attachClickListener(rlPayForOhter);
         attachClickListener(rlInvoiceWithdraw);
+        attachClickListener(ivBack);
         getWithdrawalBillList(0);
 
     }

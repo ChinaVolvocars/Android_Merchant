@@ -129,6 +129,7 @@
         <activity android:name=".home.ShopShowActivity" />
         <activity android:name=".home.AddNewActiveActivity" />
         <activity android:name=".activity.WithdrawBillActivity" />
+        <activity android:name=".login_register.FAQActivity"/>
         <!-- 特殊界面 -->
         <!-- 直播界面 -->
         <!--
