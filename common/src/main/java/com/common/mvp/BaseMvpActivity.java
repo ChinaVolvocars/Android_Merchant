@@ -15,7 +15,6 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-
 import com.common.R;
 import com.common.listener.OnOnceClickListener;
 import com.common.retrofit.entity.DataCenter;
@@ -34,9 +33,7 @@ import com.common.widget.navigation.NavigationBar;
 import com.common.widget.navigation.WidgetButton;
 import com.common.widget.progress.LoadDialog;
 import com.common.widget.toast.ToastManager;
-
 import org.greenrobot.eventbus.EventBus;
-
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.Unbinder;
@@ -127,7 +124,7 @@ public abstract class BaseMvpActivity<P extends BasePresenter> extends AppCompat
      */
     protected void setNavigationType(boolean isSub) {
         // 设置状态栏字体颜色为白色
-        ScreenUtils.setTextColorStatusBar((Activity) context, isSub);
+        ScreenUtils.setTextColorStatusBar((Activity) context, false);
         getNavigationBar().setNavigationType(isSub);
         backRes = isSub ? R.mipmap.allback : R.mipmap.allback;
         if (!isSub) {

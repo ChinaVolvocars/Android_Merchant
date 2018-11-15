@@ -7,6 +7,7 @@
     <color name="sc">#DE969A</color>
     <color name="ssc">#7bbbfe</color>
     <color name="base_color">#ff8314</color>
+    <color name="color_fcc80a">#fcc80a</color>
     <color name="black333">#333333</color>
     <color name="color_ddd">#dddddd</color>
     <color name="color_d2">#d2d2d2</color>
@@ -42,5 +43,11 @@
     <color name="color_636c97">#636c97</color>
     <color name="color_e0e0e0">#e0e0e0</color>
     <color name="color_222222">#222222</color>
+    <color name="color_1e1e1e">#1e1e1e</color>
+    <color name="color_55a7fb">#55a7fb</color>
+    <color name="color_fefcfc">#fefcfc</color>
+    <color name="color_994c4c4c">#994c4c4c</color>
+    <color name="color_99fcc80a">#99fcc80a</color>
+    <color name="color_9955a7fb">#9955a7fb</color>
 
 </resources>

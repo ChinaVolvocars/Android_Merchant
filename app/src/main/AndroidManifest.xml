@@ -128,6 +128,7 @@
         <activity android:name=".activity.UploadPicAndDescActivity" />
         <activity android:name=".home.ShopShowActivity" />
         <activity android:name=".home.AddNewActiveActivity" />
+        <activity android:name=".activity.WithdrawBillActivity" />
         <!-- 特殊界面 -->
         <!-- 直播界面 -->
         <!--

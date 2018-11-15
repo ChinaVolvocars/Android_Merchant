@@ -23,6 +23,7 @@ import com.common.utils.SPUtils;
 import com.common.widget.imageview.image.ImageLoaderUtils;
 import com.hzxmkuar.sxmaketnew.R;
 import com.hzxmkuar.sxmaketnew.activity.MyBankActivity;
+import com.hzxmkuar.sxmaketnew.activity.WithdrawBillActivity;
 import com.hzxmkuar.sxmaketnew.adapter.MainAdapter;
 import com.hzxmkuar.sxmaketnew.event.AccountConstants;
 import com.hzxmkuar.sxmaketnew.home.SettingsActivity;
@@ -106,6 +107,7 @@ public class NewMainActivity extends BaseMvpActivity {
                     dialog.show(getSupportFragmentManager(), "DialogHomeWay");
                 } else if (tag.equals(MainAdapter.WithdrawalAccounts)) {
                     showToastMsg("提现账款");
+                    gotoActivity(WithdrawBillActivity.class);
                 } else if (tag.equals(MainAdapter.RevenueStatistics)) {
                     showToastMsg("营收统计");
                 } else if (tag.equals(MainAdapter.InvoiceInformation)) {

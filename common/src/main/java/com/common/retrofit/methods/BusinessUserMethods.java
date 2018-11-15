@@ -445,7 +445,6 @@ public class BusinessUserMethods extends BaseMethods {
         Observable observable = initService().newIndex(System.currentTimeMillis() + ""
                 , Constants.getHash(reqList), DataCenter.UserId
         );
-//        toSubscribe(observable, subscriber);
         toOtherSubscribe(observable, subscriber);
     }
 
