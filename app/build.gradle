@@ -87,4 +87,7 @@ dependencies {
     compile 'com.android.support:recyclerview-v7:25.0.0'
     compile project(':lib_indicator')
     compile project(':lib_viewpager')
+    compile project(':lib_pieview')
+    compile project(':lib_tablayout')
+
 }

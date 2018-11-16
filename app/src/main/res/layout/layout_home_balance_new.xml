@@ -7,10 +7,11 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="184dp"
+        android:layout_height="wrap_content"
         android:layout_margin="@dimen/dp_10"
         android:background="@mipmap/bkg_balance"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/dp_12">
 
         <TextView
             android:id="@+id/tv_balance"
@@ -57,6 +58,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dp_14"
             android:orientation="horizontal"
+
             android:paddingLeft="@dimen/dp_40"
             android:paddingRight="@dimen/dp_40">
 

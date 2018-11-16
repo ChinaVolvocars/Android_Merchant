@@ -355,7 +355,8 @@
         <activity android:name=".newversion.InvoiceInformationActivity" />
         <activity android:name=".newversion.TodayRevenueActivity" />
         <activity android:name=".newversion.WebViewActivity" />
-        <activity android:name=".newversion.QRCodeActivity"></activity>
+        <activity android:name=".newversion.QRCodeActivity" />
+        <activity android:name=".newversion.RevenueActivity"></activity>
     </application>
 
 </manifest>
