@@ -4,6 +4,9 @@ package com.common.retrofit.model;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+/**
+ *  商家活动列表
+ */
 public class ActivityList implements Parcelable{
 
     /**
@@ -107,4 +110,16 @@ public class ActivityList implements Parcelable{
             return new ActivityList[size];
         }
     };
+
+    @Override
+    public String toString() {
+        return "ActivityList{" +
+                "time=" + time +
+                ", type=" + type +
+                ", title='" + title + '\'' +
+                ", desc='" + desc + '\'' +
+                ", pic='" + pic + '\'' +
+                ", url='" + url + '\'' +
+                '}';
+    }
 }

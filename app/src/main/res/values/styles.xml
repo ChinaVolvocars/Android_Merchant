@@ -90,10 +90,11 @@
     <!-- 分隔线 -->
     <style name="DivideLine">
         <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">@dimen/view_size_0_5</item>
-        <item name="android:background">@color/color_ddd</item>
+        <item name="android:layout_height">@dimen/view_size_1</item>
+        <item name="android:background">@mipmap/faq_divide_line</item>
+        <item name="android:layout_marginLeft">@dimen/view_size_12</item>
+        <item name="android:layout_marginRight">@dimen/view_size_14</item>
     </style>
-
 
     <!-- 我的店铺 店铺介绍容器 -->
     <style name="MyStoreDescContent">
@@ -200,7 +201,7 @@
         <item name="android:layout_marginRight">@dimen/view_size_15</item>
         <item name="android:layout_marginTop">@dimen/view_size_60</item>
         <item name="android:gravity">center</item>
-        <item name="android:background">@drawable/jx_10_base</item>
+        <item name="android:background">@drawable/jx_10_base_color_fcc80a</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textSize">@dimen/text_size_14</item>
         <item name="android:clickable">true</item>

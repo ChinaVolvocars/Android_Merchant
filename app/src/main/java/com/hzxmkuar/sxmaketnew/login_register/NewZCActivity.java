@@ -258,11 +258,12 @@ public class NewZCActivity extends BaseMvpActivity {
         mEdtInputVerCode = (DeleteEditText) findViewById(R.id.edt_input_ver_code);
         mCdBtnSendMsg = (CountdownButton) findViewById(R.id.cd_btn_send_msg);
 
-
         mCheckBox = (CheckBox) findViewById(R.id.checkbox);
-        mBack = (ImageView) findViewById(R.id.back);
+        mBack = (ImageView) findViewById(R.id.iv_back);
         mXieyi = (TextView) findViewById(R.id.xieyi);
         mNext = (Button) findViewById(R.id.next);
+        TextView tvTitle =(TextView) findViewById(R.id.tv_title);
+        tvTitle.setText("入驻申请");
         tv_phone_verify_new_add = (TextView) findViewById(R.id.tv_phone_verify_new_add);
         tv_phone_verify_new_add.setVisibility(View.INVISIBLE);
 

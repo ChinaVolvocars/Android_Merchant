@@ -437,16 +437,27 @@ public class BusinessUserMethods extends BaseMethods {
     }
 
 
+//    /**
+//     * 改版后的首页新接口
+//     *
+//     * @param subscriber
+//     */
+//    public void newIndex(Subscriber<HttpRespBean<Home>> subscriber, List<String> reqList) {
+//        Observable observable = initService().newIndex(System.currentTimeMillis() + ""
+//                , Constants.getHash(reqList), DataCenter.UserId
+//        );
+//        toOtherSubscribe(observable, subscriber);
+//    }
     /**
      * 改版后的首页新接口
      *
      * @param subscriber
      */
-    public void newIndex(Subscriber<HttpRespBean<Home>> subscriber, List<String> reqList) {
+    public void newIndex(Subscriber<Home> subscriber, List<String> reqList) {
         Observable observable = initService().newIndex(System.currentTimeMillis() + ""
                 , Constants.getHash(reqList), DataCenter.UserId
         );
-        toOtherSubscribe(observable, subscriber);
+        toSubscribe(observable, subscriber);
     }
 
 

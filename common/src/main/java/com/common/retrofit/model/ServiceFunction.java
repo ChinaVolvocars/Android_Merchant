@@ -3,6 +3,9 @@ package com.common.retrofit.model;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+/**
+ *  商家服务功能
+ */
 public class ServiceFunction implements Parcelable {
 
     private String id;
@@ -54,4 +57,12 @@ public class ServiceFunction implements Parcelable {
             return new ServiceFunction[size];
         }
     };
+
+    @Override
+    public String toString() {
+        return "ServiceFunction{" +
+                "id='" + id + '\'' +
+                ", picture='" + picture + '\'' +
+                '}';
+    }
 }

@@ -53,6 +53,11 @@ public class FAQActivity extends BaseMvpActivity {
     }
 
     @Override
+    protected void setStatusBar() {
+
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ButterKnife.bind(this);
@@ -65,7 +70,7 @@ public class FAQActivity extends BaseMvpActivity {
         }else if (view.getId() == llForgetPwd.getId()){
             gotoActivity(ForgetPwdActivity.class);
             finish();
-        }else if (view.getId() == llAccountLost.getId()){
+        }else if (view.getId() == llForgetAccout.getId()){
             gotoActivity(GetBackAccountActivity.class);
             finish();
         }else if (view.getId() == llAccountLost.getId()){

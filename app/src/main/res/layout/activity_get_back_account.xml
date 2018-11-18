@@ -87,9 +87,7 @@
                 android:hint="请输入法人的证件号" />
         </LinearLayout>
 
-
-        <ImageView style="@style/DivideLine" />
-
+        <!--<ImageView style="@style/DivideLine" />-->
 
         <LinearLayout
             style="@style/MyStoreItemContent"

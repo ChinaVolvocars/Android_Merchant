@@ -12,418 +12,419 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <FrameLayout
+        <include layout="@layout/layout_toolbar_base" />
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="65dp"
-            android:background="@mipmap/titles_bac">
-
-            <TextView
-                style="@style/TitleBarTitleStyle"
-                android:text="众商联盟会员入驻申请" />
-
-            <ImageView
-                android:id="@+id/back"
-                style="@style/TitleBarBackStyle"
-                android:clickable="true"
-                android:src="@mipmap/whait_back" />
-        </FrameLayout>
-
-        <LinearLayout style="@style/MyStoreItemContentHorizontal">
-
-            <TextView
-                style="@style/MyStoreContentLeft"
-                android:text="账号设置" />
-
-            <com.common.widget.editview.DeleteEditText
-                android:id="@+id/edt_account_setting"
-                style="@style/MyStoreDescEditorNoHeight"
-                android:digits="@string/digets"
-                android:hint="请输入账号" />
-        </LinearLayout>
-
-        <ImageView style="@style/DivideLine" />
-
-
-        <LinearLayout style="@style/MyStoreItemContentHorizontal">
-
-            <TextView
-                style="@style/MyStoreContentLeft"
-                android:text="密码" />
-
-            <com.common.widget.editview.DeleteEditText
-                android:id="@+id/edt_pwd_setting"
-                style="@style/MyStoreDescEditorNoHeight"
-                android:digits="@string/digets"
-                android:hint="请设定登录密码" />
-        </LinearLayout>
-
-        <ImageView style="@style/DivideLine" />
-
-        <LinearLayout style="@style/MyStoreItemContentHorizontal">
-
-            <TextView
-                style="@style/MyStoreContentLeft"
-                android:text="确认密码" />
-
-            <com.common.widget.editview.DeleteEditText
-                android:id="@+id/edt_pwd_confirm"
-                style="@style/MyStoreDescEditorNoHeight"
-                android:digits="@string/digets"
-                android:hint="请再次设定登录密码" />
-        </LinearLayout>
-
-        <ImageView style="@style/DivideLine" />
-
-        <LinearLayout style="@style/BindBankCardContent">
-
-            <TextView
-                style="@style/MyStoreContentLeft"
-                android:text="商家名称：" />
-
-            <com.common.widget.editview.DeleteEditText
-                android:id="@+id/edt_strore_name"
-                style="@style/BindBankCardContentRight"
-                android:hint="请输入商家名称" />
-        </LinearLayout>
-
-        <ImageView style="@style/DivideLine" />
-
-        <LinearLayout style="@style/BindBankCardContent">
-
-            <TextView
-                style="@style/MyStoreContentLeft"
-                android:text="商家营业电话" />
-
-            <com.common.widget.editview.DeleteEditText
-                android:id="@+id/edt_store_phone_no"
-                style="@style/BindBankCardContentRight"
-                android:hint="请输入商家营业电话"
-                android:inputType="number" />
-
-        </LinearLayout>
-
-        <ImageView style="@style/DivideLine" />
-
-        <LinearLayout
-            android:id="@+id/ll_store_type"
-            style="@style/BindBankCardContent">
-
-            <TextView
-                style="@style/MyStoreContentLeft"
-                android:text="商户类型" />
-
-            <TextView
-                android:id="@+id/tv_store_type"
-                style="@style/MyStoreContentRight"
-                android:hint="请选择商户类型" />
-        </LinearLayout>
-
-
-        <ImageView style="@style/DivideLine" />
-
-        <LinearLayout
-            android:id="@+id/ll_profits"
-            style="@style/BindBankCardContent">
-
-            <TextView
-                style="@style/MyStoreContentLeft"
-                android:text="提拔比例" />
-
-            <TextView
-                android:id="@+id/tv_profits"
-                style="@style/MyStoreContentRight"
-                android:hint="请选择促销提拔比例" />
-        </LinearLayout>
-
-
-        <ImageView style="@style/DivideLine" />
-
-        <LinearLayout
-            android:id="@+id/ll_store_in_city"
-            style="@style/BindBankCardContent">
-
-            <TextView
-                style="@style/MyStoreContentLeft"
-                android:text="省，市" />
-
-            <TextView
-                android:id="@+id/tv_store_in_city"
-                style="@style/MyStoreContentRight"
-                android:hint="请选择省，市" />
-        </LinearLayout>
-
-
-        <ImageView style="@style/DivideLine" />
-
-        <LinearLayout style="@style/BindBankCardContent">
-
-            <TextView
-                style="@style/MyStoreContentLeft"
-                android:text="详细地址" />
-
-            <com.common.widget.editview.DeleteEditText
-                android:id="@+id/edt_address_detil"
-                style="@style/BindBankCardContentRight"
-                android:hint="请输入详细地址" />
-        </LinearLayout>
-
-        <ImageView style="@style/DivideLine" />
-
-        <LinearLayout style="@style/MyStoreItemContentHorizontal">
-
-            <TextView
-                style="@style/MyStoreContentLeft"
-                android:text="邀请码" />
-
-            <com.common.widget.editview.DeleteEditText
-                android:id="@+id/edt_invite_code"
-                style="@style/MyStoreDescEditorNoHeight"
-                android:digits="@string/digets"
-                android:hint="请输入邀请码" />
-        </LinearLayout>
-
-        <!--<ImageView style="@style/DivideLine" />-->
-        <TextView
-            android:id="@+id/tv_login"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/view_size_25"
-            android:layout_gravity="center_horizontal"
-            android:gravity="center"
-            android:text="若无推荐人，请输入公司邀请码311999"
-            android:textColor="@color/normal_text_color"
-            android:textSize="@dimen/text_size_13" />
-
-
-        <LinearLayout style="@style/MyStoreItemContentHorizontal">
-
-            <TextView
-                style="@style/MyStoreContentLeft"
-                android:text="法人姓名" />
-
-            <com.common.widget.editview.DeleteEditText
-                android:id="@+id/edt_legal_name"
-                style="@style/MyStoreDescEditorNoHeight"
-                android:hint="请输入真实姓名" />
-        </LinearLayout>
-
-        <ImageView style="@style/DivideLine" />
-
-        <LinearLayout
-            android:id="@+id/ll_credentials_type"
-            style="@style/MyStoreItemContentHorizontal">
-
-            <TextView
-                style="@style/MyStoreContentLeft"
-                android:text="法人证件类型" />
-            <!--mTvCredentialsType-->
-            <TextView
-                android:id="@+id/tv_credentials_type"
-                style="@style/MyStoreContentRight"
-                android:hint="法人身份证" />
-        </LinearLayout>
-
-
-        <ImageView style="@style/DivideLine" />
-
-        <LinearLayout style="@style/MyStoreItemContentHorizontal">
-
-            <TextView
-                style="@style/MyStoreContentLeft"
-                android:text="法人证件号" />
-            <!--mEdtCredentialsNo-->
-
-
-            <com.common.widget.editview.DeleteEditText
-                android:id="@+id/edt_credentials_no"
-                style="@style/MyStoreDescEditorNoHeight"
-                android:digits="@string/id_card_digets"
-                android:hint="请输入法人的证件号" />
-        </LinearLayout>
-
-
-        <ImageView style="@style/DivideLine" />
-
-
-        <LinearLayout
-            style="@style/MyStoreItemContent"
-            android:layout_marginTop="5dp">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/view_size_8"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="2dp"
-                    android:layout_height="wrap_content"
-                    android:background="@color/base_color" />
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+            <LinearLayout style="@style/MyStoreItemContentHorizontal">
 
                 <TextView
                     style="@style/MyStoreContentLeft"
-                    android:layout_marginLeft="@dimen/view_size_5"
-                    android:text="上传身份证件照片" />
+                    android:text="账号设置" />
+
+                <com.common.widget.editview.DeleteEditText
+                    android:id="@+id/edt_account_setting"
+                    style="@style/MyStoreDescEditorNoHeight"
+                    android:digits="@string/digets"
+                    android:hint="请输入账号" />
             </LinearLayout>
 
-            <LinearLayout
-                style="@style/MyStoreItemContentHorizontal"
-                android:layout_height="@dimen/view_size_100"
-                android:layout_marginTop="@dimen/view_size_8">
+            <ImageView style="@style/DivideLine" />
 
-                <ImageView
-                    android:id="@+id/iv_credential_front"
-                    style="@style/MyStoreAddImgSytle" />
 
-                <ImageView
-                    android:id="@+id/iv_credential_back"
-                    style="@style/MyStoreAddImgSytle" />
-            </LinearLayout>
-
-            <LinearLayout
-                style="@style/MyStoreItemContentHorizontal"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/view_size_15"
-                android:layout_marginLeft="0dp"
-                android:layout_marginRight="0dp"
-                android:layout_marginTop="@dimen/view_size_8">
+            <LinearLayout style="@style/MyStoreItemContentHorizontal">
 
                 <TextView
-                    android:gravity="center"
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_height="wrap_content"
-                    android:text="正面" />
+                    style="@style/MyStoreContentLeft"
+                    android:text="密码" />
+
+                <com.common.widget.editview.DeleteEditText
+                    android:id="@+id/edt_pwd_setting"
+                    style="@style/MyStoreDescEditorNoHeight"
+                    android:digits="@string/digets"
+                    android:hint="请设定登录密码" />
+            </LinearLayout>
+
+            <ImageView style="@style/DivideLine" />
+
+            <LinearLayout style="@style/MyStoreItemContentHorizontal">
 
                 <TextView
-                    android:gravity="center"
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_height="wrap_content"
-                    android:text="反面" />
-            </LinearLayout>
-        </LinearLayout>
+                    style="@style/MyStoreContentLeft"
+                    android:text="确认密码" />
 
-        <LinearLayout
-            style="@style/MyStoreItemContent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/view_size_5">
+                <com.common.widget.editview.DeleteEditText
+                    android:id="@+id/edt_pwd_confirm"
+                    style="@style/MyStoreDescEditorNoHeight"
+                    android:digits="@string/digets"
+                    android:hint="请再次设定登录密码" />
+            </LinearLayout>
+
+            <ImageView style="@style/DivideLine" />
+
+            <LinearLayout style="@style/BindBankCardContent">
+
+                <TextView
+                    style="@style/MyStoreContentLeft"
+                    android:text="商家名称：" />
+
+                <com.common.widget.editview.DeleteEditText
+                    android:id="@+id/edt_strore_name"
+                    style="@style/BindBankCardContentRight"
+                    android:hint="请输入商家名称" />
+            </LinearLayout>
+
+            <ImageView style="@style/DivideLine" />
+
+            <LinearLayout style="@style/BindBankCardContent">
+
+                <TextView
+                    style="@style/MyStoreContentLeft"
+                    android:text="商家营业电话" />
+
+                <com.common.widget.editview.DeleteEditText
+                    android:id="@+id/edt_store_phone_no"
+                    style="@style/BindBankCardContentRight"
+                    android:hint="请输入商家营业电话"
+                    android:inputType="number" />
+
+            </LinearLayout>
+
+            <ImageView style="@style/DivideLine" />
 
             <LinearLayout
+                android:id="@+id/ll_store_type"
+                style="@style/BindBankCardContent">
+
+                <TextView
+                    style="@style/MyStoreContentLeft"
+                    android:text="商户类型" />
+
+                <TextView
+                    android:id="@+id/tv_store_type"
+                    style="@style/MyStoreContentRight"
+                    android:hint="请选择商户类型" />
+            </LinearLayout>
+
+
+            <ImageView style="@style/DivideLine" />
+
+            <LinearLayout
+                android:id="@+id/ll_profits"
+                style="@style/BindBankCardContent">
+
+                <TextView
+                    style="@style/MyStoreContentLeft"
+                    android:text="提拔比例" />
+
+                <TextView
+                    android:id="@+id/tv_profits"
+                    style="@style/MyStoreContentRight"
+                    android:hint="请选择促销提拔比例" />
+            </LinearLayout>
+
+
+            <ImageView style="@style/DivideLine" />
+
+            <LinearLayout
+                android:id="@+id/ll_store_in_city"
+                style="@style/BindBankCardContent">
+
+                <TextView
+                    style="@style/MyStoreContentLeft"
+                    android:text="省，市" />
+
+                <TextView
+                    android:id="@+id/tv_store_in_city"
+                    style="@style/MyStoreContentRight"
+                    android:hint="请选择省，市" />
+            </LinearLayout>
+
+
+            <ImageView style="@style/DivideLine" />
+
+            <LinearLayout style="@style/BindBankCardContent">
+
+                <TextView
+                    style="@style/MyStoreContentLeft"
+                    android:text="详细地址" />
+
+                <com.common.widget.editview.DeleteEditText
+                    android:id="@+id/edt_address_detil"
+                    style="@style/BindBankCardContentRight"
+                    android:hint="请输入详细地址" />
+            </LinearLayout>
+
+            <ImageView style="@style/DivideLine" />
+
+            <LinearLayout style="@style/MyStoreItemContentHorizontal">
+
+                <TextView
+                    style="@style/MyStoreContentLeft"
+                    android:text="邀请码" />
+
+                <com.common.widget.editview.DeleteEditText
+                    android:id="@+id/edt_invite_code"
+                    style="@style/MyStoreDescEditorNoHeight"
+                    android:digits="@string/digets"
+                    android:hint="请输入邀请码" />
+            </LinearLayout>
+
+            <!--<ImageView style="@style/DivideLine" />-->
+            <TextView
+                android:id="@+id/tv_login"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/view_size_8">
+                android:layout_height="@dimen/view_size_25"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center"
+                android:text="若无推荐人，请输入公司邀请码311999"
+                android:textColor="@color/normal_text_color"
+                android:textSize="@dimen/text_size_13" />
+
+
+            <LinearLayout style="@style/MyStoreItemContentHorizontal">
 
                 <TextView
-                    android:layout_width="2dp"
-                    android:layout_height="wrap_content"
-                    android:background="@color/base_color" />
+                    style="@style/MyStoreContentLeft"
+                    android:text="法人姓名" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/view_size_5"
-                    android:text="上传营业执照"
-                    android:textColor="@color/black" />
+                <com.common.widget.editview.DeleteEditText
+                    android:id="@+id/edt_legal_name"
+                    style="@style/MyStoreDescEditorNoHeight"
+                    android:hint="请输入真实姓名" />
             </LinearLayout>
+
+            <ImageView style="@style/DivideLine" />
 
             <LinearLayout
-                style="@style/MyStoreItemContentHorizontal"
-                android:layout_height="@dimen/view_size_100"
-                android:layout_marginLeft="0dp"
-                android:layout_marginRight="0dp"
-                android:layout_marginTop="@dimen/view_size_8">
+                android:id="@+id/ll_credentials_type"
+                style="@style/MyStoreItemContentHorizontal">
 
-                <ImageView
-                    android:id="@+id/iv_business_license"
-                    style="@style/MyStoreAddImgSytle" />
-
-                <ImageView
-                    style="@style/MyStoreAddImgSytle"
-                    android:visibility="invisible" />
+                <TextView
+                    style="@style/MyStoreContentLeft"
+                    android:text="法人证件类型" />
+                <!--mTvCredentialsType-->
+                <TextView
+                    android:id="@+id/tv_credentials_type"
+                    style="@style/MyStoreContentRight"
+                    android:hint="法人身份证" />
             </LinearLayout>
+
+
+            <ImageView style="@style/DivideLine" />
+
+            <LinearLayout style="@style/MyStoreItemContentHorizontal">
+
+                <TextView
+                    style="@style/MyStoreContentLeft"
+                    android:text="法人证件号" />
+                <!--mEdtCredentialsNo-->
+
+
+                <com.common.widget.editview.DeleteEditText
+                    android:id="@+id/edt_credentials_no"
+                    style="@style/MyStoreDescEditorNoHeight"
+                    android:digits="@string/id_card_digets"
+                    android:hint="请输入法人的证件号" />
+            </LinearLayout>
+
+
+            <ImageView style="@style/DivideLine" />
+
 
             <LinearLayout
-                style="@style/MyStoreItemContentHorizontal"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/view_size_8"
-                android:layout_marginTop="@dimen/view_size_6"
-                android:gravity="center">
+                style="@style/MyStoreItemContent"
+                android:layout_marginTop="5dp">
 
-                <TextView
-                    android:gravity="center"
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="营业执照" />
+                    android:layout_marginTop="@dimen/view_size_8"
+                    android:orientation="horizontal">
 
-                <TextView
-                    android:gravity="center"
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_height="wrap_content" />
+                    <TextView
+                        android:layout_width="2dp"
+                        android:layout_height="wrap_content"
+                        android:background="@color/base_color" />
+
+                    <TextView
+                        style="@style/MyStoreContentLeft"
+                        android:layout_marginLeft="@dimen/view_size_5"
+                        android:text="上传身份证件照片" />
+                </LinearLayout>
+
+                <LinearLayout
+                    style="@style/MyStoreItemContentHorizontal"
+                    android:layout_height="@dimen/view_size_100"
+                    android:layout_marginTop="@dimen/view_size_8">
+
+                    <ImageView
+                        android:id="@+id/iv_credential_front"
+                        style="@style/MyStoreAddImgSytle" />
+
+                    <ImageView
+                        android:id="@+id/iv_credential_back"
+                        style="@style/MyStoreAddImgSytle" />
+                </LinearLayout>
+
+                <LinearLayout
+                    style="@style/MyStoreItemContentHorizontal"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/view_size_15"
+                    android:layout_marginLeft="0dp"
+                    android:layout_marginRight="0dp"
+                    android:layout_marginTop="@dimen/view_size_8">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="正面" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="反面" />
+                </LinearLayout>
             </LinearLayout>
-        </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="5dp"
+                android:background="@color/color_F7F7F7"/>
+
+            <LinearLayout
+                style="@style/MyStoreItemContent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/view_size_8">
+
+                    <TextView
+                        android:layout_width="2dp"
+                        android:layout_height="wrap_content"
+                        android:background="@color/base_color" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/view_size_5"
+                        android:text="上传营业执照"
+                        android:textColor="@color/black" />
+                </LinearLayout>
+
+                <LinearLayout
+                    style="@style/MyStoreItemContentHorizontal"
+                    android:layout_height="@dimen/view_size_100"
+                    android:layout_marginLeft="0dp"
+                    android:layout_marginRight="0dp"
+                    android:layout_marginTop="@dimen/view_size_8">
+
+                    <ImageView
+                        android:id="@+id/iv_business_license"
+                        style="@style/MyStoreAddImgSytle" />
+
+                    <ImageView
+                        style="@style/MyStoreAddImgSytle"
+                        android:visibility="invisible" />
+                </LinearLayout>
+
+                <LinearLayout
+                    style="@style/MyStoreItemContentHorizontal"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/view_size_8"
+                    android:layout_marginTop="@dimen/view_size_6"
+                    android:gravity="center">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="营业执照" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center" />
+                </LinearLayout>
+            </LinearLayout>
 
 
-
-        <!--<LinearLayout-->
+            <!--<LinearLayout-->
             <!--style="@style/BindBankCardContent"-->
             <!--android:layout_marginTop="@dimen/view_size_8">-->
 
             <!--<TextView-->
-                <!--style="@style/MyStoreContentLeft"-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:text="法人授权代理人姓名" />-->
+            <!--style="@style/MyStoreContentLeft"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:text="法人授权代理人姓名" />-->
 
             <!--<com.common.widget.editview.DeleteEditText-->
-                <!--android:id="@+id/edt_input_manager_name"-->
-                <!--style="@style/BindBankCardContentRight"-->
-                <!--android:hint="请输入法人代理人姓名"-->
-                <!--android:maxLength="19" />-->
-        <!--</LinearLayout>-->
+            <!--android:id="@+id/edt_input_manager_name"-->
+            <!--style="@style/BindBankCardContentRight"-->
+            <!--android:hint="请输入法人代理人姓名"-->
+            <!--android:maxLength="19" />-->
+            <!--</LinearLayout>-->
 
 
 
-        <View style="@style/DivideLine" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="5dp"
+                android:background="@color/color_F7F7F7"/>
+            <LinearLayout style="@style/BindBankCardContent">
 
-        <LinearLayout style="@style/BindBankCardContent">
+                <TextView
+                    style="@style/MyStoreContentLeft"
+                    android:layout_width="wrap_content"
+                    android:text="法人授权代理人手机号" />
 
-            <TextView
-                style="@style/MyStoreContentLeft"
-                android:layout_width="wrap_content"
-                android:text="法人授权代理人手机号" />
+                <com.common.widget.editview.DeleteEditText
+                    android:id="@+id/edt_manager_phone_no"
+                    style="@style/BindBankCardContentRight"
+                    android:hint="请输入代理人手机号码"
+                    android:inputType="number"
+                    android:maxLength="11" />
+            </LinearLayout>
 
-            <com.common.widget.editview.DeleteEditText
-                android:id="@+id/edt_manager_phone_no"
-                style="@style/BindBankCardContentRight"
-                android:hint="请输入代理人手机号码"
-                android:inputType="number"
-                android:maxLength="11" />
-        </LinearLayout>
+            <View style="@style/DivideLine" />
 
-        <View style="@style/DivideLine" />
+            <LinearLayout style="@style/BindBankCardContent">
 
-        <LinearLayout style="@style/BindBankCardContent">
+                <TextView
+                    style="@style/MyStoreContentLeft"
+                    android:layout_width="wrap_content"
+                    android:text="验证码" />
 
-            <TextView
-                style="@style/MyStoreContentLeft"
-                android:layout_width="wrap_content"
-                android:text="验证码" />
+                <com.common.widget.editview.DeleteEditText
+                    android:id="@+id/edt_input_ver_code"
+                    style="@style/BindBankCardContentRight"
+                    android:layout_width="@dimen/view_size_32"
+                    android:layout_marginLeft="32dp"
+                    android:layout_marginRight="6dp"
+                    android:gravity="center_vertical"
+                    android:hint="请输入验证码"
+                    android:inputType="number"
+                    android:maxLength="6" />
 
-            <com.common.widget.editview.DeleteEditText
-                android:id="@+id/edt_input_ver_code"
-                style="@style/BindBankCardContentRight"
-                android:layout_width="@dimen/view_size_32"
-                android:layout_marginLeft="32dp"
-                android:layout_marginRight="6dp"
-                android:gravity="center_vertical"
-                android:hint="请输入验证码"
-                android:inputType="number"
-                android:maxLength="6" />
+                <com.common.widget.textview.CountdownButton
+                    android:id="@+id/cd_btn_send_msg"
+                    style="@style/SendMsgButton" />
 
-            <com.common.widget.textview.CountdownButton
-                android:id="@+id/cd_btn_send_msg"
-                style="@style/SendMsgButton" />
+            </LinearLayout>
+
 
         </LinearLayout>
 
@@ -438,12 +439,12 @@
             android:text="未收到验证码 >"
             android:textColor="@color/base_color"
             android:textSize="@dimen/text_size_10"
-            android:visibility="invisible"/>
+            android:visibility="gone" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="14dp"
             android:gravity="center"
             android:orientation="horizontal">
 
@@ -451,7 +452,7 @@
                 android:id="@+id/checkbox"
                 android:layout_width="20dp"
                 android:layout_height="20dp"
-                android:background="@drawable/goxuans"
+                android:background="@drawable/goxuan"
                 android:button="@null"
                 android:checked="true" />
 
@@ -467,7 +468,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="平台协议"
-                android:textColor="@color/base_color" />
+                android:textColor="@color/color_fcc80a" />
         </LinearLayout>
 
         <Button

@@ -41,17 +41,12 @@ import retrofit2.http.Field;
 public class LoginActivity extends BaseMvpActivity {
     private static final String TAG = "LoginActivity";
     private Button btnLogin;
-    private Button btnQQ;
-    private Button btnWechat;
     private TextView mNewShopJoin;
     private DeleteEditText evPhone;
     private DeleteEditText evCode;
-    private Button btnWebo;
-    private Button btnali;
     private CheckBox mCheckBox;
     private TextView xieyi;
-    private TextView mTvForgetPwd;
-    private TextView mTvGetBackAccount;
+    private TextView tv_faq;
 
 
     @Override
@@ -68,16 +63,11 @@ public class LoginActivity extends BaseMvpActivity {
     protected void onViewCreated() {
         evPhone = (DeleteEditText) findViewById(R.id.ev_phone);
         btnLogin = (Button) findViewById(R.id.btn_login);
-        btnQQ = (Button) findViewById(R.id.iv_qq);
-        btnWechat = (Button) findViewById(R.id.iv_wechat);
-        btnWebo = (Button) findViewById(R.id.iv_webo);
-        btnali = (Button) findViewById(R.id.iv_ali);
         evCode = (DeleteEditText) findViewById(R.id.ev_code);
         mNewShopJoin = (TextView) findViewById(R.id.tv_new_shop_join);
         mCheckBox = (CheckBox) findViewById(R.id.checkbox);
         xieyi = (TextView) findViewById(R.id.xieyi);
-        mTvForgetPwd = (TextView) findViewById(R.id.tv_forget_pwd);
-        mTvGetBackAccount = (TextView) findViewById(R.id.tv_get_back_account);
+        tv_faq = (TextView) findViewById(R.id.tv_faq);
     }
 
     @Override
@@ -88,16 +78,9 @@ public class LoginActivity extends BaseMvpActivity {
     protected void doLogicFunc() {
         initLogin();
         attachClickListener(btnLogin);
-        attachClickListener(btnQQ);
-        attachClickListener(btnWechat);
-        attachClickListener(btnWebo);
-        attachClickListener(btnali);
         attachClickListener(mNewShopJoin);
         attachClickListener(xieyi);
-        attachClickListener(mTvForgetPwd);
-        attachClickListener(mTvGetBackAccount);
-
-
+        attachClickListener(tv_faq);
     }
 
     private void initLogin() {
@@ -143,29 +126,6 @@ public class LoginActivity extends BaseMvpActivity {
         }
     };
 
-    /*private void gotoReq(int i, String qqauthId, String qqauthName,String qqauthHead, String qqauthGender) {
-        CommonSubscriber<UserBean> subscriber = new CommonSubscriber<>(new SubscriberListener() {
-            @Override
-            public void onNext(Object o) {
-                UserBean userBean = (UserBean) o;
-                if (userBean!=null){
-                    if (userBean.getUid()>0){
-                        dismissProgressDialog();
-                        DataCenter.saveLoginDataInfo(userBean);
-                        gotoActivity(MainActivity.class);
-                        finish();
-                    }else {
-                        //startActivity(new Intent(context,BDPhoneActivity.class).putExtra("id",userBean.getThirdId()));
-                    }
-                }
-            }
-            @Override
-            public void onError(String e, int code) {
-            }
-        });
-            UserMethods.getInstance().thirdPartyLogin(subscriber,i, qqauthId,qqauthName,qqauthHead,qqauthGender);
-            rxManager.add(subscriber);
-    }*/
     private void gotoReqss(String qqauthId, String qqauthName) {
         if (!mCheckBox.isChecked()) {
             showToastMsg("请同意入驻说明！");
@@ -202,69 +162,19 @@ public class LoginActivity extends BaseMvpActivity {
         UserMethods.getInstance().login(subscriber, reqList, qqauthId, qqauthName, "");
         rxManager.add(subscriber);
     }
-   /* private void loginEase(UserBean userBean) {
-        final UserBean bean = DataCenter.getInstance().getUserBean();
-        DataCenter.UserId = bean.getUid();
-        DataCenter.HashId = bean.getHashid();
-        DataCenter.HXuser = bean.getHx_username();
-        DataCenter.HXpas = bean.getHx_password();
-        if (EmptyUtils.isEmpty(userBean.getHx_username()) || EmptyUtils.isEmpty(userBean.getHx_password())) {
-            return;
-        }
-        *//*EMClient.getInstance().login(userBean.getHx_username(), userBean.getHx_password(), new EMCallBack() {
-            @Override
-            public void onSuccess() {
-                gotoActivity(MainActivity.class);
-                finish();
-            }
-
-            @Override
-            public void onProgress(int progress, String status) { }
-
-            @Override
-            public void onError(int code, final String error) {
-                EMClient.getInstance().logout(false);
-            }
-        });*//*
-    }*/
 
     @Override
     protected void onViewClicked(View view) {
         if (view.getId() == btnLogin.getId()) {
             requestCodePermission();
-        } else if (view.getId() == btnQQ.getId()) {
-            //LoginUtil.login(this, LoginPlatform.QQ, mLoginListener);
-            //showToastMsg("暂未开放");
-        }
-//        else if (view.getId() == btnWechat.getId()) {
-//            gotoActivity(BDPhoneActivity.class);
-//            //LoginUtil.login(this, LoginPlatform.WX, mLoginListener);
-//            //showToastMsg("暂未开放");
-//        }else if (view.getId() == btnWebo.getId()) {
-//            gotoActivity(BDPhoneActivity.class);
-//            //LoginUtil.login(this, LoginPlatform.WX, mLoginListener);
-//            //showToastMsg("暂未开放");
-//        }else if (view.getId() == btnali.getId()) {
-//            //LoginUtil.login(this, LoginPlatform.WX, mLoginListener);
-//            //showToastMsg("暂未开放");
-//            gotoActivity(BDPhoneActivity.class);
-//        }
-        else if (view.getId() == mNewShopJoin.getId()) {
+        }else if (view.getId() == mNewShopJoin.getId()) {
             gotoActivity(NewZCActivity.class);
-//            gotoActivity(NewPwdActivity.class);
-        } else if (view.getId() == mTvForgetPwd.getId()) {
-
-
-
-            gotoActivity(ForgetPwdActivity.class);
-            // 忘记账号
-        } else if (view.getId() == mTvGetBackAccount.getId()) {
-            gotoActivity(GetBackAccountActivity.class);
-
-        } else if (view.getId() == xieyi.getId()) {
+        }else if (view.getId() == xieyi.getId()) {
             Intent urlIntent = new Intent(context, BaseUrlActivity.class);
             urlIntent.putExtra(BaseUrlActivity.MAIN_URL, "http://app.zhongxinyingjia.com/Home/Index/article/type/8.html");
             startActivity(urlIntent);
+        }else if (view.getId() == tv_faq.getId()){
+            gotoActivity(FAQActivity.class);
         }
     }
 

@@ -73,4 +73,13 @@ public class ShopBanner implements Parcelable{
             return new ShopBanner[size];
         }
     };
+
+    @Override
+    public String toString() {
+        return "ShopBanner{" +
+                "id='" + id + '\'' +
+                ", picture='" + picture + '\'' +
+                ", link='" + link + '\'' +
+                '}';
+    }
 }

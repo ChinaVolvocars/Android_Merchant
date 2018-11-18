@@ -10,44 +10,39 @@ import android.view.View;
 
 import com.common.mvp.BaseMvpActivity;
 import com.common.mvp.BasePresenter;
-import com.common.retrofit.entity.result.IndexBean;
-import com.common.retrofit.entity.resultImpl.HttpRespBean;
 import com.common.retrofit.methods.BusinessUserMethods;
 import com.common.retrofit.model.Home;
-import com.common.retrofit.model.TodayRevenue;
 import com.common.retrofit.subscriber.CommonSubscriber;
 import com.common.retrofit.subscriber.SubscriberListener;
 import com.common.utils.EmptyUtils;
-import com.common.utils.ListUtils;
-import com.common.utils.SPUtils;
-import com.common.widget.imageview.image.ImageLoaderUtils;
 import com.hzxmkuar.sxmaketnew.R;
 import com.hzxmkuar.sxmaketnew.activity.MyBankActivity;
 import com.hzxmkuar.sxmaketnew.activity.WithdrawBillActivity;
 import com.hzxmkuar.sxmaketnew.adapter.MainAdapter;
-import com.hzxmkuar.sxmaketnew.event.AccountConstants;
+import com.hzxmkuar.sxmaketnew.base.BaseUrlActivity;
 import com.hzxmkuar.sxmaketnew.home.SettingsActivity;
+import com.hzxmkuar.sxmaketnew.home.ShopInfoActivity;
+import com.hzxmkuar.sxmaketnew.home.ShopShowActivity;
 import com.hzxmkuar.sxmaketnew.view.dialog.DialogHomeWay;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.OnClick;
-import okhttp3.ResponseBody;
-import rx.Subscriber;
-import rx.android.schedulers.AndroidSchedulers;
-import rx.schedulers.Schedulers;
 
 public class NewMainActivity extends BaseMvpActivity {
+    private static final String TAG = "NewMainActivity";
 
     public static final String KEY_MONEY = "money";
     @BindView(R.id.recycler_view)
     RecyclerView rv;
     private MainAdapter adapter;
-    private HttpRespBean<Home> result;
-
+    private Home result;
+    /**
+     *  发票信息
+     */
+    private String invoiceUrl = "";
     @Override
     protected BasePresenter createPresenterInstance() {
         return null;
@@ -77,11 +72,23 @@ public class NewMainActivity extends BaseMvpActivity {
             @Override
             public void onServiceItemClick(View view, int position) {
                 Log.e("服务的点击事件", "onServiceItemClick: " + position);
+                if (0 == position) {
+                    //我要展示
+                    gotoActivity(ShopShowActivity.class);
+                } else if (1 == position) {
+                    // 商家资料
+                    gotoActivity(ShopInfoActivity.class);
+                }
             }
 
             @Override
             public void onActivityItemClick(View view, int position) {
-                Log.e("活动的点击事件", "onActivityItemClick: " + position);
+                Log.e("活动列表的点击事件", "onActivityItemClick: " + position);
+                if (null != result && null != result.getList() && !EmptyUtils.isEmpty(result.getList().get(position).getUrl())){
+                    Intent urlIntent = new Intent(context, BaseUrlActivity.class);
+                    urlIntent.putExtra(BaseUrlActivity.MAIN_URL, result.getList().get(position).getUrl());
+                    startActivity(urlIntent);
+                }
             }
 
             @Override
@@ -90,7 +97,7 @@ public class NewMainActivity extends BaseMvpActivity {
                 if (tag.equals(MainAdapter.Conversion)) {
                 } else if (tag.equals(MainAdapter.CollectionCode)) {
                     if (result != null) {
-                        String pay_img = result.getData().getPay_img();
+                        String pay_img = result.getPay_img();
                         Intent intent = new Intent(context, QRCodeActivity.class);
                         intent.putExtra("qr_img", pay_img);
                         startActivity(intent);
@@ -101,7 +108,7 @@ public class NewMainActivity extends BaseMvpActivity {
                     startActivity(new Intent(context, MyBankActivity.class).putExtra("name", "000"));
                 } else if (tag.equals(MainAdapter.WithdrawalApplication)) {
                     Bundle bundle = new Bundle();
-                    String money = result.getData().getMoney();
+                    String money = result.getMoney();
                     bundle.putString(KEY_MONEY, money);
                     DialogHomeWay dialog = DialogHomeWay.newInstance(bundle);
                     dialog.show(getSupportFragmentManager(), "DialogHomeWay");
@@ -112,9 +119,12 @@ public class NewMainActivity extends BaseMvpActivity {
                     showToastMsg("营收统计");
                     Intent intent = new Intent(context, RevenueActivity.class);
                     startActivity(intent);
-
                 } else if (tag.equals(MainAdapter.InvoiceInformation)) {
-                    showToastMsg("发票信息");
+                    if (!EmptyUtils.isEmpty(invoiceUrl)){
+                        Intent urlIntent = new Intent(context, BaseUrlActivity.class);
+                        urlIntent.putExtra(BaseUrlActivity.MAIN_URL, invoiceUrl);
+                        startActivity(urlIntent);
+                    }
 
                 } else if (tag.equals(MainAdapter.ConsumptionAuthority)) {
                     showToastMsg("该功能暂未开放，敬请期待！");
@@ -128,49 +138,29 @@ public class NewMainActivity extends BaseMvpActivity {
     }
 
     private void getHomeInfo() {
-//        CommonSubscriber<HttpRespBean<Home>> subscriber = new CommonSubscriber<>(new SubscriberListener<HttpRespBean<Home>>() {
-//            @Override
-//            public void onNext(HttpRespBean<Home> o) {
-//                if (o.getCode() == 0) {
-//                    if (null != o.getData()) {
-//                        adapter.setData(o.getData());
-//                    }
-//                }
-//            }
-//
-//            @Override
-//            public void onError(String e, int code) {
-//
-//            }
-//        });
+            CommonSubscriber<Home> subscriber = new CommonSubscriber<>(new SubscriberListener() {
+            @Override
+            public void onNext(Object o) {
+                Home homeEntitiy = (Home) o;
+                Log.i(TAG, "onNext: " + homeEntitiy.toString());
+                if (null != homeEntitiy){
+                    result = homeEntitiy;
+                    adapter.setData(homeEntitiy);
+                    invoiceUrl = homeEntitiy.getCopy_invoice_url();
+                }
+            }
 
+            @Override
+            public void onError(String e, int code) {
+
+            }
+        });
 
         List<String> reqLis = new ArrayList<>();
         reqLis.add("time");
         reqLis.add("uid");
-
-        BusinessUserMethods.getInstance().newIndex(new Subscriber<HttpRespBean<Home>>() {
-            @Override
-            public void onCompleted() {
-
-            }
-
-            @Override
-            public void onError(Throwable e) {
-
-            }
-
-            @Override
-            public void onNext(HttpRespBean<Home> o) {
-                result = o;
-                if (o.getCode() == 0) {
-                    if (null != o.getData()) {
-                        adapter.setData(o.getData());
-                    }
-                }
-            }
-        }, reqLis);
-//        rxManager.add(subscriber);
+        BusinessUserMethods.getInstance().newIndex(subscriber, reqLis);
+        rxManager.add(subscriber);
 
     }
 

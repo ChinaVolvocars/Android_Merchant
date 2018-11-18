@@ -124,7 +124,7 @@ public abstract class BaseMvpActivity<P extends BasePresenter> extends AppCompat
      */
     protected void setNavigationType(boolean isSub) {
         // 设置状态栏字体颜色为白色
-        ScreenUtils.setTextColorStatusBar((Activity) context, false);
+        ScreenUtils.setTextColorStatusBar((Activity) context, true);
         getNavigationBar().setNavigationType(isSub);
         backRes = isSub ? R.mipmap.allback : R.mipmap.allback;
         if (!isSub) {

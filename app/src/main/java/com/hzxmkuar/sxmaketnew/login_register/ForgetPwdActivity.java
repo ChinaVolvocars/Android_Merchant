@@ -1,6 +1,7 @@
 package com.hzxmkuar.sxmaketnew.login_register;
 
 import android.content.Intent;
+import android.media.tv.TvTrackInfo;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -52,7 +53,7 @@ public class ForgetPwdActivity extends BaseMvpActivity {
     private DeleteEditText mEdtInputVerificationCode;
     private CountdownButton mBtnSendMsg;
     private Button mBtnCommit;
-    private ImageView mIvForgetPwdBack;
+    private ImageView iv_back;
     private OptionsPickerView mCertificatesTypePicker;
     private String mCertificatesType = "";
     private List<String> typeList = new ArrayList<>();
@@ -79,9 +80,11 @@ public class ForgetPwdActivity extends BaseMvpActivity {
         mEdtInputVerificationCode = (DeleteEditText) findViewById(R.id.edt_input_verification_code);
         mBtnSendMsg = (CountdownButton) findViewById(R.id.btn_send_msg);
         mBtnCommit = (Button) findViewById(R.id.btn_commit);
-        mIvForgetPwdBack = (ImageView) findViewById(R.id.iv_forget_pwd_back);
+        iv_back = (ImageView) findViewById(R.id.iv_back);
         tv_phone_verify_forget = (TextView) findViewById(R.id.tv_phone_verify_forget);
         tv_phone_verify_forget.setVisibility(View.INVISIBLE);
+        TextView tvTtile = (TextView) findViewById(R.id.tv_title);
+        tvTtile.setText("忘记密码");
     }
 
     @Override
@@ -93,7 +96,7 @@ public class ForgetPwdActivity extends BaseMvpActivity {
         attachClickListener(mBtnSendMsg);
         attachClickListener(mBtnCommit);
         attachClickListener(mTvChoseCertificateType);
-        attachClickListener(mIvForgetPwdBack);
+        attachClickListener(iv_back);
         initCertificateTypePicker();
     }
 
@@ -103,7 +106,7 @@ public class ForgetPwdActivity extends BaseMvpActivity {
             verifyInput(mBtnSendMsg);
         } else if (view.getId() == mBtnCommit.getId()) {
             verifyInput(mBtnCommit);
-        } else if (view.getId() == mIvForgetPwdBack.getId()) {
+        } else if (view.getId() == iv_back.getId()) {
             finish();
         } else if (view.getId() == mTvChoseCertificateType.getId()) {
             mCertificatesTypePicker.show();
