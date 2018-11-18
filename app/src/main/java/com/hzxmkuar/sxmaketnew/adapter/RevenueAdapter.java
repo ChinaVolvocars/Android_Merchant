@@ -5,6 +5,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.common.retrofit.model.Revenue;
@@ -40,9 +41,12 @@ public class RevenueAdapter extends RecyclerView.Adapter<RevenueAdapter.RevenueV
 
     @Override
     public void onBindViewHolder(RevenueViewHolder holder, int position) {
+        Revenue revenue = list.get(position);
+        holder.tvTime.setText(type == 0 ? "18年10月11日" : "18年10月");
+        holder.tvAmount.setText(context.getString(R.string.format_total_money, revenue.getTotal_money()));
+        int status = revenue.getStatus();
+        holder.ivStatus.setImageResource(status == 1 ? R.mipmap.ic_rise : R.mipmap.ic_drop);
 
-        holder.tvTime.setText("");
-        holder.tvAmount.setText("");
 
     }
 
@@ -57,6 +61,8 @@ public class RevenueAdapter extends RecyclerView.Adapter<RevenueAdapter.RevenueV
         TextView tvTime;
         @BindView(R.id.tv_amount)
         TextView tvAmount;
+        @BindView(R.id.iv_status)
+        ImageView ivStatus;
 
 
         public RevenueViewHolder(View itemView) {

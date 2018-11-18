@@ -37,6 +37,7 @@
                 android:textSize="@dimen/sp_18" />
 
             <ImageView
+                android:id="@+id/iv_calendar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@mipmap/ic_calendar" />
@@ -60,7 +61,9 @@
             <LinearLayout
                 android:layout_width="160dp"
                 android:layout_height="160dp"
-                android:layout_marginLeft="@dimen/dp_22">
+                android:layout_marginBottom="@dimen/dp_25"
+                android:layout_marginLeft="@dimen/dp_22"
+                android:layout_marginTop="@dimen/dp_18">
 
                 <FrameLayout
                     android:layout_width="match_parent"
@@ -70,6 +73,31 @@
                         android:id="@+id/pie_view"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent" />
+
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="营收总计"
+                            android:textColor="@color/color_838282"
+                            android:textSize="@dimen/sp_16" />
+
+                        <TextView
+                            android:id="@+id/tv_total_revenue"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="￥650.00"
+                            android:textColor="@color/color_303030"
+                            android:textSize="@dimen/sp_19" />
+
+                    </LinearLayout>
 
                 </FrameLayout>
 
@@ -93,6 +121,7 @@
                     android:textSize="@dimen/sp_16" />
 
                 <TextView
+                    android:id="@+id/tv_withdrawal_settlement"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:drawableLeft="@drawable/shape_rectangle_cashe_translate"
@@ -105,7 +134,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/dp_14"
-                    android:drawableLeft="@drawable/shape_rectangle_cashe_one"
+                    android:drawableLeft="@drawable/shape_rectangle_cashe_two"
                     android:drawablePadding="@dimen/dp_6"
                     android:gravity="center_vertical"
                     android:text="现金结算"
@@ -113,6 +142,7 @@
                     android:textSize="@dimen/sp_16" />
 
                 <TextView
+                    android:id="@+id/tv_cash_settlement"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:drawableLeft="@drawable/shape_rectangle_cashe_translate"

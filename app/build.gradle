@@ -89,5 +89,6 @@ dependencies {
     compile project(':lib_viewpager')
     compile project(':lib_pieview')
     compile project(':lib_tablayout')
+//    compile project(':pickerview')
 
 }

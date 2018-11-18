@@ -15,15 +15,16 @@
             android:background="#aaa" />
 
         <TextView
-            android:id="@+id/iv_cancel"
+            android:id="@+id/tv_cancel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_marginLeft="17dp"
-            android:padding="8dp"
+            android:layout_marginRight="17dp"
+            android:padding="4dp"
             android:text="取消"
-            android:textColor="#333"
-            android:textSize="18sp" />
+            android:textColor="#24AD9D"
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/tv_finish"
@@ -32,17 +33,17 @@
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:layout_marginRight="17dp"
-            android:padding="8dp"
-            android:text="确定"
-            android:textColor="@color/base_color"
-            android:textSize="18sp" />
+            android:padding="4dp"
+            android:text="完成"
+            android:textColor="#24AD9D"
+            android:textSize="16sp" />
 
         <View
             android:layout_width="match_parent"
             android:layout_height="0.5dp"
             android:background="#aaa" />
-    </RelativeLayout>
 
+    </RelativeLayout>
 
     <!--此部分需要完整复制过去，删减或者更改ID会导致初始化找不到内容而报空-->
     <LinearLayout
@@ -75,13 +76,15 @@
             android:id="@+id/hour"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1.1" />
+            android:layout_weight="1.1"
+            android:visibility="gone" />
 
         <com.bigkoo.pickerview.lib.WheelView
             android:id="@+id/min"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1.1" />
+            android:layout_weight="1.1"
+            android:visibility="gone" />
 
         <com.bigkoo.pickerview.lib.WheelView
             android:id="@+id/second"
@@ -89,7 +92,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1.1"
             android:visibility="gone" />
-    </LinearLayout>
 
+    </LinearLayout>
 
 </LinearLayout>

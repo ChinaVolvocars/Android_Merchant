@@ -17,6 +17,7 @@ public class DateUtils {
     public static final SimpleDateFormat FORMAT = new SimpleDateFormat("yyyy-MM-dd HH:mm", Locale.CHINA);
     public static final SimpleDateFormat FORMAT_DATE_DOT = new SimpleDateFormat("yyyy.MM.dd", Locale.CHINA);
     public static final SimpleDateFormat FORMAT_DATE = new SimpleDateFormat("yyyy-MM-dd", Locale.CHINA);
+    public static final SimpleDateFormat FORMAT_DATE4 = new SimpleDateFormat("yyyy-MM", Locale.CHINA);
     public static final SimpleDateFormat FORMAT_DATE2 = new SimpleDateFormat("yyyy/MM/dd", Locale.CHINA);
     public static final SimpleDateFormat FORMAT_TIME3 = new SimpleDateFormat("HH:mm:ss", Locale.CHINA);
     public static final SimpleDateFormat FORMAT_TIME = new SimpleDateFormat("HH:mm", Locale.CHINA);

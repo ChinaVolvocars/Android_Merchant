@@ -1,10 +1,19 @@
 package com.hzxmkuar.sxmaketnew.newversion;
 
+import android.graphics.Color;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.SpannableStringBuilder;
+import android.text.Spanned;
+import android.text.style.ForegroundColorSpan;
+import android.text.style.RelativeSizeSpan;
+import android.util.Log;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bigkoo.pickerview.TimePickerView;
+import com.bigkoo.pickerview.listener.CustomListener;
 import com.common.mvp.BaseMvpActivity;
 import com.common.mvp.BasePresenter;
 import com.common.retrofit.entity.resultImpl.HttpRespBean;
@@ -12,11 +21,11 @@ import com.common.retrofit.methods.BusinessUserMethods;
 import com.common.retrofit.model.TodayRevenue;
 import com.common.utils.DateUtils;
 import com.hzxmkuar.sxmaketnew.R;
-import com.hzxmkuar.sxmaketnew.adapter.MainAdapter;
 import com.hzxmkuar.sxmaketnew.adapter.TodayRevenueAdapter;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -31,8 +40,8 @@ public class TodayRevenueActivity extends BaseMvpActivity {
     ImageView back;
     @BindView(R.id.t_name)
     TextView tName;
-    @BindView(R.id.tv_right)
-    TextView tvRight;
+    //    @BindView(R.id.tv_right)
+//    TextView tvRight;
     @BindView(R.id.iv_adv)
     ImageView ivAdv;
     @BindView(R.id.tv_time)
@@ -50,12 +59,17 @@ public class TodayRevenueActivity extends BaseMvpActivity {
     @BindView(R.id.tv_transactions)
     TextView tvTransactions;
     private TodayRevenueAdapter adapter;
+    private TimePickerView pvTime;
 
     @OnClick(R.id.back)
     public void onFinishClicked() {
         finish();
     }
 
+    @OnClick(R.id.iv_calendar)
+    public void onCalendarClicked() {
+        pvTime.show();
+    }
 
     @Override
     protected BasePresenter createPresenterInstance() {
@@ -64,7 +78,7 @@ public class TodayRevenueActivity extends BaseMvpActivity {
 
     @Override
     protected int getLayoutId() {
-        return R.layout.activity_today_revenue;
+        return R.layout.activity_today_revenue_collapsing;
     }
 
     @Override
@@ -76,15 +90,20 @@ public class TodayRevenueActivity extends BaseMvpActivity {
 
         adapter = new TodayRevenueAdapter(this);
         recyclerView.setAdapter(adapter);
-        recyclerView. setNestedScrollingEnabled(false);
+        recyclerView.setNestedScrollingEnabled(false);
+        requestTodayRevenue(new Date());
+        initTimePicker();
+    }
+
+    private void requestTodayRevenue(final Date date) {
         List<String> reqLis = new ArrayList<>();
         reqLis.add("time");
         reqLis.add("uid");
         reqLis.add("page");
         reqLis.add("dates");
-        SimpleDateFormat formatDate = DateUtils.FORMAT_DATE;
-        String date = formatDate.format(new Date());
-        tvTime.setText(date);
+        SimpleDateFormat simpleDateFormat = DateUtils.FORMAT_DATE;
+        String formatDate = simpleDateFormat.format(date);
+        tvTime.setText(formatDate);
         BusinessUserMethods.getInstance().todayRevenue(new Subscriber<HttpRespBean<TodayRevenue>>() {
             @Override
             public void onCompleted() {
@@ -99,15 +118,77 @@ public class TodayRevenueActivity extends BaseMvpActivity {
                 TodayRevenue todayRevenue = result.getData();
                 tvWithdrawalSettlement.setText(getString(R.string.withdrawal_settlement, todayRevenue.getTotal_xindou()));
                 tvCashSettlement.setText(getString(R.string.cash_settlement, todayRevenue.getPay_moneys()));
-                tvTotal.setText(getString(R.string.total, todayRevenue.getTotal_money()));
+
+                //12 14 12
+                //#747373 #fdc70a #747373
+                SpannableStringBuilder stringTotal = new SpannableStringBuilder();
+                stringTotal.append(getString(R.string.total, todayRevenue.getTotal_money()));
+
+                ForegroundColorSpan colorSpan = new ForegroundColorSpan(Color.parseColor("#fdc70a"));
+                stringTotal.setSpan(colorSpan, 2, stringTotal.length() - 1, Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
+                RelativeSizeSpan sizeSpan01 = new RelativeSizeSpan(1.0f);
+                RelativeSizeSpan sizeSpan02 = new RelativeSizeSpan(1.167f);
+                RelativeSizeSpan sizeSpan03 = new RelativeSizeSpan(1.0f);
+                stringTotal.setSpan(sizeSpan01, 0, 2, Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
+                stringTotal.setSpan(sizeSpan02, 2, stringTotal.length() - 1, Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
+                stringTotal.setSpan(sizeSpan03, stringTotal.length() - 1, stringTotal.length(), Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
+                tvTotal.setText(stringTotal);
+
                 tvTransactions.setText(getString(R.string.transactions, todayRevenue.getTransaction()));
                 adapter.setData(result.getData().getToday_list());
             }
-        }, reqLis, date);
+        }, reqLis, formatDate);
     }
 
     @Override
     protected void doLogicFunc() {
 
     }
+
+
+    private void initTimePicker() {
+        //控制时间范围(如果不设置范围，则使用默认时间1900-2100年，此段代码可注释)
+        //因为系统Calendar的月份是从0-11的,所以如果是调用Calendar的set方法来设置时间,月份的范围也要是从0-11
+        Calendar selectedDate = Calendar.getInstance();
+        Calendar startDate = Calendar.getInstance();
+        startDate.set(2001, 0, 1);
+        Calendar endDate = Calendar.getInstance();
+        endDate.setTime(new Date());
+        //时间选择器
+        pvTime = new TimePickerView.Builder(getActivity(), new TimePickerView.OnTimeSelectListener() {
+            @Override
+            public void onTimeSelect(Date date, View v) {
+                // 这里回调过来的v,就是show()方法里面所添加的 View 参数，如果show的时候没有添加参数，v则为null
+                /*btn_Time.setText(getTime(date));*/
+//                Button btn = (Button) v;
+//                btn.setText(getTime(date));
+                Log.e("TAG", "onTimeSelect: " + DateUtils.FORMAT_DETAIL.format(date));
+                requestTodayRevenue(date);
+            }
+        }).setDate(selectedDate).setRangDate(startDate, selectedDate).setLayoutRes(R.layout.today_revenue_pickerview_custom_time, new CustomListener() {
+            @Override
+            public void customLayout(View v) {
+                final TextView tvSubmit = (TextView) v.findViewById(R.id.tv_finish);
+                TextView ivCancel = (TextView) v.findViewById(R.id.tv_cancel);
+                tvSubmit.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        pvTime.returnData();
+                        pvTime.dismiss();
+                    }
+                });
+                ivCancel.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        pvTime.dismiss();
+                    }
+                });
+            }
+        }).setLabel("", "", "", "", "", "") //设置空字符串以隐藏单位提示   hide label
+                .setDividerColor(Color.DKGRAY)
+                .setLineSpacingMultiplier(1.2f)
+                .build();
+//        pvTime.setKeyBackCancelable(false);//系统返回键监听屏蔽掉
+    }
+
 }

@@ -55,6 +55,7 @@ import com.common.retrofit.entity.result.ZBDetilBean;
 import com.common.retrofit.entity.result.ZBListBean;
 import com.common.retrofit.entity.resultImpl.HttpRespBean;
 import com.common.retrofit.model.Home;
+import com.common.retrofit.model.RevenueStatistics;
 import com.common.retrofit.model.TodayRevenue;
 
 import java.util.List;
@@ -1017,6 +1018,20 @@ public interface UserService {
     Observable<HttpRespBean<BankListBean.ListBean>> withdrawNew(@Field("time") String time,
                                                                 @Field("hash") String hash,
                                                                 @Field("uid") int uid);
+
+    //七天营业额
+    @FormUrlEncoded
+    @POST("ShopDayRevenue")
+    Observable<HttpRespBean<RevenueStatistics>> shopDayRevenue(@Field("time") String time,
+                                                               @Field("hash") String hash,
+                                                               @Field("uid") int uid);
+
+    //半年月度营业额
+    @FormUrlEncoded
+    @POST("ShopMonthlyRevenue")
+    Observable<HttpRespBean<RevenueStatistics>> shopMonthlyRevenue(@Field("time") String time,
+                                                                   @Field("hash") String hash,
+                                                                   @Field("uid") int uid);
 
 
 }

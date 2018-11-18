@@ -20,6 +20,7 @@ import com.common.retrofit.entity.result.ShopShowsEntity;
 import com.common.retrofit.entity.result.WidthDrawEntity;
 import com.common.retrofit.entity.resultImpl.HttpRespBean;
 import com.common.retrofit.model.Home;
+import com.common.retrofit.model.RevenueStatistics;
 import com.common.retrofit.model.TodayRevenue;
 import com.common.retrofit.service.UserService;
 
@@ -448,6 +449,7 @@ public class BusinessUserMethods extends BaseMethods {
 //        );
 //        toOtherSubscribe(observable, subscriber);
 //    }
+
     /**
      * 改版后的首页新接口
      *
@@ -492,6 +494,27 @@ public class BusinessUserMethods extends BaseMethods {
                 .withdrawNew(System.currentTimeMillis() + "",
                         Constants.getHash(reqLis),
                         DataCenter.UserId);
+        toOtherSubscribe(observable, subscriber);
+    }
+
+
+    //七天营业额
+    public void shopDayRevenue(Subscriber<HttpRespBean<RevenueStatistics>> subscriber, String time) {
+        List<String> reqLis = new ArrayList<>();
+        reqLis.add("time");
+        reqLis.add("uid");
+        Observable observable = initService()
+                .shopDayRevenue(time, Constants.getHash(reqLis), DataCenter.UserId);
+        toOtherSubscribe(observable, subscriber);
+    }
+
+    //半年月度营业额
+    public void shopMonthlyRevenue(Subscriber<HttpRespBean<RevenueStatistics>> subscriber, String time) {
+        List<String> reqLis = new ArrayList<>();
+        reqLis.add("time");
+        reqLis.add("uid");
+        Observable observable = initService()
+                .shopMonthlyRevenue(time, Constants.getHash(reqLis), DataCenter.UserId);
         toOtherSubscribe(observable, subscriber);
     }
 

@@ -3,6 +3,9 @@ package com.hzxmkuar.sxmaketnew.adapter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.text.SpannableStringBuilder;
+import android.text.Spanned;
+import android.text.style.RelativeSizeSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,7 +20,6 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class TodayRevenueAdapter extends RecyclerView.Adapter<TodayRevenueAdapter.TodayRevenueViewHolder> {
-
 
     private List<TodaysRevenue> list;
     private Context context;

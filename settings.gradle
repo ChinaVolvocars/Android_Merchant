@@ -1,1 +1,2 @@
-include ':app', ':payandlogin', ':common', ':zxinglite',  ':lib_viewpager', ':lib_indicator', ':lib_tablayout', ':lib_pieview'
+include ':app', ':payandlogin', ':common', ':zxinglite', ':lib_viewpager',
+        ':lib_indicator', ':lib_tablayout', ':lib_pieview'
