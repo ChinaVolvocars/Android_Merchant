@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.common.retrofit.entity.result.ApplyRecodEntity;
+import com.common.retrofit.entity.result.WithdrawlBillEntity;
 import com.common.utils.UIUtils;
 import com.hzxmkuar.sxmaketnew.R;
 
@@ -27,6 +28,7 @@ public class ApplyRecordAdapter extends RecyclerView.Adapter<ApplyRecordAdapter.
      */
     private int mRecordType = 1;
     private OnItemClickListerner clickListerner;
+
 
     public interface OnItemClickListerner {
         /**
@@ -50,6 +52,22 @@ public class ApplyRecordAdapter extends RecyclerView.Adapter<ApplyRecordAdapter.
         this.mRecordType = type;
     }
 
+    /**
+     *   清除数据
+     */
+    public void clearData(){
+        dataList.clear();
+        notifyDataSetChanged();
+    }
+
+    /**
+     * 填充数据
+     * @param list
+     */
+    public void addAll(List<ApplyRecodEntity.RecordEntity> list) {
+        dataList.addAll(list);
+        notifyDataSetChanged();
+    }
     @Override
     public ApplyRecordAdapter.ApplyRecordHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(mContext).inflate(R.layout.item_apply_record, parent, false);
@@ -120,7 +138,6 @@ public class ApplyRecordAdapter extends RecyclerView.Adapter<ApplyRecordAdapter.
                     }else {
                         clickListerner.itemClick(view, position, itemId, "","");
                     }
-
                 }
             }
         });
