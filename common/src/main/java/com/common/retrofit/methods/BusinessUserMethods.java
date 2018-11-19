@@ -8,6 +8,7 @@ import com.common.retrofit.base.BaseMethods;
 import com.common.retrofit.entity.DataCenter;
 import com.common.retrofit.entity.result.ActiveListEntity;
 import com.common.retrofit.entity.result.AppVersionEntity;
+import com.common.retrofit.entity.result.ApplyRecodEntity;
 import com.common.retrofit.entity.result.BankListBean;
 import com.common.retrofit.entity.result.ChangeBean;
 import com.common.retrofit.entity.result.FBean;
@@ -508,6 +509,21 @@ public class BusinessUserMethods extends BaseMethods {
         toOtherSubscribe(observable, subscriber);
     }
 
+    /**
+     * 代收代付/发票提现申请记录接口      <br/>
+     * @param subscriber
+     * @param page
+     */
+    public void getApplyRecord(Subscriber<ApplyRecodEntity> subscriber, String type, int page) {
+        List<String> reqList = new ArrayList<>();
+        reqList.add("time");
+        reqList.add("uid");
+        reqList.add("type");
+        reqList.add("page");
+        Observable observable = initService().getApplyRecord(System.currentTimeMillis() + "", Constants.getHash(reqList), DataCenter.UserId,type, page);
+        toSubscribe(observable, subscriber);
+    }
+
     //半年月度营业额
     public void shopMonthlyRevenue(Subscriber<HttpRespBean<RevenueStatistics>> subscriber, String time) {
         List<String> reqLis = new ArrayList<>();
@@ -517,9 +533,6 @@ public class BusinessUserMethods extends BaseMethods {
                 .shopMonthlyRevenue(time, Constants.getHash(reqLis), DataCenter.UserId);
         toOtherSubscribe(observable, subscriber);
     }
-
-
-
 
 
 
