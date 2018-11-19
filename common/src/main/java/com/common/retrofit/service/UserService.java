@@ -5,6 +5,7 @@ import com.common.retrofit.entity.result.ActiveListEntity;
 import com.common.retrofit.entity.result.AddressBean;
 import com.common.retrofit.entity.result.AddressResBean;
 import com.common.retrofit.entity.result.AppVersionEntity;
+import com.common.retrofit.entity.result.ApplyRecodEntity;
 import com.common.retrofit.entity.result.BankListBean;
 import com.common.retrofit.entity.result.BankNameBean;
 import com.common.retrofit.entity.result.CCBean;
@@ -1032,6 +1033,17 @@ public interface UserService {
     Observable<HttpRespBean<RevenueStatistics>> shopMonthlyRevenue(@Field("time") String time,
                                                                    @Field("hash") String hash,
                                                                    @Field("uid") int uid);
+
+    /**
+     * 代收代付/发票提现申请 记录  <br/>
+     * @param type   记录类型  <br/>
+     *               1 为发票提现  <br/> 2 为代付代收提现  <br/>
+     * @return
+     */
+    @FormUrlEncoded
+    @POST("WithdrawRecord.html")
+    Observable<HttpRespBean<ApplyRecodEntity>> getApplyRecord(@Field("time") String time, @Field("hash") String hash
+            , @Field("uid") int uid, @Field("type") String type, @Field("page") int page);
 
 
 }
