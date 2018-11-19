@@ -19,15 +19,39 @@ import java.util.List;
  */
 public class WithdrawBillAdapter extends RecyclerView.Adapter<WithdrawBillAdapter.MyHolder> {
     private Context mContext;
-    private int clickType = 0;
-    private List<WithdrawlBillEntity> dataList;
+    private int clickType = 2;
+    private List<WithdrawlBillEntity.WithdrawlBillItemEntity> dataList;
 
-    public WithdrawBillAdapter(Context mContext, int clickType, List<WithdrawlBillEntity> dataList) {
+    public WithdrawBillAdapter(Context mContext, int clickType, List<WithdrawlBillEntity.WithdrawlBillItemEntity> dataList) {
         this.mContext = mContext;
         this.clickType = clickType;
         this.dataList = dataList;
     }
 
+    /**
+     *   清除数据
+     */
+    public void clearData(){
+        dataList.clear();
+        notifyDataSetChanged();
+    }
+
+    /**
+     * 填充数据
+     * @param list
+     */
+    public void addAll(List<WithdrawlBillEntity.WithdrawlBillItemEntity> list) {
+        dataList.addAll(list);
+        notifyDataSetChanged();
+    }
+
+    /**
+     *  切换adapter的状态
+     */
+    public void changeClickType(int type){
+        this.clickType = type;
+        notifyDataSetChanged();
+    }
     @Override
     public WithdrawBillAdapter.MyHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(mContext).inflate(R.layout.item_withdrawl_bill,parent,false);
@@ -37,9 +61,9 @@ public class WithdrawBillAdapter extends RecyclerView.Adapter<WithdrawBillAdapte
 
     @Override
     public void onBindViewHolder(WithdrawBillAdapter.MyHolder holder, int position) {
-        holder.tv_date.setText(dataList.get(position).getDate());
+        holder.tv_date.setText(dataList.get(position).getCreate_time());
         holder.tv_money.setText(dataList.get(position).getMoney());
-        if (clickType == 0){
+        if (clickType == 2){
             holder.tv_divide_line.setBackgroundResource(R.mipmap.yellow_devide_line);
             holder.tv_money.setTextColor(UIUtils.getColor(R.color.color_fcc80a));
         }else {
