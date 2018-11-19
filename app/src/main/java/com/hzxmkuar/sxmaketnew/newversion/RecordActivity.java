@@ -184,6 +184,7 @@ public class RecordActivity extends BaseMvpActivity {
                     recordRecyclerView.setNoMore(true);
                     return;
                 }
+
                 mPageIndex++;
                 mIsRefreshOrLoadMore = 1;
                 getApplyRecord();

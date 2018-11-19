@@ -29,15 +29,16 @@ public class WithdrawBillAdapter extends RecyclerView.Adapter<WithdrawBillAdapte
     }
 
     /**
-     *   清除数据
+     * 清除数据
      */
-    public void clearData(){
+    public void clearData() {
         dataList.clear();
         notifyDataSetChanged();
     }
 
     /**
      * 填充数据
+     *
      * @param list
      */
     public void addAll(List<WithdrawlBillEntity.WithdrawlBillItemEntity> list) {
@@ -46,15 +47,16 @@ public class WithdrawBillAdapter extends RecyclerView.Adapter<WithdrawBillAdapte
     }
 
     /**
-     *  切换adapter的状态
+     * 切换adapter的状态
      */
-    public void changeClickType(int type){
+    public void changeClickType(int type) {
         this.clickType = type;
         notifyDataSetChanged();
     }
+
     @Override
     public WithdrawBillAdapter.MyHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(mContext).inflate(R.layout.item_withdrawl_bill,parent,false);
+        View view = LayoutInflater.from(mContext).inflate(R.layout.item_withdrawl_bill, parent, false);
         MyHolder viewHolder = new MyHolder(view);
         return viewHolder;
     }
@@ -63,16 +65,16 @@ public class WithdrawBillAdapter extends RecyclerView.Adapter<WithdrawBillAdapte
     public void onBindViewHolder(WithdrawBillAdapter.MyHolder holder, int position) {
         holder.tv_date.setText(dataList.get(position).getCreate_time());
         holder.tv_money.setText(dataList.get(position).getMoney());
-        if (clickType == 2){
+        if (clickType == 2) {
             holder.tv_divide_line.setBackgroundResource(R.mipmap.yellow_devide_line);
             holder.tv_money.setTextColor(UIUtils.getColor(R.color.color_fcc80a));
-        }else {
+        } else {
             holder.tv_divide_line.setBackgroundResource(R.mipmap.blue_devide_line);
             holder.tv_money.setTextColor(UIUtils.getColor(R.color.color_55a7fb));
         }
-        if (position == dataList.size()-1){
+        if (position == dataList.size() - 1) {
             holder.tv_divide_line.setVisibility(View.INVISIBLE);
-        }else {
+        } else {
             holder.tv_divide_line.setVisibility(View.VISIBLE);
         }
 
@@ -92,6 +94,7 @@ public class WithdrawBillAdapter extends RecyclerView.Adapter<WithdrawBillAdapte
         TextView tv_date;
         TextView tv_money;
         TextView tv_divide_line;
+
         public MyHolder(View itemView) {
             super(itemView);
             tv_date = (TextView) itemView.findViewById(R.id.tv_date);
