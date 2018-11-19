@@ -25,6 +25,7 @@ import com.common.retrofit.entity.result.HomeOneBean;
 import com.common.retrofit.entity.result.IndexBean;
 import com.common.retrofit.entity.result.InfoBean;
 import com.common.retrofit.entity.result.JFBean;
+import com.common.retrofit.entity.result.ListDataEntity;
 import com.common.retrofit.entity.result.MsgBena;
 import com.common.retrofit.entity.result.MyOrderBean;
 import com.common.retrofit.entity.result.MyZBList;
@@ -50,6 +51,7 @@ import com.common.retrofit.entity.result.UserBean;
 import com.common.retrofit.entity.result.UserInfoBean;
 import com.common.retrofit.entity.result.WallBean;
 import com.common.retrofit.entity.result.WidthDrawEntity;
+import com.common.retrofit.entity.result.WithdrawlBillEntity;
 import com.common.retrofit.entity.result.YSBean;
 import com.common.retrofit.entity.result.ZBDetil;
 import com.common.retrofit.entity.result.ZBDetilBean;
@@ -1071,6 +1073,17 @@ public interface UserService {
     @FormUrlEncoded
     @POST("WithdrawRecord.html")
     Observable<HttpRespBean<ApplyRecodEntity>> getApplyRecord(@Field("time") String time, @Field("hash") String hash
+            , @Field("uid") int uid, @Field("type") String type, @Field("page") int page);
+
+    /**
+     * 提现账款 <br/>
+     * @param type   记录类型  <br/>
+     *               1 为发票提现  <br/> 2 为代付代收提现  <br/>
+     * @return
+     */
+    @FormUrlEncoded
+    @POST("accountSuccess.html")
+    Observable<HttpRespBean<WithdrawlBillEntity>> withdrawCredit(@Field("time") String time, @Field("hash") String hash
             , @Field("uid") int uid, @Field("type") String type, @Field("page") int page);
 
 

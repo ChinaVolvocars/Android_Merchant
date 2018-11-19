@@ -31,6 +31,7 @@ public class Home implements Parcelable {
     private String pay_xindou;
     private String pay_money;
     private String accumulative;
+    private String week;
     private List<ShopBanner> shop_banner;
     private List<ServiceFunction> service_function;
     private List<ActivityList> list;
@@ -133,6 +134,19 @@ public class Home implements Parcelable {
 
     public String getCopy_invoice_url() {
         return copy_invoice_url;
+    }
+
+    /**
+     *   是否可提现   <br/>
+     *   0不可提现，  <br/> 1 可以提现  <br/>
+     * @return
+     */
+    public String getWeek() {
+        return week;
+    }
+
+    public void setWeek(String week) {
+        this.week = week;
     }
 
     public void setCopy_invoice_url(String copy_invoice_url) {

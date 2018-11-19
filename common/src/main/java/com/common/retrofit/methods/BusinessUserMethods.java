@@ -19,6 +19,7 @@ import com.common.retrofit.entity.result.InfoBean;
 import com.common.retrofit.entity.result.NewTestBean;
 import com.common.retrofit.entity.result.ShopShowsEntity;
 import com.common.retrofit.entity.result.WidthDrawEntity;
+import com.common.retrofit.entity.result.WithdrawlBillEntity;
 import com.common.retrofit.entity.resultImpl.HttpRespBean;
 import com.common.retrofit.model.Home;
 import com.common.retrofit.model.Pie;
@@ -512,7 +513,6 @@ public class BusinessUserMethods extends BaseMethods {
 
     /**
      * 代收代付/发票提现申请记录接口      <br/>
-     *
      * @param subscriber
      * @param page
      */
@@ -561,6 +561,22 @@ public class BusinessUserMethods extends BaseMethods {
                         Constants.getHash(reqLis), DataCenter.UserId, month);
         toOtherSubscribe(observable, subscriber);
     }
+    /**
+     * 提现账款  <br/>
+     * @param clickType  类型 <br/>  1 为发票   <br/>2为代收代付 <br/>
+     * @param page  页数 <br/>
+     */
+    public void withdrawCredit(Subscriber<WithdrawlBillEntity> subscriber, String clickType, int page) {
+        List<String> reqList = new ArrayList<>();
+        reqList.add("time");
+        reqList.add("uid");
+        reqList.add("page");
+        reqList.add("type");
+        Observable observable = initService().withdrawCredit(System.currentTimeMillis() + "", Constants.getHash(reqList), DataCenter.UserId, clickType, page);
+        toSubscribe(observable, subscriber);
+    }
+
+
 
 
 }

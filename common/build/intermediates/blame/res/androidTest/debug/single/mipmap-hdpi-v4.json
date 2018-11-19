@@ -1,18 +1,18 @@
 [
     {
-        "merged": "D:\\Company\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\androidTest\\debug\\mipmap-hdpi-v4\\icon_app.png",
-        "source": "D:\\Company\\SX_Merchant\\common\\build\\intermediates\\bundles\\debug\\res\\mipmap-hdpi-v4\\icon_app.png"
+        "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\androidTest\\debug\\mipmap-hdpi-v4\\icon_app.png",
+        "source": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\bundles\\debug\\res\\mipmap-hdpi-v4\\icon_app.png"
     },
     {
-        "merged": "D:\\Company\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\androidTest\\debug\\mipmap-hdpi-v4\\titles_bac.png",
-        "source": "D:\\Company\\SX_Merchant\\common\\build\\intermediates\\bundles\\debug\\res\\mipmap-hdpi-v4\\titles_bac.png"
+        "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\androidTest\\debug\\mipmap-hdpi-v4\\dialog_version_compar_bg.png",
+        "source": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\bundles\\debug\\res\\mipmap-hdpi-v4\\dialog_version_compar_bg.png"
     },
     {
-        "merged": "D:\\Company\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\androidTest\\debug\\mipmap-hdpi-v4\\btn_cancel.png",
-        "source": "D:\\Company\\SX_Merchant\\common\\build\\intermediates\\bundles\\debug\\res\\mipmap-hdpi-v4\\btn_cancel.png"
+        "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\androidTest\\debug\\mipmap-hdpi-v4\\titles_bac.png",
+        "source": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\bundles\\debug\\res\\mipmap-hdpi-v4\\titles_bac.png"
     },
     {
-        "merged": "D:\\Company\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\androidTest\\debug\\mipmap-hdpi-v4\\dialog_version_compar_bg.png",
-        "source": "D:\\Company\\SX_Merchant\\common\\build\\intermediates\\bundles\\debug\\res\\mipmap-hdpi-v4\\dialog_version_compar_bg.png"
+        "merged": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\res\\merged\\androidTest\\debug\\mipmap-hdpi-v4\\btn_cancel.png",
+        "source": "E:\\sx_repositories\\SX_Merchant\\common\\build\\intermediates\\bundles\\debug\\res\\mipmap-hdpi-v4\\btn_cancel.png"
     }
 ]
