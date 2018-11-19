@@ -93,9 +93,9 @@
                             android:id="@+id/tv_total_revenue"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="￥650.00"
                             android:textColor="@color/color_303030"
-                            android:textSize="@dimen/sp_19" />
+                            android:textSize="@dimen/sp_19"
+                            tools:text="￥650.00" />
 
                     </LinearLayout>
 
@@ -126,9 +126,9 @@
                     android:layout_height="wrap_content"
                     android:drawableLeft="@drawable/shape_rectangle_cashe_translate"
                     android:drawablePadding="@dimen/dp_6"
-                    android:text="￥325.00"
                     android:textColor="@color/color_303030"
-                    android:textSize="@dimen/sp_17" />
+                    android:textSize="@dimen/sp_17"
+                    tools:text="￥325.00" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -147,9 +147,9 @@
                     android:layout_height="wrap_content"
                     android:drawableLeft="@drawable/shape_rectangle_cashe_translate"
                     android:drawablePadding="@dimen/dp_6"
-                    android:text="￥325.00"
                     android:textColor="@color/color_303030"
-                    android:textSize="@dimen/sp_17" />
+                    android:textSize="@dimen/sp_17"
+                    tools:text="￥325.00" />
 
             </LinearLayout>
 

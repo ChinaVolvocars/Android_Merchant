@@ -42,7 +42,7 @@ public class RevenueAdapter extends RecyclerView.Adapter<RevenueAdapter.RevenueV
     @Override
     public void onBindViewHolder(RevenueViewHolder holder, int position) {
         Revenue revenue = list.get(position);
-        holder.tvTime.setText(type == 0 ? "18年10月11日" : "18年10月");
+        holder.tvTime.setText(type == 0 ? revenue.getDay() : revenue.getMonth());
         holder.tvAmount.setText(context.getString(R.string.format_total_money, revenue.getTotal_money()));
         int status = revenue.getStatus();
         holder.ivStatus.setImageResource(status == 1 ? R.mipmap.ic_rise : R.mipmap.ic_drop);

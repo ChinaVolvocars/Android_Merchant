@@ -73,18 +73,19 @@ public class ChangeActivity extends BaseMvpActivity {
         statusLoading();
         goToHttpReqss();
     }
+
     private void goToHttpReqss() {
         CommonSubscriber<ChangeBean> subscriber = new CommonSubscriber<>(new SubscriberListener() {
             @Override
             public void onNext(Object o) {
                 statusContent();
                 ChangeBean newTestBean = (ChangeBean) o;
-                mDouzi.setText("（剩余"+newTestBean.getXinlidou()+"）");
-                mDouzix.setText("（剩余"+newTestBean.getXianglidou()+"）");
+                mDouzi.setText("（剩余" + newTestBean.getXinlidou() + "）");
+                mDouzix.setText("（剩余" + newTestBean.getXianglidou() + "）");
                 newTestBean.getXianglidou();
                 List<ChangeBean.ShopPriceBean> shop_price = newTestBean.getShop_price();
-                VideoAdapter adapter = new VideoAdapter(context,shop_price);
-                GridLayoutManager gridLayoutManager = new GridLayoutManager(context,4);
+                VideoAdapter adapter = new VideoAdapter(context, shop_price);
+                GridLayoutManager gridLayoutManager = new GridLayoutManager(context, 4);
                 mRecyclerView.setLayoutManager(gridLayoutManager);
                 mRecyclerView.setAdapter(adapter);
             }
@@ -98,6 +99,7 @@ public class ChangeActivity extends BaseMvpActivity {
         BusinessUserMethods.getInstance().store(subscriber);
         rxManager.add(subscriber);
     }
+
     private void goToHttpReqsss(String id, String editTextStr, String textStr) {
         showProgressingDialog();
         CommonSubscriber<Object> subscriber = new CommonSubscriber<>(new SubscriberListener() {
@@ -113,47 +115,45 @@ public class ChangeActivity extends BaseMvpActivity {
                 showToastMsg(e);
             }
         });
-        BusinessUserMethods.getInstance().storeSubmit(subscriber,id,editTextStr,textStr);
+        BusinessUserMethods.getInstance().storeSubmit(subscriber, id, editTextStr, textStr);
         rxManager.add(subscriber);
     }
+
     @Override
     protected void onViewClicked(View view) {
-        if (view.getId()==mBack.getId()){
+        if (view.getId() == mBack.getId()) {
             finish();
-        }else if(view.getId()==mNext.getId()){
-            if (mId.equals("")){
+        } else if (view.getId() == mNext.getId()) {
+            if (mId.equals("")) {
                 showToastMsg("请选择购买的类型");
                 return;
             }
-            goToHttpReqsss(mId,getEditTextStr(mNum),getEditTextStr(mNum1));
+            goToHttpReqsss(mId, getEditTextStr(mNum), getEditTextStr(mNum1));
         }
     }
-     class VideoAdapter extends
-            RecyclerView.Adapter<VideoAdapter.ViewHolder>
-    {
+
+    class VideoAdapter extends
+            RecyclerView.Adapter<VideoAdapter.ViewHolder> {
         private LayoutInflater mInflater;
         private List<ChangeBean.ShopPriceBean> mDatas;
         private Context mContext;
 
-        public VideoAdapter(Context context, List<ChangeBean.ShopPriceBean> datats)
-        {
+        public VideoAdapter(Context context, List<ChangeBean.ShopPriceBean> datats) {
             mInflater = LayoutInflater.from(context);
             mDatas = datats;
-            mContext =context;
+            mContext = context;
         }
 
-        public class ViewHolder extends RecyclerView.ViewHolder
-        {
-            public ViewHolder(View arg0)
-            {
+        public class ViewHolder extends RecyclerView.ViewHolder {
+            public ViewHolder(View arg0) {
                 super(arg0);
             }
+
             TextView name;
         }
 
         @Override
-        public int getItemCount()
-        {
+        public int getItemCount() {
             return mDatas.size();
         }
 
@@ -161,8 +161,7 @@ public class ChangeActivity extends BaseMvpActivity {
          * 创建ViewHolder
          */
         @Override
-        public ViewHolder onCreateViewHolder(ViewGroup viewGroup, final int i)
-        {
+        public ViewHolder onCreateViewHolder(ViewGroup viewGroup, final int i) {
             View view = mInflater.inflate(R.layout.item_change,
                     viewGroup, false);
             ViewHolder viewHolder = new ViewHolder(view);
@@ -175,10 +174,10 @@ public class ChangeActivity extends BaseMvpActivity {
          */
         @Override
         public void onBindViewHolder(final ViewHolder viewHolder, final int i) {
-            viewHolder.name.setText(mDatas.get(i).getNum()+"张");
-            if (position==i){
+            viewHolder.name.setText(mDatas.get(i).getNum() + "张");
+            if (position == i) {
                 viewHolder.name.setBackgroundColor(getResources().getColor(R.color.base_color));
-            }else {
+            } else {
                 viewHolder.name.setBackgroundColor(getResources().getColor(R.color.white));
             }
             viewHolder.name.setOnClickListener(new View.OnClickListener() {

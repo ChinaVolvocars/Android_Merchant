@@ -56,6 +56,7 @@ import com.common.retrofit.entity.result.ZBDetilBean;
 import com.common.retrofit.entity.result.ZBListBean;
 import com.common.retrofit.entity.resultImpl.HttpRespBean;
 import com.common.retrofit.model.Home;
+import com.common.retrofit.model.Pie;
 import com.common.retrofit.model.RevenueStatistics;
 import com.common.retrofit.model.TodayRevenue;
 
@@ -1034,10 +1035,37 @@ public interface UserService {
                                                                    @Field("hash") String hash,
                                                                    @Field("uid") int uid);
 
+    //月度柱形图统计接口 月份（选填 不填显示当月 例：2018-11）
+    @FormUrlEncoded
+    @POST("ShopColumnGraph")
+    Observable<HttpRespBean<Pie>> shopColumnGraph(@Field("time") String time,
+                                                  @Field("hash") String hash,
+                                                  @Field("uid") int uid,
+                                                  @Field("month") String month);
+
+    /**
+     * 提交发票
+     *
+     * @param time 时间（必填）
+     * @param hash 加密值（必填）
+     * @param wId  提现列表id（必填）
+     * @param type 类型（必填）（1为电子发票 2为快递发票）
+     * @param info 发票信息（必填）（json字符串格式）
+     * @return
+     */
+    @FormUrlEncoded
+    @POST("InvoiceSubmit")
+    Observable<HttpRespBean> invoiceSubmit(@Field("time") String time,
+                                           @Field("hash") String hash,
+                                           @Field("wid") String wId,
+                                           @Field("type") int type,
+                                           @Field("info") String info);
+
     /**
      * 代收代付/发票提现申请 记录  <br/>
-     * @param type   记录类型  <br/>
-     *               1 为发票提现  <br/> 2 为代付代收提现  <br/>
+     *
+     * @param type 记录类型  <br/>
+     *             1 为发票提现  <br/> 2 为代付代收提现  <br/>
      * @return
      */
     @FormUrlEncoded

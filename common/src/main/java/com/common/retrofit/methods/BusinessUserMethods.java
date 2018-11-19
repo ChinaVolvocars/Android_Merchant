@@ -21,6 +21,7 @@ import com.common.retrofit.entity.result.ShopShowsEntity;
 import com.common.retrofit.entity.result.WidthDrawEntity;
 import com.common.retrofit.entity.resultImpl.HttpRespBean;
 import com.common.retrofit.model.Home;
+import com.common.retrofit.model.Pie;
 import com.common.retrofit.model.RevenueStatistics;
 import com.common.retrofit.model.TodayRevenue;
 import com.common.retrofit.service.UserService;
@@ -511,6 +512,7 @@ public class BusinessUserMethods extends BaseMethods {
 
     /**
      * 代收代付/发票提现申请记录接口      <br/>
+     *
      * @param subscriber
      * @param page
      */
@@ -520,7 +522,7 @@ public class BusinessUserMethods extends BaseMethods {
         reqList.add("uid");
         reqList.add("type");
         reqList.add("page");
-        Observable observable = initService().getApplyRecord(System.currentTimeMillis() + "", Constants.getHash(reqList), DataCenter.UserId,type, page);
+        Observable observable = initService().getApplyRecord(System.currentTimeMillis() + "", Constants.getHash(reqList), DataCenter.UserId, type, page);
         toSubscribe(observable, subscriber);
     }
 
@@ -535,7 +537,30 @@ public class BusinessUserMethods extends BaseMethods {
     }
 
 
+    //半年月度营业额
+    public void invoiceSubmit(Subscriber<HttpRespBean> subscriber, String wId, int type, String info) {
+        List<String> reqLis = new ArrayList<>();
+        reqLis.add("time");
+        reqLis.add("wid");
+        reqLis.add("type");
+        reqLis.add("info");
+        Observable observable = initService()
+                .invoiceSubmit(System.currentTimeMillis() + "",
+                        Constants.getHash(reqLis), wId, type, info);
+        toOtherSubscribe(observable, subscriber);
+    }
 
+    //环形图
+    public void shopColumnGraph(Subscriber<HttpRespBean<Pie>> subscriber, String month) {
+        List<String> reqLis = new ArrayList<>();
+        reqLis.add("time");
+        reqLis.add("uid");
+        reqLis.add("month");
+        Observable observable = initService()
+                .shopColumnGraph(System.currentTimeMillis() + "",
+                        Constants.getHash(reqLis), DataCenter.UserId, month);
+        toOtherSubscribe(observable, subscriber);
+    }
 
 
 }

@@ -28,6 +28,8 @@ public class WithdrawDialogFragment extends DialogFragment {
     ImageView ivImage;
     @BindView(R.id.tv_confirm)
     TextView tvConfirm;
+    @BindView(R.id.tv_content)
+    TextView tvContent;
     Unbinder unbinder;
 
     @Override
@@ -75,6 +77,12 @@ public class WithdrawDialogFragment extends DialogFragment {
         boolean flag = bundle.getBoolean("flag", true);
         ivImage.setImageResource(flag ? R.mipmap.ic_withdraw_yellow : R.mipmap.ic_withdraw_blue);
         tvConfirm.setBackgroundResource(flag ? R.drawable.shape_dialog_withdraw : R.drawable.shape_dialog_withdraw_blue);
+        String invoice = bundle.getString("invoice", "");
+        if (invoice.equals("invoice")) {
+            tvContent.setText("发票审核中 • • •");
+        } else {
+            tvContent.setText("财务对账中 • • •");
+        }
 
     }
 

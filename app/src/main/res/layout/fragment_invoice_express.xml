@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_f0f0f0"
+    android:orientation="vertical">
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="@dimen/dp_8"
+            android:layout_marginLeft="@dimen/dp_8"
+            android:layout_marginRight="@dimen/dp_8"
+            android:layout_marginTop="@dimen/dp_6"
+            android:background="@drawable/shape_rectangle_white"
+            android:orientation="vertical"
+            android:paddingBottom="@dimen/dp_25">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dp_12"
+                android:layout_marginTop="@dimen/dp_12"
+                android:text="寄件人"
+                android:textColor="@color/color_303030"
+                android:textSize="@dimen/sp_18" />
+
+            <EditText
+                android:id="@+id/et_name"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_42"
+                android:layout_marginLeft="@dimen/dp_12"
+                android:layout_marginRight="@dimen/dp_12"
+                android:layout_marginTop="@dimen/dp_8"
+                android:background="@drawable/selector_invoice_edit"
+                android:hint="请输入寄件人名称"
+                android:maxLength="25"
+                android:paddingLeft="@dimen/dp_10"
+                android:textColor="@color/color_303030"
+                android:textColorHint="@color/color_959595"
+                android:textSize="@dimen/sp_16" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dp_12"
+                android:layout_marginTop="@dimen/dp_12"
+                android:text="手机号"
+                android:textColor="@color/color_303030"
+                android:textSize="@dimen/sp_18" />
+
+            <EditText
+                android:id="@+id/et_phone"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_42"
+                android:layout_marginLeft="@dimen/dp_12"
+                android:layout_marginRight="@dimen/dp_12"
+                android:layout_marginTop="@dimen/dp_8"
+                android:background="@drawable/selector_invoice_edit"
+                android:hint="请输入手机号码"
+                android:inputType="number"
+                android:maxLength="11"
+                android:paddingLeft="@dimen/dp_10"
+                android:textColor="@color/color_303030"
+                android:textColorHint="@color/color_959595"
+                android:textSize="@dimen/sp_16" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dp_12"
+                android:layout_marginTop="@dimen/dp_12"
+                android:text="快递公司*"
+                android:textColor="@color/color_303030"
+                android:textSize="@dimen/sp_18" />
+
+            <EditText
+                android:id="@+id/et_express_name"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_42"
+                android:layout_marginLeft="@dimen/dp_12"
+                android:layout_marginRight="@dimen/dp_12"
+                android:layout_marginTop="@dimen/dp_8"
+                android:background="@drawable/selector_invoice_edit"
+                android:hint="请输入快递公司名称"
+                android:maxLength="50"
+                android:paddingLeft="@dimen/dp_10"
+                android:textColor="@color/color_303030"
+                android:textColorHint="@color/color_959595"
+                android:textSize="@dimen/sp_16" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dp_12"
+                android:layout_marginTop="@dimen/dp_12"
+                android:text="快递单号*"
+                android:textColor="@color/color_303030"
+                android:textSize="@dimen/sp_18" />
+
+            <EditText
+                android:id="@+id/et_express_num"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_42"
+                android:layout_marginLeft="@dimen/dp_12"
+                android:layout_marginRight="@dimen/dp_12"
+                android:layout_marginTop="@dimen/dp_8"
+                android:background="@drawable/selector_invoice_edit"
+                android:hint="请输入快递单号"
+                android:inputType="text"
+                android:maxLength="50"
+                android:paddingLeft="@dimen/dp_10"
+                android:textColor="@color/color_303030"
+                android:textColorHint="@color/color_959595"
+                android:textSize="@dimen/sp_16" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dp_12"
+                android:layout_marginTop="@dimen/dp_12"
+                android:text="留言"
+                android:textColor="@color/color_303030"
+                android:textSize="@dimen/sp_18" />
+
+            <EditText
+                android:id="@+id/et_other"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_42"
+                android:layout_marginLeft="@dimen/dp_12"
+                android:layout_marginRight="@dimen/dp_12"
+                android:layout_marginTop="@dimen/dp_8"
+                android:background="@drawable/selector_invoice_edit"
+                android:hint="若含电子发票，请打印后一并寄出"
+                android:maxLength="120"
+                android:paddingLeft="@dimen/dp_10"
+                android:textColor="@color/color_303030"
+                android:textColorHint="@color/color_959595"
+                android:textSize="@dimen/sp_16" />
+
+
+        </LinearLayout>
+
+
+    </android.support.v4.widget.NestedScrollView>
+
+
+    <TextView
+        android:id="@+id/tv_confirm"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_48"
+        android:layout_marginBottom="@dimen/dp_14"
+        android:layout_marginLeft="@dimen/dp_8"
+        android:layout_marginRight="@dimen/dp_8"
+        android:background="@drawable/selector_invoice"
+        android:gravity="center"
+        android:text="确认提交"
+        android:textColor="@color/white"
+        android:textSize="@dimen/sp_20" />
+
+
+</LinearLayout>

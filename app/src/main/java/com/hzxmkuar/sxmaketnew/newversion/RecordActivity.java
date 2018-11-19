@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+
 import com.common.adapter.helper.IRecyclerViewHelper;
 import com.common.base.Constants;
 import com.common.mvp.BaseMvpActivity;
@@ -24,6 +25,8 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.OnClick;
+
+import static com.hzxmkuar.sxmaketnew.fragment.InvoiceExpressFragment.WID;
 
 /**
  * 代收代付记录 和 发票申请记录
@@ -204,7 +207,9 @@ public class RecordActivity extends BaseMvpActivity {
                     urlIntent.putExtra(BaseUrlActivity.MAIN_URL, h5Url);
                     startActivity(urlIntent);
                 } else {  // 跳转到提交发票界面
-                    showToastMsg("toActivity");
+                    Intent intent = new Intent(RecordActivity.this, InvoiceInformationActivity.class);
+                    intent.putExtra(WID, id);
+                    startActivity(intent);
                 }
             }
         });

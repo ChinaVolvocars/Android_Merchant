@@ -8,6 +8,24 @@ public class Revenue implements Parcelable {
 
     private String total_money;
     private int status;
+    private String day;
+    private String month;
+
+    public String getDay() {
+        return day;
+    }
+
+    public void setDay(String day) {
+        this.day = day;
+    }
+
+    public String getMonth() {
+        return month;
+    }
+
+    public void setMonth(String month) {
+        this.month = month;
+    }
 
     public String getTotal_money() {
         return total_money;

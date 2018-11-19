@@ -72,6 +72,7 @@ public class WithdrawBillActivity extends BaseMvpActivity {
 
     private WithdrawBillAdapter withdrawBillAdapter;
     private List<WithdrawlBillEntity> billEntities = new ArrayList<>();
+
     @Override
     protected BasePresenter createPresenterInstance() {
         return null;
@@ -98,10 +99,10 @@ public class WithdrawBillActivity extends BaseMvpActivity {
     }
 
     /**
-     *  初始化适配器
+     * 初始化适配器
      */
     private void initAdapter(int clickType) {
-        withdrawBillAdapter = new WithdrawBillAdapter(context,clickType,billEntities);
+        withdrawBillAdapter = new WithdrawBillAdapter(context, clickType, billEntities);
         IRecyclerViewHelper.init().setRecycleLineLayout(context, LinearLayoutManager.VERTICAL, xRecyclerviewPayforother);
         xRecyclerviewPayforother.setHasFixedSize(true);
         xRecyclerviewPayforother.setAdapter(withdrawBillAdapter);
@@ -145,14 +146,14 @@ public class WithdrawBillActivity extends BaseMvpActivity {
     }
 
     /**
-     *  初始化数据
+     * 初始化数据
      */
     private void getWithdrawalBillList(int clickType) {
 
         for (int i = 0; i < 20; i++) {
             WithdrawlBillEntity entity = new WithdrawlBillEntity();
-            entity.setDate("2018-08-08  "+i);
-            entity.setMoney(String.valueOf(50+i));
+            entity.setDate("2018-08-08  " + i);
+            entity.setMoney(String.valueOf(50 + i));
             billEntities.add(entity);
         }
         initAdapter(clickType);
@@ -181,8 +182,6 @@ public class WithdrawBillActivity extends BaseMvpActivity {
             tvPayforOtherBeforThePayment.setText("100.00");
             tvValueContent.setBackgroundResource(R.mipmap.payfor_other_befor_the_paymentbg);
             tvHaveToAccount.setBackgroundResource(R.mipmap.payfor_other_have_to_account_bg);
-
-
         } else {
             viewPoint01.setBackgroundResource(R.drawable.circle_color_black_994c4c4c);
             viewPoint02.setBackgroundResource(R.drawable.circle_color_black_4c4c4c);
@@ -200,8 +199,6 @@ public class WithdrawBillActivity extends BaseMvpActivity {
             tvPayforOtherBeforThePayment.setText("200.00");
             tvValueContent.setBackgroundResource(R.mipmap.invoice_withdrawawl_bg);
             tvHaveToAccount.setBackgroundResource(R.mipmap.invoice_withdrawal_have_to_account_bg);
-
         }
-
     }
 }

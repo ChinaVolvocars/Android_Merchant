@@ -14,6 +14,7 @@ import com.common.mvp.BaseMvpActivity;
 import com.common.mvp.BasePresenter;
 import com.common.retrofit.entity.resultImpl.HttpRespBean;
 import com.common.retrofit.methods.BusinessUserMethods;
+import com.common.retrofit.model.Pie;
 import com.common.retrofit.model.RevenueStatistics;
 import com.common.utils.DateUtils;
 import com.flyco.tablayout.SegmentTabLayout;
@@ -32,6 +33,7 @@ import butterknife.BindView;
 import butterknife.OnClick;
 import rx.Subscriber;
 
+//营收统计
 public class RevenueActivity extends BaseMvpActivity {
 
     @BindView(R.id.tv_time)
@@ -111,6 +113,10 @@ public class RevenueActivity extends BaseMvpActivity {
         initTimePicker();
 
         shopDayRevenue(formatDate);
+
+        SimpleDateFormat formatDate4 = DateUtils.FORMAT_DATE4;
+        String format = formatDate4.format(new Date());
+        shopColumnGraph(format);
     }
 
     private void shopMonthlyRevenue(String formatDate) {
@@ -128,6 +134,51 @@ public class RevenueActivity extends BaseMvpActivity {
             @Override
             public void onNext(HttpRespBean<RevenueStatistics> result) {
                 adapter.setData(result.getData().getTotal_moneys(), 1);
+            }
+        }, formatDate);
+    }
+
+    private void shopColumnGraph(String formatDate) {
+        BusinessUserMethods.getInstance().shopColumnGraph(new Subscriber<HttpRespBean<Pie>>() {
+            @Override
+            public void onCompleted() {
+
+            }
+
+            @Override
+            public void onError(Throwable e) {
+                Log.e("环形图", "环形图 " + e.getMessage());
+
+            }
+
+            @Override
+            public void onNext(HttpRespBean<Pie> result) {
+
+                Pie pie = result.getData();
+                String accumulative = pie.getAccumulative();
+                String pay_money = pie.getPay_money();
+                String pay_xindou = pie.getPay_xindou();
+                tvWithdrawalSettlement.setText(pay_xindou);
+                tvCashSettlement.setText(pay_money);
+                tvTotalRevenue.setText(accumulative);
+
+                AnimatedPieViewConfig config = new AnimatedPieViewConfig();
+                config.startAngle(-90)          // 起始角度偏移
+                        .pieRadius(160)         // 甜甜圈半径
+                        .canTouch(false)
+                        .strokeWidth(65)
+                        .pieRadiusRatio(0.8f)   // 甜甜圈半径占比
+                        .addData(new SimplePieInfo(Double.valueOf(pay_xindou), Color.parseColor("#FFFEDD48"), "提现结算"))//数据（实现IPieInfo接口的bean）
+                        .addData(new SimplePieInfo(Double.valueOf(pay_money), Color.parseColor("#FFFFBA00"), "现金结算"))
+                        .duration(2000);        // 持续时间
+
+                // 以下两句可以直接用 mAnimatedPieView.start(config); 解决，功能一致
+                pieView.applyConfig(config);
+                pieView.start();
+
+                Log.e("环形图", "环形图 ");
+
+
             }
         }, formatDate);
     }
@@ -159,8 +210,8 @@ public class RevenueActivity extends BaseMvpActivity {
                 .canTouch(false)
                 .strokeWidth(65)
                 .pieRadiusRatio(0.8f)   // 甜甜圈半径占比
-                .addData(new SimplePieInfo(30, Color.parseColor("#FFFEDD48"), "提现结算"))//数据（实现IPieInfo接口的bean）
-                .addData(new SimplePieInfo(18.0f, Color.parseColor("#FFFFBA00"), "现金结算"))
+//                .addData(new SimplePieInfo(30, Color.parseColor("#FFFEDD48"), "提现结算"))//数据（实现IPieInfo接口的bean）
+//                .addData(new SimplePieInfo(18.0f, Color.parseColor("#FFFFBA00"), "现金结算"))
                 .duration(2000);        // 持续时间
 
         // 以下两句可以直接用 mAnimatedPieView.start(config); 解决，功能一致
@@ -193,6 +244,9 @@ public class RevenueActivity extends BaseMvpActivity {
                     String formatDate = simpleDateFormat.format(date);
                     shopMonthlyRevenue(formatDate);
                 }
+                SimpleDateFormat formatDate4 = DateUtils.FORMAT_DATE4;
+                String format = formatDate4.format(new Date());
+                shopColumnGraph(format);
 
             }
         }).setDate(selectedDate).setRangDate(startDate, selectedDate).setLayoutRes(R.layout.today_revenue_pickerview_custom_time, new CustomListener() {

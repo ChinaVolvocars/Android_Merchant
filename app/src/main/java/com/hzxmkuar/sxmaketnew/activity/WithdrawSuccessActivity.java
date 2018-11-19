@@ -41,10 +41,12 @@ public class WithdrawSuccessActivity extends BaseMvpActivity {
         tvWidthDrawMoney.setText(widthDrawSuccess);
 
     }
-    public  String doubleToString(double num){
+
+    public String doubleToString(double num) {
         //使用0.00不足位补0，#.##仅保留有效位
         return new DecimalFormat("0.00").format(num);
     }
+
     @Override
     protected void doLogicFunc() {
         attachClickListener(mBack);
@@ -52,8 +54,8 @@ public class WithdrawSuccessActivity extends BaseMvpActivity {
 
     @Override
     protected void onViewClicked(View view) {
-          if (mBack.getId()==view.getId()){
-             finish();
+        if (mBack.getId() == view.getId()) {
+            finish();
         }
         super.onViewClicked(view);
     }

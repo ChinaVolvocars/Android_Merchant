@@ -38,7 +38,7 @@ public class ApplyRecordAdapter extends RecyclerView.Adapter<ApplyRecordAdapter.
          * @param isToActivity      是否需要跳转到Activity  <br/>
          * @param isInvoiceWithdrawl    是滞是发票提现  <br/>
          */
-        void itemClick(View view, int position, String id, String isToActivity,String isInvoiceWithdrawl);
+        void itemClick(View view, int position, String id, String isToActivity, String isInvoiceWithdrawl);
     }
 
 
@@ -69,14 +69,14 @@ public class ApplyRecordAdapter extends RecyclerView.Adapter<ApplyRecordAdapter.
         notifyDataSetChanged();
     }
     @Override
-    public ApplyRecordAdapter.ApplyRecordHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public ApplyRecordHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(mContext).inflate(R.layout.item_apply_record, parent, false);
         ApplyRecordHolder viewHolder = new ApplyRecordHolder(view);
         return viewHolder;
     }
 
     @Override
-    public void onBindViewHolder(final ApplyRecordAdapter.ApplyRecordHolder holder, final int position) {
+    public void onBindViewHolder(final ApplyRecordHolder holder, final int position) {
         String state = dataList.get(position).getStatus();
         holder.tv_create_time.setText(dataList.get(position).getCreate_time());
         holder.tv_apply_money.setText("¥" + dataList.get(position).getMoney());
