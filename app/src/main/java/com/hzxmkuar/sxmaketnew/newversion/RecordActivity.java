@@ -2,11 +2,9 @@ package com.hzxmkuar.sxmaketnew.newversion;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import com.common.adapter.helper.IRecyclerViewHelper;
 import com.common.base.Constants;
 import com.common.mvp.BaseMvpActivity;
@@ -57,6 +55,8 @@ public class RecordActivity extends BaseMvpActivity {
     private ApplyRecordAdapter applyRecordAdapter;
     List<ApplyRecodEntity.RecordEntity> entityDatas = new ArrayList<>();
 
+    protected int mPageIndex = 1;
+
     @Override
     protected void setStatusBar() {
 
@@ -93,18 +93,18 @@ public class RecordActivity extends BaseMvpActivity {
         } else {
             fromApplyType = 1;
         }
-        getApplyRecord(fromApplyType);
+        getApplyRecord();
+        setRecyclerView();
     }
 
     /**
      * 获取申请记录列表 <br/>
-     *
-     * @param applyType 申请记录类型  <</br.>
-     *                  1 为票提现申请记录 <br/>
-     *                  2 为代收代付申请提现记录 <br/>
+     * 申请记录类型  <</br.>
+     * 1 为票提现申请记录 <br/>
+     * 2 为代收代付申请提现记录 <br/>
      */
-    private void getApplyRecord(int applyType) {
-
+    private void getApplyRecord() {
+        showProgressingDialog();
         /**
          *
          * [NSString stringWithFormat:@"%@Home/Financial/invoiceResult/id/%@.html",BaseURL,model.obj_id];
@@ -115,39 +115,38 @@ public class RecordActivity extends BaseMvpActivity {
         CommonSubscriber<ApplyRecodEntity> subscriber = new CommonSubscriber<>(new SubscriberListener() {
             @Override
             public void onNext(Object o) {
+                dismissProgressDialog();
                 statusContent();
                 recordRecyclerView.loadMoreComplete();
                 ApplyRecodEntity entity = (ApplyRecodEntity) o;
-                List<ApplyRecodEntity.RecordEntity> recordEntities = entity.getList();
 
-                Log.i(TAG, "onNext: " + entity.toString());
-
-                if (null != recordEntities) {
-                    entityDatas.clear();
-                    entityDatas.addAll(recordEntities);
+                List<ApplyRecodEntity.RecordEntity> dataListFromNet = entity.getList();
+                List<ApplyRecodEntity.RecordEntity> cacheDataList = new ArrayList<>();
+                if (null != dataListFromNet) {
+                    cacheDataList = dataListFromNet;
                 }
                 // 下拉刷新
                 if (mIsRefreshOrLoadMore == 0) {
                     recordRecyclerView.refreshComplete();
-                    entityDatas.clear();
-                    entityDatas.addAll(recordEntities);
+                    applyRecordAdapter.clearData();
                 }
-//                if (EmptyUtils.isNotEmpty(beanList)) {
-//                    entityDatas = beanList;
-//                    statusContent();
-//                }
+                if (EmptyUtils.isNotEmpty(cacheDataList)) {
+                    entityDatas = cacheDataList;
+                    applyRecordAdapter.addAll(entityDatas);
+                    statusContent();
+                }
 
-                if (EmptyUtils.isEmpty(entityDatas)) {
+                if (EmptyUtils.isEmpty(cacheDataList)) {
                     recordRecyclerView.setNoMore(true);
                 } else {
-                    mIsHasNoData = entityDatas.size() < mPageSize;
+                    mIsHasNoData = cacheDataList.size() < mPageSize;
                     recordRecyclerView.setNoMore(mIsHasNoData);
                 }
-                setRecyclerView();
             }
 
             @Override
             public void onError(String e, int code) {
+                dismissProgressDialog();
                 statusError();
                 showToastMsg(e);
                 recordRecyclerView.setNoMore(true);
@@ -160,10 +159,9 @@ public class RecordActivity extends BaseMvpActivity {
     }
 
     /**
-     *  初始化适配器
+     * 初始化适配器
      */
     private void setRecyclerView() {
-//        Log.i(TAG, "setRecyclerView:  列表条目为： " + entityDatas.size());
         applyRecordAdapter = new ApplyRecordAdapter(context, entityDatas, fromApplyType);
         IRecyclerViewHelper.init().setRecycleGridLayout(context, recordRecyclerView, 1);
         recordRecyclerView.setHasFixedSize(true);
@@ -173,7 +171,7 @@ public class RecordActivity extends BaseMvpActivity {
             public void onRefresh() {
                 mPageIndex = 1;
                 mIsRefreshOrLoadMore = 0;
-                getApplyRecord(fromApplyType);
+                getApplyRecord();
             }
 
             @Override
@@ -185,7 +183,7 @@ public class RecordActivity extends BaseMvpActivity {
                 }
                 mPageIndex++;
                 mIsRefreshOrLoadMore = 1;
-                getApplyRecord(fromApplyType);
+                getApplyRecord();
             }
         });
 
@@ -193,19 +191,16 @@ public class RecordActivity extends BaseMvpActivity {
             Intent urlIntent = new Intent(context, BaseUrlActivity.class);
             String subBaseUrl = Constants.BaseUrl.substring(0, Constants.BaseUrl.length() - 4);
             String h5Url = "";
+
             @Override
             public void itemClick(View view, int position, String id, String isToActivity, String invoiceWithdraw) {
-                Log.i(TAG, "itemClick: 是否需要跳转到Activity去     isToActivity        " + isToActivity);
                 if (EmptyUtils.isEmpty(isToActivity)) {
-//                    bseeUrl/Home/Financial/dsdfResult/id/  recordEntity.getId();   // 代收代付
                     if (EmptyUtils.isEmpty(invoiceWithdraw)) {  // 代收代付
-                        h5Url =  subBaseUrl+ "Home/Financial/dsdfResult/id/" + id + ".html";
+                        h5Url = subBaseUrl + "Home/Financial/dsdfResult/id/" + id + ".html";
                         urlIntent.putExtra(BaseUrlActivity.MAIN_URL, h5Url);
                     } else { // 发票提现
-//                    bseeUrl/Home/Financial/invoiceResult/id/  recordEntity.getId();   // 发票
-                        h5Url =  subBaseUrl + "Home/Financial/invoiceResult/id/" + id + ".html";
+                        h5Url = subBaseUrl + "Home/Financial/invoiceResult/id/" + id + ".html";
                     }
-//                    Log.i(TAG, "itemClick:    h5链接是：        " + h5Url);
                     urlIntent.putExtra(BaseUrlActivity.MAIN_URL, h5Url);
                     startActivity(urlIntent);
                 } else {  // 跳转到提交发票界面
