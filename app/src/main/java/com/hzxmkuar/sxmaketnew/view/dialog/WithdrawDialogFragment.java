@@ -13,6 +13,7 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.common.utils.SPUtils;
 import com.hzxmkuar.sxmaketnew.R;
 
 import butterknife.BindView;
@@ -23,7 +24,7 @@ import butterknife.Unbinder;
 
 public class WithdrawDialogFragment extends DialogFragment {
 
-
+    public static final String REFRESH = "Refresh";
     @BindView(R.id.iv_image)
     ImageView ivImage;
     @BindView(R.id.tv_confirm)
@@ -86,9 +87,11 @@ public class WithdrawDialogFragment extends DialogFragment {
 
     }
 
+
     @OnClick(R.id.tv_confirm)
     public void onViewClicked() {
         dismiss();
+        SPUtils.setShareBoolean(REFRESH, true);
         getActivity().finish();
     }
 

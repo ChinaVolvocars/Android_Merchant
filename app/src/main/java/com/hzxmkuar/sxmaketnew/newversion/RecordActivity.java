@@ -15,6 +15,7 @@ import com.common.retrofit.methods.BusinessUserMethods;
 import com.common.retrofit.subscriber.CommonSubscriber;
 import com.common.retrofit.subscriber.SubscriberListener;
 import com.common.utils.EmptyUtils;
+import com.common.utils.SPUtils;
 import com.common.widget.recyclerview.refresh.recycleview.XRecyclerView;
 import com.hzxmkuar.sxmaketnew.R;
 import com.hzxmkuar.sxmaketnew.adapter.ApplyRecordAdapter;
@@ -27,6 +28,7 @@ import butterknife.BindView;
 import butterknife.OnClick;
 
 import static com.hzxmkuar.sxmaketnew.fragment.InvoiceExpressFragment.WID;
+import static com.hzxmkuar.sxmaketnew.view.dialog.WithdrawDialogFragment.REFRESH;
 
 /**
  * 代收代付记录 和 发票申请记录
@@ -208,11 +210,25 @@ public class RecordActivity extends BaseMvpActivity {
                     urlIntent.putExtra(BaseUrlActivity.MAIN_URL, h5Url);
                     startActivity(urlIntent);
                 } else {  // 跳转到提交发票界面
+                    System.out.println("跳转到提交发票界面:" + id);
                     Intent intent = new Intent(RecordActivity.this, InvoiceInformationActivity.class);
                     intent.putExtra(WID, id);
                     startActivity(intent);
                 }
             }
         });
+    }
+
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        boolean shareBoolean = SPUtils.getShareBoolean(REFRESH);
+        System.out.println("是否刷新：" + shareBoolean);
+        if (shareBoolean) {
+            getApplyRecord();
+            //刷新完毕，记得置为false
+            SPUtils.setShareBoolean(REFRESH, false);
+        }
     }
 }

@@ -33,7 +33,9 @@ import butterknife.BindView;
 import butterknife.OnClick;
 import rx.Subscriber;
 
-//营收统计
+/**
+ * 营收统计
+ */
 public class RevenueActivity extends BaseMvpActivity {
 
     @BindView(R.id.tv_time)

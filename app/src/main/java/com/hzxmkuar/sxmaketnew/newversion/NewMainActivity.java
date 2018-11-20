@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.common.base.Constants;
 import com.common.mvp.BaseMvpActivity;
 import com.common.mvp.BasePresenter;
 import com.common.retrofit.entity.DataCenter;
@@ -74,6 +75,12 @@ public class NewMainActivity extends BaseMvpActivity {
             tvUserName.setText(bean.getNickname());
         }
 
+        if (Constants.BaseUrl.equals("http://test.zhongxinyingjia.com/Api/")) {
+            TextView viewById = (TextView) findViewById(R.id.tv_test);
+            viewById.setVisibility(View.VISIBLE);
+            viewById.setText("测试环境");
+        }
+
 
         rv.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
         rv.setHasFixedSize(true);
@@ -129,7 +136,7 @@ public class NewMainActivity extends BaseMvpActivity {
                         startActivity(intent);
                     }
                 } else if (tag.equals(MainAdapter.ScanCheck)) {
-                    showToastMsg("敬请期待...");
+                    showToastMsg("该功能暂未开放，敬请期待！");
                 } else if (tag.equals(MainAdapter.Bank)) {
                     startActivity(new Intent(context, MyBankActivity.class).putExtra("name", "000"));
                 } else if (tag.equals(MainAdapter.WithdrawalApplication)) {

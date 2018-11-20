@@ -54,14 +54,13 @@ public class QRCodeActivity extends BaseMvpActivity {
         String qrImg = getIntent().getStringExtra("qr_img");
         tName.setText("二维码收款");
         Glide.with(this).load(qrImg).into(ivQr);
-
     }
-
 
     @OnClick(R.id.tv_voice)
     public void onVoiceClicked() {
-        DialogQR dialogQR = DialogQR.newInstance(null);
-        dialogQR.show(getSupportFragmentManager(), "DialogQR");
+        showToastMsg("该功能暂未开放，敬请期待！");
+//        DialogQR dialogQR = DialogQR.newInstance(null);
+//        dialogQR.show(getSupportFragmentManager(), "DialogQR");
     }
 
     @OnClick(R.id.tv_save_qr)
@@ -75,7 +74,8 @@ public class QRCodeActivity extends BaseMvpActivity {
 
     @OnClick(R.id.tv_book)
     public void onBookClicked() {
-        showToastMsg("敬请期待...");
+        showToastMsg("该功能暂未开放，敬请期待！");
+
     }
 
     @Override

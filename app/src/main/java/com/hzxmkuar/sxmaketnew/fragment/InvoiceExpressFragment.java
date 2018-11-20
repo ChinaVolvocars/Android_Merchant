@@ -11,6 +11,7 @@ import com.common.mvp.BaseMvpFragment;
 import com.common.mvp.BasePresenter;
 import com.common.retrofit.entity.resultImpl.HttpRespBean;
 import com.common.retrofit.methods.BusinessUserMethods;
+import com.common.utils.SPUtils;
 import com.hzxmkuar.sxmaketnew.R;
 import com.hzxmkuar.sxmaketnew.view.dialog.WithdrawDialogFragment;
 
@@ -89,8 +90,12 @@ public class InvoiceExpressFragment extends BaseMvpFragment {
     @Override
     protected void onViewCreated(View view) {
         bind = ButterKnife.bind(this, view);
-        Bundle bundle = getArguments();
-        wId = bundle.getString(WID, "0");
+//        Bundle bundle = getArguments();
+//        wId = bundle.getString(WID, "0");
+
+        wId = SPUtils.getShareString(WID);
+        System.out.println("--222-获取到的值：" + wId);
+
     }
 
     @OnClick(R.id.tv_confirm)

@@ -14,6 +14,7 @@ import android.widget.TextView;
 
 import com.common.mvp.BaseMvpActivity;
 import com.common.mvp.BasePresenter;
+import com.common.utils.SPUtils;
 import com.hzxmkuar.sxmaketnew.R;
 import com.hzxmkuar.sxmaketnew.fragment.InvoiceElectronicFragment;
 import com.hzxmkuar.sxmaketnew.fragment.InvoiceExpressFragment;
@@ -90,6 +91,9 @@ public class InvoiceInformationActivity extends BaseMvpActivity {
         tName.setText("提交发票");
         Intent intent = getIntent();
         wId = intent.getStringExtra(WID);
+        System.out.println("获取到的wid：" + wId);
+        //bundle 传值丢失，使用sp保存
+        SPUtils.setShareString(WID, wId);
 
         changeViewState(true);
         attachClickListener(rlPayForOhter);
@@ -105,7 +109,6 @@ public class InvoiceInformationActivity extends BaseMvpActivity {
         if (savedInstanceState != null) {
             //获取“内存重启”时保存的索引下标
             currentIndex = savedInstanceState.getInt(CURRENT_FRAGMENT, 0);
-
             fragments.removeAll(fragments);
             fragments.add(fragmentManager.findFragmentByTag(0 + ""));
             fragments.add(fragmentManager.findFragmentByTag(1 + ""));
