@@ -2,11 +2,15 @@ package com.hzxmkuar.sxmaketnew.activity;
 
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
+import android.text.SpannableStringBuilder;
+import android.text.Spanned;
+import android.text.style.RelativeSizeSpan;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
 import com.common.adapter.helper.IRecyclerViewHelper;
 import com.common.mvp.BaseMvpActivity;
 import com.common.mvp.BasePresenter;
@@ -20,8 +24,10 @@ import com.common.utils.EmptyUtils;
 import com.common.widget.recyclerview.refresh.recycleview.XRecyclerView;
 import com.hzxmkuar.sxmaketnew.R;
 import com.hzxmkuar.sxmaketnew.adapter.WithdrawBillAdapter;
+
 import java.util.ArrayList;
 import java.util.List;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -77,13 +83,14 @@ public class WithdrawBillActivity extends BaseMvpActivity {
     private WithdrawBillAdapter withdrawBillAdapter;
 
     /**
-     *  类型  <br/>
-     *  1 为发票提现  <br/>
-     *  2 为代收代付  <br/>
+     * 类型  <br/>
+     * 1 为发票提现  <br/>
+     * 2 为代收代付  <br/>
      */
     private int mClickType = 1;
     private List<WithdrawlBillEntity.WithdrawlBillItemEntity> billEntities = new ArrayList<>();
     private String withdrawMoneny = "0.00";
+
     @Override
     protected BasePresenter createPresenterInstance() {
         return null;
@@ -115,6 +122,7 @@ public class WithdrawBillActivity extends BaseMvpActivity {
     protected void setStatusBar() {
 
     }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -142,7 +150,7 @@ public class WithdrawBillActivity extends BaseMvpActivity {
     }
 
     /**
-     *  初始化数据
+     * 初始化数据
      */
     private void getWithdrawalBillList(final int clickType) {
         CommonSubscriber<WithdrawlBillEntity> subscriber = new CommonSubscriber<>(new SubscriberListener() {
@@ -151,15 +159,25 @@ public class WithdrawBillActivity extends BaseMvpActivity {
                 statusContent();
                 xRecyclerviewPayforother.loadMoreComplete();
                 WithdrawlBillEntity datasEntity = (WithdrawlBillEntity) obj;
-                if (mClickType == 2){
+                if (mClickType == 2) {
                     withdrawMoneny = datasEntity.getAgent_business_count();
-                }else {
+                } else {
                     withdrawMoneny = datasEntity.getInvoice_count();
                 }
-                tvPayforOtherBeforThePayment.setText("¥"+withdrawMoneny);
+
+                //43 61
+                SpannableStringBuilder stringWithdrawMoneny = new SpannableStringBuilder();
+                stringWithdrawMoneny.append(getString(R.string.format_total_money, withdrawMoneny));
+                RelativeSizeSpan sizeSpan01 = new RelativeSizeSpan(1.0f);
+                RelativeSizeSpan sizeSpan02 = new RelativeSizeSpan(1.418f);
+                stringWithdrawMoneny.setSpan(sizeSpan01, 0, 1, Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
+                stringWithdrawMoneny.setSpan(sizeSpan02, 1, stringWithdrawMoneny.length(), Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
+
+                tvPayforOtherBeforThePayment.setText(stringWithdrawMoneny);
+
 
                 List<WithdrawlBillEntity.WithdrawlBillItemEntity> datasEntityList = datasEntity.getList();
-                if (null != datasEntityList){
+                if (null != datasEntityList) {
                     billEntities.addAll(datasEntityList);
                 }
                 // 下拉刷新
@@ -190,19 +208,19 @@ public class WithdrawBillActivity extends BaseMvpActivity {
                 xRecyclerviewPayforother.loadMoreComplete();
             }
         });
-        BusinessUserMethods.getInstance().withdrawCredit(subscriber,String.valueOf(mClickType), mPageIndex);
+        BusinessUserMethods.getInstance().withdrawCredit(subscriber, String.valueOf(mClickType), mPageIndex);
         rxManager.add(subscriber);
 
     }
 
 
     /**
-     *  初始化适配器
+     * 初始化适配器
      */
     private void initAdapter() {
-        Log.i(TAG, "initAdapter:        条目总数：       "+billEntities.size());
-        if (null == withdrawBillAdapter){
-            withdrawBillAdapter = new WithdrawBillAdapter(context,mClickType,billEntities);
+        Log.i(TAG, "initAdapter:        条目总数：       " + billEntities.size());
+        if (null == withdrawBillAdapter) {
+            withdrawBillAdapter = new WithdrawBillAdapter(context, mClickType, billEntities);
         }
         IRecyclerViewHelper.init().setRecycleLineLayout(context, LinearLayoutManager.VERTICAL, xRecyclerviewPayforother);
         xRecyclerviewPayforother.setHasFixedSize(true);
@@ -229,6 +247,7 @@ public class WithdrawBillActivity extends BaseMvpActivity {
             }
         });
     }
+
     private void changeViewState(boolean isDefult) {
         if (isDefult) {
             viewPoint01.setBackgroundResource(R.drawable.circle_color_yellow_99fcc80a);

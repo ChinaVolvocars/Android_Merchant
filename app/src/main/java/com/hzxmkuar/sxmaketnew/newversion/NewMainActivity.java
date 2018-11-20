@@ -1,12 +1,12 @@
 package com.hzxmkuar.sxmaketnew.newversion;
 
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.common.mvp.BaseMvpActivity;
@@ -66,10 +66,12 @@ public class NewMainActivity extends BaseMvpActivity {
 
     @Override
     protected void onViewCreated() {
+        TextView tvUserName = (TextView) findViewById(R.id.tv_is_test);
         UserBean bean = DataCenter.getInstance().getUserBean();
         if (bean != null) {
             DataCenter.UserId = bean.getUid();
             DataCenter.HashId = bean.getHashid();
+            tvUserName.setText(bean.getNickname());
         }
 
 
@@ -227,6 +229,14 @@ public class NewMainActivity extends BaseMvpActivity {
         paramaList.add("version_code");
         BusinessUserMethods.getInstance().checkAppVersion(subscriber, paramaList, "2", "1", String.valueOf(APPUtil.getVersionName(ContextUtils.getAppContext())));
         rxManager.add(subscriber);
+    }
+
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.e(TAG, "onResume: ");
+        getHomeInfo();
     }
 
     private long exitTime = 0;
