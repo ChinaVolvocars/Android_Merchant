@@ -22,6 +22,7 @@ import com.common.widget.editview.DeleteEditText;
 import com.hzxmkuar.sxmaketnew.base.BaseUrlActivity;
 import com.hzxmkuar.sxmaketnew.home.MainActivity;
 import com.hzxmkuar.sxmaketnew.R;
+import com.hzxmkuar.sxmaketnew.newversion.NewMainActivity;
 import com.hzxmkuar.sxmaketnew.view.dialog.DialogHomeWay;
 import com.xmkj.payandlogin.ShareConfig;
 import com.xmkj.payandlogin.ShareManager;
@@ -140,7 +141,9 @@ public class LoginActivity extends BaseMvpActivity {
                         showToastMsg("账号正在审核中");
                     } else if (userBean.getCheck_status().equals("2")) {
                         DataCenter.saveLoginDataInfo(userBean);
-                        gotoActivity(MainActivity.class);
+//                        gotoActivity(MainActivity.class);
+                        gotoActivity(NewMainActivity.class);
+
                         finish();
                     } else {
                         showToastMsg("账号审核不通过");

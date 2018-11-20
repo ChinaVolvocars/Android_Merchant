@@ -129,7 +129,7 @@
         <activity android:name=".home.ShopShowActivity" />
         <activity android:name=".home.AddNewActiveActivity" />
         <activity android:name=".activity.WithdrawBillActivity" />
-        <activity android:name=".login_register.FAQActivity"/>
+        <activity android:name=".login_register.FAQActivity" />
         <!-- 特殊界面 -->
         <!-- 直播界面 -->
         <!--
@@ -349,7 +349,13 @@
              android:value="025008c3164a65bacc50bbed"/>
         -->
         /************极光推送的必须***************/
-        <activity android:name=".newversion.NewMainActivity" />
+        <activity
+            android:name=".newversion.NewMainActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+
         <activity android:name=".newversion.WithdrawalActivity" />
         <activity android:name=".newversion.RecordActivity" />
         <activity android:name=".newversion.InvoiceInformationActivity" />

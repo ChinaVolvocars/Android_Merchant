@@ -16,6 +16,7 @@ import android.widget.Toast;
 
 import com.hzxmkuar.sxmaketnew.R;
 import com.hzxmkuar.sxmaketnew.newversion.NewMainActivity;
+import com.hzxmkuar.sxmaketnew.newversion.RecordActivity;
 import com.hzxmkuar.sxmaketnew.newversion.WithdrawalActivity;
 
 import butterknife.BindView;
@@ -34,6 +35,7 @@ public class DialogHomeWay extends BottomSheetDialogFragment {
     @BindView(R.id.ll_cancel)
     LinearLayout llCancel;
     private String money;
+    private int week;
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
@@ -71,6 +73,7 @@ public class DialogHomeWay extends BottomSheetDialogFragment {
         ButterKnife.bind(this, view);
         Bundle bundle = getArguments();
         money = bundle.getString(NewMainActivity.KEY_MONEY, "0.00");
+        week = bundle.getInt(NewMainActivity.KEY_WEEK, 0);
     }
 
     @OnClick(R.id.ll_cancel)
@@ -79,28 +82,52 @@ public class DialogHomeWay extends BottomSheetDialogFragment {
     }
 
 
+    //代收代付
     @OnClick(R.id.tv_collection_payment)
     public void onCollectionPaymentClicked() {
         dismiss();
-        Intent intent = new Intent();
-        Bundle bundle = new Bundle();
-        bundle.putInt(COLLECTION_KEY, COLLECTION_PAYMENT);
-        bundle.putString(NewMainActivity.KEY_MONEY, money);
-        intent.putExtras(bundle);
-        intent.setClass(getContext(), WithdrawalActivity.class);
-        startActivity(intent);
+        if (week == 0) {//去申请列表
+            Intent intent = new Intent(getContext(), RecordActivity.class);
+            Bundle bundle = new Bundle();
+            bundle.putBoolean("flag", true);//true 为代收代付； false 发票提现
+            intent.putExtras(bundle);
+            startActivity(intent);
+        } else {
+            Intent intent = new Intent();
+            Bundle bundle = new Bundle();
+            bundle.putInt(COLLECTION_KEY, COLLECTION_PAYMENT);
+            bundle.putString(NewMainActivity.KEY_MONEY, money);
+            intent.putExtras(bundle);
+            intent.setClass(getContext(), WithdrawalActivity.class);
+            startActivity(intent);
+        }
+
     }
 
+    //发票提现
     @OnClick(R.id.tv_invoice_withdrawal)
     public void onInvoiceWithdrawalClicked() {
         dismiss();
-        Intent intent = new Intent();
-        Bundle bundle = new Bundle();
-        bundle.putInt(COLLECTION_KEY, INVOICE_WITHDRAWAL);
-        bundle.putString(NewMainActivity.KEY_MONEY, money);
-        intent.putExtras(bundle);
-        intent.setClass(getContext(), WithdrawalActivity.class);
-        startActivity(intent);
+        /**
+         *   是否可提现   <br/>
+         *   0不可提现，去申请列表  <br/> 1 可以提现  <br/>
+         */
+        if (week == 0) {
+            Intent intent = new Intent(getContext(), RecordActivity.class);
+            Bundle bundle = new Bundle();
+            bundle.putBoolean("flag", false);//true 为代收代付； false 发票提现
+            intent.putExtras(bundle);
+            startActivity(intent);
+        } else {
+            Intent intent = new Intent();
+            Bundle bundle = new Bundle();
+            bundle.putInt(COLLECTION_KEY, INVOICE_WITHDRAWAL);
+            bundle.putString(NewMainActivity.KEY_MONEY, money);
+            intent.putExtras(bundle);
+            intent.setClass(getContext(), WithdrawalActivity.class);
+            startActivity(intent);
+        }
+
     }
 
 }

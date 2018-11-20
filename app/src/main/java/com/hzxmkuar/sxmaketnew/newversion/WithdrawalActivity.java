@@ -158,7 +158,7 @@ public class WithdrawalActivity extends BaseMvpActivity {
     private void viewRecord(boolean flag) {
         Intent intent = new Intent(this, RecordActivity.class);
         Bundle bundle = new Bundle();
-        bundle.putBoolean("flag", flag);
+        bundle.putBoolean("flag", flag);//true 为代收代付； false 发票提现
         intent.putExtras(bundle);
         startActivity(intent);
 
