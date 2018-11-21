@@ -201,7 +201,7 @@ public interface UserService {
     Observable<Object> shopInfoSubmit(@Field("time") String time, @Field("hash") String hash, @Field("uid") int uid
             , @Field("hashid") String hashid, @Field("shop_name") String shop_name, @Field("category_id") String category_id
             , @Field("province") String province, @Field("area") String area, @Field("county") String county
-            , @Field("address") String address, @Field("desc") String desc, @Field("face") String face
+            , @Field("address") String address, @Field("desc") String desc, @Field("face") String face, @Field("mobile") String mobile
     );
 
 
