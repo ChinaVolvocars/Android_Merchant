@@ -23,6 +23,7 @@ public class InfoBean {
      * "face"（门店照片url）: "http://sxpic.oss-cn-hangzhou.aliyuncs.com/file/2018-09-10/%E9%A6%96%E9%A1%B5%E5%BA%97%E5%A4%B4.png",
      * "shop_pic_num"（照片数量）: 4,
      * "shop_pic"（照片）:
+     * "mobile"（商家营业电话）:
      */
     private String shop_name;
     private String category_id;
@@ -33,6 +34,7 @@ public class InfoBean {
     private String area_name;
     private String county;
     private String longitude;
+    private String mobile;
 
     public String getLongitude() {
         return longitude;
@@ -168,6 +170,18 @@ public class InfoBean {
 
     public void setShop_pic(List<ShopPicBean> shop_pic) {
         this.shop_pic = shop_pic;
+    }
+
+    /**
+     *  商家营业电话
+     * @return
+     */
+    public String getMobile() {
+        return mobile;
+    }
+
+    public void setMobile(String mobile) {
+        this.mobile = mobile;
     }
 
     public static class ShopPicBean {
