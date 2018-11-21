@@ -103,9 +103,9 @@ public class BusinessUserMethods extends BaseMethods {
      * @param reqList
      */
     public void shopInfoEditedCommitt(Subscriber<Object> subscriber, String shopName, String shopTypeId, String shengId, String shiId, String quId,
-                                      String adddes, String shopDesc, String pic, List<String> reqList) {
+                                      String adddes, String shopDesc, String pic, List<String> reqList,String mobile) {
         Observable observable = initService().shopInfoSubmit(System.currentTimeMillis() + "", Constants.getHash(reqList), DataCenter.UserId, DataCenter.HashId,
-                shopName, shopTypeId, shengId, shiId, quId, adddes, shopDesc, pic);
+                shopName, shopTypeId, shengId, shiId, quId, adddes, shopDesc, pic,mobile);
         toOtherSubscribe(observable, subscriber);
     }
 
