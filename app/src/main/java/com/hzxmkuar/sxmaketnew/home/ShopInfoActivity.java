@@ -3,6 +3,7 @@ package com.hzxmkuar.sxmaketnew.home;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -78,6 +79,10 @@ public class ShopInfoActivity extends BaseMvpActivity {
      */
     private DeleteEditText mEdtStoreAddressDetailModify;
     /**
+     * 商家营业电话
+     */
+    private DeleteEditText edt_shop_telephone;
+    /**
      * 店铺描述（修改）
      */
     private DeleteEditText mEdtStoreDescModify;
@@ -97,9 +102,9 @@ public class ShopInfoActivity extends BaseMvpActivity {
      * 店家照片修改/添加（修改）
      */
     private Button mTvStoreBgAddModify;
-//    private Button btn_store_bg_reset_show;
+    //    private Button btn_store_bg_reset_show;
     private Button mBtnStoreBgResetModify;
-//    private Button tv_store_bg_add_show;
+    //    private Button tv_store_bg_add_show;
     private ImageView mBack;
     private Button mBtnCommitInfo;
     private String path = "";
@@ -153,6 +158,7 @@ public class ShopInfoActivity extends BaseMvpActivity {
         mLlChoseStoreCityModify = (LinearLayout) findViewById(R.id.ll_chose_store_city_modify);
         mTvChoseStoreCityModify = (TextView) findViewById(R.id.tv_chose_store_city_modify);
         mEdtStoreAddressDetailModify = (DeleteEditText) findViewById(R.id.edt_stroe_address_detail_modify);
+        edt_shop_telephone = (DeleteEditText) findViewById(R.id.edt_shop_telephone);
         mEdtStoreDescModify = (DeleteEditText) findViewById(R.id.edt_stroe_desc_modify);
         mTvStoreBgModify = (TextView) findViewById(R.id.tv_store_bg_modify);
         mIvStoreCardBgModify = (ImageView) findViewById(R.id.iv_stroe_card_bg_modify);
@@ -223,8 +229,6 @@ public class ShopInfoActivity extends BaseMvpActivity {
         attachClickListener(mBtnStoreBgResetModify);
         attachClickListener(mLlStoreTypeModify);
         attachClickListener(mLlChoseStoreCityModify);
-//        attachClickListener(tv_store_bg_add_show);
-//        attachClickListener(btn_store_bg_reset_show);
         getStoreTypeList();
     }
 
@@ -296,7 +300,7 @@ public class ShopInfoActivity extends BaseMvpActivity {
             showPicCheck();
         } else if (view.getId() == mTvStoreTypeModify.getId()) {
             mStoreTypePicker.show();
-        } else if (view.getId() == mTvChoseStoreCityModify.getId()) {
+        } else if (view.getId() == mTvChoseStoreCityModify.getId() || view.getId() == mLlChoseStoreCityModify.getId()) {
             BottomPickerUtils.showCityPicker(context, new BottomPickerUtils.CityOptionPickerCallback() {
                 @Override
                 public void onOptionSelect(CityBean option1, CityBean option2, CityBean option3) {
@@ -314,35 +318,36 @@ public class ShopInfoActivity extends BaseMvpActivity {
             });
         } else if (view.getId() == mLlStoreTypeModify.getId()) {
             mStoreTypePicker.show();
-        } else if (view.getId() == mLlChoseStoreCityModify.getId()) {
-            BottomPickerUtils.showCityPicker(context, new BottomPickerUtils.CityOptionPickerCallback() {
-                @Override
-                public void onOptionSelect(CityBean option1, CityBean option2, CityBean option3) {
-                    sheng = option1.getArea();
-                    shi = option2.getArea();
-                    qu = option3.getArea();
-                    mProvinceId = option1.getId() + "";
-                    mCityId = option2.getId() + "";
-                    mCountryId = option3.getId() + "";
-                    mLat = option3.getLat();
-                    mLng = option3.getLng();
-                    mTvChoseStoreCityModify.setText(option1.getArea() + "" + option2.getArea() + "" + option3.getArea());
-                }
-
-            });
-
-        } else if (view.getId() == mBtnCommitInfo.getId()) {
+        }
+//        else if (view.getId() == mLlChoseStoreCityModify.getId()) {
+//            BottomPickerUtils.showCityPicker(context, new BottomPickerUtils.CityOptionPickerCallback() {
+//                @Override
+//                public void onOptionSelect(CityBean option1, CityBean option2, CityBean option3) {
+//                    sheng = option1.getArea();
+//                    shi = option2.getArea();
+//                    qu = option3.getArea();
+//                    mProvinceId = option1.getId() + "";
+//                    mCityId = option2.getId() + "";
+//                    mCountryId = option3.getId() + "";
+//                    mLat = option3.getLat();
+//                    mLng = option3.getLng();
+//                    mTvChoseStoreCityModify.setText(option1.getArea() + "" + option2.getArea() + "" + option3.getArea());
+//                }
+//
+//            });
+//        }
+        else if (view.getId() == mBtnCommitInfo.getId()) {
             shopName = getEditTextStr(mEdtStoreNameModify);
             mDetailAdddes = getEditTextStr(mEdtStoreAddressDetailModify);
             mShopDesc = getEditTextStr(mEdtStoreDescModify);
-            if (shopName.equals("") || shopTypeId.equals("") || mProvinceId.equals("") || mCityId.equals("") || mCountryId.equals("") || mDetailAdddes.equals("") ||
+            String shopMobile = getEditTextStr(edt_shop_telephone);
+            if (shopName.equals("") || EmptyUtils.isEmpty(shopMobile) || shopTypeId.equals("") || mProvinceId.equals("") || mCityId.equals("") || mCountryId.equals("") || mDetailAdddes.equals("") ||
                     mShopDesc.equals("") || pic.equals("") || mPicList.equals("")) {
                 showToastMsg("请填写完整的信息");
                 return;
             }
-            commitEditedInfo(shopName, shopTypeId, mProvinceId, mCityId, mCountryId, mDetailAdddes, mShopDesc, pic);
-        }
-        else if (view.getId() == mTvStoreBgAddModify.getId()) {
+            commitEditedInfo(shopName, shopTypeId, mProvinceId, mCityId, mCountryId, mDetailAdddes, mShopDesc, pic, shopMobile);
+        } else if (view.getId() == mTvStoreBgAddModify.getId()) {
             startActivity(new Intent(context, ChangeActivity.class));
         } else if (view.getId() == mBtnStoreBgResetModify.getId()) {
             startActivityForResult(new Intent(context, UploadPicAndDescActivity.class).putExtra("num", mCanUpdateImgs).putExtra("name", mPicList), 100);
@@ -420,7 +425,6 @@ public class ShopInfoActivity extends BaseMvpActivity {
                     pic = s.getData();
                     ImageLoaderUtils.displaySmallPhoto(mIvStoreCardBgModify, pic);
                     mTvStoreBgModify.setText("店头照片（1/1）");
-//                    mTvStoreBgShow.setText("店头照片（1/1）");
                 }
 
                 @Override
@@ -474,11 +478,11 @@ public class ShopInfoActivity extends BaseMvpActivity {
             mShopDesc = bean.getDesc();
             pic = bean.getFace();
             mShop_pic_num = bean.getShop_pic_num();
-
+            edt_shop_telephone.setText(bean.getMobile());
+            mTvChoseStoreCityModify.setText(bean.getProvince_name() + "" + bean.getArea_name() + "" + bean.getCounty_name());
 
             mEdtStoreNameModify.setText(shopName);
             mTvStoreTypeModify.setText(type);
-            mTvChoseStoreCityModify.setText(sheng + "" + shi + "" + qu);
             mEdtStoreAddressDetailModify.setText(mDetailAdddes);
             mEdtStoreDescModify.setText(mShopDesc);
             if (!pic.equals("")) {
@@ -515,16 +519,13 @@ public class ShopInfoActivity extends BaseMvpActivity {
      * desc         :  商家简介（必填）  <br/>
      * face         :  商家店头照url（必填）  <br/>
      */
-//    private void goToHttpReqsss(String shop_name, String shop_type, String shengid, String shiid, String quid,
-//                                String adddes, String showdes, String pic, String picList, String pics, String picLists) {
     private void commitEditedInfo(String shop_name, String shop_type, String shengid, String shiid, String quid,
-                                  String adddes, String shop_desc, String pic) {
+                                  String adddes, String shop_desc, String pic, String mobile) {
         showProgressingDialog();
         CommonSubscriber<Object> subscriber = new CommonSubscriber<>(new SubscriberListener() {
             @Override
             public void onNext(Object o) {
                 dismissProgressDialog();
-//                switchViewIsNeedModify(false);
                 switchViewIsNeedModify(true);
                 getStoreInfoInit();
             }
@@ -535,9 +536,6 @@ public class ShopInfoActivity extends BaseMvpActivity {
                 showToastMsg(e);
             }
         });
-
-//        BusinessUserMethods.getInstance().shopInfoSubmit(subscriber, name, typeid, shengid, shiid, quid, adddes, showdes, pic, picList, pics, picLists);
-
         List<String> commitInfoList = new ArrayList<>();
         commitInfoList.add("time");
         commitInfoList.add("hashid");
@@ -550,8 +548,9 @@ public class ShopInfoActivity extends BaseMvpActivity {
         commitInfoList.add("address");
         commitInfoList.add("desc");
         commitInfoList.add("face");
+        commitInfoList.add("mobile");
         BusinessUserMethods.getInstance().shopInfoEditedCommitt(subscriber, shop_name, shop_type, shengid, shiid, quid, adddes, shop_desc, pic,
-                commitInfoList);
+                commitInfoList, mobile);
         rxManager.add(subscriber);
     }
 }
