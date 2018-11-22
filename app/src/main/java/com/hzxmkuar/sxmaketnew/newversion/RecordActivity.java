@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import com.common.adapter.helper.IRecyclerViewHelper;
 import com.common.base.Constants;
 import com.common.mvp.BaseMvpActivity;
@@ -167,6 +166,7 @@ public class RecordActivity extends BaseMvpActivity {
      * 初始化适配器
      */
     private void setRecyclerView() {
+
         applyRecordAdapter = new ApplyRecordAdapter(context, entityDatas, fromApplyType);
         IRecyclerViewHelper.init().setRecycleGridLayout(context, recordRecyclerView, 1);
         recordRecyclerView.setHasFixedSize(true);

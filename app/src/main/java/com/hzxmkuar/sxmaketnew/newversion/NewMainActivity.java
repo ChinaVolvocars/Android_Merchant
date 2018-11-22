@@ -91,7 +91,6 @@ public class NewMainActivity extends BaseMvpActivity {
             viewById.setText("测试环境");
         }
 
-
         rv.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
         rv.setHasFixedSize(true);
 
@@ -199,7 +198,8 @@ public class NewMainActivity extends BaseMvpActivity {
             public void onNext(Object o) {
                 cancelRefreshing();
                 Home homeEntitiy = (Home) o;
-                Log.i(TAG, "onNext: " + homeEntitiy.toString());
+//                Log.i(TAG, "onNext: " + homeEntitiy.toString());
+//                Log.i(TAG, "onNext: week:        "+homeEntitiy.getWeek());
                 if (null != homeEntitiy) {
                     result = homeEntitiy;
                     String closed_pay_url = result.getClosed_pay_url();
@@ -245,8 +245,8 @@ public class NewMainActivity extends BaseMvpActivity {
             public void onNext(Object o) {
                 statusContent();
                 AppVersionEntity appVersionEntity = (AppVersionEntity) o;
-                Log.i(TAG, "onNext: " + appVersionEntity.toString());
-                Log.i(TAG, "onNext:  下载链接：      " + appVersionEntity.getDownloadUrl());
+//                Log.i(TAG, "onNext: " + appVersionEntity.toString());
+//                Log.i(TAG, "onNext:  下载链接：      " + appVersionEntity.getDownloadUrl());
                 // 需要更新
                 if (!("0".equals(appVersionEntity.getForce())) && !(EmptyUtils.isEmpty(appVersionEntity.getDownloadUrl()))) {
                     VersionCompareDialog versionCompareDialog = new VersionCompareDialog(context, getActivity(), appVersionEntity.getDescription(),

@@ -14,13 +14,19 @@ import android.widget.TextView;
 
 import com.bigkoo.pickerview.TimePickerView;
 import com.bigkoo.pickerview.listener.CustomListener;
+import com.common.adapter.helper.IRecyclerViewHelper;
 import com.common.mvp.BaseMvpActivity;
 import com.common.mvp.BasePresenter;
+import com.common.retrofit.entity.result.ApplyRecodEntity;
 import com.common.retrofit.entity.resultImpl.HttpRespBean;
 import com.common.retrofit.methods.BusinessUserMethods;
 import com.common.retrofit.model.TodayRevenue;
+import com.common.retrofit.model.TodaysRevenue;
 import com.common.utils.DateUtils;
+import com.common.utils.EmptyUtils;
+import com.common.widget.recyclerview.refresh.recycleview.XRecyclerView;
 import com.hzxmkuar.sxmaketnew.R;
+import com.hzxmkuar.sxmaketnew.adapter.ApplyRecordAdapter;
 import com.hzxmkuar.sxmaketnew.adapter.TodayRevenueAdapter;
 
 import java.text.SimpleDateFormat;
@@ -35,7 +41,7 @@ import rx.Subscriber;
 
 //今日营收
 public class TodayRevenueActivity extends BaseMvpActivity {
-
+    private static final String TAG = "TodayRevenueActivity";
     @BindView(R.id.back)
     ImageView back;
     @BindView(R.id.t_name)
@@ -55,11 +61,12 @@ public class TodayRevenueActivity extends BaseMvpActivity {
     @BindView(R.id.tv_total)
     TextView tvTotal;
     @BindView(R.id.recycler_view)
-    RecyclerView recyclerView;
+    XRecyclerView recyclerView;
     @BindView(R.id.tv_transactions)
     TextView tvTransactions;
     private TodayRevenueAdapter adapter;
     private TimePickerView pvTime;
+    private Date currentDate;
 
     @OnClick(R.id.back)
     public void onFinishClicked() {
@@ -84,15 +91,38 @@ public class TodayRevenueActivity extends BaseMvpActivity {
     @Override
     protected void onViewCreated() {
         tName.setText("当日营收");
-
-        recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
-        recyclerView.setHasFixedSize(true);
-
         adapter = new TodayRevenueAdapter(this);
+        IRecyclerViewHelper.init().setRecycleGridLayout(context, recyclerView, 1);
+        recyclerView.setHasFixedSize(true);
         recyclerView.setAdapter(adapter);
-        recyclerView.setNestedScrollingEnabled(false);
-        requestTodayRevenue(new Date());
+        /**
+         *  默认是当天的日期
+         */
+        currentDate = new Date();
         initTimePicker();
+        requestTodayRevenue(currentDate);
+
+        recyclerView.setLoadingListener(new XRecyclerView.LoadingListener() {
+            @Override
+            public void onRefresh() {
+                mPageIndex = 1;
+                mIsRefreshOrLoadMore = 0;
+                requestTodayRevenue(currentDate);
+            }
+
+            @Override
+            public void onLoadMore() {
+                if (mIsHasNoData) {
+                    recyclerView.loadMoreComplete();
+                    recyclerView.setNoMore(true);
+                    return;
+                }
+
+                mPageIndex++;
+                mIsRefreshOrLoadMore = 1;
+                requestTodayRevenue(currentDate);
+            }
+        });
     }
 
     private void requestTodayRevenue(final Date date) {
@@ -118,7 +148,6 @@ public class TodayRevenueActivity extends BaseMvpActivity {
                 TodayRevenue todayRevenue = result.getData();
                 tvWithdrawalSettlement.setText(getString(R.string.withdrawal_settlement, todayRevenue.getTotal_xindou()));
                 tvCashSettlement.setText(getString(R.string.cash_settlement, todayRevenue.getPay_moneys()));
-
                 //12 14 12
                 //#747373 #fdc70a #747373
                 SpannableStringBuilder stringTotal = new SpannableStringBuilder();
@@ -135,9 +164,31 @@ public class TodayRevenueActivity extends BaseMvpActivity {
                 tvTotal.setText(stringTotal);
 
                 tvTransactions.setText(getString(R.string.transactions, todayRevenue.getTransaction()));
-                adapter.setData(result.getData().getToday_list());
+
+                List<TodaysRevenue> dataListFromNet = result.getData().getToday_list();
+                List<TodaysRevenue> cacheDataList = new ArrayList<>();
+                if (null != dataListFromNet) {
+                    cacheDataList.addAll(dataListFromNet);
+                }
+                // 下拉刷新
+                if (mIsRefreshOrLoadMore == 0) {
+                    recyclerView.refreshComplete();
+                    adapter.clearData();
+                }
+                if (EmptyUtils.isNotEmpty(cacheDataList)) {
+                    adapter.addAllData(cacheDataList);
+                    statusContent();
+                }
+
+                if (EmptyUtils.isEmpty(cacheDataList)) {
+                    recyclerView.setNoMore(true);
+                } else {
+                    mIsHasNoData = cacheDataList.size() < mPageSize;
+                    recyclerView.setNoMore(mIsHasNoData);
+                }
+
             }
-        }, reqLis, formatDate);
+        }, reqLis, formatDate, mPageIndex);
     }
 
     @Override
@@ -149,7 +200,7 @@ public class TodayRevenueActivity extends BaseMvpActivity {
     private void initTimePicker() {
         //控制时间范围(如果不设置范围，则使用默认时间1900-2100年，此段代码可注释)
         //因为系统Calendar的月份是从0-11的,所以如果是调用Calendar的set方法来设置时间,月份的范围也要是从0-11
-        Calendar selectedDate = Calendar.getInstance();
+        final Calendar selectedDate = Calendar.getInstance();
         Calendar startDate = Calendar.getInstance();
         startDate.set(2001, 0, 1);
         Calendar endDate = Calendar.getInstance();
@@ -162,8 +213,13 @@ public class TodayRevenueActivity extends BaseMvpActivity {
                 /*btn_Time.setText(getTime(date));*/
 //                Button btn = (Button) v;
 //                btn.setText(getTime(date));
-                Log.e("TAG", "onTimeSelect: " + DateUtils.FORMAT_DETAIL.format(date));
-                requestTodayRevenue(date);
+//                Log.e("TAG", "onTimeSelect: " + DateUtils.FORMAT_DETAIL.format(date));
+                // TODO: 2018/11/22     选取日期
+                currentDate = date;
+                if (null != adapter){
+                    adapter.clearData();
+                }
+                requestTodayRevenue(currentDate);
             }
         }).setDate(selectedDate).setRangDate(startDate, selectedDate).setLayoutRes(R.layout.today_revenue_pickerview_custom_time, new CustomListener() {
             @Override
