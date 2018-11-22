@@ -3,6 +3,7 @@ package com.hzxmkuar.sxmaketnew.newversion;
 
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.View;
 import android.webkit.WebChromeClient;
 import android.webkit.WebView;
@@ -18,6 +19,8 @@ import butterknife.BindView;
 import butterknife.OnClick;
 
 public class WebViewActivity extends BaseMvpActivity {
+
+
     public final static String URL = "url";
     public final static String TITLE = "title";
 
@@ -27,6 +30,7 @@ public class WebViewActivity extends BaseMvpActivity {
     WebView webView;
     @BindView(R.id.t_name)
     TextView tvName;
+    private String tag;
 
     @OnClick(R.id.back)
     public void onFinishClicked() {
@@ -51,8 +55,8 @@ public class WebViewActivity extends BaseMvpActivity {
 
         pb.setMax(100);
         webView.getSettings().setJavaScriptEnabled(true);
-        webView.getSettings().setSupportZoom(true);
-        webView.getSettings().setBuiltInZoomControls(true);
+        webView.getSettings().setSupportZoom(false);
+        webView.getSettings().setBuiltInZoomControls(false);
         webView.setWebChromeClient(new WebChromeClient() {
             @Override
             public void onProgressChanged(WebView view, int newProgress) {

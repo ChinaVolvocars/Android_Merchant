@@ -17,4 +17,8 @@ public class SpConstants {
     public static final String INTENT_TYPE = "intentType";
 
 
+    public static final String CLOSED_PAY_URL = "closed_pay_url";
+    public static final String INVOICE_URL = "invoice_url";
+
+
 }

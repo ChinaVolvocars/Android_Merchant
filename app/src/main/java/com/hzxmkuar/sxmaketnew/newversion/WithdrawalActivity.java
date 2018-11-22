@@ -15,6 +15,7 @@ import com.common.mvp.BasePresenter;
 import com.common.retrofit.entity.result.BankListBean;
 import com.common.retrofit.entity.resultImpl.HttpRespBean;
 import com.common.retrofit.methods.BusinessUserMethods;
+import com.common.utils.SPUtils;
 import com.hzxmkuar.sxmaketnew.R;
 import com.hzxmkuar.sxmaketnew.activity.MyBankActivity;
 import com.hzxmkuar.sxmaketnew.view.dialog.DialogHomeWay;
@@ -24,6 +25,8 @@ import butterknife.BindView;
 import butterknife.OnClick;
 import rx.Subscriber;
 
+import static com.common.event.SpConstants.CLOSED_PAY_URL;
+import static com.common.event.SpConstants.INVOICE_URL;
 import static com.hzxmkuar.sxmaketnew.newversion.NewMainActivity.KEY_WEEK;
 
 /**
@@ -97,16 +100,9 @@ public class WithdrawalActivity extends BaseMvpActivity {
         tvRight.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String url = Constants.BaseUrl.replace("Api", "Home");
-                if (flag) {
-//                   "http://test.zhongxinyingjia.com/Api/";                   //  高兴超线下测试环境用
-//                    http://test.zhongxinyingjia.com/Home/Financial/dsdfRules.html
-                    WebViewActivity.runWebActivity(WithdrawalActivity.this, "代收代付提现规则", url + "/Financial/dsdfRules.html");
-                } else {
-//                    http://test.zhongxinyingjia.com/Home/Financial/invoiceRules.html
-                    WebViewActivity.runWebActivity(WithdrawalActivity.this, "发票提现规则", url + "/Financial/invoiceRules.html");
-
-                }
+                WebViewActivity.runWebActivity(WithdrawalActivity.this,
+                        flag ? "代收代付提现规则" : "发票提现规则",
+                        flag ? SPUtils.getShareString(CLOSED_PAY_URL) : SPUtils.getShareString(INVOICE_URL));
             }
         });
 
@@ -126,9 +122,9 @@ public class WithdrawalActivity extends BaseMvpActivity {
             public void onNext(BankListBean.ListBean bank) {
                 //有银行卡 ，week 不是0的时候才能提现
                 //  0不可提现，  <br/> 1 可以提现  <br/>
-                if (null != bank && week != 0) {
+                if (null != bank && week != 0 && Double.valueOf(money) > 0) {
                     tvConfirm.setClickable(true);
-                    tvConfirm.setBackgroundResource(R.drawable.selector_button);
+                    tvConfirm.setBackgroundResource(flag ? R.drawable.selector_button : R.drawable.selector_button_invoice);
                     System.out.println("能提现");
                 } else {
                     tvConfirm.setClickable(false);
@@ -192,6 +188,11 @@ public class WithdrawalActivity extends BaseMvpActivity {
         //  0不可提现，  <br/> 1 可以提现  <br/>
         if (week == 0) {
             showToastMsg("周一才能提现哦");
+            return;
+        }
+
+        if (Double.valueOf(money) <= 0) {
+            showToastMsg("可提取金额为0");
             return;
         }
 

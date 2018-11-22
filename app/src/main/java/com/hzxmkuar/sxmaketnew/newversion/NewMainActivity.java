@@ -11,6 +11,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.common.base.Constants;
+import com.common.event.SpConstants;
 import com.common.mvp.BaseMvpActivity;
 import com.common.mvp.BasePresenter;
 import com.common.retrofit.entity.DataCenter;
@@ -24,6 +25,7 @@ import com.common.utils.APPUtil;
 import com.common.utils.ActivityStack;
 import com.common.utils.ContextUtils;
 import com.common.utils.EmptyUtils;
+import com.common.utils.SPUtils;
 import com.common.utils.UIUtils;
 import com.hzxmkuar.sxmaketnew.R;
 import com.hzxmkuar.sxmaketnew.activity.MyBankActivity;
@@ -41,6 +43,9 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.OnClick;
+
+import static com.common.event.SpConstants.CLOSED_PAY_URL;
+import static com.common.event.SpConstants.INVOICE_URL;
 
 public class NewMainActivity extends BaseMvpActivity {
     private static final String TAG = "NewMainActivity";
@@ -91,12 +96,11 @@ public class NewMainActivity extends BaseMvpActivity {
 
         adapter = new MainAdapter(this);
         rv.setAdapter(adapter);
-
+        swipeRefresh.setRefreshing(true);
         swipeRefresh.setColorSchemeColors(getResources().getColor(android.R.color.holo_blue_bright),
                 getResources().getColor(android.R.color.holo_green_light),
                 getResources().getColor(android.R.color.holo_orange_light),
                 getResources().getColor(android.R.color.holo_red_light));
-
         swipeRefresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
@@ -196,6 +200,10 @@ public class NewMainActivity extends BaseMvpActivity {
                 Log.i(TAG, "onNext: " + homeEntitiy.toString());
                 if (null != homeEntitiy) {
                     result = homeEntitiy;
+                    String closed_pay_url = result.getClosed_pay_url();
+                    String invoice_url = result.getInvoice_url();
+                    SPUtils.setShareString(CLOSED_PAY_URL, closed_pay_url);
+                    SPUtils.setShareString(INVOICE_URL, invoice_url);
                     adapter.setData(homeEntitiy);
                     invoiceUrl = homeEntitiy.getCopy_invoice_url();
                 }
