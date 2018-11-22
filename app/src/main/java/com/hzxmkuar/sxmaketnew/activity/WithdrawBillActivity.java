@@ -14,13 +14,12 @@ import android.widget.TextView;
 import com.common.adapter.helper.IRecyclerViewHelper;
 import com.common.mvp.BaseMvpActivity;
 import com.common.mvp.BasePresenter;
-import com.common.retrofit.entity.result.FiniBean;
-import com.common.retrofit.entity.result.ListDataEntity;
 import com.common.retrofit.entity.result.WithdrawlBillEntity;
 import com.common.retrofit.methods.BusinessUserMethods;
 import com.common.retrofit.subscriber.CommonSubscriber;
 import com.common.retrofit.subscriber.SubscriberListener;
 import com.common.utils.EmptyUtils;
+import com.common.utils.UIUtils;
 import com.common.widget.recyclerview.refresh.recycleview.XRecyclerView;
 import com.hzxmkuar.sxmaketnew.R;
 import com.hzxmkuar.sxmaketnew.adapter.WithdrawBillAdapter;
@@ -254,12 +253,14 @@ public class WithdrawBillActivity extends BaseMvpActivity {
             viewPoint02.setBackgroundResource(R.drawable.circle_color_yellow_fcc80a);
             viewPoint03.setBackgroundResource(R.drawable.circle_color_yellow_fcc80a);
             viewPoint04.setBackgroundResource(R.drawable.circle_color_yellow_99fcc80a);
+            tvText.setTextColor(UIUtils.getColor(R.color.color_fcc80a));
             viewBottomlinePayForOhter.setVisibility(View.VISIBLE);
 
             viewPoint05.setBackgroundResource(R.drawable.circle_color_black_994c4c4c);
             viewPoint06.setBackgroundResource(R.drawable.circle_color_black_4c4c4c);
             viewPoint07.setBackgroundResource(R.drawable.circle_color_black_4c4c4c);
             viewPoint08.setBackgroundResource(R.drawable.circle_color_black_994c4c4c);
+            tv.setTextColor(UIUtils.getColor(R.color.color_1e1e1e));
             viewBottomlineWithdraw.setVisibility(View.INVISIBLE);
 
             tvBeforThePayment.setBackgroundResource(R.mipmap.before_the_payment_bg);
@@ -272,12 +273,14 @@ public class WithdrawBillActivity extends BaseMvpActivity {
             viewPoint02.setBackgroundResource(R.drawable.circle_color_black_4c4c4c);
             viewPoint03.setBackgroundResource(R.drawable.circle_color_black_4c4c4c);
             viewPoint04.setBackgroundResource(R.drawable.circle_color_black_994c4c4c);
+            tvText.setTextColor(UIUtils.getColor(R.color.color_1e1e1e));
             viewBottomlinePayForOhter.setVisibility(View.INVISIBLE);
 
             viewPoint05.setBackgroundResource(R.drawable.circle_color_blue_9955a7fb);
             viewPoint06.setBackgroundResource(R.drawable.circle_color_blue_55a7fb);
             viewPoint07.setBackgroundResource(R.drawable.circle_color_blue_55a7fb);
             viewPoint08.setBackgroundResource(R.drawable.circle_color_blue_9955a7fb);
+            tv.setTextColor(UIUtils.getColor(R.color.color_55a7fb));
             viewBottomlineWithdraw.setVisibility(View.VISIBLE);
 
             tvBeforThePayment.setBackgroundResource(R.mipmap.invoice_withdrawal_befor_bg);
