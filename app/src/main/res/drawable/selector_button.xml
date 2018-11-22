@@ -3,6 +3,7 @@
 
     <item android:drawable="@drawable/shape_rectangle_pressed" android:state_pressed="true" />
     <item android:drawable="@drawable/shape_rectangle_normal" android:state_pressed="false" />
-
+    <item android:drawable="@drawable/shape_rectangle_normal" android:state_checked="true" />
+    <item android:drawable="@drawable/shape_rectangle_pressed" android:state_checked="false" />
 
 </selector>

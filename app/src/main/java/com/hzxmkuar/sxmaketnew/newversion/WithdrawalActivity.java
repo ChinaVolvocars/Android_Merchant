@@ -2,7 +2,7 @@ package com.hzxmkuar.sxmaketnew.newversion;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Parcelable;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -12,7 +12,6 @@ import com.bumptech.glide.Glide;
 import com.common.base.Constants;
 import com.common.mvp.BaseMvpActivity;
 import com.common.mvp.BasePresenter;
-import com.common.retrofit.base.BaseMethods;
 import com.common.retrofit.entity.result.BankListBean;
 import com.common.retrofit.entity.resultImpl.HttpRespBean;
 import com.common.retrofit.methods.BusinessUserMethods;
@@ -24,6 +23,8 @@ import com.hzxmkuar.sxmaketnew.view.dialog.WithdrawDialogFragment;
 import butterknife.BindView;
 import butterknife.OnClick;
 import rx.Subscriber;
+
+import static com.hzxmkuar.sxmaketnew.newversion.NewMainActivity.KEY_WEEK;
 
 /**
  * 代收代付，发票提现
@@ -56,6 +57,7 @@ public class WithdrawalActivity extends BaseMvpActivity {
     private boolean flag = true;
     private BankListBean.ListBean itemBank;
     private String money;
+    private int week;
 
     @Override
     protected BasePresenter createPresenterInstance() {
@@ -64,7 +66,7 @@ public class WithdrawalActivity extends BaseMvpActivity {
 
     @OnClick(R.id.back)
     public void onFinishClicked() {
-        finish();
+        onBackPressed();
     }
 
     @Override
@@ -77,7 +79,10 @@ public class WithdrawalActivity extends BaseMvpActivity {
         Bundle bundle = getIntent().getExtras();
         int collectionValue = bundle.getInt(DialogHomeWay.COLLECTION_KEY, 0);
         money = bundle.getString(NewMainActivity.KEY_MONEY, "0.00");
+        week = bundle.getInt(KEY_WEEK, 0); //  0不可提现，  <br/> 1 可以提现  <br/>
         flag = collectionValue == 0 ? true : false;
+        Log.e("", "可以提现: " + week);
+
 
         tName.setText(flag ? "代收代付" : "发票提现");
         tvRight.setText("查看规则");
@@ -106,7 +111,7 @@ public class WithdrawalActivity extends BaseMvpActivity {
         });
 
 
-        BusinessUserMethods.getInstance().withdrawNew(new Subscriber<HttpRespBean<BankListBean.ListBean>>() {
+        Subscriber<BankListBean.ListBean> subscriber = new Subscriber<BankListBean.ListBean>() {
             @Override
             public void onCompleted() {
 
@@ -118,14 +123,26 @@ public class WithdrawalActivity extends BaseMvpActivity {
             }
 
             @Override
-            public void onNext(HttpRespBean<BankListBean.ListBean> bank) {
-                if (null != bank.getData()) {
-                    tvServiceFee.setText(getString(R.string.service_fee, bank.getData().getGrade()));
-                    itemBank = bank.getData();
+            public void onNext(BankListBean.ListBean bank) {
+                //有银行卡 ，week 不是0的时候才能提现
+                //  0不可提现，  <br/> 1 可以提现  <br/>
+                if (null != bank && week != 0) {
+                    tvConfirm.setClickable(true);
+                    tvConfirm.setBackgroundResource(R.drawable.selector_button);
+                    System.out.println("能提现");
+                } else {
+                    tvConfirm.setClickable(false);
+                    tvConfirm.setBackgroundResource(R.drawable.shape_rectangle_pressed);
+                    System.out.println("不能提现");
+                }
+
+                if (null != bank) {
+                    tvServiceFee.setText(getString(R.string.service_fee, bank.getGrade()));
+                    itemBank = bank;
                     tvAddBank.setVisibility(View.GONE);
                     llBankInfo.setVisibility(View.VISIBLE);
                     Glide.with(WithdrawalActivity.this)
-                            .load(bank.getData().getCard_logo())
+                            .load(bank.getCard_logo())
                             .into(ivBank);
                     tvBankName.setText(itemBank.getBank_name());
                     tvBankNum.setText(getString(R.string.bank_num, itemBank.getCard_number().substring(itemBank.getCard_number().length() - 4, itemBank.getCard_number().length())));
@@ -134,7 +151,11 @@ public class WithdrawalActivity extends BaseMvpActivity {
                     llBankInfo.setVisibility(View.GONE);
                 }
             }
-        });
+        };
+        BusinessUserMethods.getInstance().withdrawNew(subscriber);
+
+        rxManager.add(subscriber);
+
 
     }
 
@@ -168,6 +189,12 @@ public class WithdrawalActivity extends BaseMvpActivity {
     //代收代付
     private void applyWithdrawal(String money) {
         //type提现类型值为1或2（1为代收代付，2为发票提现）
+        //  0不可提现，  <br/> 1 可以提现  <br/>
+        if (week == 0) {
+            showToastMsg("周一才能提现哦");
+            return;
+        }
+
         if (null == itemBank) {
             showToastMsg("请选择银行卡");
             return;
@@ -185,7 +212,12 @@ public class WithdrawalActivity extends BaseMvpActivity {
 
             @Override
             public void onNext(HttpRespBean httpRespBean) {
-                successDialog();
+                int code = httpRespBean.getCode();
+                if (code == 0) {
+                    successDialog();
+                } else {
+                    showToastMsg(httpRespBean.getMsg());
+                }
             }
         }, itemBank.getId(), flag ? 2 : 1, money);
 

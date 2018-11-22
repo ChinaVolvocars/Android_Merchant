@@ -2,6 +2,7 @@ package com.hzxmkuar.sxmaketnew.newversion;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -23,6 +24,7 @@ import com.common.utils.APPUtil;
 import com.common.utils.ActivityStack;
 import com.common.utils.ContextUtils;
 import com.common.utils.EmptyUtils;
+import com.common.utils.UIUtils;
 import com.hzxmkuar.sxmaketnew.R;
 import com.hzxmkuar.sxmaketnew.activity.MyBankActivity;
 import com.hzxmkuar.sxmaketnew.activity.WithdrawBillActivity;
@@ -42,9 +44,11 @@ import butterknife.OnClick;
 
 public class NewMainActivity extends BaseMvpActivity {
     private static final String TAG = "NewMainActivity";
-
     public static final String KEY_MONEY = "money";
     public static final String KEY_WEEK = "week";
+
+    @BindView(R.id.swipe_refresh)
+    SwipeRefreshLayout swipeRefresh;
     @BindView(R.id.recycler_view)
     RecyclerView rv;
     private MainAdapter adapter;
@@ -87,7 +91,18 @@ public class NewMainActivity extends BaseMvpActivity {
 
         adapter = new MainAdapter(this);
         rv.setAdapter(adapter);
-        getHomeInfo();
+
+        swipeRefresh.setColorSchemeColors(getResources().getColor(android.R.color.holo_blue_bright),
+                getResources().getColor(android.R.color.holo_green_light),
+                getResources().getColor(android.R.color.holo_orange_light),
+                getResources().getColor(android.R.color.holo_red_light));
+
+        swipeRefresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                getHomeInfo();
+            }
+        });
 
         adapter.setOnItemClickListener(new MainAdapter.OnItemClickListener() {
             @Override
@@ -143,7 +158,7 @@ public class NewMainActivity extends BaseMvpActivity {
                     Bundle bundle = new Bundle();
                     String money = result.getMoney();
                     bundle.putString(KEY_MONEY, money);
-                    bundle.putString(KEY_WEEK, result.getWeek());
+                    bundle.putInt(KEY_WEEK, result.getWeek());
                     DialogHomeWay dialog = DialogHomeWay.newInstance(bundle);
                     dialog.show(getSupportFragmentManager(), "DialogHomeWay");
                 } else if (tag.equals(MainAdapter.WithdrawalAccounts)) {
@@ -168,10 +183,15 @@ public class NewMainActivity extends BaseMvpActivity {
 
     }
 
+    private void cancelRefreshing() {
+        if (swipeRefresh != null) swipeRefresh.setRefreshing(false);
+    }
+
     private void getHomeInfo() {
         CommonSubscriber<Home> subscriber = new CommonSubscriber<>(new SubscriberListener() {
             @Override
             public void onNext(Object o) {
+                cancelRefreshing();
                 Home homeEntitiy = (Home) o;
                 Log.i(TAG, "onNext: " + homeEntitiy.toString());
                 if (null != homeEntitiy) {
@@ -183,6 +203,7 @@ public class NewMainActivity extends BaseMvpActivity {
 
             @Override
             public void onError(String e, int code) {
+                cancelRefreshing();
 
             }
         });

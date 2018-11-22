@@ -23,6 +23,8 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
+import static com.hzxmkuar.sxmaketnew.newversion.NewMainActivity.KEY_WEEK;
+
 public class DialogHomeWay extends BottomSheetDialogFragment {
     public static final int COLLECTION_PAYMENT = 0;
     public static final int INVOICE_WITHDRAWAL = 1;
@@ -73,7 +75,7 @@ public class DialogHomeWay extends BottomSheetDialogFragment {
         ButterKnife.bind(this, view);
         Bundle bundle = getArguments();
         money = bundle.getString(NewMainActivity.KEY_MONEY, "0.00");
-        week = bundle.getInt(NewMainActivity.KEY_WEEK, 0);
+        week = bundle.getInt(KEY_WEEK, 0);
     }
 
     @OnClick(R.id.ll_cancel)
@@ -86,21 +88,30 @@ public class DialogHomeWay extends BottomSheetDialogFragment {
     @OnClick(R.id.tv_collection_payment)
     public void onCollectionPaymentClicked() {
         dismiss();
-        if (week == 0) {//去申请列表
-            Intent intent = new Intent(getContext(), RecordActivity.class);
-            Bundle bundle = new Bundle();
-            bundle.putBoolean("flag", true);//true 为代收代付； false 发票提现
-            intent.putExtras(bundle);
-            startActivity(intent);
-        } else {
-            Intent intent = new Intent();
-            Bundle bundle = new Bundle();
-            bundle.putInt(COLLECTION_KEY, COLLECTION_PAYMENT);
-            bundle.putString(NewMainActivity.KEY_MONEY, money);
-            intent.putExtras(bundle);
-            intent.setClass(getContext(), WithdrawalActivity.class);
-            startActivity(intent);
-        }
+//        if (week == 0) {//去申请列表
+//            Intent intent = new Intent(getContext(), RecordActivity.class);
+//            Bundle bundle = new Bundle();
+//            bundle.putBoolean("flag", true);//true 为代收代付； false 发票提现
+//            intent.putExtras(bundle);
+//            startActivity(intent);
+//        } else {
+//            Intent intent = new Intent();
+//            Bundle bundle = new Bundle();
+//            bundle.putInt(COLLECTION_KEY, COLLECTION_PAYMENT);
+//            bundle.putString(NewMainActivity.KEY_MONEY, money);
+//            intent.putExtras(bundle);
+//            intent.setClass(getContext(), WithdrawalActivity.class);
+//            startActivity(intent);
+//        }
+
+        Intent intent = new Intent();
+        Bundle bundle = new Bundle();
+        bundle.putInt(COLLECTION_KEY, COLLECTION_PAYMENT);
+        bundle.putString(NewMainActivity.KEY_MONEY, money);
+        bundle.putInt(KEY_WEEK, week);
+        intent.putExtras(bundle);
+        intent.setClass(getContext(), WithdrawalActivity.class);
+        startActivity(intent);
 
     }
 
@@ -112,7 +123,7 @@ public class DialogHomeWay extends BottomSheetDialogFragment {
          *   是否可提现   <br/>
          *   0不可提现，去申请列表  <br/> 1 可以提现  <br/>
          */
-        if (week == 0) {
+      /*  if (week == 0) {
             Intent intent = new Intent(getContext(), RecordActivity.class);
             Bundle bundle = new Bundle();
             bundle.putBoolean("flag", false);//true 为代收代付； false 发票提现
@@ -126,7 +137,17 @@ public class DialogHomeWay extends BottomSheetDialogFragment {
             intent.putExtras(bundle);
             intent.setClass(getContext(), WithdrawalActivity.class);
             startActivity(intent);
-        }
+        }*/
+
+
+        Intent intent = new Intent();
+        Bundle bundle = new Bundle();
+        bundle.putInt(COLLECTION_KEY, INVOICE_WITHDRAWAL);
+        bundle.putString(NewMainActivity.KEY_MONEY, money);
+        bundle.putInt(KEY_WEEK, week);
+        intent.putExtras(bundle);
+        intent.setClass(getContext(), WithdrawalActivity.class);
+        startActivity(intent);
 
     }
 

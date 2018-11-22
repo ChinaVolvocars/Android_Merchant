@@ -1,7 +1,11 @@
 package com.hzxmkuar.sxmaketnew.newversion;
 
+import android.Manifest;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -33,6 +37,7 @@ public class QRCodeActivity extends BaseMvpActivity {
     TextView tvBook;
     @BindView(R.id.iv_qr)
     ImageView ivQr;
+    public static final int REQUEST_WRITE_EXTERNAL_STORAGE = 0;
 
     @OnClick(R.id.back)
     public void onBackClicked() {
@@ -54,6 +59,12 @@ public class QRCodeActivity extends BaseMvpActivity {
         String qrImg = getIntent().getStringExtra("qr_img");
         tName.setText("二维码收款");
         Glide.with(this).load(qrImg).into(ivQr);
+
+        //检查权限
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, REQUEST_WRITE_EXTERNAL_STORAGE);
+            System.out.println("请求权限");
+        }
     }
 
     @OnClick(R.id.tv_voice)
@@ -70,6 +81,19 @@ public class QRCodeActivity extends BaseMvpActivity {
         Bitmap bitmap = ivQr.getDrawingCache();
         saveImage(bitmap);
         ivQr.setDrawingCacheEnabled(false);
+    }
+
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
+        switch (requestCode) {
+            case REQUEST_WRITE_EXTERNAL_STORAGE: {
+                if (grantResults.length <= 0 && grantResults[0] != PackageManager.PERMISSION_GRANTED) {
+                    showToastMsg("存储权限已禁止，如需保存二维码请开启存储权限后重试");
+                }
+                return;
+            }
+        }
     }
 
     @OnClick(R.id.tv_book)

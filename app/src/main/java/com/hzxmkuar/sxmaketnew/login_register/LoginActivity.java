@@ -2,14 +2,12 @@ package com.hzxmkuar.sxmaketnew.login_register;
 
 import android.Manifest;
 import android.content.Intent;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.common.base.Constants;
 import com.common.mvp.BaseMvpActivity;
 import com.common.mvp.BasePresenter;
 import com.common.retrofit.entity.DataCenter;
@@ -19,11 +17,9 @@ import com.common.retrofit.subscriber.CommonSubscriber;
 import com.common.retrofit.subscriber.SubscriberListener;
 import com.common.utils.LogUtils;
 import com.common.widget.editview.DeleteEditText;
-import com.hzxmkuar.sxmaketnew.base.BaseUrlActivity;
-import com.hzxmkuar.sxmaketnew.home.MainActivity;
 import com.hzxmkuar.sxmaketnew.R;
+import com.hzxmkuar.sxmaketnew.base.BaseUrlActivity;
 import com.hzxmkuar.sxmaketnew.newversion.NewMainActivity;
-import com.hzxmkuar.sxmaketnew.view.dialog.DialogHomeWay;
 import com.xmkj.payandlogin.ShareConfig;
 import com.xmkj.payandlogin.ShareManager;
 import com.xmkj.payandlogin.login.LoginListener;
@@ -37,7 +33,6 @@ import java.util.List;
 
 import me.weyye.hipermission.HiPermission;
 import me.weyye.hipermission.PermissionCallback;
-import retrofit2.http.Field;
 
 public class LoginActivity extends BaseMvpActivity {
     private static final String TAG = "LoginActivity";
