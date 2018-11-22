@@ -57,11 +57,6 @@ public class WithdrawalActivity extends BaseMvpActivity {
     @BindView(R.id.tv_view_record)
     TextView tvViewRecord;
 
-    /**
-     * flag参数  <br/>
-     * true 为 代收代付 <br/>
-     * false 为 发要提现 <br/>
-     */
     private boolean flag = true;
     private BankListBean.ListBean itemBank;
     private String money;

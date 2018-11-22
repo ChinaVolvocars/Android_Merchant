@@ -46,6 +46,7 @@ import butterknife.OnClick;
 
 import static com.common.event.SpConstants.CLOSED_PAY_URL;
 import static com.common.event.SpConstants.INVOICE_URL;
+import static com.hzxmkuar.sxmaketnew.view.dialog.WithdrawDialogFragment.REFRESH;
 
 public class NewMainActivity extends BaseMvpActivity {
     private static final String TAG = "NewMainActivity";
@@ -163,6 +164,7 @@ public class NewMainActivity extends BaseMvpActivity {
                     String money = result.getMoney();
                     bundle.putString(KEY_MONEY, money);
                     bundle.putInt(KEY_WEEK, result.getWeek());
+                    Log.e("", "主界面的week: " + result.getWeek());
                     DialogHomeWay dialog = DialogHomeWay.newInstance(bundle);
                     dialog.show(getSupportFragmentManager(), "DialogHomeWay");
                 } else if (tag.equals(MainAdapter.WithdrawalAccounts)) {
@@ -272,7 +274,12 @@ public class NewMainActivity extends BaseMvpActivity {
     protected void onResume() {
         super.onResume();
         Log.e(TAG, "onResume: ");
-        getHomeInfo();
+        if (SPUtils.getShareBoolean(REFRESH)) {
+            getHomeInfo();
+            SPUtils.setShareBoolean(REFRESH, false);
+        }
+
+
     }
 
     private long exitTime = 0;
