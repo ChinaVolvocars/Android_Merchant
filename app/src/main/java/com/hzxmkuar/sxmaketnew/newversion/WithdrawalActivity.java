@@ -33,7 +33,7 @@ import static com.hzxmkuar.sxmaketnew.newversion.NewMainActivity.KEY_WEEK;
  * 代收代付，发票提现
  */
 public class WithdrawalActivity extends BaseMvpActivity {
-
+    private static final String TAG = "WithdrawalActivity";
     @BindView(R.id.t_name)
     TextView tName;
     @BindView(R.id.tv_right)
@@ -57,6 +57,11 @@ public class WithdrawalActivity extends BaseMvpActivity {
     @BindView(R.id.tv_view_record)
     TextView tvViewRecord;
 
+    /**
+     * flag参数  <br/>
+     * true 为 代收代付 <br/>
+     * false 为 发要提现 <br/>
+     */
     private boolean flag = true;
     private BankListBean.ListBean itemBank;
     private String money;
@@ -123,6 +128,10 @@ public class WithdrawalActivity extends BaseMvpActivity {
             public void onNext(BankListBean.ListBean bank) {
                 //有银行卡 ，week 不是0的时候才能提现
                 //  0不可提现，  <br/> 1 可以提现  <br/>
+                Log.i(TAG, "onNext:    bank.toString()     " + bank.toString());
+                Log.i(TAG, "onNext:    week: " + week);
+                Log.i(TAG, "onNext:    money    " + money);
+
                 if (null != bank && week != 0 && Double.valueOf(money) > 0) {
                     tvConfirm.setClickable(true);
                     tvConfirm.setBackgroundResource(flag ? R.drawable.selector_button : R.drawable.selector_button_invoice);
