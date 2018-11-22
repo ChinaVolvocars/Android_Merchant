@@ -1021,6 +1021,7 @@ public interface UserService {
     //申请提现  界面数据
     @FormUrlEncoded
     @POST("withdrawNew")
+//    Observable<HttpRespBean<BankListBean.ListBean>> withdrawNew(@Field("time") String time,
     Observable<HttpRespBean<BankListBean.ListBean>> withdrawNew(@Field("time") String time,
                                                                 @Field("hash") String hash,
                                                                 @Field("uid") int uid);

@@ -31,7 +31,7 @@ public class Home implements Parcelable {
     private String pay_xindou;
     private String pay_money;
     private String accumulative;
-    private String week;
+    private int week;
     private List<ShopBanner> shop_banner;
     private List<ServiceFunction> service_function;
     private List<ActivityList> list;
@@ -137,21 +137,23 @@ public class Home implements Parcelable {
     }
 
     /**
-     *   是否可提现   <br/>
-     *   0不可提现，  <br/> 1 可以提现  <br/>
+     * 是否可提现   <br/>
+     * 0不可提现，  <br/> 1 可以提现  <br/>
+     *
      * @return
      */
-    public String getWeek() {
+    public int getWeek() {
         return week;
     }
 
-    public void setWeek(String week) {
+    public void setWeek(int week) {
         this.week = week;
     }
 
     public void setCopy_invoice_url(String copy_invoice_url) {
         this.copy_invoice_url = copy_invoice_url;
     }
+
 
     @Override
     public int describeContents() {
@@ -161,15 +163,16 @@ public class Home implements Parcelable {
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeString(this.pay_img);
-        dest.writeString(this.closed_pay_url);
-        dest.writeString(this.invoice_url);
         dest.writeString(this.xindou);
         dest.writeString(this.money);
+        dest.writeString(this.closed_pay_url);
+        dest.writeString(this.invoice_url);
+        dest.writeString(this.copy_invoice_url);
         dest.writeString(this.managementLimit);
         dest.writeString(this.pay_xindou);
         dest.writeString(this.pay_money);
         dest.writeString(this.accumulative);
-        dest.writeString(this.copy_invoice_url);
+        dest.writeInt(this.week);
         dest.writeTypedList(this.shop_banner);
         dest.writeTypedList(this.service_function);
         dest.writeTypedList(this.list);
@@ -180,15 +183,16 @@ public class Home implements Parcelable {
 
     protected Home(Parcel in) {
         this.pay_img = in.readString();
-        this.closed_pay_url = in.readString();
-        this.invoice_url = in.readString();
         this.xindou = in.readString();
         this.money = in.readString();
+        this.closed_pay_url = in.readString();
+        this.invoice_url = in.readString();
+        this.copy_invoice_url = in.readString();
         this.managementLimit = in.readString();
         this.pay_xindou = in.readString();
         this.pay_money = in.readString();
         this.accumulative = in.readString();
-        this.copy_invoice_url = in.readString();
+        this.week = in.readInt();
         this.shop_banner = in.createTypedArrayList(ShopBanner.CREATOR);
         this.service_function = in.createTypedArrayList(ServiceFunction.CREATOR);
         this.list = in.createTypedArrayList(ActivityList.CREATOR);
@@ -205,22 +209,4 @@ public class Home implements Parcelable {
             return new Home[size];
         }
     };
-
-    @Override
-    public String toString() {
-        return "Home{" +
-                "pay_img='" + pay_img + '\'' +
-                ", closed_pay_url='" + closed_pay_url + '\'' +
-                ", invoice_url='" + invoice_url + '\'' +
-                ", xindou='" + xindou + '\'' +
-                ", money='" + money + '\'' +
-                ", managementLimit='" + managementLimit + '\'' +
-                ", pay_xindou='" + pay_xindou + '\'' +
-                ", pay_money='" + pay_money + '\'' +
-                ", accumulative='" + accumulative + '\'' +
-                ", shop_banner=" + shop_banner +
-                ", service_function=" + service_function +
-                ", list=" + list +
-                '}';
-    }
 }

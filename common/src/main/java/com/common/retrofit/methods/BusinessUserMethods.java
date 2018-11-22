@@ -489,7 +489,7 @@ public class BusinessUserMethods extends BaseMethods {
         toOtherSubscribe(observable, subscriber);
     }
 
-    public void withdrawNew(Subscriber<HttpRespBean<BankListBean.ListBean>> subscriber) {
+    public void withdrawNew(Subscriber<BankListBean.ListBean> subscriber) {
         List<String> reqLis = new ArrayList<>();
         reqLis.add("time");
         reqLis.add("uid");
@@ -497,7 +497,7 @@ public class BusinessUserMethods extends BaseMethods {
                 .withdrawNew(System.currentTimeMillis() + "",
                         Constants.getHash(reqLis),
                         DataCenter.UserId);
-        toOtherSubscribe(observable, subscriber);
+        toSubscribe(observable, subscriber);
     }
 
 
