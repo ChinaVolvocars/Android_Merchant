@@ -1,5 +1,6 @@
 package com.common.retrofit.service;
 
+import com.common.base.Constants;
 import com.common.retrofit.entity.result.AboutBean;
 import com.common.retrofit.entity.result.ActiveListEntity;
 import com.common.retrofit.entity.result.AddressBean;
@@ -75,6 +76,7 @@ import retrofit2.http.POST;
 import retrofit2.http.Part;
 import retrofit2.http.PartMap;
 import rx.Observable;
+import rx.Subscriber;
 
 public interface UserService {
 
@@ -1085,6 +1087,28 @@ public interface UserService {
     @POST("accountSuccess.html")
     Observable<HttpRespBean<WithdrawlBillEntity>> withdrawCredit(@Field("time") String time, @Field("hash") String hash
             , @Field("uid") int uid, @Field("type") String type, @Field("page") int page);
+
+
+
+    /**
+     *  用户端登录发送语音短信验证码
+     *  请求类型（//1商家管理员注册短信 2商家密码找回 3 个人短信登录 7个人版用户注册短信 8商家找回账号 11支付宝扫一扫快速登录）
+     * @param time
+     * @param hash
+     * @param mobile  手机号码 <br/>
+     * @param checktype  发送短信的类型：   <br/>
+     *       checkTypeCode 为 1 ： 登录、注册短信        <br/>
+     *       checkTypeCode 为 2 ：  商家密码找回              <br/>
+     *       checkTypeCode 为 3 ： 个人短信登录           <br/>
+     *       checkTypeCode 为 7 ： 个人版用户注册短信            <br/>
+     *       checkTypeCode 为 8 ： 商家找回账号           <br/>
+     *       checkTypeCode 为 11 ： 支付宝扫一扫快速登录            <br/>
+     */
+    @FormUrlEncoded
+    @POST("singleSendcode.html")
+    Observable<Object> sendVoiceVerifyCode(@Field("time") String time, @Field("hash") String hash,
+                                           @Field("mobile") String mobile, @Field("checktype") int checktype
+    );
 
 
 }
