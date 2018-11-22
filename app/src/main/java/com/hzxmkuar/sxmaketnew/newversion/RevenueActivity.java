@@ -4,6 +4,7 @@ import android.graphics.Color;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.DragAndDropPermissions;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -15,8 +16,10 @@ import com.common.mvp.BasePresenter;
 import com.common.retrofit.entity.resultImpl.HttpRespBean;
 import com.common.retrofit.methods.BusinessUserMethods;
 import com.common.retrofit.model.Pie;
+import com.common.retrofit.model.Revenue;
 import com.common.retrofit.model.RevenueStatistics;
 import com.common.utils.DateUtils;
+import com.common.utils.UIUtils;
 import com.flyco.tablayout.SegmentTabLayout;
 import com.flyco.tablayout.listener.OnTabSelectListener;
 import com.hzxmkuar.sxmaketnew.R;
@@ -28,6 +31,7 @@ import com.view.pie.data.SimplePieInfo;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -88,11 +92,15 @@ public class RevenueActivity extends BaseMvpActivity {
         recyclerView.setAdapter(adapter);
         SimpleDateFormat simpleDateFormat = DateUtils.FORMAT_DATE;
         final String formatDate = simpleDateFormat.format(new Date());
+
+        viewDay.setVisibility(View.GONE);
+
+
         tabLayout.setOnTabSelectListener(new OnTabSelectListener() {
             @Override
             public void onTabSelect(int position) {
+//                viewDay.setVisibility(position == 0 ? View.VISIBLE : View.GONE);
                 System.out.println("========位置：" + position);
-                viewDay.setVisibility(position == 0 ? View.VISIBLE : View.GONE);
                 if (position == 0) {
                     shopDayRevenue(formatDate);
                 } else {
@@ -101,7 +109,6 @@ public class RevenueActivity extends BaseMvpActivity {
                     System.out.println("时间：" + formatDate);
                     shopMonthlyRevenue(formatDate);
                 }
-
             }
 
             @Override
@@ -135,10 +142,77 @@ public class RevenueActivity extends BaseMvpActivity {
 
             @Override
             public void onNext(HttpRespBean<RevenueStatistics> result) {
-                adapter.setData(result.getData().getTotal_moneys(), 1);
+
+                RevenueStatistics data = result.getData();
+                List<Revenue> total_moneys = data.getTotal_moneys();
+                Revenue revenue = new Revenue();
+                String this_month = data.getThis_month();//当月的金额
+                String timeStr = result.getTime();
+
+                SimpleDateFormat formatDetail = DateUtils.FORMAT_DETAIL;
+                SimpleDateFormat format1 = new SimpleDateFormat("yyyy年MM月dd日 HH时mm分ss秒");
+
+                Date d = null;
+                try {
+                    d = formatDetail.parse(timeStr);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+//                "2018年11月22日 19时41分25秒
+                String format = format1.format(d);
+                System.out.println("\"---------时间444444444444：\"" + format);    // 将日期变为新的格式
+
+                revenue.setTotal_money(this_month);
+                revenue.setMonth(format.substring(2, 8));
+
+                total_moneys.add(0, revenue);
+
+                adapter.setData(total_moneys, 1);
             }
         }, formatDate);
     }
+
+    private void shopDayRevenue(String formatDate) {
+        BusinessUserMethods.getInstance().shopDayRevenue(new Subscriber<HttpRespBean<RevenueStatistics>>() {
+            @Override
+            public void onCompleted() {
+
+            }
+
+            @Override
+            public void onError(Throwable e) {
+
+            }
+
+            @Override
+            public void onNext(HttpRespBean<RevenueStatistics> result) {
+                RevenueStatistics data = result.getData();
+                List<Revenue> total_moneys = data.getTotal_moneys();
+                Revenue revenue = new Revenue();
+                String this_day = data.getThis_day();//当天的金额
+                String time = result.getTime();
+
+                SimpleDateFormat formatDetail = DateUtils.FORMAT_DETAIL;
+                SimpleDateFormat format1 = new SimpleDateFormat("yyyy年MM月dd日 HH时mm分ss秒");
+
+                Date d = null;
+                try {
+                    d = formatDetail.parse(time);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+//                "2018年11月22日 19时41分25秒
+                String format = format1.format(d);
+                System.out.println("\"---------时间444444444444：\"" + format);    // 将日期变为新的格式
+                revenue.setTotal_money(this_day);
+                revenue.setDay(format.substring(2, 11));
+
+                total_moneys.add(0, revenue);
+                adapter.setData(total_moneys, 0);
+            }
+        }, formatDate);
+    }
+
 
     private void shopColumnGraph(String formatDate) {
         BusinessUserMethods.getInstance().shopColumnGraph(new Subscriber<HttpRespBean<Pie>>() {
@@ -166,10 +240,10 @@ public class RevenueActivity extends BaseMvpActivity {
 
                 AnimatedPieViewConfig config = new AnimatedPieViewConfig();
                 config.startAngle(-90)          // 起始角度偏移
-                        .pieRadius(160)         // 甜甜圈半径
+                        .pieRadius(UIUtils.dip2Px(65))         // 甜甜圈半径
                         .canTouch(false)
-                        .strokeWidth(65)
-                        .pieRadiusRatio(0.8f)   // 甜甜圈半径占比
+                        .strokeWidth(UIUtils.dip2Px(20))
+//                        .pieRadiusRatio(0.8f)   // 甜甜圈半径占比
                         .addData(new SimplePieInfo(Double.valueOf(pay_xindou), Color.parseColor("#FFFEDD48"), "提现结算"))//数据（实现IPieInfo接口的bean）
                         .addData(new SimplePieInfo(Double.valueOf(pay_money), Color.parseColor("#FFFFBA00"), "现金结算"))
                         .duration(2000);        // 持续时间
@@ -180,38 +254,19 @@ public class RevenueActivity extends BaseMvpActivity {
 
                 Log.e("环形图", "环形图 ");
 
-
-            }
-        }, formatDate);
-    }
-
-    private void shopDayRevenue(String formatDate) {
-        BusinessUserMethods.getInstance().shopDayRevenue(new Subscriber<HttpRespBean<RevenueStatistics>>() {
-            @Override
-            public void onCompleted() {
-
-            }
-
-            @Override
-            public void onError(Throwable e) {
-
-            }
-
-            @Override
-            public void onNext(HttpRespBean<RevenueStatistics> result) {
-                adapter.setData(result.getData().getTotal_moneys(), 0);
             }
         }, formatDate);
     }
 
 
     private void initPieView() {
+
         AnimatedPieViewConfig config = new AnimatedPieViewConfig();
         config.startAngle(-90)          // 起始角度偏移
-                .pieRadius(160)         // 甜甜圈半径
+                .pieRadius(UIUtils.dip2Px(65))         // 甜甜圈半径
                 .canTouch(false)
-                .strokeWidth(65)
-                .pieRadiusRatio(0.8f)   // 甜甜圈半径占比
+                .strokeWidth(UIUtils.dip2Px(20))
+//                .pieRadiusRatio(0.8f)   // 甜甜圈半径占比
 //                .addData(new SimplePieInfo(30, Color.parseColor("#FFFEDD48"), "提现结算"))//数据（实现IPieInfo接口的bean）
 //                .addData(new SimplePieInfo(18.0f, Color.parseColor("#FFFFBA00"), "现金结算"))
                 .duration(2000);        // 持续时间
@@ -237,7 +292,7 @@ public class RevenueActivity extends BaseMvpActivity {
                 Log.e("TAG", "onTimeSelect: " + DateUtils.FORMAT_DETAIL.format(date));
                 int currentTab = tabLayout.getCurrentTab();
                 System.out.println("tabLayout的id是：" + currentTab);
-                if (currentTab == 0) {
+               /* if (currentTab == 0) {
                     SimpleDateFormat simpleDateFormat = DateUtils.FORMAT_DATE;
                     String formatDate = simpleDateFormat.format(date);
                     shopDayRevenue(formatDate);
@@ -245,11 +300,10 @@ public class RevenueActivity extends BaseMvpActivity {
                     SimpleDateFormat simpleDateFormat = DateUtils.FORMAT_DATE4;
                     String formatDate = simpleDateFormat.format(date);
                     shopMonthlyRevenue(formatDate);
-                }
-                SimpleDateFormat formatDate4 = DateUtils.FORMAT_DATE4;
-                String format = formatDate4.format(new Date());
-                shopColumnGraph(format);
-
+                }*/
+                SimpleDateFormat simpleDateFormat = DateUtils.FORMAT_DATE4;
+                String formatDate = simpleDateFormat.format(date);
+                shopColumnGraph(formatDate);
             }
         }).setDate(selectedDate).setRangDate(startDate, selectedDate).setLayoutRes(R.layout.today_revenue_pickerview_custom_time, new CustomListener() {
             @Override

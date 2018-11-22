@@ -14,7 +14,7 @@
         android:layout_marginLeft="@dimen/dp_5"
         android:layout_marginRight="@dimen/dp_5"
         android:layout_marginTop="@dimen/dp_10"
-        android:scaleType="center"
+        android:scaleType="fitXY"
         android:src="@mipmap/ic_launcher"
         app:riv_border_color="@color/white"
         app:riv_border_width="@dimen/dp_1"

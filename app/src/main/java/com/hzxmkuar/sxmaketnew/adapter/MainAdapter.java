@@ -118,7 +118,7 @@ public class MainAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
                     if (flag) {
                         flag = false;
                         holder.tvBalance.setText(xindou);
-                        holder.tvConversionContent.setText("账户余额(鑫豆)");
+                        holder.tvConversionContent.setText("账户余额(豆)");
                     } else {
                         flag = true;
                         holder.tvBalance.setText(money);
@@ -212,42 +212,38 @@ public class MainAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             String pay_money = home.getPay_money();
             String accumulative = home.getAccumulative();//累计
             //00 .  00
-            //35 39 25
+            //30 23
             //#fe6500
             SpannableStringBuilder stringAccumulative = new SpannableStringBuilder();
             stringAccumulative.append(accumulative);
-            stringAccumulative.append("元");
+            stringAccumulative.append(" 元");
             RelativeSizeSpan sizeSpan01 = new RelativeSizeSpan(1.0f);
-            RelativeSizeSpan sizeSpan02 = new RelativeSizeSpan(1.1142f);
-            RelativeSizeSpan sizeSpan03 = new RelativeSizeSpan(0.714f);
-            RelativeSizeSpan sizeSpan04 = new RelativeSizeSpan(0.371f);
+            RelativeSizeSpan sizeSpan02 = new RelativeSizeSpan(0.767f);
             stringAccumulative.setSpan(sizeSpan01, 0, stringAccumulative.length() - 4, Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
-            stringAccumulative.setSpan(sizeSpan02, stringAccumulative.length() - 4, stringAccumulative.length() - 3, Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
-            stringAccumulative.setSpan(sizeSpan03, stringAccumulative.length() - 3, stringAccumulative.length() - 1, Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
-            stringAccumulative.setSpan(sizeSpan04, stringAccumulative.length() - 1, stringAccumulative.length(), Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
+            stringAccumulative.setSpan(sizeSpan02, stringAccumulative.length() - 4, stringAccumulative.length(), Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
             holder.tvSettlementAccumulation.setText(stringAccumulative);
 
-            //25 18 10
+            //21 16 9
             SpannableStringBuilder stringXindou = new SpannableStringBuilder();
             stringXindou.append(pay_xindou);
-            stringXindou.append("元");
+            stringXindou.append(" 元");
             RelativeSizeSpan xindousize01 = new RelativeSizeSpan(1.0f);
-            RelativeSizeSpan xindousize02 = new RelativeSizeSpan(0.72f);
-            RelativeSizeSpan xindousize03 = new RelativeSizeSpan(0.4f);
-            stringXindou.setSpan(xindousize01, 0, stringXindou.length() - 3, Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
-            stringXindou.setSpan(xindousize02, stringXindou.length() - 3, stringXindou.length() - 1, Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
-            stringXindou.setSpan(xindousize03, stringXindou.length() - 1, stringXindou.length(), Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
+            RelativeSizeSpan xindousize02 = new RelativeSizeSpan(0.762f);
+            RelativeSizeSpan xindousize03 = new RelativeSizeSpan(0.4286f);
+            stringXindou.setSpan(xindousize01, 0, stringXindou.length() - 4, Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
+            stringXindou.setSpan(xindousize02, stringXindou.length() - 4, stringXindou.length() - 2, Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
+            stringXindou.setSpan(xindousize03, stringXindou.length() - 2, stringXindou.length(), Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
             holder.tvXindouSettlement.setText(stringXindou);
 
             SpannableStringBuilder stringCash = new SpannableStringBuilder();
             stringCash.append(pay_money);
-            stringCash.append("元");
+            stringCash.append(" 元");
             RelativeSizeSpan cashsize01 = new RelativeSizeSpan(1.0f);
-            RelativeSizeSpan cashsize02 = new RelativeSizeSpan(0.72f);
-            RelativeSizeSpan cashsize03 = new RelativeSizeSpan(0.4f);
-            stringCash.setSpan(cashsize01, 0, stringCash.length() - 3, Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
-            stringCash.setSpan(cashsize02, stringCash.length() - 3, stringCash.length() - 1, Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
-            stringCash.setSpan(cashsize03, stringCash.length() - 1, stringCash.length(), Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
+            RelativeSizeSpan cashsize02 = new RelativeSizeSpan(0.762f);
+            RelativeSizeSpan cashsize03 = new RelativeSizeSpan(0.4286f);
+            stringCash.setSpan(cashsize01, 0, stringCash.length() - 4, Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
+            stringCash.setSpan(cashsize02, stringCash.length() - 4, stringCash.length() - 2, Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
+            stringCash.setSpan(cashsize03, stringCash.length() - 2, stringCash.length(), Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
             holder.tvCashSettlement.setText(stringCash);
 
             holder.tvTodayRevenue.setOnClickListener(new View.OnClickListener() {

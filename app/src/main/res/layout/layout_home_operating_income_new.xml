@@ -49,7 +49,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/color_fe6500"
-                android:textSize="@dimen/sp_35"
+                android:textSize="@dimen/sp_30"
                 tools:text="0.00元" />
 
             <TextView
@@ -95,7 +95,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/color_fe6500"
-                    android:textSize="@dimen/sp_25"
+                    android:textSize="@dimen/sp_21"
                     tools:text="0.00 元" />
 
             </LinearLayout>
@@ -125,7 +125,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/color_fe6500"
-                    android:textSize="@dimen/sp_25"
+                    android:textSize="@dimen/sp_21"
                     tools:text="0.00 元" />
 
             </LinearLayout>

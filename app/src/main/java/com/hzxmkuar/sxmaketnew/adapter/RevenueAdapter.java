@@ -45,7 +45,11 @@ public class RevenueAdapter extends RecyclerView.Adapter<RevenueAdapter.RevenueV
         holder.tvTime.setText(type == 0 ? revenue.getDay() : revenue.getMonth());
         holder.tvAmount.setText(context.getString(R.string.format_total_money, revenue.getTotal_money()));
         int status = revenue.getStatus();
-        holder.ivStatus.setImageResource(status == 1 ? R.mipmap.ic_rise : R.mipmap.ic_drop);
+        if (position == 0) {
+            holder.ivStatus.setVisibility(View.INVISIBLE);
+        } else {
+            holder.ivStatus.setImageResource(status == 1 ? R.mipmap.ic_rise : R.mipmap.ic_drop);
+        }
 
 
     }

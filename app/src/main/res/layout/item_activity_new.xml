@@ -42,7 +42,8 @@
             android:layout_height="wrap_content"
             android:text="9天后结束"
             android:textColor="@color/color_179d7e"
-            android:textSize="@dimen/sp_14" />
+            android:textSize="@dimen/sp_14"
+            android:visibility="gone" />
 
     </LinearLayout>
 

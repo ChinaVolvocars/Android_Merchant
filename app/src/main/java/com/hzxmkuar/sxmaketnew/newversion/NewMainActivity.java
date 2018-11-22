@@ -79,10 +79,10 @@ public class NewMainActivity extends BaseMvpActivity {
     protected void onViewCreated() {
         TextView tvUserName = (TextView) findViewById(R.id.tv_is_test);
         UserBean bean = DataCenter.getInstance().getUserBean();
+        tvUserName.setText(bean.getNickname());
         if (bean != null) {
             DataCenter.UserId = bean.getUid();
             DataCenter.HashId = bean.getHashid();
-            tvUserName.setText(bean.getNickname());
         }
 
         if (Constants.BaseUrl.equals("http://test.zhongxinyingjia.com/Api/")) {
@@ -96,11 +96,17 @@ public class NewMainActivity extends BaseMvpActivity {
 
         adapter = new MainAdapter(this);
         rv.setAdapter(adapter);
-        swipeRefresh.setRefreshing(true);
+
+
         swipeRefresh.setColorSchemeColors(getResources().getColor(android.R.color.holo_blue_bright),
                 getResources().getColor(android.R.color.holo_green_light),
                 getResources().getColor(android.R.color.holo_orange_light),
                 getResources().getColor(android.R.color.holo_red_light));
+
+
+        getHomeInfo();
+
+
         swipeRefresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
@@ -198,8 +204,7 @@ public class NewMainActivity extends BaseMvpActivity {
             public void onNext(Object o) {
                 cancelRefreshing();
                 Home homeEntitiy = (Home) o;
-//                Log.i(TAG, "onNext: " + homeEntitiy.toString());
-//                Log.i(TAG, "onNext: week:        "+homeEntitiy.getWeek());
+                Log.i(TAG, "onNext: " + homeEntitiy.toString());
                 if (null != homeEntitiy) {
                     result = homeEntitiy;
                     String closed_pay_url = result.getClosed_pay_url();
@@ -245,8 +250,8 @@ public class NewMainActivity extends BaseMvpActivity {
             public void onNext(Object o) {
                 statusContent();
                 AppVersionEntity appVersionEntity = (AppVersionEntity) o;
-//                Log.i(TAG, "onNext: " + appVersionEntity.toString());
-//                Log.i(TAG, "onNext:  下载链接：      " + appVersionEntity.getDownloadUrl());
+                Log.i(TAG, "onNext: " + appVersionEntity.toString());
+                Log.i(TAG, "onNext:  下载链接：      " + appVersionEntity.getDownloadUrl());
                 // 需要更新
                 if (!("0".equals(appVersionEntity.getForce())) && !(EmptyUtils.isEmpty(appVersionEntity.getDownloadUrl()))) {
                     VersionCompareDialog versionCompareDialog = new VersionCompareDialog(context, getActivity(), appVersionEntity.getDescription(),
