@@ -285,7 +285,7 @@ public class NewZCActivity extends BaseMvpActivity {
                 canClickAble = false;
                 mCdBtnSendMsg.restart();
                 if (!EmptyUtils.isEmpty(getEditTextStr(mEdtManagerPhoneNo))){
-                    Log.i(TAG, "sendVoiceVerifyCodeReq:   手机号码 ：         "+getEditTextStr(mEdtManagerPhoneNo));
+//                    Log.i(TAG, "sendVoiceVerifyCodeReq:   手机号码 ：         "+getEditTextStr(mEdtManagerPhoneNo));
                     sendVoiceVerifyCodeReq();
                 }else {
                     showToastMsg("手机号码格式不正确");
