@@ -14,6 +14,7 @@ import android.widget.TextView;
 import com.common.retrofit.model.TodaysRevenue;
 import com.hzxmkuar.sxmaketnew.R;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
@@ -21,7 +22,7 @@ import butterknife.ButterKnife;
 
 public class TodayRevenueAdapter extends RecyclerView.Adapter<TodayRevenueAdapter.TodayRevenueViewHolder> {
 
-    private List<TodaysRevenue> list;
+    private List<TodaysRevenue> list = new ArrayList<>();
     private Context context;
     private final LayoutInflater inflater;
 
@@ -32,6 +33,16 @@ public class TodayRevenueAdapter extends RecyclerView.Adapter<TodayRevenueAdapte
 
     public void setData(List<TodaysRevenue> list) {
         this.list = list;
+        notifyDataSetChanged();
+    }
+
+    public void clearData(){
+        this.list.clear();
+        notifyDataSetChanged();
+    }
+
+    public void addAllData(List<TodaysRevenue> dataList){
+        this.list.addAll(dataList);
         notifyDataSetChanged();
     }
 
