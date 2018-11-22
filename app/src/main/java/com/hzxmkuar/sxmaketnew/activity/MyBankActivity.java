@@ -238,7 +238,18 @@ public class MyBankActivity extends BaseMvpActivity {
         @Override
         protected void convert(final ViewHolder holder, final BankListBean.ListBean item, final int position) {
 
+            ImageView ivBank = holder.getView(R.id.iv_bank);
+            ImageLoaderUtils.displayCircle(ivBank, item.getCard_bank_logo());
+
+            holder.setText(R.id.tv_name, item.getBank_name());
             holder.setText(R.id.tv_bank_num, BankUtil.hideBank(item.getCard_number()));
+
+            if ("1".equals(item.getStatus())) {
+                holder.setText(R.id.tv_type, "对私账户");
+            } else if ("2".equals(item.getStatus())) {
+                holder.setText(R.id.tv_type, "对公账户");
+            }
+
             LinearLayout view = holder.getView(R.id.ll_bank);
 
             Glide.with(context).load(item.getCard_bank_background())

@@ -28,7 +28,7 @@
                 android:gravity="center_vertical"
                 android:paddingLeft="@dimen/dp_14"
                 android:paddingRight="@dimen/dp_14"
-                android:text="请选择银行卡"
+                android:text="请添加银行卡"
                 android:textColor="@color/color_303030"
                 android:textSize="@dimen/sp_17"
                 android:visibility="visible" />
@@ -97,7 +97,7 @@
             android:id="@+id/tv_service_fee"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="提现金额(鑫利积分*服务扣点5%)"
+            android:text="提现金额(鑫豆*服务扣点5%)"
             android:textColor="@color/color_747373"
             android:textSize="@dimen/sp_15" />
 

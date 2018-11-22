@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginTop="@dimen/dp_5"
@@ -30,24 +31,26 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/dp_90"
-        android:gravity="center"
-        android:orientation="horizontal">
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingBottom="@dimen/dp_16"
+        android:paddingTop="@dimen/dp_10">
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
             android:gravity="center"
-            android:orientation="vertical"
-            android:paddingRight="@dimen/dp_20">
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/tv_settlement_accumulation"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="200.00元"
                 android:textColor="@color/color_fe6500"
-                android:textSize="@dimen/sp_35" />
+                android:textSize="@dimen/sp_35"
+                tools:text="0.00元" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -61,15 +64,19 @@
         <View
             android:layout_width="1px"
             android:layout_height="@dimen/dp_74"
+            android:layout_gravity="center"
             android:layout_marginRight="@dimen/dp_7"
             android:background="@color/color_b5b5b5" />
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
             android:orientation="vertical">
 
             <LinearLayout
+
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center_vertical"
@@ -87,15 +94,16 @@
                     android:id="@+id/tv_xindou_settlement"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="100.00 元"
                     android:textColor="@color/color_fe6500"
-                    android:textSize="@dimen/sp_25" />
+                    android:textSize="@dimen/sp_25"
+                    tools:text="0.00 元" />
 
             </LinearLayout>
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1px"
+                android:layout_marginRight="@dimen/dp_7"
                 android:background="@color/color_b5b5b5" />
 
             <LinearLayout
@@ -116,9 +124,9 @@
                     android:id="@+id/tv_cash_settlement"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="100.00 元"
                     android:textColor="@color/color_fe6500"
-                    android:textSize="@dimen/sp_25" />
+                    android:textSize="@dimen/sp_25"
+                    tools:text="0.00 元" />
 
             </LinearLayout>
 

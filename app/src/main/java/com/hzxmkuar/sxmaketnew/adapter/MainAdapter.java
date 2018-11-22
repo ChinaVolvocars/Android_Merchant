@@ -118,7 +118,7 @@ public class MainAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
                     if (flag) {
                         flag = false;
                         holder.tvBalance.setText(xindou);
-                        holder.tvConversionContent.setText("账户余额(鑫利积分)");
+                        holder.tvConversionContent.setText("账户余额(鑫豆)");
                     } else {
                         flag = true;
                         holder.tvBalance.setText(money);

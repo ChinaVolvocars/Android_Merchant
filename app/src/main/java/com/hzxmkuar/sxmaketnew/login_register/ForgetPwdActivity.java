@@ -96,6 +96,7 @@ public class ForgetPwdActivity extends BaseMvpActivity {
             @Override
             public void cancelLick() {
                 canClickAble = true;
+
             }
 
             @Override
