@@ -6,6 +6,7 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -30,6 +31,7 @@ import com.common.utils.EmptyUtils;
 import com.common.utils.FileUtils;
 import com.common.utils.LQRPhotoSelectUtils;
 import com.common.utils.PhotoUtils;
+import com.common.widget.dialog.SendPhoneVerifyDialog;
 import com.common.widget.editview.DeleteEditText;
 import com.common.widget.imageview.image.ImageLoaderUtils;
 import com.common.widget.textview.CountdownButton;
@@ -77,6 +79,8 @@ public class GetBackAccountActivity extends BaseMvpActivity {
     private PictureCheckDialogFragment pickerPhotoDialog;
     private LQRPhotoSelectUtils mLqrPhotoSelectUtils;
     private TextView tv_phone_verify_getback_account;
+    SendPhoneVerifyDialog sendPhoneVerifyDialog;
+    private boolean canClickAble = true;
     @Override
     protected BasePresenter createPresenterInstance() {
         return null;
@@ -105,6 +109,26 @@ public class GetBackAccountActivity extends BaseMvpActivity {
         tv_phone_verify_getback_account = (TextView) findViewById(R.id.tv_phone_verify_getback_account);
         tv_phone_verify_getback_account.setVisibility(View.INVISIBLE);
 
+
+        sendPhoneVerifyDialog = new SendPhoneVerifyDialog(context,GetBackAccountActivity.this);
+        sendPhoneVerifyDialog.setOnDialogButtonClickListener(new SendPhoneVerifyDialog.OnDialogButtonClickListener() {
+            @Override
+            public void cancelLick() {
+                canClickAble = true;
+            }
+
+            @Override
+            public void confirmClick() {
+                canClickAble = false;
+                cd_btn_send_msg_getback.restart();
+                if (!EmptyUtils.isEmpty(getEditTextStr(edt_reserved_phone_no_getback))){
+//                    Log.i(TAG, "sendVoiceVerifyCodeReq:   手机号码 ：         "+getEditTextStr(edt_reserved_phone_no_getback));
+                    sendVoiceVerifyCodeReq();
+                }else {
+                    showToastMsg("手机号码格式不正确");
+                }
+            }
+        });
     }
 
     @Override
@@ -151,9 +175,9 @@ public class GetBackAccountActivity extends BaseMvpActivity {
             type = 3;
             showPicCheck();
         }else if ( view.getId() == tv_phone_verify_getback_account.getId()){
-//            tv_phone_verify_getback_account
-//            SendPhoneVerifyDialog dialog = new SendPhoneVerifyDialog(context,RegisterActivity.this);
-//            dialog.show();
+            if (canClickAble){
+                sendPhoneVerifyDialog.show();
+            }
         }
     }
 
@@ -161,7 +185,13 @@ public class GetBackAccountActivity extends BaseMvpActivity {
     public void getBackAccountTimeOut(BaseEvent event) {
         switch (event.getTag()) {
             case EventBusConstants.TIME_OUT:
-//                tv_phone_verify_getback_account.setVisibility(View.VISIBLE);
+                tv_phone_verify_getback_account.setVisibility(View.VISIBLE);
+                String eventStr = (String) event.getS();
+                if ("show".equals(eventStr)) {
+//                    canClickAble = false;
+                } else if ("canRestart".equals(eventStr)) {
+                    canClickAble = true;
+                }
                 break;
         }
     }
@@ -419,4 +449,26 @@ public class GetBackAccountActivity extends BaseMvpActivity {
         }
     }
 
+    /**
+     * 发送语音短信验证码
+     */
+    private void sendVoiceVerifyCodeReq() {
+        CommonSubscriber<Object> subscriber = new CommonSubscriber<>(new SubscriberListener() {
+            @Override
+            public void onNext(Object o) {
+                showToastMsg("发送成功");
+            }
+
+            @Override
+            public void onError(String e, int code) {
+                showToastMsg(e);
+            }
+        });
+        List<String> paramaList = new ArrayList<>();
+        paramaList.add("time");
+        paramaList.add("mobile");
+        paramaList.add("checktype");
+        SmsMethods.getInstance().sendVoiceVerifyCode(subscriber,getEditTextStr(edt_reserved_phone_no_getback),8, paramaList);
+        rxManager.add(subscriber);
+    }
 }
