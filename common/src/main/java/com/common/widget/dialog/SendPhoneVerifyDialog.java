@@ -27,6 +27,7 @@ public class SendPhoneVerifyDialog extends Dialog implements View.OnClickListene
     private String mTitleStr = "";
     private String mCancelStr = "";
     private String mConfirmStr = "";
+    private OnDialogButtonClickListener buttonCLick;
 
     public SendPhoneVerifyDialog(@NonNull Context context, Activity activity) {
         super(context, R.style.custom_dialog);
@@ -49,7 +50,6 @@ public class SendPhoneVerifyDialog extends Dialog implements View.OnClickListene
         this.mTitleStr = dialogTitle;
         this.mCancelStr = dialogCancel;
         this.mConfirmStr = dialogConfirm;
-
     }
 
     @Override
@@ -67,6 +67,7 @@ public class SendPhoneVerifyDialog extends Dialog implements View.OnClickListene
     }
 
 
+
     /**
      * 初始化界面控件
      */
@@ -78,16 +79,18 @@ public class SendPhoneVerifyDialog extends Dialog implements View.OnClickListene
         tv_get_phone_verify.setOnClickListener(this);
     }
 
+
     @Override
     public void onClick(View v) {
         if (v.getId() == tv_cancel_get.getId()) {
-            ToastManager.showShortToast(tv_cancel_get.getText().toString());
+            buttonCLick.cancelLick();
             this.dismiss();
             this.cancel();
         } else if (v.getId() == tv_get_phone_verify.getId()) {
-            ToastManager.showShortToast(tv_get_phone_verify.getText().toString());
+            buttonCLick.confirmClick();
             this.dismiss();
             this.cancel();
+
         }
     }
 
@@ -106,4 +109,18 @@ public class SendPhoneVerifyDialog extends Dialog implements View.OnClickListene
         });
     }
 
+    public interface OnDialogButtonClickListener {
+        void cancelLick();
+        void confirmClick();
+    }
+
+    /**
+     *   弹窗户的挖掘点击事件
+     * @param onDialogButtonClickListener
+     */
+    public void setOnDialogButtonClickListener(OnDialogButtonClickListener onDialogButtonClickListener){
+        this.buttonCLick = onDialogButtonClickListener;
+    }
+
 }
+
