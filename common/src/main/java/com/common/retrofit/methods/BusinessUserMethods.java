@@ -1,8 +1,5 @@
 package com.common.retrofit.methods;
 
-import android.provider.SyncStateContract;
-import android.util.Log;
-
 import com.common.base.Constants;
 import com.common.retrofit.base.BaseMethods;
 import com.common.retrofit.entity.DataCenter;
@@ -26,11 +23,8 @@ import com.common.retrofit.model.Pie;
 import com.common.retrofit.model.RevenueStatistics;
 import com.common.retrofit.model.TodayRevenue;
 import com.common.retrofit.service.UserService;
-
 import java.util.ArrayList;
 import java.util.List;
-
-import okhttp3.ResponseBody;
 import rx.Observable;
 import rx.Subscriber;
 
@@ -64,29 +58,6 @@ public class BusinessUserMethods extends BaseMethods {
         Observable observable = initService().scategory(System.currentTimeMillis() + "", "70ffcb2a3569065c4420776b8a81809b");
         toOtherSubscribe(observable, subscriber);
     }
-
-//    /**
-//     * 修改商铺信息提交
-//     *
-//     * @param subscriber
-//     * @param name
-//     * @param typeid
-//     * @param shengid
-//     * @param shiid
-//     * @param quid
-//     * @param adddes
-//     * @param showdes
-//     * @param pic
-//     * @param picList
-//     * @param pics
-//     * @param picLists
-//     */
-//    public void shopInfoSubmit(Subscriber<Object> subscriber, String name, String typeid, String shengid, String shiid, String quid,
-//                               String adddes, String showdes, String pic, String picList, String pics, String picLists) {
-//        Observable observable = initService().shopInfoSubmit(System.currentTimeMillis() + "", "a831cff77e30288bf980cd32b4c960c5", DataCenter.UserId, DataCenter.HashId, name, typeid, shengid, shiid, quid, adddes, showdes, pic, picList
-//                , pics, picLists);
-//        toOtherSubscribe(observable, subscriber);
-//    }
 
     /**
      * 修改商铺信息提交（新接口）
@@ -466,10 +437,10 @@ public class BusinessUserMethods extends BaseMethods {
     }
 
 
-    public void todayRevenue(Subscriber<HttpRespBean<TodayRevenue>> subscriber, List<String> reqList, String date) {
+//    public void todayRevenue(Subscriber<HttpRespBean<TodayRevenue>> subscriber, List<String> reqList, String date) {
+    public void todayRevenue(Subscriber<HttpRespBean<TodayRevenue>> subscriber, List<String> reqList, String date,int page) {
         Observable observable = initService().todayRevenue(System.currentTimeMillis() + ""
-                , Constants.getHash(reqList), DataCenter.UserId, 1, date
-        );
+                , Constants.getHash(reqList), DataCenter.UserId, page, date);
         toOtherSubscribe(observable, subscriber);
     }
 
