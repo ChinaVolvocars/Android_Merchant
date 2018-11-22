@@ -21,6 +21,7 @@ public class Home implements Parcelable {
      * accumulative : 0.00
      * list : [{"time":19,"type":2,"title":"商家推广活动","desc":"商家推广活动","pic":"http://sxpic.oss-cn-hangzhou.aliyuncs.com/file/2018-11-10/shangjiaban_shouye_kaixinchuandan%403x.png","url":"http://cc.com/Admin/Index/index.html"},{"time":1168,"type":2,"title":"新入驻商户推广奖励","desc":"注册90天内直荐会员首次满20送商家5鑫利豆","pic":"http://sxpic.oss-cn-hangzhou.aliyuncs.com/file/2018-09-20/%E5%95%86%E5%AE%B6%E7%89%88%E9%A6%96%E9%A1%B5banner-2.png","url":"http://activity.zhongxinyingjia.com/merchant/newgift.html"}]
      */
+    private String username;
     private String pay_img;
     private String xindou;
     private String money;
@@ -35,6 +36,14 @@ public class Home implements Parcelable {
     private List<ShopBanner> shop_banner;
     private List<ServiceFunction> service_function;
     private List<ActivityList> list;
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
 
     public String getPay_img() {
         return pay_img;

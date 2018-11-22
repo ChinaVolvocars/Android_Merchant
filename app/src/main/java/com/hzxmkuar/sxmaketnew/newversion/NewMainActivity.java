@@ -63,6 +63,7 @@ public class NewMainActivity extends BaseMvpActivity {
      * 发票信息
      */
     private String invoiceUrl = "";
+    private TextView tvUserName;
 
     @Override
     protected BasePresenter createPresenterInstance() {
@@ -77,9 +78,8 @@ public class NewMainActivity extends BaseMvpActivity {
 
     @Override
     protected void onViewCreated() {
-        TextView tvUserName = (TextView) findViewById(R.id.tv_is_test);
+        tvUserName = (TextView) findViewById(R.id.tv_is_test);
         UserBean bean = DataCenter.getInstance().getUserBean();
-        tvUserName.setText(bean.getNickname());
         if (bean != null) {
             DataCenter.UserId = bean.getUid();
             DataCenter.HashId = bean.getHashid();
@@ -207,6 +207,8 @@ public class NewMainActivity extends BaseMvpActivity {
                 Log.i(TAG, "onNext: " + homeEntitiy.toString());
                 if (null != homeEntitiy) {
                     result = homeEntitiy;
+                    tvUserName.setText(result.getUsername());
+
                     String closed_pay_url = result.getClosed_pay_url();
                     String invoice_url = result.getInvoice_url();
                     SPUtils.setShareString(CLOSED_PAY_URL, closed_pay_url);

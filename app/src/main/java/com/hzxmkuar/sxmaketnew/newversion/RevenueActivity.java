@@ -93,8 +93,10 @@ public class RevenueActivity extends BaseMvpActivity {
         SimpleDateFormat simpleDateFormat = DateUtils.FORMAT_DATE;
         final String formatDate = simpleDateFormat.format(new Date());
 
-        viewDay.setVisibility(View.GONE);
+        SimpleDateFormat simpleDateFormat7 = DateUtils.FORMAT_DATE7;
+        final String formatDate7 = simpleDateFormat7.format(new Date());
 
+        tvTime.setText(formatDate7);
 
         tabLayout.setOnTabSelectListener(new OnTabSelectListener() {
             @Override
@@ -301,8 +303,15 @@ public class RevenueActivity extends BaseMvpActivity {
                     String formatDate = simpleDateFormat.format(date);
                     shopMonthlyRevenue(formatDate);
                 }*/
+
+                SimpleDateFormat simpleDateFormat7 = DateUtils.FORMAT_DATE7;
+                final String formatDate7 = simpleDateFormat7.format(date);
+
+                tvTime.setText(formatDate7);
+
                 SimpleDateFormat simpleDateFormat = DateUtils.FORMAT_DATE4;
                 String formatDate = simpleDateFormat.format(date);
+
                 shopColumnGraph(formatDate);
             }
         }).setDate(selectedDate).setRangDate(startDate, selectedDate).setLayoutRes(R.layout.today_revenue_pickerview_custom_time, new CustomListener() {
