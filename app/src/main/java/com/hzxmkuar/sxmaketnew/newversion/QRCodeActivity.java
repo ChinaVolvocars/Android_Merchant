@@ -69,7 +69,7 @@ public class QRCodeActivity extends BaseMvpActivity {
 
     @OnClick(R.id.tv_voice)
     public void onVoiceClicked() {
-        showToastMsg("该功能暂未开放，敬请期待！");
+//        showToastMsg("该功能暂未开放，敬请期待！");
 //        DialogQR dialogQR = DialogQR.newInstance(null);
 //        dialogQR.show(getSupportFragmentManager(), "DialogQR");
     }

@@ -64,6 +64,7 @@ public class NewMainActivity extends BaseMvpActivity {
      */
     private String invoiceUrl = "";
     private TextView tvUserName;
+    private DialogHomeWay dialog;
 
     @Override
     protected BasePresenter createPresenterInstance() {
@@ -90,6 +91,9 @@ public class NewMainActivity extends BaseMvpActivity {
             viewById.setVisibility(View.VISIBLE);
             viewById.setText("测试环境");
         }
+
+
+
 
         rv.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
         rv.setHasFixedSize(true);
@@ -170,7 +174,7 @@ public class NewMainActivity extends BaseMvpActivity {
                     bundle.putString(KEY_MONEY, money);
                     bundle.putInt(KEY_WEEK, result.getWeek());
                     Log.e("", "主界面的week: " + result.getWeek());
-                    DialogHomeWay dialog = DialogHomeWay.newInstance(bundle);
+                    dialog = DialogHomeWay.newInstance(bundle);
                     dialog.show(getSupportFragmentManager(), "DialogHomeWay");
                 } else if (tag.equals(MainAdapter.WithdrawalAccounts)) {
                     gotoActivity(WithdrawBillActivity.class);
@@ -208,7 +212,6 @@ public class NewMainActivity extends BaseMvpActivity {
                 if (null != homeEntitiy) {
                     result = homeEntitiy;
                     tvUserName.setText(result.getUsername());
-
                     String closed_pay_url = result.getClosed_pay_url();
                     String invoice_url = result.getInvoice_url();
                     SPUtils.setShareString(CLOSED_PAY_URL, closed_pay_url);
@@ -274,13 +277,14 @@ public class NewMainActivity extends BaseMvpActivity {
         paramaList.add("version_code");
         BusinessUserMethods.getInstance().checkAppVersion(subscriber, paramaList, "2", "1", String.valueOf(APPUtil.getVersionName(ContextUtils.getAppContext())));
         rxManager.add(subscriber);
+
     }
 
 
     @Override
     protected void onResume() {
         super.onResume();
-        Log.e(TAG, "onResume: ");
+        Log.e(TAG, "onResume: " + SPUtils.getShareBoolean(REFRESH));
         if (SPUtils.getShareBoolean(REFRESH)) {
             getHomeInfo();
             SPUtils.setShareBoolean(REFRESH, false);

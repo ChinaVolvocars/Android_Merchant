@@ -128,6 +128,9 @@ public class RevenueActivity extends BaseMvpActivity {
         SimpleDateFormat formatDate4 = DateUtils.FORMAT_DATE4;
         String format = formatDate4.format(new Date());
         shopColumnGraph(format);
+
+
+        viewDay.setVisibility(View.GONE);
     }
 
     private void shopMonthlyRevenue(String formatDate) {

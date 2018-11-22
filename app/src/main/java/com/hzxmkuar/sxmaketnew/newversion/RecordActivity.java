@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+
 import com.common.adapter.helper.IRecyclerViewHelper;
 import com.common.base.Constants;
 import com.common.mvp.BaseMvpActivity;
@@ -26,6 +27,8 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.OnClick;
 
+import static com.common.event.SpConstants.CLOSED_PAY_URL;
+import static com.common.event.SpConstants.INVOICE_URL;
 import static com.hzxmkuar.sxmaketnew.fragment.InvoiceExpressFragment.WID;
 import static com.hzxmkuar.sxmaketnew.view.dialog.WithdrawDialogFragment.REFRESH;
 
@@ -44,6 +47,7 @@ public class RecordActivity extends BaseMvpActivity {
     ImageView ivAdv;
     @BindView(R.id.recycler_view)
     XRecyclerView recordRecyclerView;
+    private boolean flag;
 
     @OnClick(R.id.back)
     public void onFinishClicked() {
@@ -80,6 +84,14 @@ public class RecordActivity extends BaseMvpActivity {
     protected void onViewCreated() {
     }
 
+
+    @OnClick(R.id.iv_adv)
+    public void onAdvClicked() {
+        WebViewActivity.runWebActivity(RecordActivity.this,
+                flag ? "代收代付提现规则" : "发票提现规则",
+                flag ? SPUtils.getShareString(CLOSED_PAY_URL) : SPUtils.getShareString(INVOICE_URL));
+    }
+
     @Override
     protected void doLogicFunc() {
 
@@ -89,7 +101,7 @@ public class RecordActivity extends BaseMvpActivity {
          *  true 为 代收代付申请记录  <br/>
          *  false 为 发票提现申请记录  <br/>
          */
-        boolean flag = bundle.getBoolean("flag", true);
+        flag = bundle.getBoolean("flag", true);
         ivAdv.setImageResource(flag ? R.mipmap.adv_withdrawal_time : R.mipmap.adv_invoice_record);
         tName.setText(flag ? "代收代付申请记录" : "发票提现申请记录");
         if (flag) {

@@ -39,6 +39,7 @@ public class DialogHomeWay extends BottomSheetDialogFragment {
     LinearLayout llCancel;
     private String money;
     private int week;
+    private static DialogHomeWay dialogHomeWay;
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
@@ -57,7 +58,7 @@ public class DialogHomeWay extends BottomSheetDialogFragment {
     }
 
     public static DialogHomeWay newInstance(Bundle bundle) {
-        DialogHomeWay dialogHomeWay = new DialogHomeWay();
+        dialogHomeWay = new DialogHomeWay();
         dialogHomeWay.setArguments(bundle);
         return dialogHomeWay;
     }

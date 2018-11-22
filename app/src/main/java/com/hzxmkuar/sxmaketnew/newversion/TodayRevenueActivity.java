@@ -244,6 +244,7 @@ public class TodayRevenueActivity extends BaseMvpActivity {
                 .setDividerColor(Color.DKGRAY)
                 .setLineSpacingMultiplier(1.2f)
                 .build();
+
 //        pvTime.setKeyBackCancelable(false);//系统返回键监听屏蔽掉
     }
 
