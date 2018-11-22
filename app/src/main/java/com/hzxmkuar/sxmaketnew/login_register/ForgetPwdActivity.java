@@ -2,6 +2,7 @@ package com.hzxmkuar.sxmaketnew.login_register;
 
 import android.content.Intent;
 import android.media.tv.TvTrackInfo;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -19,6 +20,7 @@ import com.common.retrofit.methods.SmsMethods;
 import com.common.retrofit.subscriber.CommonSubscriber;
 import com.common.retrofit.subscriber.SubscriberListener;
 import com.common.utils.EmptyUtils;
+import com.common.widget.dialog.SendPhoneVerifyDialog;
 import com.common.widget.editview.DeleteEditText;
 import com.common.widget.textview.CountdownButton;
 import com.hzxmkuar.sxmaketnew.R;
@@ -58,6 +60,9 @@ public class ForgetPwdActivity extends BaseMvpActivity {
     private String mCertificatesType = "";
     private List<String> typeList = new ArrayList<>();
     private TextView tv_phone_verify_forget;
+    private SendPhoneVerifyDialog sendPhoneVerifyDialog;
+    private boolean canClickAble = true;
+
     @Override
     protected BasePresenter createPresenterInstance() {
         return null;
@@ -85,6 +90,26 @@ public class ForgetPwdActivity extends BaseMvpActivity {
         tv_phone_verify_forget.setVisibility(View.INVISIBLE);
         TextView tvTtile = (TextView) findViewById(R.id.tv_title);
         tvTtile.setText("忘记密码");
+
+        sendPhoneVerifyDialog = new SendPhoneVerifyDialog(context,ForgetPwdActivity.this);
+        sendPhoneVerifyDialog.setOnDialogButtonClickListener(new SendPhoneVerifyDialog.OnDialogButtonClickListener() {
+            @Override
+            public void cancelLick() {
+                canClickAble = true;
+            }
+
+            @Override
+            public void confirmClick() {
+                canClickAble = false;
+                mBtnSendMsg.restart();
+                if (!EmptyUtils.isEmpty(getEditTextStr(mEdtInputPhoneNo))){
+//                    Log.i(TAG, "sendVoiceVerifyCodeReq:   手机号码 ：         "+getEditTextStr(mEdtInputPhoneNo));
+                    sendVoiceVerifyCodeReq();
+                }else {
+                    showToastMsg("手机号码格式不正确");
+                }
+            }
+        });
     }
 
     @Override
@@ -97,6 +122,7 @@ public class ForgetPwdActivity extends BaseMvpActivity {
         attachClickListener(mBtnCommit);
         attachClickListener(mTvChoseCertificateType);
         attachClickListener(iv_back);
+        attachClickListener(tv_phone_verify_forget);
         initCertificateTypePicker();
     }
 
@@ -111,9 +137,9 @@ public class ForgetPwdActivity extends BaseMvpActivity {
         } else if (view.getId() == mTvChoseCertificateType.getId()) {
             mCertificatesTypePicker.show();
         } else if (view.getId() == tv_phone_verify_forget.getId()) {
-//
-//            SendPhoneVerifyDialog dialog = new SendPhoneVerifyDialog(context,RegisterActivity.this);
-//            dialog.show();
+            if (canClickAble){
+                sendPhoneVerifyDialog.show();
+            }
         }
     }
 
@@ -121,7 +147,13 @@ public class ForgetPwdActivity extends BaseMvpActivity {
     public void forgetPwdTimeOut(BaseEvent event) {
         switch (event.getTag()) {
             case EventBusConstants.TIME_OUT:
-//                tv_phone_verify_forget.setVisibility(View.VISIBLE);
+                tv_phone_verify_forget.setVisibility(View.VISIBLE);
+                String eventStr = (String)event.getS();
+                if ("show".equals(eventStr)){
+//                    canClickAble = false;
+                }else if ("canRestart".equals(eventStr)){
+                    canClickAble = true;
+                }
                 break;
         }
     }
@@ -132,7 +164,6 @@ public class ForgetPwdActivity extends BaseMvpActivity {
      */
     private void verifyInput(View view) {
         if (EmptyUtils.isEmpty(getEditTextStr(mEdtInputAccount))) {
-            // TODO: 2018/8/22  需要确定商户账户的最低长度
             showToastMsg("账号不能为空，请输入您的商户号");
             return;
         } else if (EmptyUtils.isEmpty(getEditTextStr(mEdtInputStroeName))) {
@@ -154,14 +185,12 @@ public class ForgetPwdActivity extends BaseMvpActivity {
             showToastMsg("证件号码格式不正确，请重新输入");
             return;
         } else if (getTextViewStr(mTvChoseCertificateType).length() < 2) {
-            // TODO: 2018/8/22  需要确定证件类型及长度
             showToastMsg("证件号码格式不正确，请重新输入");
             return;
         } else if (EmptyUtils.isEmpty(getEditTextStr(mEdtInputPhoneNo))) {
             showToastMsg("手机号码不能为空");
             return;
         } else if (getEditTextStr(mEdtInputPhoneNo).length() < 11) {
-            // TODO: 2018/8/22  需要确定证件类型及长度
             showToastMsg("手机号码格式不对，请重新输入");
             return;
         }
@@ -173,7 +202,6 @@ public class ForgetPwdActivity extends BaseMvpActivity {
                 showToastMsg("验证码不能为空");
                 return;
             } else if (getEditTextStr(mEdtInputVerificationCode).length() < 6) {
-                // TODO: 2018/8/22  需要确定证件类型及长度
                 showToastMsg("验证码格式不对，请重新输入");
                 return;
             }
@@ -195,7 +223,6 @@ public class ForgetPwdActivity extends BaseMvpActivity {
             @Override
             public void onNext(Object o) {
                 statusContent();
-                // TODO: 2018/8/25  将userName传到下一个界面
                 Intent resetPwdIntent = new Intent(ForgetPwdActivity.this,NewPwdActivity.class);
                 resetPwdIntent.putExtra("userName",getEditTextStr(mEdtInputAccount));
                 startActivity(resetPwdIntent);
@@ -263,6 +290,30 @@ public class ForgetPwdActivity extends BaseMvpActivity {
         });
         SmsMethods.getInstance().sendVerCode(sendVerCodeSub,getEditTextStr(mEdtInputPhoneNo),"2");
         rxManager.add(sendVerCodeSub);
+    }
+
+
+    /**
+     * 发送语音短信验证码
+     */
+    private void sendVoiceVerifyCodeReq() {
+        CommonSubscriber<Object> subscriber = new CommonSubscriber<>(new SubscriberListener() {
+            @Override
+            public void onNext(Object o) {
+                showToastMsg("发送成功");
+            }
+
+            @Override
+            public void onError(String e, int code) {
+                showToastMsg(e);
+            }
+        });
+        List<String> paramaList = new ArrayList<>();
+        paramaList.add("time");
+        paramaList.add("mobile");
+        paramaList.add("checktype");
+        SmsMethods.getInstance().sendVoiceVerifyCode(subscriber,getEditTextStr(mEdtInputPhoneNo),2, paramaList);
+        rxManager.add(subscriber);
     }
 
 }
