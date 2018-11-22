@@ -9,7 +9,6 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.common.base.Constants;
 import com.common.mvp.BaseMvpActivity;
 import com.common.mvp.BasePresenter;
 import com.common.retrofit.entity.result.BankListBean;
