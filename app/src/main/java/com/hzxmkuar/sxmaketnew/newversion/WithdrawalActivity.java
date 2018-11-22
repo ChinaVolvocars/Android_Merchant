@@ -79,7 +79,6 @@ public class WithdrawalActivity extends BaseMvpActivity {
 
     @Override
     protected void onViewCreated() {
-
         Bundle bundle = getIntent().getExtras();
         int collectionValue = bundle.getInt(DialogHomeWay.COLLECTION_KEY, 0);
         money = bundle.getString(NewMainActivity.KEY_MONEY, "0.00");
@@ -123,11 +122,14 @@ public class WithdrawalActivity extends BaseMvpActivity {
             public void onNext(BankListBean.ListBean bank) {
                 //有银行卡 ，week 不是0的时候才能提现
                 //  0不可提现，  <br/> 1 可以提现  <br/>
+                System.out.println("====="+week);
+                System.out.println("====="+Double.valueOf(money));
                 if (null != bank && week != 0 && Double.valueOf(money) > 0) {
                     tvConfirm.setClickable(true);
                     tvConfirm.setBackgroundResource(flag ? R.drawable.selector_button : R.drawable.selector_button_invoice);
                     System.out.println("能提现");
                 } else {
+
                     tvConfirm.setClickable(false);
                     tvConfirm.setBackgroundResource(R.drawable.shape_rectangle_pressed);
                     System.out.println("不能提现");

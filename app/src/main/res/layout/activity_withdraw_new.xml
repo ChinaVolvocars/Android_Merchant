@@ -136,7 +136,6 @@
         android:layout_marginRight="@dimen/dp_10"
         android:layout_marginTop="@dimen/dp_38"
         android:background="@drawable/shape_rectangle_pressed"
-        android:clickable="false"
         android:gravity="center"
         android:text="确认提现"
         android:textColor="@color/white"

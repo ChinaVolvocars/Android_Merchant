@@ -6,6 +6,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.BottomSheetDialogFragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -76,6 +77,8 @@ public class DialogHomeWay extends BottomSheetDialogFragment {
         Bundle bundle = getArguments();
         money = bundle.getString(NewMainActivity.KEY_MONEY, "0.00");
         week = bundle.getInt(KEY_WEEK, 0);
+
+        Log.e("", "弹框中的week: " + week);
     }
 
     @OnClick(R.id.ll_cancel)
@@ -104,13 +107,12 @@ public class DialogHomeWay extends BottomSheetDialogFragment {
 //            startActivity(intent);
 //        }
 
-        Intent intent = new Intent();
+        Intent intent = new Intent(getContext(), WithdrawalActivity.class);
         Bundle bundle = new Bundle();
         bundle.putInt(COLLECTION_KEY, COLLECTION_PAYMENT);
         bundle.putString(NewMainActivity.KEY_MONEY, money);
         bundle.putInt(KEY_WEEK, week);
         intent.putExtras(bundle);
-        intent.setClass(getContext(), WithdrawalActivity.class);
         startActivity(intent);
 
     }
@@ -140,13 +142,12 @@ public class DialogHomeWay extends BottomSheetDialogFragment {
         }*/
 
 
-        Intent intent = new Intent();
+        Intent intent = new Intent(getContext(), WithdrawalActivity.class);
         Bundle bundle = new Bundle();
         bundle.putInt(COLLECTION_KEY, INVOICE_WITHDRAWAL);
         bundle.putString(NewMainActivity.KEY_MONEY, money);
         bundle.putInt(KEY_WEEK, week);
         intent.putExtras(bundle);
-        intent.setClass(getContext(), WithdrawalActivity.class);
         startActivity(intent);
 
     }
