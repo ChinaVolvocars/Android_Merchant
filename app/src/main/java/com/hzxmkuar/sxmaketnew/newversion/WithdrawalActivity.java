@@ -79,6 +79,7 @@ public class WithdrawalActivity extends BaseMvpActivity {
 
     @Override
     protected void onViewCreated() {
+
         Bundle bundle = getIntent().getExtras();
         int collectionValue = bundle.getInt(DialogHomeWay.COLLECTION_KEY, 0);
         money = bundle.getString(NewMainActivity.KEY_MONEY, "0.00");
@@ -91,7 +92,7 @@ public class WithdrawalActivity extends BaseMvpActivity {
         tvRight.setText("查看规则");
         tvRight.setTextColor(getResources().getColor(R.color.white));
         tvRight.setBackgroundResource(flag ? R.drawable.shape_rectangle_rule_yellow : R.drawable.shape_rectangle_rule_blue);
-        tvConfirm.setBackgroundResource(flag ? R.drawable.selector_button : R.drawable.selector_button_invoice);
+//        tvConfirm.setBackgroundResource(flag ? R.drawable.selector_button : R.drawable.selector_button_invoice);
         tvViewRecord.setBackgroundResource(flag ? R.drawable.shape_rectangle_stroke : R.drawable.shape_rectangle_stroke_blue);
         tvViewRecord.setTextColor(flag ? getResources().getColor(R.color.color_ffae05) : getResources().getColor(R.color.color_60aeff));
 
