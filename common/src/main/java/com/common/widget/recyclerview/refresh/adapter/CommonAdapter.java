@@ -32,6 +32,7 @@ import static android.view.ViewGroup.LayoutParams.WRAP_CONTENT;
  */
 public abstract class CommonAdapter<T> extends RecyclerView.Adapter<ViewHolder> {
     private static final String TAG = "CommonAdapter";
+
     public static class VIEW_TYPE {
         public static final int HEADER = 0x0010;
         public static final int FOOTER = 0x0011;
@@ -167,8 +168,7 @@ public abstract class CommonAdapter<T> extends RecyclerView.Adapter<ViewHolder> 
         }
     }
 
-    protected final void addAnimation(final ViewHolder holder)
-    {
+    protected final void addAnimation(final ViewHolder holder) {
         int currentPosition = holder.getAdapterPosition();
         if (null != mCustomAnimator) {
             mCustomAnimator.getAnimator(holder.itemView).setDuration(mAnimationDuration).start();
@@ -187,6 +187,7 @@ public abstract class CommonAdapter<T> extends RecyclerView.Adapter<ViewHolder> 
 
     /**
      * init the baseViewHolder to register mOnItemClickListener and mOnItemLongClickListener
+     *
      * @param holder
      */
     protected final void initItemClickListener(final ViewHolder holder) {
@@ -194,7 +195,7 @@ public abstract class CommonAdapter<T> extends RecyclerView.Adapter<ViewHolder> 
             holder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    final int position = holder.getAdapterPosition() - getHeaderViewCount()- 1;
+                    final int position = holder.getAdapterPosition() - getHeaderViewCount() - 1;
                     mOnItemClickListener.onItemClick(view, mData.get(position), position);
                 }
             });
@@ -428,6 +429,7 @@ public abstract class CommonAdapter<T> extends RecyclerView.Adapter<ViewHolder> 
     public interface SpanSizeLookup {
         int getSpanSize(GridLayoutManager gridLayoutManager, int position);
     }
+
     /**
      * @param spanSizeLookup instance to be used to query number of spans occupied by each item
      */
@@ -444,7 +446,7 @@ public abstract class CommonAdapter<T> extends RecyclerView.Adapter<ViewHolder> 
             gridManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
                 @Override
                 public int getSpanSize(int position) {
-                    int type = getItemViewType(position-1);
+                    int type = getItemViewType(position - 1);
                     if (mSpanSizeLookup == null)
                         return (type == VIEW_TYPE.HEADER || type == VIEW_TYPE.FOOTER) ? gridManager.getSpanCount() : 1;
                     else
@@ -476,12 +478,12 @@ public abstract class CommonAdapter<T> extends RecyclerView.Adapter<ViewHolder> 
     /***********************************   common    *************************************/
     /**
      * 创建通用对话框
-     * @param text              提示文本
-     * @param outSideCancel     点击窗外是否取消<默认<true>
+     *
+     * @param text          提示文本
+     * @param outSideCancel 点击窗外是否取消<默认<true>
      * @return
      */
-    protected CommonDialog newCommonDialog(String text, Boolean outSideCancel)
-    {
+    protected CommonDialog newCommonDialog(String text, Boolean outSideCancel) {
         CommonDialog dialog = CommonDialog.newInstance(mContext);
         dialog.setText(text);
         dialog.setCanceledOnTouchOutside(outSideCancel);
@@ -499,7 +501,7 @@ public abstract class CommonAdapter<T> extends RecyclerView.Adapter<ViewHolder> 
 
     public void showProgressingDialog() {
         loadText = mContext.getResources().getString(R.string.string_loadText);
-        loadDialog = new LoadDialog(mContext,loadText, loadCancelable);
+        loadDialog = new LoadDialog(mContext, loadText, loadCancelable);
         loadDialog.show();
     }
 

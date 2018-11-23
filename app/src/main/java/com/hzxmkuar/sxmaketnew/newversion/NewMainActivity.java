@@ -93,8 +93,6 @@ public class NewMainActivity extends BaseMvpActivity {
         }
 
 
-
-
         rv.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
         rv.setHasFixedSize(true);
 
@@ -115,6 +113,7 @@ public class NewMainActivity extends BaseMvpActivity {
             @Override
             public void onRefresh() {
                 getHomeInfo();
+                checkAppVerion();
             }
         });
 

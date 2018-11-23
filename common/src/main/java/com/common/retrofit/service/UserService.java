@@ -184,8 +184,6 @@ public interface UserService {
 //            , @Field("hashid") String hashid, @Field("shop_name") String shop_name, @Field("category_id") String category_id
 //            , @Field("province") String province, @Field("area") String area, @Field("county") String county
 //            , @Field("address") String address, @Field("desc") String desc, @Field("face") String face
-//            , @Field("shop_pic") String shop_pic, @Field("latitude") String latitude, @Field("longitude") String longitude);
-
     /**
      * 提交编辑后的店铺信息（新接口）
      * shop_name (请输入门店名称 String类型 必填)
@@ -198,13 +196,16 @@ public interface UserService {
      * face (请上传店头照片 String类型 必填)
      * shop_pic (请上传店家照片 String类型 必填)
      */
+//    @POST("shopInfoSubmitNew.html")
     @FormUrlEncoded
-    @POST("shopInfoSubmitNew.html")
+    @POST("shopInfoSubmitNewest.html")
     Observable<Object> shopInfoSubmit(@Field("time") String time, @Field("hash") String hash, @Field("uid") int uid
             , @Field("hashid") String hashid, @Field("shop_name") String shop_name, @Field("category_id") String category_id
             , @Field("province") String province, @Field("area") String area, @Field("county") String county
             , @Field("address") String address, @Field("desc") String desc, @Field("face") String face, @Field("mobile") String mobile
     );
+
+//            , @Field("shop_pic") String shop_pic, @Field("latitude") String latitude, @Field("longitude") String longitude);
 
 
     /**

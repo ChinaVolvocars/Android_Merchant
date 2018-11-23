@@ -265,14 +265,13 @@ public class MyBankActivity extends BaseMvpActivity {
 //            holder.setText(R.id.card, item.getCard_number());
 //            ImageLoaderUtils.displayCircle((ImageView) holder.getParentView().findViewById(R.id.iv_bank_logo), item.getCard_bank_logo());
 //            ImageLoaderUtils.displaySmallPhoto((ImageView) holder.getParentView().findViewById(R.id.iv_picture), item.getCard_bank_background());
-//            holder.setOnClickListener(R.id.mLlDelete, new View.OnClickListener() {
-//                @Override
-//                public void onClick(View v) {
-//                    //showdialog(item,"是否删除尾数"+item.getBank_id_num().substring(item.getBank_id_num().length()-4,item.getBank_id_num().length())+"银行卡");
-//                    goToHttpReqdel(item.getId());
-//                }
-//
-//            });
+            holder.setOnClickListener(R.id.btn_delete, new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    //showdialog(item,"是否删除尾数"+item.getBank_id_num().substring(item.getBank_id_num().length()-4,item.getBank_id_num().length())+"银行卡");
+                    goToHttpReqdel(item.getId());
+                }
+            });
 ////            tv_card_type
 //            if ("1".equals(item.getStatus())) {
 //                holder.setText(R.id.tv_card_type, "对私账户");
