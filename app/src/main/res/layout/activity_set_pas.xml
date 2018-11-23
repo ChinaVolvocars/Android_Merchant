@@ -153,17 +153,18 @@
 
         <Button
             android:id="@+id/btn_confirm"
-            style="@style/BaseCustomButton"
             android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_40"
             android:layout_alignParentBottom="true"
             android:layout_gravity="center"
             android:layout_marginLeft="40dp"
             android:layout_marginRight="45dp"
             android:layout_marginTop="40dp"
-            android:background="@drawable/jx_10_base"
+            android:background="@drawable/bg_circle_shape_send_msg"
             android:clickable="true"
             android:text="确认"
             android:textColor="@color/white"
+            android:textSize="@dimen/sp_14"
             android:textStyle="bold" />
     </LinearLayout>
 </ScrollView>

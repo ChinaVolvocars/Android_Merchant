@@ -149,17 +149,16 @@
 
     <Button
         android:id="@+id/btn_exit"
-        style="@style/BaseCustomButton"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
         android:layout_marginTop="70dp"
-        android:background="@mipmap/mine_bac_w"
+        android:background="@drawable/bg_circle_shape_send_msg"
         android:clickable="true"
         android:text="退出登录"
-        android:textColor="@color/normal_text_color"
+        android:textColor="@color/white"
         android:textSize="16sp"
         android:textStyle="bold" />
 </LinearLayout>

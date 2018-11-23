@@ -51,10 +51,10 @@
                         android:layout_height="match_parent"
                         android:layout_marginRight="15dp"
                         android:gravity="center"
-                        android:visibility="gone"
                         android:text="修改"
                         android:textColor="@color/white"
-                        android:textSize="15sp" />
+                        android:textSize="15sp"
+                        android:visibility="gone" />
                 </LinearLayout>
             </RelativeLayout>
         </FrameLayout>
@@ -64,8 +64,8 @@
             android:layout_height="wrap_content">
             <!--正常展示的界面-->
             <!--<include-->
-                <!--android:id="@+id/ll_normal_content_show"-->
-                <!--layout="@layout/layout_my_store_show" />-->
+            <!--android:id="@+id/ll_normal_content_show"-->
+            <!--layout="@layout/layout_my_store_show" />-->
             <!--############################################################-->
             <!--修改的界面 -->
             <include
@@ -84,18 +84,20 @@
 
         <Button
             android:id="@+id/btn_commit_info"
-            style="@style/BaseCustomButton"
             android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_40"
             android:layout_alignParentBottom="true"
             android:layout_gravity="center"
             android:layout_marginBottom="20dp"
             android:layout_marginLeft="40dp"
             android:layout_marginRight="45dp"
             android:layout_marginTop="40dp"
-            android:background="@drawable/jx_10_base"
+            android:background="@drawable/bg_circle_shape_send_msg"
             android:clickable="true"
             android:text="申请提交"
             android:textColor="@color/white"
             android:textStyle="bold" />
+
     </LinearLayout>
+
 </ScrollView>
