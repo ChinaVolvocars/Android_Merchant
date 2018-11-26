@@ -8,26 +8,31 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.annotation.NonNull;
+import android.support.v4.content.FileProvider;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
 import com.common.utils.EmptyUtils;
 import com.common.utils.FileUtils;
 import com.common.widget.toast.ToastManager;
+import com.hzxmkuar.sxmaketnew.BuildConfig;
 import com.hzxmkuar.sxmaketnew.R;
 
+import java.io.File;
 import java.util.Timer;
 import java.util.TimerTask;
 
 import static android.content.Context.DOWNLOAD_SERVICE;
 
 /**
- *  版本升级提示弹窗
+ * 版本升级提示弹窗
  * Created by Administrator on 2018/8/26.
  */
 public class VersionCompareDialog extends Dialog implements View.OnClickListener {
@@ -41,17 +46,17 @@ public class VersionCompareDialog extends Dialog implements View.OnClickListener
     /**
      * 版本更新描述
      */
-    private String mUpdateDesc ="";
+    private String mUpdateDesc = "";
     /**
      * 是否需要强制更新  <br/>
      * （是否强制 0不需要更新，1不强制，2强制）: "1"  <br/>
      */
-    private String mIsNeedForceUpdate ="";
+    private String mIsNeedForceUpdate = "";
     /**
      * 下载链接
      */
-    private String mDownLoadUrl ="";
-    private String mNewVersionCode ="";
+    private String mDownLoadUrl = "";
+    private String mNewVersionCode = "";
 
     /*  下载相关操作  */
     private DownloadManager downloadManager;
@@ -87,16 +92,17 @@ public class VersionCompareDialog extends Dialog implements View.OnClickListener
     }
 
     /**
-     *  版本更新弹窗
-     * @param context  context <br/>
-     * @param activity actvity <br/>
-     * @param desc  版本更新描述  <br/>
-     * @param isForceUpdate 是否需要强制更新  <br/>
-     *  是需要更新 0不需要更新，不弹窗  <br/>
-     *  1 不强制更新  <br/>
-     *  2 强制更新 弹窗不可取消 <br/>
-     * @param apkUrl  apk下载链接  <br/>
-     * @param nearlyVersionCode  最新版本  <br/>
+     * 版本更新弹窗
+     *
+     * @param context           context <br/>
+     * @param activity          actvity <br/>
+     * @param desc              版本更新描述  <br/>
+     * @param isForceUpdate     是否需要强制更新  <br/>
+     *                          是需要更新 0不需要更新，不弹窗  <br/>
+     *                          1 不强制更新  <br/>
+     *                          2 强制更新 弹窗不可取消 <br/>
+     * @param apkUrl            apk下载链接  <br/>
+     * @param nearlyVersionCode 最新版本  <br/>
      */
     public VersionCompareDialog(@NonNull Context context, Activity activity, String desc, String isForceUpdate, String apkUrl, String nearlyVersionCode) {
         super(context, R.style.custom_dialog);
@@ -104,9 +110,9 @@ public class VersionCompareDialog extends Dialog implements View.OnClickListener
         this.mActivity = activity;
         this.mContext = context;
         this.mUpdateDesc = desc;
-        this.mIsNeedForceUpdate =isForceUpdate;
+        this.mIsNeedForceUpdate = isForceUpdate;
         this.mDownLoadUrl = apkUrl;
-        this.mNewVersionCode =nearlyVersionCode;
+        this.mNewVersionCode = nearlyVersionCode;
     }
 
 
@@ -121,14 +127,14 @@ public class VersionCompareDialog extends Dialog implements View.OnClickListener
         mBtnUpdate.setOnClickListener(this);
         mTvCancelUpdate.setOnClickListener(this);
 
-        if (!EmptyUtils.isEmpty(mUpdateDesc)){
+        if (!EmptyUtils.isEmpty(mUpdateDesc)) {
             tvVersionDesc.setText(mUpdateDesc);
-        }else {
+        } else {
             tvVersionDesc.setText("省鑫网有新版本更新啦，赶快来更新吧。");
         }
-        if ("2".equals(mIsNeedForceUpdate)){
+        if ("2".equals(mIsNeedForceUpdate)) {
             tvCancelUpdate.setVisibility(View.GONE);
-        }else {
+        } else {
             tvCancelUpdate.setVisibility(View.VISIBLE);
         }
         tvCancelUpdate.setOnClickListener(this);
@@ -137,12 +143,12 @@ public class VersionCompareDialog extends Dialog implements View.OnClickListener
 
     @Override
     public void onClick(View v) {
-        if (v.getId() == mTvCancelUpdate.getId()){
+        if (v.getId() == mTvCancelUpdate.getId()) {
 //            ToastManager.showShortToast("暂不更新");
             dismiss();
-        }else if (v.getId() == mBtnUpdate.getId()){
+        } else if (v.getId() == mBtnUpdate.getId()) {
             beginDownloadApk();
-        }else if (v.getId() == tvCancelUpdate.getId()){
+        } else if (v.getId() == tvCancelUpdate.getId()) {
             dismiss();
             cancel();
         }
@@ -178,8 +184,7 @@ public class VersionCompareDialog extends Dialog implements View.OnClickListener
                 if (cursor != null && cursor.moveToFirst()) {
                     String address = cursor.getString(cursor.getColumnIndex(DownloadManager.COLUMN_LOCAL_URI));
                     Log.i(TAG, "run:   下载安装的路径:     " + address);
-                    if (cursor.getInt(
-                            cursor.getColumnIndex(DownloadManager.COLUMN_STATUS)) == DownloadManager.STATUS_SUCCESSFUL) {
+                    if (cursor.getInt(cursor.getColumnIndex(DownloadManager.COLUMN_STATUS)) == DownloadManager.STATUS_SUCCESSFUL) {
                         VersionCompareDialog.this.dismiss();
                         install(address);
                         task.cancel();
@@ -198,9 +203,16 @@ public class VersionCompareDialog extends Dialog implements View.OnClickListener
      * @param path
      */
     private void install(String path) {
+        File file = new File(path);
         Intent intent = new Intent(Intent.ACTION_VIEW);
-        intent.setDataAndType(Uri.parse("file://" + path), "application/vnd.android.package-archive");
-        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);//4.0以上系统弹出安装成功打开界面
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            intent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+            Uri contentUri = FileProvider.getUriForFile(getContext(), BuildConfig.APPLICATION_ID + ".fileProvider", file);
+            intent.setDataAndType(contentUri, "application/vnd.android.package-archive");
+        } else {
+            intent.setDataAndType(Uri.parse("file://" + path), "application/vnd.android.package-archive");
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);//4.0以上系统弹出安装成功打开界面
+        }
         mContext.startActivity(intent);
     }
 }

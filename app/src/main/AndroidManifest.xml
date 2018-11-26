@@ -164,11 +164,12 @@
             android:targetActivity="com.xmkj.payandlogin._ShareActivity" />
         /***********************微信支付回调**************************/
         /**********************定位**************************/
+        <service android:name="com.amap.api.location.APSService">
+
+        </service>
         <meta-data
             android:name="com.amap.api.v2.apikey"
-            android:value="666666666666666666666">
-            <service android:name="com.amap.api.location.APSService" />
-        </meta-data>
+            android:value="666666666666666666666" />
         /**********************定位**************************/
         /**********************环信**************************/
         <meta-data
@@ -204,7 +205,7 @@
 
         <provider
             android:name="android.support.v4.content.FileProvider"
-            android:authorities="com.hzxmkuar.sxmaketnew.fileProvider"
+            android:authorities="${applicationId}.fileProvider"
             android:exported="false"
             android:grantUriPermissions="true">
             <meta-data

@@ -27,11 +27,26 @@ android {
             // 还可以添加 'x86', 'x86_64', 'mips', 'mips64'
         }
     }
+
+    signingConfigs {
+        debug {
+            storeFile file("ks.jks")
+            storePassword "123456"
+            keyAlias "ks"
+            keyPassword "123456"
+        }
+    }
+
+
     buildTypes {
+
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.debug
+
         }
+
     }
     lintOptions {
         checkReleaseBuilds false
@@ -39,15 +54,45 @@ android {
         // but continue the build even when errors are found:
         abortOnError false
     }
+
     productFlavors {
-        sx_xiaomi {}
-        sx_vivo {}
-        sx_oppo {}
-        sx_tc {}
-        sx_baidu {}
-        sx_360 {}
-        sx_huawei {}
-        sx_test {}
+
+        dev {
+            applicationIdSuffix ".dev"
+            resValue "string", "app_name", "内测版省鑫网"
+        }
+
+        sx_xiaomi {
+            applicationId "com.hzxmkuar.sxmaketnew"
+            resValue "string", "app_name", "省鑫网商户端"
+        }
+
+        sx_vivo {
+            applicationId "com.hzxmkuar.sxmaketnew"
+            resValue "string", "app_name", "省鑫网商户端"
+        }
+
+        sx_oppo {
+            applicationId "com.hzxmkuar.sxmaketnew"
+            resValue "string", "app_name", "省鑫网商户端"
+        }
+
+        sx_tc {
+            applicationId "com.hzxmkuar.sxmaketnew"
+            resValue "string", "app_name", "省鑫网商户端"
+        }
+
+        sx_baidu {
+            applicationId "com.hzxmkuar.sxmaketnew"
+            resValue "string", "app_name", "省鑫网商户端"
+        }
+
+        sx_360 {
+            applicationId "com.hzxmkuar.sxmaketnew"
+            resValue "string", "app_name", "省鑫网商户端"
+        }
+
+
     }
     android.applicationVariants.all { variant ->
         variant.outputs.each { output ->
