@@ -86,6 +86,7 @@ public class NewMainActivity extends BaseMvpActivity {
             DataCenter.HashId = bean.getHashid();
         }
 
+
         if (Constants.BaseUrl.equals("http://test.zhongxinyingjia.com/Api/")) {
             TextView viewById = (TextView) findViewById(R.id.tv_test);
             viewById.setVisibility(View.VISIBLE);
