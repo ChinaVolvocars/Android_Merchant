@@ -211,6 +211,7 @@ public class NewMainActivity extends BaseMvpActivity {
                 Log.i(TAG, "onNext: " + homeEntitiy.toString());
                 if (null != homeEntitiy) {
                     result = homeEntitiy;
+
                     tvUserName.setText(result.getUsername());
                     String closed_pay_url = result.getClosed_pay_url();
                     String invoice_url = result.getInvoice_url();
