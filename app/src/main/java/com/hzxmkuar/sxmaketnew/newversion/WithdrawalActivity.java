@@ -178,7 +178,6 @@ public class WithdrawalActivity extends BaseMvpActivity {
         bundle.putBoolean("flag", flag);//true 为代收代付； false 发票提现
         intent.putExtras(bundle);
         startActivity(intent);
-
     }
 
 
