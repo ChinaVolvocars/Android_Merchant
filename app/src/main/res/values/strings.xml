@@ -21,6 +21,6 @@
     <string name="cash_settlement">现金结算%1$.2f元</string>
     <string name="total">合计%1$.2f元</string>
     <string name="plus">+%s</string>
-    <string name="service_fee">提现金额(鑫豆*服务扣点%1$d%%)</string>
+    <string name="service_fee">提现金额(鑫豆*服务扣点%1$s%%)</string>
     <string name="format_total_money">¥ %s</string>
 </resources>

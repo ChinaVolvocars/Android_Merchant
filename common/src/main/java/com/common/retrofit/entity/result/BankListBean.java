@@ -53,7 +53,7 @@ public class BankListBean implements Parcelable {
         private String card_bank_logo;
         private String card_bank_background;
         private String status;
-        private int grade;
+        private String grade;
 
         public String getId() {
             return id;
@@ -111,11 +111,11 @@ public class BankListBean implements Parcelable {
             this.status = status;
         }
 
-        public int getGrade() {
+        public String getGrade() {
             return grade;
         }
 
-        public void setGrade(int grade) {
+        public void setGrade(String grade) {
             this.grade = grade;
         }
 
@@ -133,7 +133,7 @@ public class BankListBean implements Parcelable {
             dest.writeString(this.card_bank_logo);
             dest.writeString(this.card_bank_background);
             dest.writeString(this.status);
-            dest.writeInt(this.grade);
+            dest.writeString(this.grade);
         }
 
         public ListBean() {
@@ -147,7 +147,7 @@ public class BankListBean implements Parcelable {
             this.card_bank_logo = in.readString();
             this.card_bank_background = in.readString();
             this.status = in.readString();
-            this.grade = in.readInt();
+            this.grade = in.readString();
         }
 
         public static final Creator<ListBean> CREATOR = new Creator<ListBean>() {

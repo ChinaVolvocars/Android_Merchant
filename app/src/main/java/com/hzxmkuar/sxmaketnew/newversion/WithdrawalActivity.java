@@ -12,8 +12,11 @@ import com.bumptech.glide.Glide;
 import com.common.mvp.BaseMvpActivity;
 import com.common.mvp.BasePresenter;
 import com.common.retrofit.entity.result.BankListBean;
+import com.common.retrofit.entity.result.ShopShowsEntity;
 import com.common.retrofit.entity.resultImpl.HttpRespBean;
 import com.common.retrofit.methods.BusinessUserMethods;
+import com.common.retrofit.subscriber.CommonSubscriber;
+import com.common.retrofit.subscriber.SubscriberListener;
 import com.common.utils.SPUtils;
 import com.hzxmkuar.sxmaketnew.R;
 import com.hzxmkuar.sxmaketnew.activity.MyBankActivity;
@@ -94,8 +97,10 @@ public class WithdrawalActivity extends BaseMvpActivity {
 //        tvConfirm.setBackgroundResource(flag ? R.drawable.selector_button : R.drawable.selector_button_invoice);
         tvViewRecord.setBackgroundResource(flag ? R.drawable.shape_rectangle_stroke : R.drawable.shape_rectangle_stroke_blue);
         tvViewRecord.setTextColor(flag ? getResources().getColor(R.color.color_ffae05) : getResources().getColor(R.color.color_60aeff));
-
         tvAmount.setText(money);
+
+
+        checkConfirm();
 
         tvRight.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -107,56 +112,47 @@ public class WithdrawalActivity extends BaseMvpActivity {
         });
 
 
-        Subscriber<BankListBean.ListBean> subscriber = new Subscriber<BankListBean.ListBean>() {
-            @Override
-            public void onCompleted() {
-
-            }
-
-            @Override
-            public void onError(Throwable e) {
-
-            }
-
+        CommonSubscriber<BankListBean.ListBean> subscriber = new CommonSubscriber<BankListBean.ListBean>(new SubscriberListener<BankListBean.ListBean>() {
             @Override
             public void onNext(BankListBean.ListBean bank) {
                 //有银行卡 ，week 不是0的时候才能提现
                 //  0不可提现，  <br/> 1 可以提现  <br/>
-                Log.i(TAG, "onNext:    bank.toString()     " + bank.toString());
-                Log.i(TAG, "onNext:    week: " + week);
-                Log.i(TAG, "onNext:    money    " + money);
-
-                if (null != bank && week != 0 && Double.valueOf(money) > 0) {
-                    tvConfirm.setClickable(true);
-                    tvConfirm.setBackgroundResource(flag ? R.drawable.selector_button : R.drawable.selector_button_invoice);
-                    System.out.println("能提现");
-                } else {
-                    tvConfirm.setClickable(false);
-                    tvConfirm.setBackgroundResource(R.drawable.shape_rectangle_pressed);
-                    System.out.println("不能提现");
-                }
-
-                if (null != bank) {
                     tvServiceFee.setText(getString(R.string.service_fee, bank.getGrade()));
-                    itemBank = bank;
-                    tvAddBank.setVisibility(View.GONE);
-                    llBankInfo.setVisibility(View.VISIBLE);
-                    Glide.with(WithdrawalActivity.this)
-                            .load(bank.getCard_logo())
-                            .into(ivBank);
-                    tvBankName.setText(itemBank.getBank_name());
-                    tvBankNum.setText(getString(R.string.bank_num, itemBank.getCard_number().substring(itemBank.getCard_number().length() - 4, itemBank.getCard_number().length())));
-                } else {
-                    tvAddBank.setVisibility(View.VISIBLE);
-                    llBankInfo.setVisibility(View.GONE);
-                }
+//                if (null != bank) {
+//                    itemBank = bank;
+//                    tvAddBank.setVisibility(View.GONE);
+//                    llBankInfo.setVisibility(View.VISIBLE);
+//                    Glide.with(WithdrawalActivity.this)
+//                            .load(bank.getCard_logo())
+//                            .into(ivBank);
+//                    tvBankName.setText(itemBank.getBank_name());
+//                    tvBankNum.setText(getString(R.string.bank_num, itemBank.getCard_number().substring(itemBank.getCard_number().length() - 4, itemBank.getCard_number().length())));
+//                } else {
+//                    tvAddBank.setVisibility(View.VISIBLE);
+//                    llBankInfo.setVisibility(View.GONE);
+//                }
             }
-        };
+
+            @Override
+            public void onError(String e, int code) {
+                Log.e(TAG, "=====onError: " + e);
+            }
+        });
+
         BusinessUserMethods.getInstance().withdrawNew(subscriber);
-
         rxManager.add(subscriber);
+    }
 
-
+    private void checkConfirm() {
+        if (null != itemBank && week == 1 && Double.valueOf(money) > 0) {
+            tvConfirm.setClickable(true);
+            tvConfirm.setBackgroundResource(flag ? R.drawable.selector_button : R.drawable.selector_button_invoice);
+            System.out.println("能提现");
+        } else {
+            tvConfirm.setClickable(false);
+            tvConfirm.setBackgroundResource(R.drawable.shape_rectangle_pressed);
+            System.out.println("不能提现");
+        }
     }
 
 
@@ -246,6 +242,8 @@ public class WithdrawalActivity extends BaseMvpActivity {
             Glide.with(WithdrawalActivity.this).load(itemBank.getCard_bank_logo()).into(ivBank);
             tvBankName.setText(itemBank.getBank_name());
             tvBankNum.setText(getString(R.string.bank_num, itemBank.getCard_number().substring(itemBank.getCard_number().length() - 4, itemBank.getCard_number().length())));
+            checkConfirm();
+
         }
     }
 

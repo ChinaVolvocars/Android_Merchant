@@ -13,7 +13,6 @@ import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.hzxmkuar.sxmaketnew.R;
 import com.hzxmkuar.sxmaketnew.newversion.NewMainActivity;
@@ -92,21 +91,21 @@ public class DialogHomeWay extends BottomSheetDialogFragment {
     @OnClick(R.id.tv_collection_payment)
     public void onCollectionPaymentClicked() {
         dismiss();
-//        if (week == 0) {//去申请列表
-//            Intent intent = new Intent(getContext(), RecordActivity.class);
-//            Bundle bundle = new Bundle();
-//            bundle.putBoolean("flag", true);//true 为代收代付； false 发票提现
-//            intent.putExtras(bundle);
-//            startActivity(intent);
-//        } else {
-//            Intent intent = new Intent();
-//            Bundle bundle = new Bundle();
-//            bundle.putInt(COLLECTION_KEY, COLLECTION_PAYMENT);
-//            bundle.putString(NewMainActivity.KEY_MONEY, money);
-//            intent.putExtras(bundle);
-//            intent.setClass(getContext(), WithdrawalActivity.class);
-//            startActivity(intent);
-//        }
+      /*  if (week == 0) {//去申请列表
+            Intent intent = new Intent(getContext(), RecordActivity.class);
+            Bundle bundle = new Bundle();
+            bundle.putBoolean("flag", true);//true 为代收代付； false 发票提现
+            intent.putExtras(bundle);
+            startActivity(intent);
+        } else {
+            Intent intent = new Intent();
+            Bundle bundle = new Bundle();
+            bundle.putInt(COLLECTION_KEY, COLLECTION_PAYMENT);
+            bundle.putString(NewMainActivity.KEY_MONEY, money);
+            intent.putExtras(bundle);
+            intent.setClass(getContext(), WithdrawalActivity.class);
+            startActivity(intent);
+        }*/
 
         Intent intent = new Intent(getContext(), WithdrawalActivity.class);
         Bundle bundle = new Bundle();

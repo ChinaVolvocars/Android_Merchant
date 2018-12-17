@@ -97,7 +97,7 @@
             android:id="@+id/tv_service_fee"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="提现金额(鑫豆*服务扣点5%)"
+            tools:text="提现金额(鑫豆*服务扣点5%)"
             android:textColor="@color/color_747373"
             android:textSize="@dimen/sp_15" />
 
