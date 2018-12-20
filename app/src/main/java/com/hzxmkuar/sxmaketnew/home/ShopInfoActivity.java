@@ -106,6 +106,7 @@ public class ShopInfoActivity extends BaseMvpActivity {
     private Button mBtnStoreBgResetModify;
     //    private Button tv_store_bg_add_show;
     private ImageView mBack;
+    private TextView tv_title;
     private Button mBtnCommitInfo;
     private String path = "";
     private PictureCheckDialogFragment dialogFragment;
@@ -170,7 +171,9 @@ public class ShopInfoActivity extends BaseMvpActivity {
 //        tv_store_bg_add_show = (Button) findViewById(R.id.tv_store_bg_add_show);
 
         mBtnCommitInfo = (Button) findViewById(R.id.btn_commit_info);
-        mBack = (ImageView) findViewById(R.id.back);
+        mBack = (ImageView) findViewById(R.id.iv_back);
+        tv_title = (TextView) findViewById(R.id.tv_title);
+        tv_title.setText("省鑫商云-我的店");
         init();
         switchViewIsNeedModify(true);
         statusLoading();

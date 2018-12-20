@@ -19,19 +19,6 @@ import java.util.List;
  */
 public class Constants {
     private static final String TAG = "Constants";
-//    public static String getHash(List<String> list) {
-//        list.add("time");
-//        list.add("apiId");
-//        list.add("terminal");
-//        Collections.sort(list);
-//        int j;
-//        String string = "";
-//        for (j = 0; j < list.size(); j++) {
-//            string += list.get(j);
-//        }
-//        return MD5Utils.MD5Encode(string + "56733fdb9a8dd961c90ae8dc6b8c67da");
-//    }
-
     public static String getHash(List<String> list) {
         Collections.sort(list);
         int j;
@@ -39,7 +26,6 @@ public class Constants {
         for (j = 0; j < list.size(); j++) {
             string += list.get(j);
         }
-//        Log.i(TAG, "getHashValue:  hashValue        "+string+ "k+_b}yC2Hx~:uZ/O=a9g-0{6^B|LhfwFlG@I?1MY");
         return MD5Utils.MD5Encode(string + "k+_b}yC2Hx~:uZ/O=a9g-0{6^B|LhfwFlG@I?1MY");
     }
 
@@ -68,11 +54,6 @@ public class Constants {
     public static final String BaseUrl = "http://test.zhongxinyingjia.com/Api/";                   //  高兴超线下测试环境用
 //    public static final String BaseUrl = "http://app.zhongxinyingjia.com/Api/";
 //
-// 高兴超线下测试环境用
-    /**
-     * 线下环境测试用
-     */
-//    public static final String BaseUrl = "http://192.168.0.141/Api/";                 //  张兆伦线下测试环境用
     /**
      *  ？？？这是用来干嘛的？
      */

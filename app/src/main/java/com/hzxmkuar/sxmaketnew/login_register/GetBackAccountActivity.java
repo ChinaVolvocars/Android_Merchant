@@ -53,7 +53,7 @@ import java.util.List;
  */
 public class GetBackAccountActivity extends BaseMvpActivity {
     private static final String TAG = "GetBackAccountActivity";
-    private ImageView iv_getback_account_back;
+    private ImageView iv_back;
     private DeleteEditText edt_input_shop_name;
     private DeleteEditText edt_legal_name_getback;
     private TextView tv_credentials_type;
@@ -81,6 +81,7 @@ public class GetBackAccountActivity extends BaseMvpActivity {
     private TextView tv_phone_verify_getback_account;
     SendPhoneVerifyDialog sendPhoneVerifyDialog;
     private boolean canClickAble = true;
+    private TextView tv_title;
     @Override
     protected BasePresenter createPresenterInstance() {
         return null;
@@ -94,7 +95,10 @@ public class GetBackAccountActivity extends BaseMvpActivity {
     @Override
     protected void onViewCreated() {
         registerEvent();
-        iv_getback_account_back = (ImageView) findViewById(R.id.iv_getback_account_back);
+        iv_back = (ImageView) findViewById(R.id.iv_back);
+        tv_title = (TextView) findViewById(R.id.tv_title);
+        tv_title.setText("找回账号");
+
         edt_input_shop_name = (DeleteEditText) findViewById(R.id.edt_input_shop_name);
         edt_legal_name_getback = (DeleteEditText) findViewById(R.id.edt_legal_name_getback);
         tv_credentials_type = (TextView) findViewById(R.id.tv_credentials_type);
@@ -137,7 +141,7 @@ public class GetBackAccountActivity extends BaseMvpActivity {
 
     @Override
     protected void doLogicFunc() {
-        attachClickListener(iv_getback_account_back);
+        attachClickListener(iv_back);
         attachClickListener(iv_credential_front_getback);
         attachClickListener(iv_credential_back_getback);
         attachClickListener(iv_business_license_getback);
@@ -155,14 +159,12 @@ public class GetBackAccountActivity extends BaseMvpActivity {
 
     @Override
     protected void onViewClicked(View view) {
-        if (view.getId() == iv_getback_account_back.getId()) {
+        if (view.getId() == iv_back.getId()) {
             finish();
         } else if (view.getId() == btn_commit_getback.getId()) {
             verifyInput(btn_commit_getback);
         }  else if (view.getId() == cd_btn_send_msg_getback.getId()) {
             verifyInput(cd_btn_send_msg_getback);
-        } else if (view.getId() == iv_getback_account_back.getId()) {
-            finish();
         } else if (view.getId() == tv_credentials_type.getId()) {
             mCertificatesTypePicker.show();
         } else if (view.getId() == iv_credential_front_getback.getId()) {

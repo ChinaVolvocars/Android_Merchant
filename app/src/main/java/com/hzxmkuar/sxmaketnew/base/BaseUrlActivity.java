@@ -8,6 +8,7 @@ import android.view.View;
 import android.webkit.JavascriptInterface;
 import android.webkit.WebView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.common.listener.OnOnceClickListener;
 import com.common.mvp.BaseMvpActivity;
@@ -24,6 +25,7 @@ public class BaseUrlActivity extends BaseMvpActivity {
     private WidgetButton[] widgeButtons;
     private WidgetButton btnBack;
     private WidgetButton btnClose;
+    private TextView tv_webview_back;
 
     public static final String MAIN_URL = "MAIN_URL";
     public static final String MAIN_TITLE = "MAIN_TITLE";
@@ -71,6 +73,13 @@ public class BaseUrlActivity extends BaseMvpActivity {
     @Override
     protected void onViewCreated() {
         mLinearLayout = (LinearLayout) findViewById(R.id.web_container);
+        tv_webview_back = (TextView) findViewById(R.id.tv_webview_back);
+        tv_webview_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 
     @Override

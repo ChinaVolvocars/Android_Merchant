@@ -37,6 +37,7 @@ import com.hzxmkuar.sxmaketnew.home.ShopInfoActivity;
 import com.hzxmkuar.sxmaketnew.home.ShopShowActivity;
 import com.hzxmkuar.sxmaketnew.view.dialog.DialogHomeWay;
 import com.hzxmkuar.sxmaketnew.view.dialog.VersionCompareDialog;
+import com.view.pie.utils.UIUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -84,6 +85,7 @@ public class NewMainActivity extends BaseMvpActivity {
         if (bean != null) {
             DataCenter.UserId = bean.getUid();
             DataCenter.HashId = bean.getHashid();
+            tvUserName.setText(bean.getNickname());
         }
 
 
@@ -91,6 +93,7 @@ public class NewMainActivity extends BaseMvpActivity {
             TextView viewById = (TextView) findViewById(R.id.tv_test);
             viewById.setVisibility(View.VISIBLE);
             viewById.setText("测试环境");
+            viewById.setTextColor(UIUtils.getColor(R.color.red_ff4a57));
         }
 
 
@@ -208,11 +211,11 @@ public class NewMainActivity extends BaseMvpActivity {
             public void onNext(Object o) {
                 cancelRefreshing();
                 Home homeEntitiy = (Home) o;
-                Log.i(TAG, "onNext: " + homeEntitiy.toString());
                 if (null != homeEntitiy) {
                     result = homeEntitiy;
 
                     tvUserName.setText(result.getUsername());
+//                    Log.i(TAG, "onNext:  用户名：    " + result.getUsername());
                     String closed_pay_url = result.getClosed_pay_url();
                     String invoice_url = result.getInvoice_url();
                     SPUtils.setShareString(CLOSED_PAY_URL, closed_pay_url);
@@ -256,8 +259,8 @@ public class NewMainActivity extends BaseMvpActivity {
             public void onNext(Object o) {
                 statusContent();
                 AppVersionEntity appVersionEntity = (AppVersionEntity) o;
-                Log.i(TAG, "onNext: " + appVersionEntity.toString());
-                Log.i(TAG, "onNext:  下载链接：      " + appVersionEntity.getDownloadUrl());
+//                Log.i(TAG, "onNext: " + appVersionEntity.toString());
+//                Log.i(TAG, "onNext:  下载链接：      " + appVersionEntity.getDownloadUrl());
                 // 需要更新
                 if (!("0".equals(appVersionEntity.getForce())) && !(EmptyUtils.isEmpty(appVersionEntity.getDownloadUrl()))) {
                     VersionCompareDialog versionCompareDialog = new VersionCompareDialog(context, getActivity(), appVersionEntity.getDescription(),

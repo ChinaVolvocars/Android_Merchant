@@ -15,7 +15,6 @@ public class TodaysRevenue implements Parcelable {
      * xinlijuan : 0
      * xindou : 0.00
      */
-
     private String id;
     private String xinlidou;
     private String xianglidou;

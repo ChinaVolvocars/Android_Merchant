@@ -5,21 +5,8 @@
     android:orientation="vertical"
     android:background="#f7f7f7">
 
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="65dp"
-        android:background="@mipmap/titles_bac">
+    <include layout="@layout/layout_toolbar_base" />
 
-        <TextView
-            android:text="更换绑定手机号"
-            style="@style/TitleBarTitleStyle"/>
-
-
-        <ImageView
-            android:id="@+id/iv_change_back"
-            style="@style/TitleBarBackStyle" />
-
-    </FrameLayout>
     <LinearLayout style="@style/MyStoreItemContentHorizontal">
 
         <TextView

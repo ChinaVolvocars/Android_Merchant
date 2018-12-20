@@ -13,7 +13,7 @@
         android:layout_marginLeft="14dp"
         android:text="createTime"
         android:textColor="@color/color_303030"
-        android:textSize="21sp" />
+        android:textSize="19sp" />
 
     <TextView
         android:id="@+id/tv_apply_money"
@@ -23,7 +23,7 @@
         android:layout_toRightOf="@+id/tv_create_time"
         android:text="10000000"
         android:textColor="@color/color_303030"
-        android:textSize="21sp" />
+        android:textSize="19sp" />
 
     <TextView
         android:id="@+id/tv_state"
@@ -33,7 +33,7 @@
         android:layout_alignParentRight="true"
         android:text="state"
         android:textColor="@color/color_303030"
-        android:textSize="21sp"/>
+        android:textSize="17sp"/>
 
     <TextView
         android:id="@+id/tv_submit_invoice"

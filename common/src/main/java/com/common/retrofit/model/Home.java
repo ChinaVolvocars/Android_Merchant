@@ -9,7 +9,6 @@ import java.util.List;
 
 public class Home implements Parcelable {
 
-
     /**
      * xindou : 4.00
      * money : 3.20

@@ -12,27 +12,29 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="65dp"
-            android:background="@mipmap/titles_bac">
+        <include layout="@layout/layout_toolbar_base" />
 
-            <TextView
-                style="@style/TitleBarTitleStyle"
-                android:text="找回账号" />
+        <!--<FrameLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="65dp"-->
+            <!--android:background="@mipmap/titles_bac">-->
 
-            <ImageView
-                android:id="@+id/iv_getback_account_back"
-                style="@style/TitleBarBackStyle"
-                android:clickable="true"
-                android:src="@mipmap/whait_back" />
-        </FrameLayout>
+            <!--<TextView-->
+                <!--style="@style/TitleBarTitleStyle"-->
+                <!--android:text="找回账号" />-->
+
+            <!--<ImageView-->
+                <!--android:id="@+id/iv_getback_account_back"-->
+                <!--style="@style/TitleBarBackStyle"-->
+                <!--android:clickable="true"-->
+                <!--android:src="@mipmap/whait_back" />-->
+        <!--</FrameLayout>-->
 
         <LinearLayout style="@style/MyStoreItemContentHorizontal">
 
             <TextView
                 style="@style/MyStoreContentLeft"
-                android:text="商家姓名" />
+                android:text="商家名称" />
 
             <com.common.widget.editview.DeleteEditText
                 android:id="@+id/edt_input_shop_name"

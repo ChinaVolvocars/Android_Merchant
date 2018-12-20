@@ -25,7 +25,6 @@ import java.util.List;
 /**
  * Created by STH on 2018/5/16.
  */
-
 public class ChangeActivity extends BaseMvpActivity {
 
     private DeleteEditText mNum;

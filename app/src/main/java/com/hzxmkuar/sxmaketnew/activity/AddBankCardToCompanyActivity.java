@@ -29,6 +29,7 @@ public class AddBankCardToCompanyActivity extends BaseMvpActivity {
     private ImageView tv_add_bank_card_to_company_back;
     private DeleteEditText edt_company_to_public;
     private TextView tv_bank_cadrd_name_to_public;
+    private TextView tv_title;
     private DeleteEditText edt_bank_address_to_public;
     private DeleteEditText edt_bank_cadr_no_to_public;
     private Button btn_commoit_info_to_public;
@@ -55,7 +56,9 @@ public class AddBankCardToCompanyActivity extends BaseMvpActivity {
 
     @Override
     protected void onViewCreated() {
-        tv_add_bank_card_to_company_back = (ImageView) findViewById(R.id.tv_add_bank_card_to_company_back);
+        tv_add_bank_card_to_company_back = (ImageView) findViewById(R.id.iv_back);
+        tv_title = (TextView) findViewById(R.id.tv_title);
+        tv_title.setText("添加对公账户");
         edt_company_to_public = (DeleteEditText) findViewById(R.id.edt_company_to_public);
         tv_bank_cadrd_name_to_public = (TextView) findViewById(R.id.tv_bank_cadrd_name_to_public);
         edt_bank_address_to_public = (DeleteEditText) findViewById(R.id.edt_bank_address_to_public);

@@ -148,6 +148,7 @@ public class DialogHomeWay extends BottomSheetDialogFragment {
         bundle.putString(NewMainActivity.KEY_MONEY, money);
         bundle.putInt(KEY_WEEK, week);
         intent.putExtras(bundle);
+        intent.setClass(getContext(), WithdrawalActivity.class);
         startActivity(intent);
 
     }
