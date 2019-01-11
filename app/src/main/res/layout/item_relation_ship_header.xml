@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/color_f0f0f0"
+    android:orientation="vertical"
+    android:paddingLeft="16dp"
+    android:paddingTop="8dp"
+    android:paddingBottom="8dp">
+
+
+    <TextView
+        android:id="@+id/tv_count_num"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="共0个"
+        android:textColor="@color/color_303030"
+        android:textSize="13sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tv_share_earng_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="累计为我赚取0鑫豆"
+        android:textColor="@color/color_949494"
+        android:textSize="12sp"
+        android:textStyle="bold" />
+
+</LinearLayout>

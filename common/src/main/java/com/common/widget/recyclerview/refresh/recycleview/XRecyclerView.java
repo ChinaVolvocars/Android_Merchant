@@ -8,6 +8,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,6 +20,7 @@ import android.view.ViewParent;
  * GitHub: https://github.com/supercwn
  */
 public class XRecyclerView extends RecyclerView {
+    private static final String TAG = "CheckTicketsRecordActiv";
     private boolean isLoadingData = false;
     private boolean isNoMore = false;
     private int mRefreshProgressStyle = ProgressStyle.BallClipRotatePulse;
@@ -186,6 +188,28 @@ public class XRecyclerView extends RecyclerView {
         }
     }
 
+//    /**
+//     * 获取Touch事件在屏幕上的总移动距离
+//     */
+//    protected float mTotalYDistance = 0;
+//    /**
+//     * 负距离
+//     */
+//    private float mMinusDistance = 0;
+//    /**
+//     * 正距离
+//     */
+//    private float mAddDistantce = 0;
+//    /**
+//     * 原始距离
+//     */
+//    private float mDonwPosition = 0;
+//    private float mUpPosition = 0;
+//    float distance = 0;
+//    public float getmTotalYDistance() {
+//        return mTotalYDistance;
+//    }
+
     @Override
     public boolean onTouchEvent(MotionEvent ev) {
         if (mLastY == -1) {
@@ -194,18 +218,36 @@ public class XRecyclerView extends RecyclerView {
         switch (ev.getAction()) {
             case MotionEvent.ACTION_DOWN:
                 mLastY = ev.getRawY();
+
+//                Log.i(TAG, "onTouchEvent: MotionEvent.ACTION_DOWN  ev.getY():     " + ev.getY());
+//                mDonwPosition = ev.getRawY();
+
                 break;
             case MotionEvent.ACTION_MOVE:
                 final float deltaY = ev.getRawY() - mLastY;
                 mLastY = ev.getRawY();
+
                 if (isOnTop() && refreshEnabled && appbarState == AppBarStateChangeListener.State.EXPANDED) {
                     mRefreshHeader.onMove(deltaY / DRAG_RATE);
                     if (mRefreshHeader.getVisibleHeight() > 0 && mRefreshHeader.getState() < ArrowRefreshHeader.STATE_REFRESHING) {
                         return false;
                     }
                 }
+
                 break;
             default:
+//                Log.i(TAG, "onTouchEvent: MotionEvent.ACTION_UP  ev.getY():     " + ev.getRawY());
+//                mUpPosition = ev.getRawY();
+//                if ((mUpPosition - mDonwPosition) > 0) {
+//                    distance = mUpPosition - mDonwPosition;
+//                } else {
+//                    distance = mUpPosition - mDonwPosition;
+//                }
+//                mTotalYDistance = mTotalYDistance + distance;
+//                Log.i(TAG, "onTouchEvent: MotionEvent.ACTION_UP  mAddDistantce:     " + mAddDistantce);
+//                Log.i(TAG, "onTouchEvent: MotionEvent.ACTION_UP  mMinusDistance:     " + mMinusDistance);
+//                Log.i(TAG, "onTouchEvent: MotionEvent.ACTION_UP  mTotalYDistance:     " + mTotalYDistance);
+
                 mLastY = -1; // reset
                 if (isOnTop() && refreshEnabled && appbarState == AppBarStateChangeListener.State.EXPANDED) {
                     if (mRefreshHeader.releaseAction()) {
@@ -214,6 +256,7 @@ public class XRecyclerView extends RecyclerView {
                         }
                     }
                 }
+
                 break;
         }
         return super.onTouchEvent(ev);

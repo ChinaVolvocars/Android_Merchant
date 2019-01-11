@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="74dp"
+    android:layout_marginTop="8dp"
+    android:background="@drawable/jx_10_w"
+    android:gravity="center"
+    android:orientation="horizontal">
+
+    <ImageView
+        android:id="@+id/iv_expend_type"
+        android:layout_width="34dp"
+        android:layout_height="34dp"
+        android:layout_marginLeft="14dp"
+        android:background="@drawable/permission_ic_location" />
+
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_shop_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="店铺名称"
+            android:maxLines="1"
+            android:textColor="@color/color_010101"
+            android:textSize="13sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_expend_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="消费：0鑫豆  0现金"
+            android:textColor="@color/color_909090"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/tv_expend_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="2019年01月01日  03:00"
+            android:textColor="@color/color_909090"
+            android:textSize="10sp" />
+    </LinearLayout>
+
+
+</LinearLayout>

@@ -32,6 +32,7 @@ import com.common.widget.loadingView.LoadingLayout;
 import com.common.widget.navigation.NavigationBar;
 import com.common.widget.navigation.WidgetButton;
 import com.common.widget.progress.LoadDialog;
+import com.common.widget.recyclerview.refresh.recycleview.XRecyclerView;
 import com.common.widget.toast.ToastManager;
 import org.greenrobot.eventbus.EventBus;
 import butterknife.ButterKnife;
@@ -506,7 +507,7 @@ public abstract class BaseMvpActivity<P extends BasePresenter> extends AppCompat
      */
     protected String getEditTextStr(EditText editText) {
         if (EmptyUtils.isNotNull(editText)) {
-            return editText.getText().toString();
+            return editText.getText().toString().trim();
         }
         return "";
     }
@@ -583,5 +584,27 @@ public abstract class BaseMvpActivity<P extends BasePresenter> extends AppCompat
 //            KeyBoardUtils.hideSoftInput((Activity) context);
 //        }
 //        return super.dispatchTouchEvent(event);
+//    }
+
+
+//    public interface MyCustomLoadingListener implements XRecyclerView.LoadingListener{
+//
+//        @Override
+//        public void onRefresh() {
+//            mPageIndex = 1;
+//            mIsRefreshOrLoadMore = 0;
+//        }
+//
+//        @Override
+//        public void onLoadMore() {
+//
+//            if (mIsHasNoData) {
+//                recyclerViewCheckTickets.loadMoreComplete();
+//                recyclerViewCheckTickets.setNoMore(true);
+//                return;
+//            }
+//            mPageIndex++;
+//            mIsRefreshOrLoadMore = 1;
+//        }
 //    }
 }

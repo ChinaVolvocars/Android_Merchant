@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_f0f0f0"
+    android:orientation="vertical">
+
+    <include layout="@layout/layout_toolbar_base" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <LinearLayout style="@style/ConsumeFunctionItemContentStyle">
+
+            <TextView
+                style="@style/ConsumeFunctionItemTextStyle"
+                android:drawableLeft="@mipmap/bendian_xiaofei_icon"
+                android:text="本店消费" />
+
+            <Switch
+                android:id="@+id/switch_bt_our_shop"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:track="@drawable/selector_switch_button_track"
+                android:thumb="@drawable/selector_switch_button_thumb" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="60dp"
+            android:background="@color/color_a7a7aa" />
+
+
+        <LinearLayout style="@style/ConsumeFunctionItemContentStyle">
+
+            <TextView
+                style="@style/ConsumeFunctionItemTextStyle"
+                android:drawableLeft="@mipmap/tadian_xiaofei_icon"
+                android:text="他店消费" />
+
+            <Switch
+                android:id="@+id/switch_bt_other_shop"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:track="@drawable/selector_switch_button_track"
+                android:thumb="@drawable/selector_switch_button_thumb" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="60dp"
+            android:background="@color/color_a7a7aa" />
+
+        <LinearLayout style="@style/ConsumeFunctionItemContentStyle">
+
+            <TextView
+                style="@style/ConsumeFunctionItemTextStyle"
+                android:drawableLeft="@mipmap/shangcheng_xiaofei_icon"
+                android:text="商城消费" />
+
+            <Switch
+                android:id="@+id/switch_bt_mall_consume"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:track="@drawable/selector_switch_button_track"
+                android:thumb="@drawable/selector_switch_button_thumb" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <LinearLayout style="@style/ConsumeFunctionItemContentStyle">
+
+            <TextView
+                style="@style/ConsumeFunctionItemTextStyle"
+                android:drawableLeft="@mipmap/kaixin_chuandan_icon"
+                android:text="开鑫传单" />
+
+            <Switch
+                android:id="@+id/switch_bt_leaflet"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:track="@drawable/selector_switch_button_track"
+                android:thumb="@drawable/selector_switch_button_thumb"/>
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="60dp"
+            android:background="@color/color_a7a7aa"
+            android:visibility="gone" />
+
+
+        <LinearLayout
+            style="@style/ConsumeFunctionItemContentStyle"
+            android:visibility="gone">
+
+            <TextView
+                style="@style/ConsumeFunctionItemTextStyle"
+                android:drawableLeft="@mipmap/guanggao_fuwu_icon"
+                android:text="广告服务" />
+
+            <com.hzxmkuar.sxmaketnew.widget.SwitchButton
+                android:layout_width="50dp"
+                android:layout_height="30dp" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="60dp"
+            android:background="@color/color_a7a7aa"
+            android:visibility="gone" />
+
+        <LinearLayout
+            style="@style/ConsumeFunctionItemContentStyle"
+            android:visibility="gone">
+
+            <TextView
+                style="@style/ConsumeFunctionItemTextStyle"
+                android:drawableLeft="@mipmap/sheji_fuwu_icon"
+                android:text="设计服务" />
+
+            <com.hzxmkuar.sxmaketnew.widget.SwitchButton
+                android:layout_width="50dp"
+                android:layout_height="30dp" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <LinearLayout
+            style="@style/ConsumeFunctionItemContentStyle"
+            android:visibility="gone">
+
+            <TextView
+                style="@style/ConsumeFunctionItemTextStyle"
+                android:drawableLeft="@mipmap/zhaopin_fuwu_icon"
+                android:text="招聘服务" />
+
+            <com.hzxmkuar.sxmaketnew.widget.SwitchButton
+                android:layout_width="50dp"
+                android:layout_height="30dp" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

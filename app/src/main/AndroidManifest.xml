@@ -363,6 +363,14 @@
         <activity android:name=".newversion.WebViewActivity" />
         <activity android:name=".newversion.QRCodeActivity" />
         <activity android:name=".newversion.RevenueActivity"></activity>
+        <activity android:name=".home.CheckTicketsRecordActivity" />
+        <activity android:name=".home.TicketsCheckDetailActiivty" />
+        <activity android:name=".home.ConsumeRightsActivity" />
+        <activity android:name=".home.ConsumeFunctionActivity" />
+        <activity android:name=".home.RelationshipAccountActivity" />
+        <activity android:name=".home.TodayBillsActivity" />
+        <activity android:name=".home.CheckTicketsActivity" />
+        <activity android:name=".home.ScanActivity" />
     </application>
 
 </manifest>

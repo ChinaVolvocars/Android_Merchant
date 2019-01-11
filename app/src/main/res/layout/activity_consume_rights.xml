@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_f0f0f0">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <include layout="@layout/layout_toolbar_base" />
+
+        <FrameLayout
+            android:id="@+id/ll_roote_content"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+
+            <com.common.widget.recyclerview.refresh.recycleview.XRecyclerView
+                android:id="@+id/recyclerView_record"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:layout_marginTop="12dp"
+                android:background="@color/color_f0f0f0"
+                android:paddingLeft="18dp"
+                android:paddingRight="18dp">
+
+            </com.common.widget.recyclerview.refresh.recycleview.XRecyclerView>
+
+            <include
+                android:id="@+id/ll_empty_view"
+                layout="@layout/layout_empty_view"
+                android:visibility="invisible" />
+        </FrameLayout>
+    </LinearLayout>
+
+
+    <ImageView
+        android:id="@+id/iv_tip02"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitXY"
+        android:src="@mipmap/consume_record_tip02_bg"
+        android:visibility="gone" />
+
+    <ImageView
+        android:id="@+id/iv_tip01"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitXY"
+        android:src="@mipmap/consume_record_tip01_bg"
+        android:visibility="gone" />
+</FrameLayout>

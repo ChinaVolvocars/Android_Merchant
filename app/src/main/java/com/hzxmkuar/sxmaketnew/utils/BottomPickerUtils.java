@@ -29,16 +29,16 @@ import rx.schedulers.Schedulers;
  * Created by leo on 2017/7/5.
  * 滑动选择工具类
  */
-public class BottomPickerUtils
-{
+public class BottomPickerUtils {
     private static OptionsPickerView optionsPickerView;
     protected static CityLocalBean cityLocalBean;
 
     /**
      * 一级滑动选择控件
-     * @param context   ctx
-     * @param data      数据源
-     * @param callback  点击回调
+     *
+     * @param context  ctx
+     * @param data     数据源
+     * @param callback 点击回调
      */
     public static <T> void showOptionPicker(Context context, List<T> data, final OptionPickerCallback callback) {
         OptionsPickerView.Builder builder = new OptionsPickerView.Builder(context, new OptionsPickerView.OnOptionsSelectListener() {
@@ -63,13 +63,14 @@ public class BottomPickerUtils
 
     /**
      * 多级不联动滑动选择控件
+     *
      * @param context  ctx
      * @param data     一级数据源
      * @param dataK    二级数据源
      * @param dataL    三级数据源
      * @param callback 点击回调
      */
-    public static <T,K,L> void showMutilOptionPicker(Context context, List<T> data, List<K> dataK, List<L> dataL, final MutilOptionPickerCallback callback) {
+    public static <T, K, L> void showMutilOptionPicker(Context context, List<T> data, List<K> dataK, List<L> dataL, final MutilOptionPickerCallback callback) {
         OptionsPickerView.Builder builder = new OptionsPickerView.Builder(context, new OptionsPickerView.OnOptionsSelectListener() {
             @Override
             public void onOptionsSelect(int options1, int options2, int options3, View v) {
@@ -92,13 +93,14 @@ public class BottomPickerUtils
 
     /**
      * 多级联动滑动选择控件
-     * @param context   ctx
-     * @param data      一级数据源
-     * @param dataK     二级数据源
-     * @param dataL     三级数据源
-     * @param callback  点击回调
+     *
+     * @param context  ctx
+     * @param data     一级数据源
+     * @param dataK    二级数据源
+     * @param dataL    三级数据源
+     * @param callback 点击回调
      */
-    public static <T,K,L> void showOptionPicker(Context context, List<T> data, List<K> dataK, List<L> dataL, final OptionPickerCallback callback) {
+    public static <T, K, L> void showOptionPicker(Context context, List<T> data, List<K> dataK, List<L> dataL, final OptionPickerCallback callback) {
         OptionsPickerView.Builder builder = new OptionsPickerView.Builder(context, new OptionsPickerView.OnOptionsSelectListener() {
             @Override
             public void onOptionsSelect(int options1, int options2, int options3, View v) {
@@ -121,11 +123,12 @@ public class BottomPickerUtils
 
     /**
      * 日期三级联动的对话框
-     * @param context       ctx
-     * @param startDate     开始时间   Calendar.getInstance().setData()
-     * @param endDate       结束时间   Calendar.getInstance()
-     * @param selectDate    默认选中时间
-     * @param callback      选中回调
+     *
+     * @param context    ctx
+     * @param startDate  开始时间   Calendar.getInstance().setData()
+     * @param endDate    结束时间   Calendar.getInstance()
+     * @param selectDate 默认选中时间
+     * @param callback   选中回调
      */
     public static void showDatePicker(Context context, Calendar startDate, Calendar endDate, Calendar selectDate, final DatePickerCallback callback) {
         TimePickerView.Builder builder = new TimePickerView.Builder(context, new TimePickerView.OnTimeSelectListener() {
@@ -163,8 +166,9 @@ public class BottomPickerUtils
 
     /**
      * 多级联动滑动选择控件
-     * @param context   ctx
-     * @param callback  点击回调
+     *
+     * @param context  ctx
+     * @param callback 点击回调
      */
     public static void showCityPicker(final Context context, final CityOptionPickerCallback callback) {
         initData(context, callback);
@@ -172,8 +176,9 @@ public class BottomPickerUtils
 
     /**
      * 多级联动滑动选择控件
-     * @param context   ctx
-     * @param callback  点击回调
+     *
+     * @param context  ctx
+     * @param callback 点击回调
      */
     public static void initCityPicker(Context context, final CityOptionPickerCallback callback) {
         if (EmptyUtils.isEmpty(options1Items) || EmptyUtils.isEmpty(options2Items) || EmptyUtils.isEmpty(options3Items)) {
@@ -215,6 +220,7 @@ public class BottomPickerUtils
 
         return lists;
     }
+
     private static List<String> setProvinceLists() {
         List<String> lists = new ArrayList<>();
 
@@ -232,7 +238,7 @@ public class BottomPickerUtils
 
         for (int i = 0; i < cityLocalBean.getRECORD().size(); i++) {
             List<CityBean> listss = new ArrayList<>();
-            if (1==cityLocalBean.getRECORD().get(i).getLevel()&& EmptyUtils.isNotEmpty(cityLocalBean.getRECORD().get(i).getSub())) {
+            if (1 == cityLocalBean.getRECORD().get(i).getLevel() && EmptyUtils.isNotEmpty(cityLocalBean.getRECORD().get(i).getSub())) {
                 for (int j = 0; j < cityLocalBean.getRECORD().get(i).getSub().size(); j++) {
                     listss.add(cityLocalBean.getRECORD().get(i).getSub().get(j));
                 }
@@ -242,12 +248,13 @@ public class BottomPickerUtils
 
         return lists;
     }
+
     private static List<List<String>> setCityLists() {
         List<List<String>> lists = new ArrayList<>();
 
         for (int i = 0; i < cityLocalBean.getRECORD().size(); i++) {
             List<String> listss = new ArrayList<>();
-            if (1==cityLocalBean.getRECORD().get(i).getLevel() && EmptyUtils.isNotEmpty(cityLocalBean.getRECORD().get(i).getSub())) {
+            if (1 == cityLocalBean.getRECORD().get(i).getLevel() && EmptyUtils.isNotEmpty(cityLocalBean.getRECORD().get(i).getSub())) {
                 for (int j = 0; j < cityLocalBean.getRECORD().get(i).getSub().size(); j++) {
                     listss.add(cityLocalBean.getRECORD().get(i).getSub().get(j).getArea());
                 }
@@ -285,6 +292,7 @@ public class BottomPickerUtils
 
         return lists;
     }
+
     private static List<List<List<String>>> setAreaLists() {
         List<List<List<String>>> lists = new ArrayList<>();
 
@@ -314,8 +322,7 @@ public class BottomPickerUtils
     }
 
     // 初始化城市列表数据
-    private static void initData(final Context context, final CityOptionPickerCallback callback)
-    {
+    private static void initData(final Context context, final CityOptionPickerCallback callback) {
         if (EmptyUtils.isNotEmpty(DataCenter.getInstance().getCityLocalBean())) {
             initCityPicker(context, callback);
             cityLocalBean = DataCenter.getInstance().getCityLocalBean();
@@ -358,7 +365,8 @@ public class BottomPickerUtils
                     }
                 });
     }
-    public List<String> getOne(){
+
+    public List<String> getOne() {
         return null;
     }
 
@@ -368,7 +376,7 @@ public class BottomPickerUtils
     }
 
     public interface CityOptionPickerCallback {
-        void onOptionSelect( CityBean option1, CityBean option2, CityBean option3);
+        void onOptionSelect(CityBean option1, CityBean option2, CityBean option3);
     }
 
     public interface MutilOptionPickerCallback {

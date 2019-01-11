@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="46dp"
+    android:background="@color/color_fefcfc"
+    android:gravity="center"
+    android:paddingBottom="4dp">
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/ll_left_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/view_point01"
+                android:layout_width="4dp"
+                android:layout_height="4dp"
+                android:background="@drawable/circle_color_yellow_99fcc80a" />
+
+            <TextView
+                android:id="@+id/view_point02"
+                android:layout_width="6dp"
+                android:layout_height="6dp"
+                android:layout_marginLeft="8dp"
+                android:background="@drawable/circle_color_yellow_fcc80a" />
+
+            <TextView
+                android:id="@+id/tv_left_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="14dp"
+                android:text="关联商家"
+                android:textColor="@color/color_1e1e1e"
+                android:textSize="19sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/view_point03"
+                android:layout_width="6dp"
+                android:layout_height="6dp"
+                android:layout_marginLeft="14dp"
+                android:background="@drawable/circle_color_yellow_fcc80a" />
+
+            <TextView
+                android:id="@+id/view_point04"
+                android:layout_width="4dp"
+                android:layout_height="4dp"
+                android:layout_marginLeft="8dp"
+                android:background="@drawable/circle_color_yellow_99fcc80a" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_left_bottom_line"
+            android:layout_width="48dp"
+            android:layout_height="2dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="6dp"
+            android:background="@color/color_fdc70a" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/ll_right_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/view_point05"
+                android:layout_width="4dp"
+                android:layout_height="4dp"
+                android:background="@drawable/circle_color_yellow_99fcc80a" />
+
+            <TextView
+                android:id="@+id/view_point06"
+                android:layout_width="6dp"
+                android:layout_height="6dp"
+                android:layout_marginLeft="8dp"
+                android:background="@drawable/circle_color_yellow_fcc80a" />
+
+            <TextView
+                android:id="@+id/tv_right_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="14dp"
+                android:text="关联会员"
+                android:textColor="@color/color_1e1e1e"
+                android:textSize="19sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/view_point07"
+                android:layout_width="6dp"
+                android:layout_height="6dp"
+                android:layout_marginLeft="14dp"
+                android:background="@drawable/circle_color_yellow_fcc80a" />
+
+            <TextView
+                android:id="@+id/view_point08"
+                android:layout_width="4dp"
+                android:layout_height="4dp"
+                android:layout_marginLeft="8dp"
+                android:background="@drawable/circle_color_yellow_99fcc80a" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_rightt_bottom_line"
+            android:layout_width="48dp"
+            android:layout_height="2dp"
+            android:layout_gravity="center_horizontal"
+            android:background="@color/color_fdc70a" />
+    </LinearLayout>
+
+
+</LinearLayout>

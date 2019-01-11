@@ -13,6 +13,7 @@ import com.bumptech.glide.Glide;
 import com.common.mvp.BaseMvpActivity;
 import com.common.mvp.BasePresenter;
 import com.hzxmkuar.sxmaketnew.R;
+import com.hzxmkuar.sxmaketnew.home.TodayBillsActivity;
 import com.hzxmkuar.sxmaketnew.utils.ImgUtils;
 import com.hzxmkuar.sxmaketnew.view.dialog.DialogQR;
 
@@ -42,6 +43,11 @@ public class QRCodeActivity extends BaseMvpActivity {
     @OnClick(R.id.back)
     public void onBackClicked() {
         onBackPressed();
+    }
+
+    @Override
+    protected void setStatusBar() {
+
     }
 
     @Override
@@ -98,8 +104,8 @@ public class QRCodeActivity extends BaseMvpActivity {
 
     @OnClick(R.id.tv_book)
     public void onBookClicked() {
-        showToastMsg("该功能暂未开放，敬请期待！");
-
+//        showToastMsg("该功能暂未开放，敬请期待！");
+        gotoActivity(TodayBillsActivity.class);
     }
 
     @Override

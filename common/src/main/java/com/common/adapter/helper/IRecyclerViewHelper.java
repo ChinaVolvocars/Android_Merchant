@@ -29,7 +29,6 @@ public class IRecyclerViewHelper {
 
     public void setRecycleLineLayout(Context context, int orientation, RecyclerView mRecy) {
         LinearLayoutManager layoutManager = new LinearLayoutManager(context);
-        layoutManager.setOrientation(orientation);
         mRecy.setLayoutManager(layoutManager);
     }
 

@@ -1,6 +1,5 @@
 package com.common.retrofit.service;
 
-import com.common.base.Constants;
 import com.common.retrofit.entity.result.AboutBean;
 import com.common.retrofit.entity.result.ActiveListEntity;
 import com.common.retrofit.entity.result.AddressBean;
@@ -11,7 +10,12 @@ import com.common.retrofit.entity.result.BankListBean;
 import com.common.retrofit.entity.result.BankNameBean;
 import com.common.retrofit.entity.result.CCBean;
 import com.common.retrofit.entity.result.ChangeBean;
+import com.common.retrofit.entity.result.CheckRecordEntity;
+import com.common.retrofit.entity.result.CheckTicketsDetailsEntity;
+import com.common.retrofit.entity.result.CheckTicketsResultEntity;
 import com.common.retrofit.entity.result.ChooseFLBean;
+import com.common.retrofit.entity.result.ConsumeFunctionEntity;
+import com.common.retrofit.entity.result.ConsumeRightsEntity;
 import com.common.retrofit.entity.result.DPDABean;
 import com.common.retrofit.entity.result.FBean;
 import com.common.retrofit.entity.result.FLBean;
@@ -26,7 +30,6 @@ import com.common.retrofit.entity.result.HomeOneBean;
 import com.common.retrofit.entity.result.IndexBean;
 import com.common.retrofit.entity.result.InfoBean;
 import com.common.retrofit.entity.result.JFBean;
-import com.common.retrofit.entity.result.ListDataEntity;
 import com.common.retrofit.entity.result.MsgBena;
 import com.common.retrofit.entity.result.MyOrderBean;
 import com.common.retrofit.entity.result.MyZBList;
@@ -36,6 +39,7 @@ import com.common.retrofit.entity.result.PayBeansss;
 import com.common.retrofit.entity.result.PaySnBean;
 import com.common.retrofit.entity.result.PicBean;
 import com.common.retrofit.entity.result.QRDDBean;
+import com.common.retrofit.entity.result.RelationShipListEntity;
 import com.common.retrofit.entity.result.SCListBean;
 import com.common.retrofit.entity.result.SHBean;
 import com.common.retrofit.entity.result.SPDetilBean;
@@ -68,7 +72,6 @@ import java.util.Map;
 
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
-import okhttp3.ResponseBody;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.Multipart;
@@ -76,7 +79,6 @@ import retrofit2.http.POST;
 import retrofit2.http.Part;
 import retrofit2.http.PartMap;
 import rx.Observable;
-import rx.Subscriber;
 
 public interface UserService {
 
@@ -909,7 +911,6 @@ public interface UserService {
                                  @Field("oldpwd") String oldpwd, @Field("newpwd") String newpwd,
                                  @Field("repeatpwd") String repeatpwd);
 
-
     @FormUrlEncoded
     @POST("shopActivity.html")
     Observable<HttpRespBean<ActiveListEntity>> getActiveListData(@Field("time") String time, @Field("hash") String hash
@@ -945,6 +946,7 @@ public interface UserService {
     @POST("versionControl.html")
     Observable<HttpRespBean<AppVersionEntity>> checkAppVersion(@Field("time") String time, @Field("hash") String hash, @Field("types") String types,
                                                                @Field("is_shop") String is_shop, @Field("version_code") String version_code);
+
 
     /**
      * 商家个人活动列表接口文档    <br/>
@@ -999,7 +1001,6 @@ public interface UserService {
                                             @Field("hash") String hash,
                                             @Field("uid") int uid);
 
-
     //今日营收
     @FormUrlEncoded
     @POST("ShopTodayRevenue")
@@ -1008,6 +1009,7 @@ public interface UserService {
                                                         @Field("uid") int uid,
                                                         @Field("page") int page,
                                                         @Field("dates") String data);
+
 
     //申请提现  type提现类型值为1或2（1为代收代付，2为发票提现）
     @FormUrlEncoded
@@ -1090,8 +1092,6 @@ public interface UserService {
     Observable<HttpRespBean<WithdrawlBillEntity>> withdrawCredit(@Field("time") String time, @Field("hash") String hash
             , @Field("uid") int uid, @Field("type") String type, @Field("page") int page);
 
-
-
     /**
      *  用户端登录发送语音短信验证码
      *  请求类型（//1商家管理员注册短信 2商家密码找回 3 个人短信登录 7个人版用户注册短信 8商家找回账号 11支付宝扫一扫快速登录）
@@ -1111,6 +1111,110 @@ public interface UserService {
     Observable<Object> sendVoiceVerifyCode(@Field("time") String time, @Field("hash") String hash,
                                            @Field("mobile") String mobile, @Field("checktype") int checktype
     );
+
+
+    /**
+     *  扫一扫验券 <br/>
+     * @param time
+     * @param hash
+     * @param uid
+     * @param code_url  扫一扫获得的结果信息 <br/>
+     * @return
+     */
+    @FormUrlEncoded
+    @POST("couponVerifyCodeurl.html")
+    Observable<HttpRespBean<CheckTicketsResultEntity>> couponVerifyCodeurl(@Field("time") String time, @Field("hash") String hash,
+                                                                            @Field("uid") int uid, @Field("code_url") String code_url);
+
+
+    /**
+     *  手动验券 <br/>
+     * @param time
+     * @param hash
+     * @param uid
+     * @param ticket_number  输入的券码信息 <br/>
+     * @return
+     */
+    @FormUrlEncoded
+    @POST("couponVerifyCodehand.html")
+    Observable<HttpRespBean<CheckTicketsResultEntity>> couponVerifyCodehand(@Field("time") String time, @Field("hash") String hash,
+                                                                            @Field("uid") int uid, @Field("ticket_number") String ticket_number);
+
+
+    /**
+     *   商家验券记录   <br/>
+     * @param time <br/>
+     * @param hash <br/>
+     * @param uid <br/>
+     * @param date  验券日期 格式： 2019-01-04<br/>
+     * @param page <br/>
+     * @return
+     */
+    @FormUrlEncoded
+    @POST("couponVerifyRecord.html")
+    Observable<HttpRespBean<CheckRecordEntity>> couponVerifyRecord(@Field("time") String time, @Field("hash") String hash,
+                                                                   @Field("uid") int uid, @Field("date") String date, @Field("page") int page);
+
+
+    /**
+     * 消费权限<br/>
+     * @return
+     */
+    @FormUrlEncoded
+    @POST("ConsumePower.html")
+    Observable<HttpRespBean<ConsumeRightsEntity>> consumePower(@Field("time") String time, @Field("hash") String hash
+            , @Field("uid") int uid, @Field("page") int page);
+
+    /**
+     * 消费功能<br/>
+     * @return
+     */
+    @FormUrlEncoded
+    @POST("Ability.html")
+    Observable<HttpRespBean<ConsumeFunctionEntity>> ability(@Field("time") String time, @Field("hash") String hash
+            , @Field("uid") int uid);
+
+    /**
+     * 消费功能打开或者关闭   <br/>
+     * @return
+     */
+
+
+    /**
+     * 消费功能打开或者关闭接口  <br/>
+     * @param button      被点击的按钮    <br/>
+     *                        our_shop   表示本店消费  <br/>
+     *                        ohter_shop   表示他店消费  <br/>
+     *                        mall   表示网上商城  <br/>
+     *                        leaflet   开鑫传单  <br/>
+     * @param value  当前被点击按钮的状态   <br/>
+     *                          当前按钮状态为true时，传的是1  <br/>
+     *                          当前按钮状态为false时，传的是2  <br/>
+     */
+    @FormUrlEncoded
+    @POST("AbilityButton.html")
+    Observable<HttpRespBean<CheckTicketsResultEntity>> abilityButton(@Field("time") String time, @Field("hash") String hash
+            , @Field("uid") int uid, @Field("button") String button, @Field("value") String value);
+
+
+    /***
+     *  关联会员、关联商家  <><br/>
+     * @param type  1.关联用户  <br/>2.商家  <br/>
+     */
+    @FormUrlEncoded
+    @POST("relation.html")
+    Observable<HttpRespBean<RelationShipListEntity>> relation(@Field("time") String time, @Field("hash") String hash
+            , @Field("uid") int uid, @Field("type") String type, @Field("page") int page);
+
+
+    /***
+     *  关联会员、关联商家  <><br/>
+     * @param type  1.关联用户  <br/>2.商家  <br/>
+     */
+    @FormUrlEncoded
+    @POST("couponInfo.html")
+    Observable<HttpRespBean<CheckTicketsDetailsEntity>> couponInfo(@Field("time") String time, @Field("hash") String hash
+            , @Field("uid") int uid, @Field("under_id") String type, @Field("page") int page);
 
 
 }

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_F5F4F4"
+    android:orientation="vertical">
+
+    <include layout="@layout/layout_toolbar_base" />
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="6dp"
+            android:background="@color/color_F5F4F4"
+            android:orientation="vertical"
+            android:paddingLeft="17dp"
+            android:paddingRight="17dp">
+
+            <com.common.widget.recyclerview.refresh.recycleview.XRecyclerView
+                android:id="@+id/recyclerView_record"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="4dp"
+                android:background="@color/color_F5F4F4" />
+
+            <LinearLayout
+                android:id="@+id/ll_emp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="234dp"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/empty" />
+
+                <TextView
+                    android:id="@+id/tv_nodata_tips"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="暂时没有数据" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_float_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="24dp"
+                android:layout_marginRight="9dp"
+                android:background="@color/color_F5F4F4"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/tv_chose_date_float"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="2019-01-01"
+                    android:textColor="@color/color_949393"
+                    android:textSize="13sp" />
+
+                <TextView
+                    android:id="@+id/tv_date_count_float"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="18dp"
+                    android:text="共0笔  合计￥0.00"
+                    android:textColor="@color/color_949393"
+                    android:textSize="13sp" />
+            </LinearLayout>
+
+        </FrameLayout>
+
+
+</LinearLayout>

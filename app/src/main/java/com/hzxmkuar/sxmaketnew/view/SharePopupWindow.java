@@ -11,6 +11,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
+import android.widget.TextView;
 
 import com.common.retrofit.entity.result.ShareBean;
 import com.common.widget.toast.ToastManager;
@@ -44,6 +45,7 @@ public class SharePopupWindow extends PopupWindow implements View.OnClickListene
     private String title ="";
     private String url = "";
 
+    private TextView tv_cancel_share;
     public SharePopupWindow(final Context mContext, View parent, ShareBean o) {
         super(mContext);
         this.mContext = mContext;
@@ -96,6 +98,8 @@ public class SharePopupWindow extends PopupWindow implements View.OnClickListene
         ll_share_qqkj = (LinearLayout) shareView.findViewById(R.id.ll_share_qqkj);
         //复制链接
         ll_share_copy = (LinearLayout) shareView.findViewById(R.id.ll_share_copy);
+        // 取消分享
+        tv_cancel_share = (TextView) shareView.findViewById(R.id.tv_cancel_share);
         initListener();
     }
 
@@ -106,6 +110,7 @@ public class SharePopupWindow extends PopupWindow implements View.OnClickListene
         ll_share_wxcircle.setOnClickListener(this);
         ll_share_qqkj.setOnClickListener(this);
         ll_share_copy.setOnClickListener(this);
+        tv_cancel_share.setOnClickListener(this);
 
     }
 
@@ -182,6 +187,9 @@ public class SharePopupWindow extends PopupWindow implements View.OnClickListene
                 ClipData mClipData = ClipData.newPlainText("Label", url);
                 // 将ClipData内容放到系统剪贴板里。
                 cm.setPrimaryClip(mClipData);
+            }else if (i == R.id.tv_cancel_share){
+                ToastManager.showShortToast("取消分享");
+                this.dismiss();
             }
         }
 }
