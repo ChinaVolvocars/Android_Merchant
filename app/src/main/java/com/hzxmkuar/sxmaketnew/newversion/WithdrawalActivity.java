@@ -23,6 +23,8 @@ import com.common.retrofit.methods.BusinessUserMethods;
 import com.common.retrofit.subscriber.CommonSubscriber;
 import com.common.retrofit.subscriber.SubscriberListener;
 import com.common.utils.SPUtils;
+import com.common.utils.ScreenUtils;
+import com.common.utils.SizeUtils;
 import com.common.utils.UIUtils;
 import com.hzxmkuar.sxmaketnew.R;
 import com.hzxmkuar.sxmaketnew.activity.MyBankActivity;
@@ -57,8 +59,8 @@ public class WithdrawalActivity extends BaseMvpActivity {
     TextView tvBankNum;
     @BindView(R.id.ll_bank_info)
     LinearLayout llBankInfo;
-    @BindView(R.id.tv_service_fee)
-    TextView tvServiceFee;
+//    @BindView(R.id.tv_service_fee)
+//    TextView tvServiceFee;
     @BindView(R.id.tv_amount)
     TextView tvAmount;
     @BindView(R.id.tv_confirm)
@@ -107,12 +109,20 @@ public class WithdrawalActivity extends BaseMvpActivity {
         checkedChangedListener = new MyOnCheckedChangedListener();
         rdbt_normal_withdrawl = (CheckBox) findViewById(R.id.rdbt_normal_withdrawl);
         rdbt_coupon_withdrawl = (CheckBox) findViewById(R.id.rdbt_coupon_withdrawl);
+        rdbt_normal_withdrawl.setButtonDrawable(null);
+        rdbt_coupon_withdrawl.setButtonDrawable(null);
+
+
         if (flag) {
-            rdbt_normal_withdrawl.setBackground(getResources().getDrawable(R.drawable.goxuan));
-            rdbt_coupon_withdrawl.setBackground(getResources().getDrawable(R.drawable.goxuan));
+            rdbt_normal_withdrawl.setButtonDrawable(R.drawable.checkbox_selector_color_ffaf04);
+            setCheckBoxPading(rdbt_normal_withdrawl,64,R.drawable.checkbox_selector_color_ffaf04);
+            rdbt_coupon_withdrawl.setButtonDrawable(R.drawable.checkbox_selector_color_ffaf04);
+            setCheckBoxPading(rdbt_coupon_withdrawl,64,R.drawable.checkbox_selector_color_ffaf04);
         } else {
-            rdbt_normal_withdrawl.setBackground(getResources().getDrawable(R.drawable.goxuan_02));
-            rdbt_coupon_withdrawl.setBackground(getResources().getDrawable(R.drawable.goxuan_02));
+            rdbt_normal_withdrawl.setButtonDrawable(R.drawable.goxuan_02);
+            setCheckBoxPading(rdbt_normal_withdrawl,64,R.drawable.goxuan_02);
+            rdbt_coupon_withdrawl.setButtonDrawable(R.drawable.goxuan_02);
+            setCheckBoxPading(rdbt_coupon_withdrawl,64,R.drawable.goxuan_02);
         }
         tv_can_withdrawl_coupon = (TextView) findViewById(R.id.tv_can_withdrawl_coupon);
         tv_can_withdrawl_count = (TextView) findViewById(R.id.tv_can_withdrawl_count);
@@ -120,6 +130,7 @@ public class WithdrawalActivity extends BaseMvpActivity {
 //        Log.e("", "可以提现: " + week);
         rdbt_coupon_withdrawl.setOnCheckedChangeListener(checkedChangedListener);
         rdbt_normal_withdrawl.setOnCheckedChangeListener(checkedChangedListener);
+        rdbt_coupon_withdrawl.setText("券码提现金额");
 
         tName.setText(flag ? "代收代付" : "发票提现");
         tvRight.setText("查看规则");
@@ -147,7 +158,9 @@ public class WithdrawalActivity extends BaseMvpActivity {
             public void onNext(BankListBean.ListBean bank) {
                 //有银行卡 ，week 不是0的时候才能提现
                 //  0不可提现，  <br/> 1 可以提现  <br/>
-                tvServiceFee.setText(getString(R.string.service_fee, bank.getGrade()));
+
+//                tvServiceFee.setText(getString(R.string.service_fee, bank.getGrade()));
+                rdbt_normal_withdrawl.setText(getString(R.string.service_fee, bank.getGrade()));
 //                if (null != bank) {
 //                    itemBank = bank;
 //                    tvAddBank.setVisibility(View.GONE);
@@ -272,7 +285,10 @@ public class WithdrawalActivity extends BaseMvpActivity {
                 dismissProgressDialog();
             }
         });
-        BusinessUserMethods.getInstance().applyWithdrawalNew(subscriber, itemBank.getId(), flag ? 2 : 1, money, counponWithdrawl);
+//        BusinessUserMethods.getInstance().applyWithdrawalNew(subscriber, itemBank.getId(), flag ? 2 : 1, money, counponWithdrawl);
+        BusinessUserMethods.getInstance().applyWithdrawalNew(subscriber, itemBank.getId(), flag ? 2 : 1
+                , rdbt_normal_withdrawl.isChecked()?money:"0"
+                ,rdbt_coupon_withdrawl.isChecked()?counponWithdrawl:"0");
         rxManager.add(subscriber);
     }
 
@@ -365,6 +381,17 @@ public class WithdrawalActivity extends BaseMvpActivity {
     private void setConfirmBtState(boolean canWithdraw){
         tvConfirm.setClickable(canWithdraw);
         tvConfirm.setBackgroundResource(canWithdraw ? (flag ? R.drawable.selector_button : R.drawable.selector_button_invoice) : R.drawable.shape_rectangle_pressed);
+    }
+
+    /**
+     * 设置CheckBox图片与文字的距离       <br/>
+     * @param checkBox   checkBox    <br/>
+     * @param paddingLeft  距离    <br/>
+     * @param resId   要设置的图片   <br/>
+     */
+    private void setCheckBoxPading(CheckBox checkBox,int paddingLeft,int resId) {
+        checkBox.setCompoundDrawables(getResources().getDrawable(resId), null, null, null); //设置左图标
+        checkBox.setCompoundDrawablePadding((int)SizeUtils.px2dp(context,paddingLeft));
     }
 
 
