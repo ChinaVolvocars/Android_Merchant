@@ -41,13 +41,13 @@
 
 
                 <TextView
-                    android:visibility="gone"
                     android:id="@+id/tv_voice"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
                     android:drawableRight="@mipmap/ic_qr_code_dialog"
-                    android:paddingRight="@dimen/dp_25" />
+                    android:paddingRight="@dimen/dp_25"
+                    android:visibility="gone" />
 
 
             </LinearLayout>
@@ -91,8 +91,8 @@
                 android:paddingRight="@dimen/dp_25"
                 android:text="收款小账本"
                 android:textColor="@color/color_222222"
-                android:textSize="@dimen/sp_13"
-                android:visibility="gone" />
+                android:textSize="@dimen/sp_13" />
+
         </LinearLayout>
 
 

@@ -58,6 +58,7 @@ import com.common.retrofit.entity.result.ZBDetil;
 import com.common.retrofit.entity.result.ZBDetilBean;
 import com.common.retrofit.entity.result.ZBListBean;
 import com.common.retrofit.entity.resultImpl.HttpRespBean;
+import com.common.retrofit.model.DayFlowListDto;
 import com.common.retrofit.model.Home;
 import com.common.retrofit.model.Pie;
 import com.common.retrofit.model.RevenueStatistics;
@@ -184,6 +185,7 @@ public interface UserService {
 //            , @Field("hashid") String hashid, @Field("shop_name") String shop_name, @Field("category_id") String category_id
 //            , @Field("province") String province, @Field("area") String area, @Field("county") String county
 //            , @Field("address") String address, @Field("desc") String desc, @Field("face") String face
+
     /**
      * 提交编辑后的店铺信息（新接口）
      * shop_name (请输入门店名称 String类型 必填)
@@ -1007,7 +1009,16 @@ public interface UserService {
                                                         @Field("hash") String hash,
                                                         @Field("uid") int uid,
                                                         @Field("page") int page,
-                                                        @Field("dates") String data);
+                                                        @Field("dates") String data);  //今日营收
+
+    //每日流水
+    @FormUrlEncoded
+    @POST("CurrentAccount")
+    Observable<HttpRespBean<DayFlowListDto>> currentAccount(@Field("time") String time,
+                                                            @Field("hash") String hash,
+                                                            @Field("uid") int uid,
+                                                            @Field("page") int page,
+                                                            @Field("dates") String data);
 
     //申请提现  type提现类型值为1或2（1为代收代付，2为发票提现）
     @FormUrlEncoded
@@ -1081,8 +1092,9 @@ public interface UserService {
 
     /**
      * 提现账款 <br/>
-     * @param type   记录类型  <br/>
-     *               1 为发票提现  <br/> 2 为代付代收提现  <br/>
+     *
+     * @param type 记录类型  <br/>
+     *             1 为发票提现  <br/> 2 为代付代收提现  <br/>
      * @return
      */
     @FormUrlEncoded
@@ -1091,20 +1103,20 @@ public interface UserService {
             , @Field("uid") int uid, @Field("type") String type, @Field("page") int page);
 
 
-
     /**
-     *  用户端登录发送语音短信验证码
-     *  请求类型（//1商家管理员注册短信 2商家密码找回 3 个人短信登录 7个人版用户注册短信 8商家找回账号 11支付宝扫一扫快速登录）
+     * 用户端登录发送语音短信验证码
+     * 请求类型（//1商家管理员注册短信 2商家密码找回 3 个人短信登录 7个人版用户注册短信 8商家找回账号 11支付宝扫一扫快速登录）
+     *
      * @param time
      * @param hash
-     * @param mobile  手机号码 <br/>
-     * @param checktype  发送短信的类型：   <br/>
-     *       checkTypeCode 为 1 ： 登录、注册短信        <br/>
-     *       checkTypeCode 为 2 ：  商家密码找回              <br/>
-     *       checkTypeCode 为 3 ： 个人短信登录           <br/>
-     *       checkTypeCode 为 7 ： 个人版用户注册短信            <br/>
-     *       checkTypeCode 为 8 ： 商家找回账号           <br/>
-     *       checkTypeCode 为 11 ： 支付宝扫一扫快速登录            <br/>
+     * @param mobile    手机号码 <br/>
+     * @param checktype 发送短信的类型：   <br/>
+     *                  checkTypeCode 为 1 ： 登录、注册短信        <br/>
+     *                  checkTypeCode 为 2 ：  商家密码找回              <br/>
+     *                  checkTypeCode 为 3 ： 个人短信登录           <br/>
+     *                  checkTypeCode 为 7 ： 个人版用户注册短信            <br/>
+     *                  checkTypeCode 为 8 ： 商家找回账号           <br/>
+     *                  checkTypeCode 为 11 ： 支付宝扫一扫快速登录            <br/>
      */
     @FormUrlEncoded
     @POST("singleSendcode.html")

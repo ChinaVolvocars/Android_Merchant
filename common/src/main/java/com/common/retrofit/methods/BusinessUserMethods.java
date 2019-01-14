@@ -18,13 +18,16 @@ import com.common.retrofit.entity.result.ShopShowsEntity;
 import com.common.retrofit.entity.result.WidthDrawEntity;
 import com.common.retrofit.entity.result.WithdrawlBillEntity;
 import com.common.retrofit.entity.resultImpl.HttpRespBean;
+import com.common.retrofit.model.DayFlowListDto;
 import com.common.retrofit.model.Home;
 import com.common.retrofit.model.Pie;
 import com.common.retrofit.model.RevenueStatistics;
 import com.common.retrofit.model.TodayRevenue;
 import com.common.retrofit.service.UserService;
+
 import java.util.ArrayList;
 import java.util.List;
+
 import rx.Observable;
 import rx.Subscriber;
 
@@ -74,9 +77,9 @@ public class BusinessUserMethods extends BaseMethods {
      * @param reqList
      */
     public void shopInfoEditedCommitt(Subscriber<Object> subscriber, String shopName, String shopTypeId, String shengId, String shiId, String quId,
-                                      String adddes, String shopDesc, String pic, List<String> reqList,String mobile) {
+                                      String adddes, String shopDesc, String pic, List<String> reqList, String mobile) {
         Observable observable = initService().shopInfoSubmit(System.currentTimeMillis() + "", Constants.getHash(reqList), DataCenter.UserId, DataCenter.HashId,
-                shopName, shopTypeId, shengId, shiId, quId, adddes, shopDesc, pic,mobile);
+                shopName, shopTypeId, shengId, shiId, quId, adddes, shopDesc, pic, mobile);
         toOtherSubscribe(observable, subscriber);
     }
 
@@ -437,10 +440,26 @@ public class BusinessUserMethods extends BaseMethods {
     }
 
 
-//    public void todayRevenue(Subscriber<HttpRespBean<TodayRevenue>> subscriber, List<String> reqList, String date) {
-    public void todayRevenue(Subscriber<HttpRespBean<TodayRevenue>> subscriber, List<String> reqList, String date,int page) {
+    //    public void todayRevenue(Subscriber<HttpRespBean<TodayRevenue>> subscriber, List<String> reqList, String date) {
+    public void todayRevenue(Subscriber<HttpRespBean<TodayRevenue>> subscriber, String date, int page) {
+        List<String> reqLis = new ArrayList<>();
+        reqLis.add("time");
+        reqLis.add("uid");
+        reqLis.add("page");
+        reqLis.add("dates");
         Observable observable = initService().todayRevenue(System.currentTimeMillis() + ""
-                , Constants.getHash(reqList), DataCenter.UserId, page, date);
+                , Constants.getHash(reqLis), DataCenter.UserId, page, date);
+        toOtherSubscribe(observable, subscriber);
+    }
+
+    public void currentAccount(Subscriber<HttpRespBean<DayFlowListDto>> subscriber, String date, int page) {
+        List<String> reqLis = new ArrayList<>();
+        reqLis.add("time");
+        reqLis.add("uid");
+        reqLis.add("page");
+        reqLis.add("dates");
+        Observable observable = initService().currentAccount(String.valueOf(System.currentTimeMillis()),
+                Constants.getHash(reqLis), DataCenter.UserId, page, date);//"2018-10-26"
         toOtherSubscribe(observable, subscriber);
     }
 
@@ -484,6 +503,7 @@ public class BusinessUserMethods extends BaseMethods {
 
     /**
      * 代收代付/发票提现申请记录接口      <br/>
+     *
      * @param subscriber
      * @param page
      */
@@ -532,10 +552,12 @@ public class BusinessUserMethods extends BaseMethods {
                         Constants.getHash(reqLis), DataCenter.UserId, month);
         toOtherSubscribe(observable, subscriber);
     }
+
     /**
      * 提现账款  <br/>
-     * @param clickType  类型 <br/>  1 为发票   <br/>2为代收代付 <br/>
-     * @param page  页数 <br/>
+     *
+     * @param clickType 类型 <br/>  1 为发票   <br/>2为代收代付 <br/>
+     * @param page      页数 <br/>
      */
     public void withdrawCredit(Subscriber<WithdrawlBillEntity> subscriber, String clickType, int page) {
         List<String> reqList = new ArrayList<>();
@@ -546,8 +568,6 @@ public class BusinessUserMethods extends BaseMethods {
         Observable observable = initService().withdrawCredit(System.currentTimeMillis() + "", Constants.getHash(reqList), DataCenter.UserId, clickType, page);
         toSubscribe(observable, subscriber);
     }
-
-
 
 
 }

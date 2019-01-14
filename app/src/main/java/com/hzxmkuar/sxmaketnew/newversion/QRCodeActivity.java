@@ -1,6 +1,7 @@
 package com.hzxmkuar.sxmaketnew.newversion;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -21,6 +22,7 @@ import butterknife.OnClick;
 
 import static com.common.utils.UIUtils.getContext;
 
+//二维码
 public class QRCodeActivity extends BaseMvpActivity {
 
     @BindView(R.id.back)
@@ -83,6 +85,12 @@ public class QRCodeActivity extends BaseMvpActivity {
         ivQr.setDrawingCacheEnabled(false);
     }
 
+    @OnClick(R.id.tv_book)
+    public void onBookClicked() {
+        //当日流水
+        Intent intent = new Intent(QRCodeActivity.this, DayFlowActivity.class);
+        startActivity(intent);
+    }
 
     @Override
     public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
@@ -96,11 +104,6 @@ public class QRCodeActivity extends BaseMvpActivity {
         }
     }
 
-    @OnClick(R.id.tv_book)
-    public void onBookClicked() {
-        showToastMsg("该功能暂未开放，敬请期待！");
-
-    }
 
     @Override
     protected void doLogicFunc() {
