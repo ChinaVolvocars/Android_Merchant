@@ -6550,6 +6550,8 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static int CustomTheme_Dialog=0x7f0a00e7;
         public static int DialogFragment=0x7f0a0043;
         public static int DialogFragmentNoAnimation=0x7f0a0044;
+        /**  模糊 
+         */
         public static int HeadScale=0x7f0a00e8;
         public static int ImageTranslucentTheme=0x7f0a0045;
         public static int MQAutoMatch=0x7f0a00e9;
@@ -6588,7 +6590,11 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static int MQWrapWrap_Horizontal=0x7f0a010a;
         public static int MQWrapWrap_Vertical=0x7f0a010b;
         public static int MenuButton=0x7f0a010c;
+        /**  模糊 
+         */
         public static int MyDialogStyleBottom=0x7f0a010d;
+        /**  模糊 
+         */
         public static int MyDialogStyleTop=0x7f0a010e;
         public static int MyLoadingDialogStyle=0x7f0a010f;
         public static int PermissionGreenStyle=0x7f0a0110;
