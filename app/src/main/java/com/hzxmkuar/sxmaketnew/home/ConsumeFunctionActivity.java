@@ -172,10 +172,6 @@ public class ConsumeFunctionActivity extends BaseMvpActivity {
                 } else if ("leaflet".equals(cleckedBtn)) {
                     switch_bt_leaflet.setChecked(verifyResult2SetSwitchState(clickedBtnState));
                 }
-                Log.i(TAG, "onError: " + e);
-                Log.i(TAG, "onError: " + code);
-                Log.i(TAG, "onError:    cleckedBtn 被点击 的按钮：     " + cleckedBtn);
-                Log.i(TAG, "onError:    clickedBtnState 被点击的按钮的状态 ：     " + clickedBtnState);
             }
         });
         BusinessUserMethods.getInstance().abilityButton(subscriber, cleckedBtn, clickedBtnState);

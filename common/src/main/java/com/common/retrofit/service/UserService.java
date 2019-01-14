@@ -1021,6 +1021,25 @@ public interface UserService {
                                              @Field("type") int type,
                                              @Field("money") String money);
 
+
+    /**
+     *  申请提现新接口         <br/>
+     * @param bank_id  银行卡      <br/>
+     * @param type 提现类型      <br/>
+     *             1为发票。     <br/> 2为代收代付 。    <br/>
+     * @param money 鑫豆提现金额      <br/>
+     * @param cash_ticket 卷码提现金额    <br/>
+     */
+    @FormUrlEncoded
+    @POST("applyWithdrawalNew")
+    Observable<HttpRespBean> applyWithdrawalNew(@Field("time") String time,
+                                             @Field("hash") String hash,
+                                             @Field("uid") int uid,
+                                             @Field("bank_id") String bank_id,
+                                             @Field("type") int type,
+                                             @Field("money") String money,
+                                             @Field("cash_ticket") String cash_ticket);
+
     //申请提现  界面数据
     @FormUrlEncoded
     @POST("withdrawNew")

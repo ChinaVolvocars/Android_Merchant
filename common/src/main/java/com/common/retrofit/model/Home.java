@@ -24,6 +24,7 @@ public class Home implements Parcelable {
     private String pay_img;
     private String xindou;
     private String money;
+    private String cash_ticket;
     private String closed_pay_url;
     private String invoice_url;
     private String copy_invoice_url;
@@ -35,6 +36,18 @@ public class Home implements Parcelable {
     private List<ShopBanner> shop_banner;
     private List<ServiceFunction> service_function;
     private List<ActivityList> list;
+
+    /**
+     *  可提现券码
+     * @return
+     */
+    public String getCash_ticket() {
+        return cash_ticket;
+    }
+
+    public void setCash_ticket(String cash_ticket) {
+        this.cash_ticket = cash_ticket;
+    }
 
     public String getUsername() {
         return username;
@@ -146,9 +159,7 @@ public class Home implements Parcelable {
 
     /**
      * 是否可提现   <br/>
-     * 0不可提现，  <br/> 1 可以提现  <br/>
-     *
-     * @return
+     * 0不可提现   <br/> 1 可以提现  <br/>
      */
     public int getWeek() {
         return week;

@@ -466,6 +466,33 @@ public class BusinessUserMethods extends BaseMethods {
         toOtherSubscribe(observable, subscriber);
     }
 
+
+    /**
+     *  申请提现新接口         <br/>
+     * @param subscriber
+     * @param bankId  银行卡      <br/>
+     * @param type 提现类型      <br/>
+     *             1为发票。     <br/> 2为代收代付 。    <br/>
+     * @param money 鑫豆提现金额      <br/>
+     * @param cashticket 卷码提现金额    <br/>
+     */
+    public void applyWithdrawalNew(Subscriber<HttpRespBean> subscriber, String bankId, int type, String money, String cashticket) {
+        List<String> reqLis = new ArrayList<>();
+        reqLis.add("time");
+        reqLis.add("uid");
+        reqLis.add("bank_id");
+        reqLis.add("type");
+        reqLis.add("money");
+        reqLis.add("cash_ticket");
+        Observable observable = initService() .applyWithdrawalNew(System.currentTimeMillis() + "",
+                        Constants.getHash(reqLis),
+                        DataCenter.UserId, bankId,
+                        type, money,cashticket);
+        toOtherSubscribe(observable, subscriber);
+    }
+
+
+
     public void withdrawNew(Subscriber<BankListBean.ListBean> subscriber) {
         List<String> reqLis = new ArrayList<>();
         reqLis.add("time");
@@ -606,22 +633,6 @@ public class BusinessUserMethods extends BaseMethods {
                 DataCenter.UserId, clickedBtn, clickedBtnState);
         toSubscribe(observable, subscriber);
     }
-
-
-
-    /**
-     * 消费功能打开或者关闭接口  <br/>
-     * @param subscriber
-     * @param clickedBtn      被点击的按钮    <br/>
-     *                        our_shop   表示本店消费  <br/>
-     *                        ohter_shop   表示他店消费  <br/>
-     *                        mall   表示网上商城  <br/>
-     *                        leaflet   开鑫传单  <br/>
-     * @param clickedBtnState  当前被点击按钮的状态   <br/>
-     *                          当前按钮状态为true时，传的是1  <br/>
-     *                          当前按钮状态为false时，传的是2  <br/>
-     */
-
 
     /***
      *  关联会员、关联商家  <><br/>

@@ -56,6 +56,10 @@ public class NewMainActivity extends BaseMvpActivity {
     private static final String TAG = "NewMainActivity";
     public static final String KEY_MONEY = "money";
     public static final String KEY_WEEK = "week";
+    /**
+     * 可提现优惠券
+     */
+    public static final String COUPON_WITHDRAWL = "coupon_withdrawl";
 
     @BindView(R.id.swipe_refresh)
     SwipeRefreshLayout swipeRefresh;
@@ -138,7 +142,7 @@ public class NewMainActivity extends BaseMvpActivity {
             }
 
             @Override
-            public void onServiceItemClick(View view, int position,String itemId) {
+            public void onServiceItemClick(View view, int position, String itemId) {
                 Log.e("服务的点击事件", "onServiceItemClick: " + position);
                 //
 //                if (0 == position) {
@@ -149,15 +153,15 @@ public class NewMainActivity extends BaseMvpActivity {
 //                    gotoActivity(ShopInfoActivity.class);
 //                }
 
-                if ("3".equals(itemId)){
+                if ("3".equals(itemId)) {
 //                    //我要展示
                     gotoActivity(ShopShowActivity.class);
-                }else if ("4".equals(itemId)){
+                } else if ("4".equals(itemId)) {
 //                    // 商家资料
                     gotoActivity(ShopInfoActivity.class);
-                }else if ("5".equals(itemId)){
+                } else if ("5".equals(itemId)) {
 
-                }else if ("6".equals(itemId)){
+                } else if ("6".equals(itemId)) {
 //                    // 消费权限
                     gotoActivity(ConsumeRightsActivity.class);
                 }
@@ -190,7 +194,7 @@ public class NewMainActivity extends BaseMvpActivity {
 //                    gotoActivity(CheckTicketsActivity.class);
 //                    gotoActivity(ScanActivity.class);
                     ChoseCheckWayDialog choseCheckWayDialog = ChoseCheckWayDialog.newInstance();
-                    choseCheckWayDialog.show(getSupportFragmentManager(),"ChoseCheckWayDialog");
+                    choseCheckWayDialog.show(getSupportFragmentManager(), "ChoseCheckWayDialog");
 
                 } else if (tag.equals(MainAdapter.Bank)) {
                     startActivity(new Intent(context, MyBankActivity.class).putExtra("name", "000"));
@@ -199,7 +203,9 @@ public class NewMainActivity extends BaseMvpActivity {
                     String money = result.getMoney();
                     bundle.putString(KEY_MONEY, money);
                     bundle.putInt(KEY_WEEK, result.getWeek());
-                    Log.e("", "主界面的week: " + result.getWeek());
+                    bundle.putString(COUPON_WITHDRAWL, result.getCash_ticket());
+                    Log.i(TAG, "onOtherItemClick:    week的值：   " + result.getWeek());
+                    Log.i(TAG, "onOtherItemClick:    可提现券码：   " + result.getCash_ticket());
                     dialog = DialogHomeWay.newInstance(bundle);
                     dialog.show(getSupportFragmentManager(), "DialogHomeWay");
 
@@ -314,12 +320,11 @@ public class NewMainActivity extends BaseMvpActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        Log.e(TAG, "onResume: " + SPUtils.getShareBoolean(REFRESH));
+//        Log.e(TAG, "onResume: " + SPUtils.getShareBoolean(REFRESH));
         if (SPUtils.getShareBoolean(REFRESH)) {
             getHomeInfo();
             SPUtils.setShareBoolean(REFRESH, false);
         }
-
 
     }
 
