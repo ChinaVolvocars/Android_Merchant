@@ -303,11 +303,11 @@ public class WithdrawalActivity extends BaseMvpActivity {
     }
 
     class MyOnCheckedChangedListener implements CompoundButton.OnCheckedChangeListener {
+        double canWithdrawlmoney = Double.parseDouble(money);
+        double coupon = Double.parseDouble(counponWithdrawl);
+        double canWithdrawlTotal = canWithdrawlmoney + coupon;
         @Override
         public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-            double canWithdrawlmoney = Double.parseDouble(money);
-            double coupon = Double.parseDouble(counponWithdrawl);
-            double canWithdrawlTotal = canWithdrawlmoney + coupon;
             if (rdbt_coupon_withdrawl.isChecked() && rdbt_normal_withdrawl.isChecked()) {
                 tv_can_withdrawl_count.setText("合计￥ " + canWithdrawlTotal);
             } else {
