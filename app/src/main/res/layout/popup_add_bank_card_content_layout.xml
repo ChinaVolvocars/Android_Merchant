@@ -32,7 +32,7 @@
             android:layout_width="match_parent"
             android:layout_height="30dp"
             android:gravity="center"
-            android:text="对公账号"
+            android:text="对公账户"
             android:textColor="@color/color_545454"
             android:textSize="@dimen/sp_17" />
 
