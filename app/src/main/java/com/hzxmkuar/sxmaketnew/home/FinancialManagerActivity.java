@@ -174,6 +174,7 @@ public class FinancialManagerActivity extends BaseMvpActivity {
      * 初始化RecyclerView
      */
     private void setRecyclerView() {
+
         canWithdrawAdapter = new JEAdapter(context, beansList);
         IRecyclerViewHelper.init().setRecycleGridLayout(context, recyclerView, 1);
         recyclerView.setHasFixedSize(true);

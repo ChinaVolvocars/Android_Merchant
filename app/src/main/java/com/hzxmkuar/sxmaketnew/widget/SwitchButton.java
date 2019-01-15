@@ -395,10 +395,10 @@ public class SwitchButton extends View {
                     bAnim = 1;
                     if (state == STATE_SWITCH_OFF) {
                         refreshState(STATE_SWITCH_OFF2);
-                        listener.toggleToOn(this);
+                        stateChangedListener.toggleToOn(this);
                     } else if (state == STATE_SWITCH_ON) {
                         refreshState(STATE_SWITCH_ON2);
-                        listener.toggleToOff(this);
+                        stateChangedListener.toggleToOff(this);
                     }
 
                     if (mOnClickListener != null) {
@@ -418,11 +418,10 @@ public class SwitchButton extends View {
 
     public interface OnStateChangedListener {
         void toggleToOn(SwitchButton view);
-
         void toggleToOff(SwitchButton view);
     }
 
-    private OnStateChangedListener listener = new OnStateChangedListener() {
+    private OnStateChangedListener stateChangedListener= new OnStateChangedListener() {
         @Override
         public void toggleToOn(SwitchButton view) {
             toggleSwitch(true);
@@ -436,7 +435,7 @@ public class SwitchButton extends View {
 
     public void setOnStateChangedListener(OnStateChangedListener listener) {
         if (listener == null) throw new IllegalArgumentException("empty listener");
-        this.listener = listener;
+        this.stateChangedListener = listener;
     }
 
     @Override

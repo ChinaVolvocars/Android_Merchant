@@ -5,6 +5,9 @@
 .DS_Store
 /captures
 .externalNativeBuild
-*build
 gradle
+<<<<<<< HEAD
 *.apk
+=======
+build
+>>>>>>> v2.0.1

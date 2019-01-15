@@ -260,6 +260,7 @@ public class WithdrawBillActivity extends BaseMvpActivity {
             viewPoint06.setBackgroundResource(R.drawable.circle_color_black_4c4c4c);
             viewPoint07.setBackgroundResource(R.drawable.circle_color_black_4c4c4c);
             viewPoint08.setBackgroundResource(R.drawable.circle_color_black_994c4c4c);
+
             tv.setTextColor(UIUtils.getColor(R.color.color_1e1e1e));
             viewBottomlineWithdraw.setVisibility(View.INVISIBLE);
 

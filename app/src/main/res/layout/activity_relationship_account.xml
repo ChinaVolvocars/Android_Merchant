@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_f0f0f0"
+    android:orientation="vertical">
+
+    <include layout="@layout/layout_toolbar_base" />
+
+    <com.hzxmkuar.sxmaketnew.view.TabSelectView
+        android:id="@+id/tabselectview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/color_f0f0f0"
+        >
+
+        <com.common.widget.recyclerview.refresh.recycleview.XRecyclerView
+            android:id="@+id/recyclerView_account_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:paddingTop="4dp"
+            android:layout_marginBottom="12dp">
+
+        </com.common.widget.recyclerview.refresh.recycleview.XRecyclerView>
+
+        <include layout="@layout/layout_empty_view"/>
+    </FrameLayout>
+
+
+</LinearLayout>

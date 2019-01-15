@@ -91,15 +91,19 @@
         android:layout_marginTop="@dimen/dp_3"
         android:background="@color/white"
         android:orientation="vertical"
-        android:padding="@dimen/dp_13">
+        android:paddingLeft="13dp"
+        android:paddingBottom="14dp"
+        android:paddingTop="16dp">
 
-        <TextView
-            android:id="@+id/tv_service_fee"
+        <CheckBox
+            android:id="@+id/rdbt_normal_withdrawl"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            tools:text="提现金额(鑫豆*服务扣点5%)"
-            android:textColor="@color/color_747373"
-            android:textSize="@dimen/sp_15" />
+            android:drawablePadding="24dp"
+            android:textColor="@color/color_1e1e1e"
+            android:textSize="@dimen/sp_15"
+            android:textStyle="bold"
+            tools:text="提现金额(鑫豆*服务扣点5%)" />
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -122,11 +126,56 @@
                 android:layout_height="wrap_content"
                 android:textColor="@color/color_303030"
                 android:textSize="@dimen/sp_42"
-                tools:text="2000" />
+                tools:text="0.00" />
 
         </LinearLayout>
 
+
+        <CheckBox
+            android:id="@+id/rdbt_coupon_withdrawl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:textColor="@color/color_1e1e1e"
+            android:textSize="@dimen/sp_15"
+            android:textStyle="bold"
+            tools:text="券码提现金额" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_marginBottom="@dimen/dp_2"
+                android:text="￥"
+                android:textColor="@color/color_303030"
+                android:textSize="@dimen/sp_27" />
+
+            <TextView
+                android:id="@+id/tv_can_withdrawl_coupon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0.00"
+                android:textColor="@color/color_303030"
+                android:textSize="@dimen/sp_42" />
+
+        </LinearLayout>
     </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/tv_can_withdrawl_count"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="18dp"
+        android:layout_marginTop="10dp"
+        android:gravity="center|right"
+        android:text="合计￥ 0.00" />
 
     <TextView
         android:id="@+id/tv_confirm"

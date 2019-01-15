@@ -249,6 +249,29 @@
         <item name="android:textSize">@dimen/text_size_12</item>
     </style>
 
+    <!-- 消费功能 模块条目 -->
+    <style name="ConsumeFunctionItemContentStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">45dp</item>
+        <item name="android:layout_marginLeft">17dp</item>
+        <item name="android:layout_marginRight">21dp</item>
+        <item name="android:gravity">center</item>
+        <!-- 消费功能 模块条目 -->
+        <item name="android:orientation">horizontal</item>
+
+    </style>
+
+    <style name="ConsumeFunctionItemTextStyle">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:drawablePadding">12dp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/color_303030</item>
+        <item name="android:textSize">17sp</item>
+        <item name="android:gravity">center_vertical</item>
+
+    </style>
 
     <!--自定义dialog背景全透明无边框theme -->
     <style name="cus_dialog" parent="android:style/Theme.Dialog">

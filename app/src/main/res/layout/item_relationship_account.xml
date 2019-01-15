@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:paddingTop="4dp"
+    android:paddingBottom="4dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:layout_width="64dp"
+            android:layout_height="64dp">
+
+
+            <ImageView
+                android:id="@+id/iv_bg_icon"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_centerInParent="true"
+                android:src="@mipmap/relationship_friends_icon" />
+
+            <ImageView
+                android:id="@+id/iv_user_head_icon"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_centerInParent="true"
+                android:src="@mipmap/relationship_friends_icon" />
+
+            <ImageView
+                android:id="@+id/iv_small_cion"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_marginLeft="4dp" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="64dp"
+            android:layout_marginLeft="11dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_name_desc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxLines="1"
+                android:text="1234567890"
+                android:textColor="@color/color_303030"
+                android:textSize="17sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_desc01"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="他的门店消费为我赚取"
+                android:textColor="@color/color_696969"
+                android:textSize="10sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="他的分享会员为我赚取"
+                android:textColor="@color/color_696969"
+                android:textSize="10sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="64dp"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:paddingRight="2dp">
+
+            <TextView
+                android:id="@+id/tv_share_conut"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/shape_rectangle_color_d03c1f"
+                android:gravity="center"
+                android:padding="4dp"
+                android:text="分享人数"
+                android:textColor="@color/color_d03c1f"
+                android:textSize="9sp" />
+
+            <TextView
+                android:id="@+id/tv_earn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:drawableLeft="@mipmap/integral_icon"
+                android:drawablePadding="10dp"
+                android:text="0.00"
+                android:textColor="@color/color_696969"
+                android:textSize="11sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_share_earn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:drawableLeft="@mipmap/integral_icon"
+                android:drawablePadding="10dp"
+                android:text="0.00"
+                android:textColor="@color/color_696969"
+                android:textSize="11sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginBottom="4dp"
+        android:layout_marginTop="8dp"
+        android:background="@mipmap/faq_divide_line" />
+
+</LinearLayout>

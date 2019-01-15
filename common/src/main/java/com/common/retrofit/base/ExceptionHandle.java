@@ -50,7 +50,8 @@ public class ExceptionHandle {
                 || e instanceof java.net.SocketTimeoutException
                 || !NetworkUtils.isWorked(ContextUtils.getAppContext())) {
             ex = new ApiException(e, ApiException.REQUEST_FILED);
-            ex.setDisplayMessage("连接失败");                  // 服务器连接失败
+//            ex.setDisplayMessage("连接失败");                  // 服务器连接失败
+            ex.setDisplayMessage("连接失败，请检查您的网络连接");                  // 服务器连接失败
         } else if (e instanceof ApiException) {                 // 服务器返回的错误
             ApiException resultException = (ApiException) e;
             ex = new ApiException(e, resultException.getCode());

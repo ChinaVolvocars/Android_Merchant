@@ -11,7 +11,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.common.base.Constants;
-import com.common.event.SpConstants;
 import com.common.mvp.BaseMvpActivity;
 import com.common.mvp.BasePresenter;
 import com.common.retrofit.entity.DataCenter;
@@ -32,12 +31,16 @@ import com.hzxmkuar.sxmaketnew.activity.MyBankActivity;
 import com.hzxmkuar.sxmaketnew.activity.WithdrawBillActivity;
 import com.hzxmkuar.sxmaketnew.adapter.MainAdapter;
 import com.hzxmkuar.sxmaketnew.base.BaseUrlActivity;
+import com.hzxmkuar.sxmaketnew.home.CheckTicketsActivity;
+import com.hzxmkuar.sxmaketnew.home.CheckTicketsRecordActivity;
+import com.hzxmkuar.sxmaketnew.home.ConsumeRightsActivity;
+import com.hzxmkuar.sxmaketnew.home.ScanActivity;
 import com.hzxmkuar.sxmaketnew.home.SettingsActivity;
 import com.hzxmkuar.sxmaketnew.home.ShopInfoActivity;
 import com.hzxmkuar.sxmaketnew.home.ShopShowActivity;
+import com.hzxmkuar.sxmaketnew.view.dialog.ChoseCheckWayDialog;
 import com.hzxmkuar.sxmaketnew.view.dialog.DialogHomeWay;
 import com.hzxmkuar.sxmaketnew.view.dialog.VersionCompareDialog;
-import com.view.pie.utils.UIUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -53,6 +56,10 @@ public class NewMainActivity extends BaseMvpActivity {
     private static final String TAG = "NewMainActivity";
     public static final String KEY_MONEY = "money";
     public static final String KEY_WEEK = "week";
+    /**
+     * 可提现优惠券
+     */
+    public static final String COUPON_WITHDRAWL = "coupon_withdrawl";
 
     @BindView(R.id.swipe_refresh)
     SwipeRefreshLayout swipeRefresh;
@@ -135,14 +142,28 @@ public class NewMainActivity extends BaseMvpActivity {
             }
 
             @Override
-            public void onServiceItemClick(View view, int position) {
+            public void onServiceItemClick(View view, int position, String itemId) {
                 Log.e("服务的点击事件", "onServiceItemClick: " + position);
-                if (0 == position) {
-                    //我要展示
+                //
+//                if (0 == position) {
+//                    //我要展示
+//                    gotoActivity(ShopShowActivity.class);
+//                } else if (1 == position) {
+//                    // 商家资料
+//                    gotoActivity(ShopInfoActivity.class);
+//                }
+
+                if ("3".equals(itemId)) {
+//                    //我要展示
                     gotoActivity(ShopShowActivity.class);
-                } else if (1 == position) {
-                    // 商家资料
+                } else if ("4".equals(itemId)) {
+//                    // 商家资料
                     gotoActivity(ShopInfoActivity.class);
+                } else if ("5".equals(itemId)) {
+
+                } else if ("6".equals(itemId)) {
+//                    // 消费权限
+                    gotoActivity(ConsumeRightsActivity.class);
                 }
             }
 
@@ -158,7 +179,7 @@ public class NewMainActivity extends BaseMvpActivity {
 
             @Override
             public void onOtherItemClick(View view, String tag) {
-                Log.e("其他的点击事件", "onOtherItemClick: " + tag);
+                Log.e("收款码的点击事件", "onOtherItemClick: " + tag);
                 if (tag.equals(MainAdapter.Conversion)) {
                 } else if (tag.equals(MainAdapter.CollectionCode)) {
                     if (result != null) {
@@ -168,7 +189,13 @@ public class NewMainActivity extends BaseMvpActivity {
                         startActivity(intent);
                     }
                 } else if (tag.equals(MainAdapter.ScanCheck)) {
-                    showToastMsg("该功能暂未开放，敬请期待！");
+                    // 扫一扫
+//                    showToastMsg("该功能暂未开放，敬请期待！");
+//                    gotoActivity(CheckTicketsActivity.class);
+//                    gotoActivity(ScanActivity.class);
+                    ChoseCheckWayDialog choseCheckWayDialog = ChoseCheckWayDialog.newInstance();
+                    choseCheckWayDialog.show(getSupportFragmentManager(), "ChoseCheckWayDialog");
+
                 } else if (tag.equals(MainAdapter.Bank)) {
                     startActivity(new Intent(context, MyBankActivity.class).putExtra("name", "000"));
                 } else if (tag.equals(MainAdapter.WithdrawalApplication)) {
@@ -176,9 +203,12 @@ public class NewMainActivity extends BaseMvpActivity {
                     String money = result.getMoney();
                     bundle.putString(KEY_MONEY, money);
                     bundle.putInt(KEY_WEEK, result.getWeek());
-                    Log.e("", "主界面的week: " + result.getWeek());
+                    bundle.putString(COUPON_WITHDRAWL, result.getCash_ticket());
+                    Log.i(TAG, "onOtherItemClick:    week的值：   " + result.getWeek());
+                    Log.i(TAG, "onOtherItemClick:    可提现券码：   " + result.getCash_ticket());
                     dialog = DialogHomeWay.newInstance(bundle);
                     dialog.show(getSupportFragmentManager(), "DialogHomeWay");
+
                 } else if (tag.equals(MainAdapter.WithdrawalAccounts)) {
                     gotoActivity(WithdrawBillActivity.class);
                 } else if (tag.equals(MainAdapter.RevenueStatistics)) {
@@ -192,8 +222,10 @@ public class NewMainActivity extends BaseMvpActivity {
                     }
 
                 } else if (tag.equals(MainAdapter.ConsumptionAuthority)) {
-                    showToastMsg("该功能暂未开放，敬请期待！");
+//                    showToastMsg("验券记录");
+                    gotoActivity(CheckTicketsRecordActivity.class);
                 } else if (tag.equals(MainAdapter.TodayRevenue)) {
+                    // 今日营收
                     startActivity(new Intent(context, TodayRevenueActivity.class));
                 }
             }
@@ -288,12 +320,11 @@ public class NewMainActivity extends BaseMvpActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        Log.e(TAG, "onResume: " + SPUtils.getShareBoolean(REFRESH));
+//        Log.e(TAG, "onResume: " + SPUtils.getShareBoolean(REFRESH));
         if (SPUtils.getShareBoolean(REFRESH)) {
             getHomeInfo();
             SPUtils.setShareBoolean(REFRESH, false);
         }
-
 
     }
 

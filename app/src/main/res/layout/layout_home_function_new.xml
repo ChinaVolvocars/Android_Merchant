@@ -62,7 +62,7 @@
         android:drawablePadding="@dimen/dp_4"
         android:drawableTop="@mipmap/ic_consumption_authority"
         android:gravity="center"
-        android:text="消费权限"
+        android:text="验券记录"
         android:textColor="@color/color_3a3a3a"
         android:textSize="@dimen/sp_14" />
 

@@ -8,6 +8,7 @@
     <color name="ssc">#7bbbfe</color>
     <color name="base_color">#ff8314</color>
     <color name="color_fcc80a">#fcc80a</color>
+    <color name="color_ffb007">#ffb007</color>
     <color name="black333">#333333</color>
     <color name="color_ddd">#dddddd</color>
     <color name="color_d2">#d2d2d2</color>
@@ -60,6 +61,32 @@
     <color name="color_959595">#959595</color>
     <color name="red_ff4a57">#ff4a57</color>
     <color name="color_df440e">#df440e</color>
+<<<<<<< HEAD
     <color name="color_68cafd">#68cafd</color>
+=======
+    <color name="color_F5F4F4">#F5F4F4</color>
+    <color name="color_9f9f9f">#9f9f9f</color>
+    <color name="color_f1f1f1">#f1f1f1</color>
+    <color name="color_ffcb2f">#ffcb2f</color>
+    <color name="color_484848">#484848</color>
+    <color name="color_f0f0f0">#f0f0f0</color>
+    <color name="color_898989">#898989</color>
+    <color name="color_949393">#949393</color>
+    <color name="color_efefef">#efefef</color>
+    <color name="clolor_f7f7f7">#f7f7f7</color>
+    <color name="color_fcc50a">#fcc50a</color>
+    <color name="color_9281a4">#9281a4</color>
+    <color name="color_010101">#010101</color>
+    <color name="color_909090">#909090</color>
+    <color name="color_a7a7aa">#a7a7aa</color>
+    <color name="color_949494">#949494</color>
+    <color name="color_696969">#696969</color>
+    <color name="color_d03c1f">#d03c1f</color>
+    <color name="color_68cafd">#68cafd</color>
+    <color name="color_5f5f5f">#5f5f5f</color>
+    <color name="color_666666">#666666</color>
+    <color name="color_76b4e7">#76b4e7</color>
+    <color name="color_fd6502">#fd6502</color>
+>>>>>>> v2.0.1
 
 </resources>

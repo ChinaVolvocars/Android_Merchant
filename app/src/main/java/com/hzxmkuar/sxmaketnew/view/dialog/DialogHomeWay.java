@@ -37,6 +37,7 @@ public class DialogHomeWay extends BottomSheetDialogFragment {
     @BindView(R.id.ll_cancel)
     LinearLayout llCancel;
     private String money;
+    private String couponWithdrawl = "0.00";
     private int week;
     private static DialogHomeWay dialogHomeWay;
 
@@ -76,6 +77,7 @@ public class DialogHomeWay extends BottomSheetDialogFragment {
         ButterKnife.bind(this, view);
         Bundle bundle = getArguments();
         money = bundle.getString(NewMainActivity.KEY_MONEY, "0.00");
+        couponWithdrawl = bundle.getString(NewMainActivity.COUPON_WITHDRAWL, "0.00");
         week = bundle.getInt(KEY_WEEK, 0);
 
         Log.e("", "弹框中的week: " + week);
@@ -87,30 +89,16 @@ public class DialogHomeWay extends BottomSheetDialogFragment {
     }
 
 
+
     //代收代付
     @OnClick(R.id.tv_collection_payment)
     public void onCollectionPaymentClicked() {
         dismiss();
-      /*  if (week == 0) {//去申请列表
-            Intent intent = new Intent(getContext(), RecordActivity.class);
-            Bundle bundle = new Bundle();
-            bundle.putBoolean("flag", true);//true 为代收代付； false 发票提现
-            intent.putExtras(bundle);
-            startActivity(intent);
-        } else {
-            Intent intent = new Intent();
-            Bundle bundle = new Bundle();
-            bundle.putInt(COLLECTION_KEY, COLLECTION_PAYMENT);
-            bundle.putString(NewMainActivity.KEY_MONEY, money);
-            intent.putExtras(bundle);
-            intent.setClass(getContext(), WithdrawalActivity.class);
-            startActivity(intent);
-        }*/
-
         Intent intent = new Intent(getContext(), WithdrawalActivity.class);
         Bundle bundle = new Bundle();
         bundle.putInt(COLLECTION_KEY, COLLECTION_PAYMENT);
         bundle.putString(NewMainActivity.KEY_MONEY, money);
+        bundle.putString(NewMainActivity.COUPON_WITHDRAWL, couponWithdrawl);
         bundle.putInt(KEY_WEEK, week);
         intent.putExtras(bundle);
         startActivity(intent);
@@ -120,32 +108,17 @@ public class DialogHomeWay extends BottomSheetDialogFragment {
     //发票提现
     @OnClick(R.id.tv_invoice_withdrawal)
     public void onInvoiceWithdrawalClicked() {
-        dismiss();
+
         /**
          *   是否可提现   <br/>
          *   0不可提现，去申请列表  <br/> 1 可以提现  <br/>
          */
-      /*  if (week == 0) {
-            Intent intent = new Intent(getContext(), RecordActivity.class);
-            Bundle bundle = new Bundle();
-            bundle.putBoolean("flag", false);//true 为代收代付； false 发票提现
-            intent.putExtras(bundle);
-            startActivity(intent);
-        } else {
-            Intent intent = new Intent();
-            Bundle bundle = new Bundle();
-            bundle.putInt(COLLECTION_KEY, INVOICE_WITHDRAWAL);
-            bundle.putString(NewMainActivity.KEY_MONEY, money);
-            intent.putExtras(bundle);
-            intent.setClass(getContext(), WithdrawalActivity.class);
-            startActivity(intent);
-        }*/
-
-
+        dismiss();
         Intent intent = new Intent(getContext(), WithdrawalActivity.class);
         Bundle bundle = new Bundle();
         bundle.putInt(COLLECTION_KEY, INVOICE_WITHDRAWAL);
         bundle.putString(NewMainActivity.KEY_MONEY, money);
+        bundle.putString(NewMainActivity.COUPON_WITHDRAWL, couponWithdrawl);
         bundle.putInt(KEY_WEEK, week);
         intent.putExtras(bundle);
         intent.setClass(getContext(), WithdrawalActivity.class);

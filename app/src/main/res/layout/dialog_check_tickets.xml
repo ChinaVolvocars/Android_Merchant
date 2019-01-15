@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#11a4a1a1"
+    android:gravity="center_horizontal">
+
+    <LinearLayout
+        android:layout_width="218dp"
+        android:layout_height="213dp"
+        android:background="@drawable/free_dialog_bg"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/iv_failed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/check_failed_cion" />
+
+            <ImageView
+                android:id="@+id/iv_succeed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/check_succeed_icon" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/tv_check_result"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="验券结果"
+            android:textColor="@color/color_666666"
+            android:textSize="16sp" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/btn_retry"
+                android:layout_width="120dp"
+                android:layout_height="36dp"
+                android:background="@drawable/shape_btn_color_fd6502"
+                android:text="重新验证"
+                android:textColor="@color/white"
+                android:textSize="14sp" />
+
+            <Button
+                android:id="@+id/btn_confirm"
+                android:layout_width="120dp"
+                android:layout_height="36dp"
+                android:background="@drawable/shape_btn_color_76b4e7"
+                android:text="确认"
+                android:textColor="@color/white"
+                android:textSize="14sp" />
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+</RelativeLayout>

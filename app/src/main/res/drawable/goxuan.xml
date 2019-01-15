@@ -4,5 +4,4 @@
     <item android:drawable="@drawable/checkbox_selected_icon" android:state_checked="true"></item>
     <item android:drawable="@drawable/cb_agree_cion_def" android:state_checked="false"></item>
 
-
 </selector>

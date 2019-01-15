@@ -8,12 +8,16 @@ import com.common.retrofit.entity.result.AppVersionEntity;
 import com.common.retrofit.entity.result.ApplyRecodEntity;
 import com.common.retrofit.entity.result.BankListBean;
 import com.common.retrofit.entity.result.ChangeBean;
+import com.common.retrofit.entity.result.CheckTicketsResultEntity;
+import com.common.retrofit.entity.result.ConsumeFunctionEntity;
+import com.common.retrofit.entity.result.ConsumeRightsEntity;
 import com.common.retrofit.entity.result.FBean;
 import com.common.retrofit.entity.result.FinanceDetailEntity;
 import com.common.retrofit.entity.result.FiniBean;
 import com.common.retrofit.entity.result.IndexBean;
 import com.common.retrofit.entity.result.InfoBean;
 import com.common.retrofit.entity.result.NewTestBean;
+import com.common.retrofit.entity.result.RelationShipListEntity;
 import com.common.retrofit.entity.result.ShopShowsEntity;
 import com.common.retrofit.entity.result.WidthDrawEntity;
 import com.common.retrofit.entity.result.WithdrawlBillEntity;
@@ -441,12 +445,16 @@ public class BusinessUserMethods extends BaseMethods {
 
 
     //    public void todayRevenue(Subscriber<HttpRespBean<TodayRevenue>> subscriber, List<String> reqList, String date) {
+<<<<<<< HEAD
     public void todayRevenue(Subscriber<HttpRespBean<TodayRevenue>> subscriber, String date, int page) {
         List<String> reqLis = new ArrayList<>();
         reqLis.add("time");
         reqLis.add("uid");
         reqLis.add("page");
         reqLis.add("dates");
+=======
+    public void todayRevenue(Subscriber<HttpRespBean<TodayRevenue>> subscriber, List<String> reqList, String date, int page) {
+>>>>>>> v2.0.1
         Observable observable = initService().todayRevenue(System.currentTimeMillis() + ""
                 , Constants.getHash(reqLis), DataCenter.UserId, page, date);
         toOtherSubscribe(observable, subscriber);
@@ -478,6 +486,33 @@ public class BusinessUserMethods extends BaseMethods {
                         type, money);
         toOtherSubscribe(observable, subscriber);
     }
+
+
+    /**
+     *  申请提现新接口         <br/>
+     * @param subscriber
+     * @param bankId  银行卡      <br/>
+     * @param type 提现类型      <br/>
+     *             1为发票。     <br/> 2为代收代付 。    <br/>
+     * @param money 鑫豆提现金额      <br/>
+     * @param cashticket 卷码提现金额    <br/>
+     */
+    public void applyWithdrawalNew(Subscriber<HttpRespBean> subscriber, String bankId, int type, String money, String cashticket) {
+        List<String> reqLis = new ArrayList<>();
+        reqLis.add("time");
+        reqLis.add("uid");
+        reqLis.add("bank_id");
+        reqLis.add("type");
+        reqLis.add("money");
+        reqLis.add("cash_ticket");
+        Observable observable = initService() .applyWithdrawalNew(System.currentTimeMillis() + "",
+                        Constants.getHash(reqLis),
+                        DataCenter.UserId, bankId,
+                        type, money,cashticket);
+        toOtherSubscribe(observable, subscriber);
+    }
+
+
 
     public void withdrawNew(Subscriber<BankListBean.ListBean> subscriber) {
         List<String> reqLis = new ArrayList<>();
@@ -569,5 +604,72 @@ public class BusinessUserMethods extends BaseMethods {
         toSubscribe(observable, subscriber);
     }
 
+    /**
+     * 消费权限  <br/>
+     *
+     * @param page 页数 <br/>
+     */
+    public void consumePower(Subscriber<ConsumeRightsEntity> subscriber, int page) {
+        List<String> reqList = new ArrayList<>();
+        reqList.add("time");
+        reqList.add("uid");
+        reqList.add("page");
+        Observable observable = initService().consumePower(System.currentTimeMillis() + "", Constants.getHash(reqList),
+                DataCenter.UserId, page);
+        toSubscribe(observable, subscriber);
+    }
+
+    /**
+     * 消费功能  <br/>
+     */
+    public void ability(Subscriber<ConsumeFunctionEntity> subscriber) {
+        List<String> reqList = new ArrayList<>();
+        reqList.add("time");
+        reqList.add("uid");
+        Observable observable = initService().ability(System.currentTimeMillis() + "", Constants.getHash(reqList),
+                DataCenter.UserId);
+        toSubscribe(observable, subscriber);
+    }
+
+
+    /**
+     * 消费功能打开或者关闭接口  <br/>
+     * @param subscriber
+     * @param clickedBtn      被点击的按钮    <br/>
+     *                        our_shop   表示本店消费  <br/>
+     *                        ohter_shop   表示他店消费  <br/>
+     *                        mall   表示网上商城  <br/>
+     *                        leaflet   开鑫传单  <br/>
+     * @param clickedBtnState  当前被点击按钮的状态   <br/>
+     *                          当前按钮状态为true时，传的是1  <br/>
+     *                          当前按钮状态为false时，传的是2  <br/>
+     */
+    public void abilityButton(Subscriber<CheckTicketsResultEntity> subscriber, String clickedBtn, String clickedBtnState) {
+        List<String> reqList = new ArrayList<>();
+        reqList.add("time");
+        reqList.add("uid");
+        reqList.add("button");
+        reqList.add("value");
+        Observable observable = initService().abilityButton(System.currentTimeMillis() + "", Constants.getHash(reqList),
+                DataCenter.UserId, clickedBtn, clickedBtnState);
+        toSubscribe(observable, subscriber);
+    }
+
+    /***
+     *  关联会员、关联商家  <><br/>
+     *
+     * @param subscriber
+     * @param type  1.关联用户  <br/>2.商家  <br/>
+     */
+    public void relation(Subscriber<RelationShipListEntity> subscriber, String type, int page) {
+        List<String> reqList = new ArrayList<>();
+        reqList.add("time");
+        reqList.add("uid");
+        reqList.add("type");
+        reqList.add("page");
+        Observable observable = initService().relation(System.currentTimeMillis() + "", Constants.getHash(reqList),
+                DataCenter.UserId, type, page);
+        toSubscribe(observable, subscriber);
+    }
 
 }

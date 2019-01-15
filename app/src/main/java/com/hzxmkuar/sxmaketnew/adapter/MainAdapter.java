@@ -37,6 +37,9 @@ public class MainAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     public static final String WithdrawalAccounts = "WithdrawalAccounts";
     public static final String RevenueStatistics = "RevenueStatistics";
     public static final String InvoiceInformation = "InvoiceInformation";
+    /**
+     * 验券记录
+     */
     public static final String ConsumptionAuthority = "ConsumptionAuthority";
     public static final String TodayRevenue = "TodaysRevenue";
 
@@ -132,6 +135,7 @@ public class MainAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             holder.tvCollectionCode.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+                    // 收款码
                     if (listener != null) listener.onOtherItemClick(view, CollectionCode);
                 }
             });
@@ -177,7 +181,7 @@ public class MainAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
                     if (listener != null) listener.onOtherItemClick(view, InvoiceInformation);
                 }
             });
-            //消费权限
+            //验券记录
             holder.tvConsumptionAuthority.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -249,6 +253,7 @@ public class MainAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             holder.tvTodayRevenue.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+                    // 今日营收
                     if (listener != null) listener.onOtherItemClick(view, TodayRevenue);
                 }
             });
@@ -261,7 +266,7 @@ public class MainAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             HomeServiceAdapter adapter = new HomeServiceAdapter(context);
             recyclerview.setAdapter(adapter);
             ArrayList<ServiceFunction> pages = new ArrayList<>();
-            List<ServiceFunction> serviceFunction = home.getService_function();
+            final List<ServiceFunction> serviceFunction = home.getService_function();
             pages.addAll(serviceFunction);
             adapter.setPages(pages);
 
@@ -269,7 +274,7 @@ public class MainAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
                 @Override
                 public void onItemClick(View view, int position) {
                     Log.e("服务点击事件", "onItemClick: " + position);
-                    if (listener != null) listener.onServiceItemClick(view, position);
+                    if (listener != null) listener.onServiceItemClick(view, position,serviceFunction.get(position).getId());
                 }
             });
 
@@ -390,7 +395,8 @@ public class MainAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     public interface OnItemClickListener {
         void onViewPagerItemClick(View view, int position);
 
-        void onServiceItemClick(View view, int position);
+//        void onServiceItemClick(View view, int positio);
+        void onServiceItemClick(View view, int positio,String itemId);
 
         void onActivityItemClick(View view, int position);
 
