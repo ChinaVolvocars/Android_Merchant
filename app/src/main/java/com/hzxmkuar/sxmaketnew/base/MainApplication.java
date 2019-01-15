@@ -15,8 +15,6 @@ import com.xmkj.payandlogin.ShareManager;
 import java.util.Iterator;
 import java.util.List;
 
-import cn.jpush.android.api.JPushInterface;
-
 
 public class MainApplication extends ContextUtils {
 
@@ -33,7 +31,7 @@ public class MainApplication extends ContextUtils {
         //StreamingEnv.init(getApplicationContext());
 
         //以下都不是必须的，根据需要自行选择,一般来说只需要 debug,缓存相关,cookie相关的 就可以了
-        initJPush();
+
     }
 
     public void oneInit() {
@@ -108,12 +106,4 @@ public class MainApplication extends ContextUtils {
 //        .setLoadingPageLayout(R.layout.define_loading_page)
     }
 
-
-    /**
-     *  初始化极光推送SDK
-     */
-    private void initJPush() {
-        JPushInterface.setDebugMode(true);
-        JPushInterface.init(this);
-    }
 }

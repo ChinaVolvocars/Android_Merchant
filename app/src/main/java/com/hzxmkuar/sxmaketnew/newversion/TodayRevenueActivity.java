@@ -129,11 +129,6 @@ public class TodayRevenueActivity extends BaseMvpActivity {
     }
 
     private void requestTodayRevenue(final Date date) {
-        List<String> reqLis = new ArrayList<>();
-        reqLis.add("time");
-        reqLis.add("uid");
-        reqLis.add("page");
-        reqLis.add("dates");
         SimpleDateFormat simpleDateFormat = DateUtils.FORMAT_DATE;
         String formatDate = simpleDateFormat.format(date);
         tvTime.setText(formatDate);
