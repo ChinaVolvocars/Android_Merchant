@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:paddingBottom="@dimen/dp_6"
+    android:paddingLeft="@dimen/dp_10"
+    android:paddingRight="@dimen/dp_10"
+    android:paddingTop="@dimen/dp_6">
+
+    <!--0.11176 0.19705 0.23529 0.20882 0.24705-->
+    <TextView
+        android:id="@+id/tv_time"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.11176"
+        android:gravity="right"
+        android:textColor="@color/color_747373"
+        android:textSize="@dimen/sp_14"
+        android:textStyle="bold"
+        tools:text="09:30" />
+
+    <TextView
+        android:id="@+id/tv_actual_payment"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.19705"
+        android:gravity="right"
+        android:textColor="@color/color_747373"
+        android:textSize="@dimen/sp_14"
+        android:textStyle="bold"
+        tools:text="32.00" />
+
+    <TextView
+        android:id="@+id/tv_cash_payment"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.23529"
+        android:gravity="right"
+        android:textColor="@color/color_747373"
+        android:textSize="@dimen/sp_14"
+        android:textStyle="bold"
+        tools:text="38.00" />
+
+    <TextView
+        android:id="@+id/tv_subsidy"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.20882"
+        android:gravity="right"
+        android:textColor="@color/color_747373"
+        android:textSize="@dimen/sp_14"
+        android:textStyle="bold"
+        tools:text="37.00" />
+
+    <TextView
+        android:id="@+id/tv_transaction_subtotal"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.24705"
+        android:gravity="right"
+        android:textColor="@color/color_747373"
+        android:textSize="@dimen/sp_14"
+        android:textStyle="bold"
+        tools:text="￥3.01" />
+
+</LinearLayout>

@@ -21,9 +21,9 @@
             android:layout_centerVertical="true"
             android:layout_marginLeft="17dp"
             android:padding="8dp"
-            android:textSize="18sp"
+            android:text="取消"
             android:textColor="#333"
-            android:text="取消" />
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/tv_finish"
@@ -84,11 +84,11 @@
             android:layout_weight="1.1" />
 
         <com.bigkoo.pickerview.lib.WheelView
-            android:visibility="gone"
             android:id="@+id/second"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1.1" />
+            android:layout_weight="1.1"
+            android:visibility="gone" />
     </LinearLayout>
 
 

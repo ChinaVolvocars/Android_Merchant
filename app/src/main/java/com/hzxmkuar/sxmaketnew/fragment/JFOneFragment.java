@@ -71,28 +71,19 @@ public class JFOneFragment extends BaseMvpFragment {
                 statusContent();
                 recyclerView.loadMoreComplete();
                 FiniBean beans = (FiniBean) o;
-                List<FiniBean.ListBean> list = beans.getList();
-                List<FiniBean.ListBean> beanList = new ArrayList<>();
-                if (null != list){
-                    beanList = list;
+                List<FiniBean.ListBean> dataListFromNet = beans.getList();
+                List<FiniBean.ListBean> cacheDataList = new ArrayList<>();
+                if (null != dataListFromNet){
+                    cacheDataList = dataListFromNet;
                 }
-//                for (FiniBean.ListBean beanss : list) {
-//                    if (fromType == 0) {
-//                        beanList.add(list);
-//                    } else if (fromType == 1) {
-//                        beanList.add(new FBean(beanss.getMoney(), beanss.getCreate_time()));
-//                    } else {
-//                        beanList.add(new FBean(beanss.getTotal_money(), beanss.getCreate_time()));
-//                    }
-//                }
                 // 下拉刷新
                 if (mIsRefreshOrLoadMore == 0) {
                     recyclerView.refreshComplete();
                     mExpenseAdapter.clear();
                 }
 
-                if (EmptyUtils.isNotEmpty(beanList)) {
-                    bean = beanList;
+                if (EmptyUtils.isNotEmpty(cacheDataList)) {
+                    bean = cacheDataList;
                     mExpenseAdapter.addAll(bean);
                     statusContent();
                 }
@@ -100,11 +91,10 @@ public class JFOneFragment extends BaseMvpFragment {
                 // 接口未做分页直接调用设置列表无更多
                 //recyclerView.setNoMore(true);
 
-                // 接口未做分页 因此注释
-                if (EmptyUtils.isEmpty(beanList)) {
+                if (EmptyUtils.isEmpty(cacheDataList)) {
                     recyclerView.setNoMore(true);
                 } else {
-                    mIsHasNoData = beanList.size() < mPageSize;
+                    mIsHasNoData = cacheDataList.size() < mPageSize;
                     recyclerView.setNoMore(mIsHasNoData);
                 }
             }

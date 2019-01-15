@@ -12,25 +12,25 @@
     <!-- 拨打电话 -->
     <uses-permission android:name="android.permission.CALL_PHONE" />
     <uses-permission android:name="android.permission.CAMERA" />
-    <!--允许程序打开网络套接字-->
+    <!-- 允许程序打开网络套接字 -->
     <uses-permission android:name="android.permission.INTERNET" />
-    <!--用于进行网络定位-->
+    <!-- 用于进行网络定位 -->
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <!--用于访问GPS定位-->
+    <!-- 用于访问GPS定位 -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <!--用于获取运营商信息，用于支持提供运营商信息相关的接口-->
+    <!-- 用于获取运营商信息，用于支持提供运营商信息相关的接口 -->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <!--用于访问wifi网络信息，wifi信息会用于进行网络定位-->
+    <!-- 用于访问wifi网络信息，wifi信息会用于进行网络定位 -->
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-    <!--用于获取wifi的获取权限，wifi信息会用来进行网络定位-->
+    <!-- 用于获取wifi的获取权限，wifi信息会用来进行网络定位 -->
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
-    <!--用于读取手机当前的状态-->
+    <!-- 用于读取手机当前的状态 -->
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-    <!--用于写入缓存数据到扩展存储卡-->
+    <!-- 用于写入缓存数据到扩展存储卡 -->
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <!--用于申请调用A-GPS模块-->
+    <!-- 用于申请调用A-GPS模块 -->
     <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
-    <!--用于申请获取蓝牙信息进行室内定位-->
+    <!-- 用于申请获取蓝牙信息进行室内定位 -->
     <uses-permission android:name="android.permission.BLUETOOTH" />
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
@@ -47,7 +47,9 @@
     <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
 
     <uses-feature android:name="android.hardware.camera.autofocus" />
+
     <uses-permission android:name="android.permission.FLASHLIGHT" />
+
     <uses-feature android:name="android.hardware.camera" />
 
     <uses-permission android:name="android.permission.HARDWARE_TEST" />
@@ -57,61 +59,64 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.FLASHLIGHT" />
 
-
     <uses-feature
         android:glEsVersion="0x00020000"
         android:required="true" />
+
     <uses-permission android:name="android.permission." />
+
     <application
-        android:name="com.hzxmkuar.sxmaketnew.base.MainApplication"
+        android:name=".base.MainApplication"
         android:allowBackup="true"
-        android:icon="@mipmap/app_icon"
+        android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/app_icon"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        /*********************************/
+
         <activity
-            android:name="com.hzxmkuar.sxmaketnew.home.MainActivity"
+            android:name=".home.MainActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateAlwaysHidden"></activity>
+            android:windowSoftInputMode="stateAlwaysHidden" />
         <activity
-            android:name="com.hzxmkuar.sxmaketnew.login_register.SplashActivity"
+            android:name=".login_register.SplashActivity"
             android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity android:name="com.xmkj.payandlogin._ShareActivity" />
-        <activity android:name="com.hzxmkuar.sxmaketnew.base.BaseUrlActivity" />
-        <!-- <activity
+        <activity android:name=".base.BaseUrlActivity" />
+        <!--
+             <activity
              android:name="com.hyphenate.easeui.ui.EaseShowBigImageActivity"
              android:screenOrientation="portrait"
-             android:theme="@style/horizontal_slide" />-->
-        <!--//默认界面-->
-        <!--<activity android:name="com.hzxmkuar.sxmaketnew.activity.CZActivity"/>-->
-        <!--<activity android:name="com.hzxmkuar.sxmaketnew.activity.MsgCenterActivity"/>-->
-        <activity android:name="com.hzxmkuar.sxmaketnew.login_register.LoginActivity" />
-        <!--<activity android:name="com.hzxmkuar.sxmaketnew.common.BDPhoneActivity"/>-->
-        <!--<activity android:name="com.hzxmkuar.sxmaketnew.common.ForgetPasActivity"/>-->
-        <!--<activity android:name="com.hzxmkuar.sxmaketnew.common.PhoneBActivity"/>-->
-        <!--<activity android:name="com.hzxmkuar.sxmaketnew.activity.TopayActivity"/>-->
-        <!--<activity android:name="com.hzxmkuar.sxmaketnew.activity.NameSettingActivity"/>-->
-        <!--<activity android:name="com.hzxmkuar.sxmaketnew.activity.PerSonalActivity"/>-->
-        <!--特殊界面-->
-        <activity android:name="com.hzxmkuar.sxmaketnew.login_register.NewZCActivity" />
-        <activity android:name="com.hzxmkuar.sxmaketnew.home.ShopInfoActivity" />
-        <activity android:name="com.hzxmkuar.sxmaketnew.activity.ChangeActivity" />
-        <activity android:name="com.hzxmkuar.sxmaketnew.activity.MyBankActivity" />
-        <activity android:name="com.hzxmkuar.sxmaketnew.activity.AddBankCardToPrivateActivity" />
-        <activity android:name="com.hzxmkuar.sxmaketnew.home.SettingsActivity" />
-        <activity android:name="com.hzxmkuar.sxmaketnew.login_register.SetPasActivity" />
-        <activity android:name="com.hzxmkuar.sxmaketnew.home.FinancialManagerActivity" />
-        <activity android:name="com.hzxmkuar.sxmaketnew.activity.WithdrawActivity" />
-        <activity android:name="com.hzxmkuar.sxmaketnew.activity.WithdrawSuccessActivity" />
+             android:theme="@style/horizontal_slide" />
+        -->
+        <!-- //默认界面 -->
+        <!-- <activity android:name="com.hzxmkuar.sxmaketnew.activity.CZActivity"/> -->
+        <!-- <activity android:name="com.hzxmkuar.sxmaketnew.activity.MsgCenterActivity"/> -->
+        <activity android:name=".login_register.LoginActivity" />
+        <!-- <activity android:name="com.hzxmkuar.sxmaketnew.common.BDPhoneActivity"/> -->
+        <!-- <activity android:name="com.hzxmkuar.sxmaketnew.common.ForgetPasActivity"/> -->
+        <!-- <activity android:name="com.hzxmkuar.sxmaketnew.common.PhoneBActivity"/> -->
+        <!-- <activity android:name="com.hzxmkuar.sxmaketnew.activity.TopayActivity"/> -->
+        <!-- <activity android:name="com.hzxmkuar.sxmaketnew.activity.NameSettingActivity"/> -->
+        <!-- <activity android:name="com.hzxmkuar.sxmaketnew.activity.PerSonalActivity"/> -->
+        <!-- 特殊界面 -->
+        <activity android:name=".login_register.NewZCActivity" />
+        <activity android:name=".home.ShopInfoActivity" />
+        <activity android:name=".activity.ChangeActivity" />
+        <activity android:name=".activity.MyBankActivity" />
+        <activity android:name=".activity.AddBankCardToPrivateActivity" />
+        <activity android:name=".home.SettingsActivity" />
+        <activity android:name=".login_register.SetPasActivity" />
+        <activity android:name=".home.FinancialManagerActivity" />
+        <activity android:name=".activity.WithdrawActivity" />
+        <activity android:name=".activity.WithdrawSuccessActivity" />
         <activity android:name=".login_register.ForgetPwdActivity" />
         <activity android:name=".login_register.NewPwdActivity" />
         <activity android:name=".home.ManagerVipActivity" />
@@ -121,26 +126,30 @@
         <activity android:name=".activity.AddBankCardToCompanyActivity" />
         <activity android:name=".activity.UploadPicAndDescActivity" />
         <activity android:name=".home.ShopShowActivity" />
-        <activity android:name=".home.AddNewActiveActivity"/>
-        <!--特殊界面-->
+        <activity android:name=".home.AddNewActiveActivity" />
+        <activity android:name=".activity.WithdrawBillActivity" />
+        <activity android:name=".login_register.FAQActivity" />
+        <!-- 特殊界面 -->
         <!-- 直播界面 -->
-        <!--<activity android:name="com.live.activity.StartLivePlayActivity"
+        <!--
+        <activity android:name="com.live.activity.StartLivePlayActivity"
                   android:configChanges="orientation|screenSize"/>
         <activity
             android:name="com.qiniu.pili.droid.streaming.screen.ScreenCaptureRequestActivity"
             android:theme="@android:style/Theme.Translucent.NoTitleBar" >
-        </activity>-->
+        </activity>
+        -->
         <!-- 直播界面 -->
 
         <activity
-            android:name="com.hzxmkuar.sxmaketnew.common.photoPcker.MQPhotoPickerActivity"
+            android:name=".common.photoPcker.MQPhotoPickerActivity"
             android:configChanges="keyboardHidden|orientation"
             android:launchMode="singleTop"
             android:screenOrientation="portrait"
             android:theme="@style/MQTheme"
             android:windowSoftInputMode="stateAlwaysHidden" /> <!-- 图片选择预览界面 -->
         <activity
-            android:name="com.hzxmkuar.sxmaketnew.common.photoPcker.MQPhotoPickerPreviewActivity"
+            android:name=".common.photoPcker.MQPhotoPickerPreviewActivity"
             android:configChanges="keyboardHidden|orientation"
             android:launchMode="singleTop"
             android:screenOrientation="portrait"
@@ -149,24 +158,26 @@
         /*********************************/
         /***********************微信支付回调**************************/
         <activity
-            android:name="com.hzxmkuar.sxmaketnew.wxapi.WXPayEntryActivity"
+            android:name=".wxapi.WXPayEntryActivity"
             android:exported="true"
             android:launchMode="singleInstance"
             android:targetActivity="com.xmkj.payandlogin._ShareActivity" />
         /***********************微信支付回调**************************/
         /**********************定位**************************/
+        <service android:name="com.amap.api.location.APSService">
+
+        </service>
         <meta-data
             android:name="com.amap.api.v2.apikey"
-            android:value="666666666666666666666">
-            <service android:name="com.amap.api.location.APSService"></service>
-        </meta-data>
+            android:value="666666666666666666666" />
         /**********************定位**************************/
         /**********************环信**************************/
         <meta-data
             android:name="EASEMOB_APPKEY"
             android:value="1146180404177013#pi-live" />
         <!-- 声明sdk所需的service -->
-        <!--<service
+        <!--
+        <service
             android:name="com.hyphenate.chat.EMChatService"
             android:exported="true"
              />
@@ -186,13 +197,15 @@
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
                 <action android:name="android.intent.action.USER_PRESENT" />
             </intent-filter>
-        </receiver>-->
+        </receiver>
+        -->
         /**********************环信**************************/
         /************极光推送的必须***************/
-        <receiver android:name="com.hzxmkuar.sxmaketnew.listener.MyReceiver" />
+        <receiver android:name=".listener.MyReceiver" />
+
         <provider
             android:name="android.support.v4.content.FileProvider"
-            android:authorities="com.hzxmkuar.sxmaketnew.fileProvider"
+            android:authorities="${applicationId}.fileProvider"
             android:exported="false"
             android:grantUriPermissions="true">
             <meta-data
@@ -200,7 +213,8 @@
                 android:resource="@xml/provider_paths" />
         </provider>
         <!-- Required -->
-        <!-- <permission
+        <!--
+         <permission
              android:name="${applicationId}.permission.JPUSH_MESSAGE"
              android:protectionLevel="signature" />
 
@@ -332,8 +346,24 @@
          &lt;!&ndash; Required. AppKey copied from Portal &ndash;&gt;
          <meta-data
              android:name="JPUSH_APPKEY"
-             android:value="025008c3164a65bacc50bbed"/>-->
+             android:value="025008c3164a65bacc50bbed"/>
+        -->
         /************极光推送的必须***************/
+        <activity
+            android:name=".newversion.NewMainActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+
+        <activity android:name=".newversion.WithdrawalActivity" />
+        <activity android:name=".newversion.RecordActivity" />
+        <activity android:name=".newversion.InvoiceInformationActivity" />
+        <activity android:name=".newversion.TodayRevenueActivity" />
+        <activity android:name=".newversion.WebViewActivity" />
+        <activity android:name=".newversion.QRCodeActivity" />
+        <activity android:name=".newversion.DayFlowActivity" />
+        <activity android:name=".newversion.RevenueActivity"></activity>
     </application>
 
 </manifest>

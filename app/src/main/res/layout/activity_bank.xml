@@ -6,52 +6,19 @@
     android:fillViewport="true"
     android:orientation="vertical">
 
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="65dp"
-        android:background="@mipmap/titles_bac">
-
-        <TextView
-            style="@style/TitleBarTitleStyle"
-            android:text="众鑫赢家-我的银行卡" />
-
-        <ImageView
-            android:id="@+id/back"
-            style="@style/TitleBarBackStyle" />
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="15dp">
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_alignParentRight="true">
-
-                <TextView
-                    android:id="@+id/tv_add_card"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_marginRight="15dp"
-                    android:gravity="center"
-                    android:text="添加"
-                    android:textColor="@color/white"
-                    android:textSize="15sp" />
-            </LinearLayout>
-        </RelativeLayout>
-    </FrameLayout>
+    <include layout="@layout/toolbar_common" />
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
         <TextView
             android:id="@+id/tv_pop_location"
             android:layout_width="112dp"
             android:layout_height="1dp"
             android:layout_alignParentRight="true"
-            android:layout_marginTop="4dp"
-            android:layout_marginRight="22dp"/>
+            android:layout_marginRight="22dp"
+            android:layout_marginTop="4dp" />
 
         <com.common.widget.recyclerview.refresh.recycleview.XRecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
             android:id="@+id/recyclerview"

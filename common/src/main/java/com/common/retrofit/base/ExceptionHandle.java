@@ -13,8 +13,7 @@ import java.net.ConnectException;
 
 import retrofit2.adapter.rxjava.HttpException;
 
-public class ExceptionHandle
-{
+public class ExceptionHandle {
     private static final int BADREQUEST = 400;
     private static final int UNAUTHORIZED = 401;
     private static final int FORBIDDEN = 403;
@@ -25,14 +24,13 @@ public class ExceptionHandle
     private static final int SERVICE_UNAVAILABLE = 503;
     private static final int GATEWAY_TIMEOUT = 504;
 
-    public static ApiException handleException(Throwable e)
-    {
+    public static ApiException handleException(Throwable e) {
         ApiException ex;
 
         if (e instanceof HttpException) {                     // HTTP错误
             HttpException httpException = (HttpException) e;
             ex = new ApiException(e, httpException.code());
-            switch(httpException.code()){
+            switch (httpException.code()) {
                 case BADREQUEST:
                 case UNAUTHORIZED:
                 case FORBIDDEN:
@@ -50,10 +48,10 @@ public class ExceptionHandle
             }
         } else if (e instanceof ConnectException
                 || e instanceof java.net.SocketTimeoutException
-                || !NetworkUtils.isWorked(ContextUtils.getAppContext()) ) {
+                || !NetworkUtils.isWorked(ContextUtils.getAppContext())) {
             ex = new ApiException(e, ApiException.REQUEST_FILED);
             ex.setDisplayMessage("连接失败");                  // 服务器连接失败
-        } else if (e instanceof ApiException){                 // 服务器返回的错误
+        } else if (e instanceof ApiException) {                 // 服务器返回的错误
             ApiException resultException = (ApiException) e;
             ex = new ApiException(e, resultException.getCode());
             ex.setDisplayMessage(resultException.getMessage());

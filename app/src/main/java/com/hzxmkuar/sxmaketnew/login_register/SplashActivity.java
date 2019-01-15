@@ -7,6 +7,7 @@ import com.hzxmkuar.sxmaketnew.home.MainActivity;
 import com.hzxmkuar.sxmaketnew.R;
 import com.hzxmkuar.sxmaketnew.mvpfunc.contract.SplashContract;
 import com.hzxmkuar.sxmaketnew.mvpfunc.presenter.SplashPresenterImpl;
+import com.hzxmkuar.sxmaketnew.newversion.NewMainActivity;
 
 import java.util.concurrent.TimeUnit;
 
@@ -63,7 +64,8 @@ public class SplashActivity extends BaseMvpActivity<SplashPresenterImpl> impleme
 
     @Override
     public void readyToMain() {
-        gotoActivity(MainActivity.class);
+//        gotoActivity(MainActivity.class);
+        gotoActivity(NewMainActivity.class);
         finish();
     }
 

@@ -90,10 +90,11 @@
     <!-- 分隔线 -->
     <style name="DivideLine">
         <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">@dimen/view_size_0_5</item>
-        <item name="android:background">@color/color_ddd</item>
+        <item name="android:layout_height">@dimen/view_size_1</item>
+        <item name="android:background">@mipmap/faq_divide_line</item>
+        <item name="android:layout_marginLeft">@dimen/view_size_12</item>
+        <item name="android:layout_marginRight">@dimen/view_size_14</item>
     </style>
-
 
     <!-- 我的店铺 店铺介绍容器 -->
     <style name="MyStoreDescContent">
@@ -200,7 +201,7 @@
         <item name="android:layout_marginRight">@dimen/view_size_15</item>
         <item name="android:layout_marginTop">@dimen/view_size_60</item>
         <item name="android:gravity">center</item>
-        <item name="android:background">@drawable/jx_10_base</item>
+        <item name="android:background">@drawable/jx_10_base_color_fcc80a</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textSize">@dimen/text_size_14</item>
         <item name="android:clickable">true</item>
@@ -279,6 +280,31 @@
         <item name="android:backgroundDimEnabled">true</item>
         <!-- 屏幕背景是否变暗 -->
         <item name="android:backgroundDimAmount">0.6</item>
+    </style>
+
+
+    <style name="CustomBottomSheetDialogTheme" parent="Theme.Design.Light.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/CustomBottomSheetStyle</item>
+    </style>
+
+    <style name="CustomBottomSheetStyle" parent="Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:windowAnimationStyle">@style/Animation.Design.BottomSheetDialog</item><!--弹出动画-->
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:backgroundDimEnabled">true</item>
+    </style>
+
+    <style name="ToolBarTitleText" parent="TextAppearance.AppCompat.Medium">
+        <item name="android:textColor">#ffffffff</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="transparentText" parent="TextAppearance.AppCompat.Small">
+        <item name="android:textColor">#00000000</item>
+
     </style>
 
 </resources>

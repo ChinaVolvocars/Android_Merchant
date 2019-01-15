@@ -1,10 +1,12 @@
 package com.common.retrofit.service;
 
+import com.common.base.Constants;
 import com.common.retrofit.entity.result.AboutBean;
 import com.common.retrofit.entity.result.ActiveListEntity;
 import com.common.retrofit.entity.result.AddressBean;
 import com.common.retrofit.entity.result.AddressResBean;
 import com.common.retrofit.entity.result.AppVersionEntity;
+import com.common.retrofit.entity.result.ApplyRecodEntity;
 import com.common.retrofit.entity.result.BankListBean;
 import com.common.retrofit.entity.result.BankNameBean;
 import com.common.retrofit.entity.result.CCBean;
@@ -24,6 +26,7 @@ import com.common.retrofit.entity.result.HomeOneBean;
 import com.common.retrofit.entity.result.IndexBean;
 import com.common.retrofit.entity.result.InfoBean;
 import com.common.retrofit.entity.result.JFBean;
+import com.common.retrofit.entity.result.ListDataEntity;
 import com.common.retrofit.entity.result.MsgBena;
 import com.common.retrofit.entity.result.MyOrderBean;
 import com.common.retrofit.entity.result.MyZBList;
@@ -49,17 +52,24 @@ import com.common.retrofit.entity.result.UserBean;
 import com.common.retrofit.entity.result.UserInfoBean;
 import com.common.retrofit.entity.result.WallBean;
 import com.common.retrofit.entity.result.WidthDrawEntity;
+import com.common.retrofit.entity.result.WithdrawlBillEntity;
 import com.common.retrofit.entity.result.YSBean;
 import com.common.retrofit.entity.result.ZBDetil;
 import com.common.retrofit.entity.result.ZBDetilBean;
 import com.common.retrofit.entity.result.ZBListBean;
 import com.common.retrofit.entity.resultImpl.HttpRespBean;
+import com.common.retrofit.model.DayFlowListDto;
+import com.common.retrofit.model.Home;
+import com.common.retrofit.model.Pie;
+import com.common.retrofit.model.RevenueStatistics;
+import com.common.retrofit.model.TodayRevenue;
 
 import java.util.List;
 import java.util.Map;
 
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
+import okhttp3.ResponseBody;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.Multipart;
@@ -67,8 +77,11 @@ import retrofit2.http.POST;
 import retrofit2.http.Part;
 import retrofit2.http.PartMap;
 import rx.Observable;
+import rx.Subscriber;
 
 public interface UserService {
+
+
     @Multipart
     @POST("uploadPicture.html")
     Observable<PicBean> uploadFace(@PartMap Map<String, RequestBody> params, @Part List<MultipartBody.Part> file);
@@ -110,36 +123,39 @@ public interface UserService {
 //    Observable<Object> addBank(@Field("time") String time, @Field("hash") String hash, @Field("uid") int uid,
 //                                @Field("branch_bank") String branch_bank, @Field("card_number") String card_number,
 //                               @Field("phone") String phone, @Field("ID_card") String ID_card, @Field("user_name") String user_name);
+
     /**
-     *  添加对私银行
-     * @param branch_bank  支行名称  <br/>
-     * @param card_number  银行卡账号  <br/>
-     * @param phone      手机<br/>
-     * @param ID_card   身份证<br/>
+     * 添加对私银行
+     *
+     * @param branch_bank 支行名称  <br/>
+     * @param card_number 银行卡账号  <br/>
+     * @param phone       手机<br/>
+     * @param ID_card     身份证<br/>
      * @param user_name   持卡人名称<br/>
      * @return
      */
     @FormUrlEncoded
     @POST("addBank_new.html")
     Observable<Object> addBank(@Field("time") String time, @Field("hash") String hash, @Field("uid") int uid,
-                                @Field("branch_bank") String branch_bank, @Field("card_number") String card_number,
+                               @Field("branch_bank") String branch_bank, @Field("card_number") String card_number,
                                @Field("phone") String phone, @Field("ID_card") String ID_card, @Field("user_name") String user_name);
 
 
     /**
      * 添加对公银行卡  <br/>
+     *
      * @param time        <br/>
-     * @param hash            <br/>
-     * @param uid             <br/>
-     * @param card_number    银行卡账号       <br/>
-     * @param branch_bank   支行名称      <br/>
+     * @param hash        <br/>
+     * @param uid         <br/>
+     * @param card_number 银行卡账号       <br/>
+     * @param branch_bank 支行名称      <br/>
      * @param bank_id     发卡银行    <br/>
-     * @param user_name    公司名称   <br/>
+     * @param user_name   公司名称   <br/>
      * @return
      */
     @FormUrlEncoded
     @POST("addPublicBank.html")
-    Observable<Object> addBankCardToCompany(@Field("time") String time, @Field("hash") String hash , @Field("uid") int uid,
+    Observable<Object> addBankCardToCompany(@Field("time") String time, @Field("hash") String hash, @Field("uid") int uid,
                                             @Field("card_number") String card_number, @Field("branch_bank") String branch_bank,
                                             @Field("bank_id") String bank_id, @Field("user_name") String user_name);
 
@@ -169,10 +185,9 @@ public interface UserService {
 //            , @Field("hashid") String hashid, @Field("shop_name") String shop_name, @Field("category_id") String category_id
 //            , @Field("province") String province, @Field("area") String area, @Field("county") String county
 //            , @Field("address") String address, @Field("desc") String desc, @Field("face") String face
-//            , @Field("shop_pic") String shop_pic, @Field("latitude") String latitude, @Field("longitude") String longitude);
 
     /**
-     *  提交编辑后的店铺信息（新接口）
+     * 提交编辑后的店铺信息（新接口）
      * shop_name (请输入门店名称 String类型 必填)
      * category_id (请选择门店类型 Int类型 必填)
      * province (请选择省 String类型 必填)
@@ -183,21 +198,25 @@ public interface UserService {
      * face (请上传店头照片 String类型 必填)
      * shop_pic (请上传店家照片 String类型 必填)
      */
+//    @POST("shopInfoSubmitNew.html")
     @FormUrlEncoded
-    @POST("shopInfoSubmitNew.html")
+    @POST("shopInfoSubmitNewest.html")
     Observable<Object> shopInfoSubmit(@Field("time") String time, @Field("hash") String hash, @Field("uid") int uid
             , @Field("hashid") String hashid, @Field("shop_name") String shop_name, @Field("category_id") String category_id
             , @Field("province") String province, @Field("area") String area, @Field("county") String county
-            , @Field("address") String address, @Field("desc") String desc, @Field("face") String face
-            );
+            , @Field("address") String address, @Field("desc") String desc, @Field("face") String face, @Field("mobile") String mobile
+    );
+
+//            , @Field("shop_pic") String shop_pic, @Field("latitude") String latitude, @Field("longitude") String longitude);
 
 
     /**
-     *  商户图片上传
-     * @param time  time
-     * @param hash hash
-     * @param uid uid
-     * @param hashid hasid
+     * 商户图片上传
+     *
+     * @param time      time
+     * @param hash      hash
+     * @param uid       uid
+     * @param hashid    hasid
      * @param shop_name 上传的图片集合
      * @return
      */
@@ -221,6 +240,7 @@ public interface UserService {
 
     /**
      * 获取财务信息--列表信息
+     *
      * @param hash
      * @param time
      * @param uid
@@ -235,6 +255,7 @@ public interface UserService {
 
     /**
      * 获取首页数据
+     *
      * @param hash
      * @param time
      * @param uid
@@ -243,44 +264,48 @@ public interface UserService {
      */
     @FormUrlEncoded
     @POST("index.html")
-    Observable<HttpRespBean<IndexBean>> index(@Field("time") String hash, @Field("hash") String time, @Field("uid") int uid
-            , @Field("hashid") String hashid);
+    Observable<HttpRespBean<IndexBean>> index(@Field("time") String time,
+                                              @Field("hash") String hash,
+                                              @Field("uid") int uid,
+                                              @Field("hashid") String hashid);
 
 
     /**
      * 忘记密码
-     * @param hash hash
-     * @param time time
-     * @param username 商家账号
-     * @param shop_name 商家名称
-     * @param document_name 法人姓名
-     * @param certificates_type 证件类型
-     * @param certificates_number 证件号
-     * @param phone 手机号
-     * @param pcode 手机验证码
-     * @return
      *
+     * @param hash                hash
+     * @param time                time
+     * @param username            商家账号
+     * @param shop_name           商家名称
+     * @param document_name       法人姓名
+     * @param certificates_type   证件类型
+     * @param certificates_number 证件号
+     * @param phone               手机号
+     * @param pcode               手机验证码
+     * @return
      */
     @FormUrlEncoded
     @POST("shopRetrievePwd.html")
 //    Observable<HttpRespBean<IndexBean>> forgetPwd(@Field("time") String hash, @Field("hash") String time,
     Observable<HttpRespBean> forgetPwd(@Field("time") String time, @Field("hash") String hash,
-                                                  @Field("username") String username, @Field("shop_name") String shop_name,
-                                                  @Field("document_name") String document_name,@Field("certificates_type") String certificates_type,
-                                                  @Field("certificates_number") String certificates_number,@Field("phone") String phone, @Field("pcode") String pcode);
+                                       @Field("username") String username, @Field("shop_name") String shop_name,
+                                       @Field("document_name") String document_name, @Field("certificates_type") String certificates_type,
+                                       @Field("certificates_number") String certificates_number, @Field("phone") String phone, @Field("pcode") String pcode);
 
     /**
      * 重置密码
+     *
      * @param username 商家用户名
      * @return
      */
     @FormUrlEncoded
     @POST("shopResetPwd.html")
-    Observable<HttpRespBean> resetPwd(@Field("time") String time, @Field("hash") String hash,@Field("username") String username,@Field("password") String password);
+    Observable<HttpRespBean> resetPwd(@Field("time") String time, @Field("hash") String hash, @Field("username") String username, @Field("password") String password);
 
 
     /**
-     *  消费账单详情
+     * 消费账单详情
+     *
      * @param hash
      * @param time
      * @param uid
@@ -293,7 +318,8 @@ public interface UserService {
             , @Field("hashid") String hashid);
 
     /**
-     *  拉取消费抵账鑫豆记录清单(新的返回值类型)
+     * 拉取消费抵账鑫豆记录清单(新的返回值类型)
+     *
      * @param hash
      * @param time
      * @param uid
@@ -314,7 +340,8 @@ public interface UserService {
 
 
     /**
-     *  获取商家信息新接口
+     * 获取商家信息新接口
+     *
      * @param hash
      * @param time
      * @param uid
@@ -327,8 +354,6 @@ public interface UserService {
             , @Field("hashid") String hashid);
 
 
-
-
     @FormUrlEncoded
     @POST("store.html")
     Observable<HttpRespBean<ChangeBean>> store(@Field("time") String hash, @Field("hash") String time, @Field("uid") int uid
@@ -337,29 +362,30 @@ public interface UserService {
 
     /**
      * 检测商户账户名是否唯一的
+     *
      * @param username 商家用户名
      * @return
      */
     @FormUrlEncoded
     @POST("shopUsername.html")
 //    Observable<String> checkUsrnameIsUnique(@Field("username") String username);
-    Observable<HttpRespBean> checkUsrnameIsUnique(@Field("time") String time, @Field("hash") String hash,@Field("username") String username);
+    Observable<HttpRespBean> checkUsrnameIsUnique(@Field("time") String time, @Field("hash") String hash, @Field("username") String username);
 
 
     /**
-     *  发送手机短信验证码  <br/>
-     * @param time time  <br/>
-     * @param hash hash  <br/>
-     * @param mobile  手机号码  <br/>
-     * @param checktype  type类型  <br/>
-     *                   type类型：  <br/>1 为注册。  <br/>2 为找回密码。  <br/>3 手机短信登录。  <br/>4 解除绑定。  <br/>5 短信绑定（手机绑定）  <br/>6 绑定第三方。
+     * 发送手机短信验证码  <br/>
+     *
+     * @param time      time  <br/>
+     * @param hash      hash  <br/>
+     * @param mobile    手机号码  <br/>
+     * @param checktype type类型  <br/>
+     *                  type类型：  <br/>1 为注册。  <br/>2 为找回密码。  <br/>3 手机短信登录。  <br/>4 解除绑定。  <br/>5 短信绑定（手机绑定）  <br/>6 绑定第三方。
      * @return
      */
     @FormUrlEncoded
     @POST("sendcode.html")
-    Observable<HttpRespBean> sendCode(@Field("time") String time,@Field("hash") String hash,
-                                @Field("mobile") String mobile, @Field("checktype") String checktype);
-
+    Observable<HttpRespBean> sendCode(@Field("time") String time, @Field("hash") String hash,
+                                      @Field("mobile") String mobile, @Field("checktype") String checktype);
 
 
     // 原新商家入驻会员接口
@@ -376,29 +402,30 @@ public interface UserService {
 
 
     /**
-     *  新商家会员入驻接口   <br/>
-     * @param time          时间   <br/>
-     * @param hash          hashId   <br/>
-     * @param username      商家账号   <br/>
-     * @param password      密码   <br/>
-     * @param shop_name     商家名称   <br/>
-     * @param mobile        营业电话   <br/>
-     * @param category_id   商户类型   <br/>
-     * @param proportion    提拨比例   <br/>
-     * @param province      省   <br/>
-     * @param area          市   <br/>
-     * @param county        区   <br/>
-     * @param address       详细地址   <br/>
-     * @param code          邀请码   <br/>
-     * @param document_name     法人姓名   <br/>
-     * @param certificates_type     证件类型   <br/>
-     * @param certificates_number   证件号   <br/>
-     * @param ID_front_img  正面照片   <br/>
-     * @param ID_back_img   反面照片   <br/>
-     * @param license_img   营业执照   <br/>
-//     * @param name          法人授权代理人姓名   <br/>
-     * @param phone         手机号   <br/>
-     * @param pcode         手机验证码   <br/>
+     * 新商家会员入驻接口   <br/>
+     *
+     * @param time                时间   <br/>
+     * @param hash                hashId   <br/>
+     * @param username            商家账号   <br/>
+     * @param password            密码   <br/>
+     * @param shop_name           商家名称   <br/>
+     * @param mobile              营业电话   <br/>
+     * @param category_id         商户类型   <br/>
+     * @param proportion          提拨比例   <br/>
+     * @param province            省   <br/>
+     * @param area                市   <br/>
+     * @param county              区   <br/>
+     * @param address             详细地址   <br/>
+     * @param code                邀请码   <br/>
+     * @param document_name       法人姓名   <br/>
+     * @param certificates_type   证件类型   <br/>
+     * @param certificates_number 证件号   <br/>
+     * @param ID_front_img        正面照片   <br/>
+     * @param ID_back_img         反面照片   <br/>
+     * @param license_img         营业执照   <br/>
+     *                            //     * @param name          法人授权代理人姓名   <br/>
+     * @param phone               手机号   <br/>
+     * @param pcode               手机验证码   <br/>
      * @return
      */
 //    @FormUrlEncoded
@@ -413,47 +440,49 @@ public interface UserService {
             , @Field("county") String county, @Field("address") String address
             , @Field("code") String code, @Field("document_name") String document_name
             , @Field("certificates_type") String certificates_type, @Field("certificates_number") String certificates_number
-            , @Field("ID_front_img") String ID_front_img,@Field("ID_back_img") String ID_back_img
+            , @Field("ID_front_img") String ID_front_img, @Field("ID_back_img") String ID_back_img
 //            , @Field("license_img") String license_img, @Field("name") String name
             , @Field("license_img") String license_img
-            , @Field("phone") String phone,@Field("pcode") String pcode);
+            , @Field("phone") String phone, @Field("pcode") String pcode);
 //            ,@Field("latitude") String latitude, @Field("longitude") String longitude);
 //     * @param latitude
 //     * @param longitude
 
 
     /**
-     *  忘记账号找回   <br/>
-     * @param shop_name 商家名称 <br/>
-     * @param document_name 法人姓名 <br/>
-     * @param certificates_type 证件类型 <br/>
+     * 忘记账号找回   <br/>
+     *
+     * @param shop_name           商家名称 <br/>
+     * @param document_name       法人姓名 <br/>
+     * @param certificates_type   证件类型 <br/>
      * @param certificates_number 证件号码 <br/>
-     * @param ID_front_img 身份证正面照片 <br/>
-     * @param ID_back_img 身份证反面照片 <br/>
-     * @param license_img 营业执照 <br/>
-     * @param phone 预留手机号 <br/>
-     * @param checkcode 验证码 <br/>
+     * @param ID_front_img        身份证正面照片 <br/>
+     * @param ID_back_img         身份证反面照片 <br/>
+     * @param license_img         营业执照 <br/>
+     * @param phone               预留手机号 <br/>
+     * @param checkcode           验证码 <br/>
      */
     @FormUrlEncoded
     @POST("retrieveUsername.html")
     Observable<Object> forgetAccountGetBack(@Field("time") String time, @Field("hash") String hash
             , @Field("shop_name") String shop_name, @Field("document_name") String document_name
             , @Field("certificates_type") String certificates_type, @Field("certificates_number") String certificates_number
-            , @Field("ID_front_img") String ID_front_img,@Field("ID_back_img") String ID_back_img
+            , @Field("ID_front_img") String ID_front_img, @Field("ID_back_img") String ID_back_img
             , @Field("license_img") String license_img
-            , @Field("phone") String phone,@Field("checkcode") String checkcode);
+            , @Field("phone") String phone, @Field("checkcode") String checkcode);
 
 
     /**
-     *  更换管理员手机号码   <br/>
-     * @param old_phone 旧手机号 <br/>
+     * 更换管理员手机号码   <br/>
+     *
+     * @param old_phone     旧手机号 <br/>
      * @param old_checkcode 旧手机号验证码 <br/>
-     * @param new_phone 新手机号 <br/>
+     * @param new_phone     新手机号 <br/>
      * @param new_checkcode 新手机号验证码 <br/>
      */
     @FormUrlEncoded
     @POST("changePhone.html")
-    Observable<Object> changManagerPhone(@Field("time") String time, @Field("hash") String hash,@Field("uid") int uid
+    Observable<Object> changManagerPhone(@Field("time") String time, @Field("hash") String hash, @Field("uid") int uid
             , @Field("old_phone") String old_phone, @Field("old_checkcode") String old_checkcode
             , @Field("new_phone") String new_phone, @Field("new_checkcode") String new_checkcode);
 
@@ -866,6 +895,7 @@ public interface UserService {
 
     /**
      * 修改密码
+     *
      * @param hash
      * @param time
      * @param uid
@@ -889,7 +919,8 @@ public interface UserService {
 
 
     /**
-     *  设置消费功能的开或者是关
+     * 设置消费功能的开或者是关
+     *
      * @param time
      * @param hash
      * @param uid
@@ -903,11 +934,12 @@ public interface UserService {
 
     /**
      * 检查App版本更新
-     * @param time time    <br/>
-     * @param hash hash    <br/>
-     * @param types 安卓或苹果（1、ios，2、Android）（必填）   <br/>
-     * @param is_shop 商家端或客户端（1、商家端，2、客户端）（必填）   <br/>
-     * @param is_shop 商家端或客户端（1、商家端，2、客户端）（必填）   <br/>
+     *
+     * @param time         time    <br/>
+     * @param hash         hash    <br/>
+     * @param types        安卓或苹果（1、ios，2、Android）（必填）   <br/>
+     * @param is_shop      商家端或客户端（1、商家端，2、客户端）（必填）   <br/>
+     * @param is_shop      商家端或客户端（1、商家端，2、客户端）（必填）   <br/>
      * @param version_code 版本号（必填）   <br/>
      * @return
      */
@@ -918,9 +950,10 @@ public interface UserService {
 
     /**
      * 商家个人活动列表接口文档    <br/>
+     *
      * @param time time    <br/>
      * @param hash hash    <br/>
-     * @param uid 用户id<br/>
+     * @param uid  用户id<br/>
      * @return
      */
     @FormUrlEncoded
@@ -929,9 +962,10 @@ public interface UserService {
 
     /**
      * 商家新增个人活动    <br/>
-     * @param time time    <br/>
-     * @param hash hash    <br/>
-     * @param uid 用户id<br/>
+     *
+     * @param time          time    <br/>
+     * @param hash          hash    <br/>
+     * @param uid           用户id<br/>
      * @param activity_desc 商家活动标题   <br/>
      * @param activity_info 商家活动内容   <br/>
      * @return
@@ -939,17 +973,156 @@ public interface UserService {
     @FormUrlEncoded
     @POST("shopPersonalActivityAdd.html")
     Observable<Object> addNewActive(@Field("time") String time, @Field("hash") String hash, @Field("uid") String uid,
-                                                               @Field("activity_desc") String activity_desc, @Field("activity_info") String activity_info);
+                                    @Field("activity_desc") String activity_desc, @Field("activity_info") String activity_info);
+
     /**
      * 商家个人活动删除接口    <br/>
+     *
      * @param time time    <br/>
      * @param hash hash    <br/>
-     * @param aid   活动id<br/>
+     * @param aid  活动id<br/>
      * @return
      */
     @FormUrlEncoded
     @POST("shopPersonalActivityDel.html")
     Observable<Object> deletShopActivie(@Field("time") String time, @Field("hash") String hash, @Field("aid") String aid);
+
+    /**
+     * 新版首页接口
+     *
+     * @param time
+     * @param hash
+     * @param uid
+     * @return
+     */
+    @FormUrlEncoded
+    @POST("newindex.html")
+    Observable<HttpRespBean<Home>> newIndex(@Field("time") String time,
+                                            @Field("hash") String hash,
+                                            @Field("uid") int uid);
+
+
+    //今日营收
+    @FormUrlEncoded
+    @POST("ShopTodayRevenue")
+    Observable<HttpRespBean<TodayRevenue>> todayRevenue(@Field("time") String time,
+                                                        @Field("hash") String hash,
+                                                        @Field("uid") int uid,
+                                                        @Field("page") int page,
+                                                        @Field("dates") String data);  //今日营收
+
+    //每日流水
+    @FormUrlEncoded
+    @POST("CurrentAccount")
+    Observable<HttpRespBean<DayFlowListDto>> currentAccount(@Field("time") String time,
+                                                            @Field("hash") String hash,
+                                                            @Field("uid") int uid,
+                                                            @Field("page") int page,
+                                                            @Field("dates") String data);
+
+    //申请提现  type提现类型值为1或2（1为代收代付，2为发票提现）
+    @FormUrlEncoded
+    @POST("applyWithdrawal")
+    Observable<HttpRespBean> applyWithdrawal(@Field("time") String time,
+                                             @Field("hash") String hash,
+                                             @Field("uid") int uid,
+                                             @Field("bank_id") String bank_id,
+                                             @Field("type") int type,
+                                             @Field("money") String money);
+
+    //申请提现  界面数据
+    @FormUrlEncoded
+    @POST("withdrawNew")
+//    Observable<HttpRespBean<BankListBean.ListBean>> withdrawNew(@Field("time") String time,
+    Observable<HttpRespBean<BankListBean.ListBean>> withdrawNew(@Field("time") String time,
+                                                                @Field("hash") String hash,
+                                                                @Field("uid") int uid);
+
+    //七天营业额
+    @FormUrlEncoded
+    @POST("ShopDayRevenue")
+    Observable<HttpRespBean<RevenueStatistics>> shopDayRevenue(@Field("time") String time,
+                                                               @Field("hash") String hash,
+                                                               @Field("uid") int uid);
+
+    //半年月度营业额
+    @FormUrlEncoded
+    @POST("ShopMonthlyRevenue")
+    Observable<HttpRespBean<RevenueStatistics>> shopMonthlyRevenue(@Field("time") String time,
+                                                                   @Field("hash") String hash,
+                                                                   @Field("uid") int uid);
+
+    //月度柱形图统计接口 月份（选填 不填显示当月 例：2018-11）
+    @FormUrlEncoded
+    @POST("ShopColumnGraph")
+    Observable<HttpRespBean<Pie>> shopColumnGraph(@Field("time") String time,
+                                                  @Field("hash") String hash,
+                                                  @Field("uid") int uid,
+                                                  @Field("month") String month);
+
+    /**
+     * 提交发票
+     *
+     * @param time 时间（必填）
+     * @param hash 加密值（必填）
+     * @param wId  提现列表id（必填）
+     * @param type 类型（必填）（1为电子发票 2为快递发票）
+     * @param info 发票信息（必填）（json字符串格式）
+     * @return
+     */
+    @FormUrlEncoded
+    @POST("InvoiceSubmit")
+    Observable<HttpRespBean> invoiceSubmit(@Field("time") String time,
+                                           @Field("hash") String hash,
+                                           @Field("wid") String wId,
+                                           @Field("type") int type,
+                                           @Field("info") String info);
+
+    /**
+     * 代收代付/发票提现申请 记录  <br/>
+     *
+     * @param type 记录类型  <br/>
+     *             1 为发票提现  <br/> 2 为代付代收提现  <br/>
+     * @return
+     */
+    @FormUrlEncoded
+    @POST("WithdrawRecord.html")
+    Observable<HttpRespBean<ApplyRecodEntity>> getApplyRecord(@Field("time") String time, @Field("hash") String hash
+            , @Field("uid") int uid, @Field("type") String type, @Field("page") int page);
+
+    /**
+     * 提现账款 <br/>
+     *
+     * @param type 记录类型  <br/>
+     *             1 为发票提现  <br/> 2 为代付代收提现  <br/>
+     * @return
+     */
+    @FormUrlEncoded
+    @POST("accountSuccess.html")
+    Observable<HttpRespBean<WithdrawlBillEntity>> withdrawCredit(@Field("time") String time, @Field("hash") String hash
+            , @Field("uid") int uid, @Field("type") String type, @Field("page") int page);
+
+
+    /**
+     * 用户端登录发送语音短信验证码
+     * 请求类型（//1商家管理员注册短信 2商家密码找回 3 个人短信登录 7个人版用户注册短信 8商家找回账号 11支付宝扫一扫快速登录）
+     *
+     * @param time
+     * @param hash
+     * @param mobile    手机号码 <br/>
+     * @param checktype 发送短信的类型：   <br/>
+     *                  checkTypeCode 为 1 ： 登录、注册短信        <br/>
+     *                  checkTypeCode 为 2 ：  商家密码找回              <br/>
+     *                  checkTypeCode 为 3 ： 个人短信登录           <br/>
+     *                  checkTypeCode 为 7 ： 个人版用户注册短信            <br/>
+     *                  checkTypeCode 为 8 ： 商家找回账号           <br/>
+     *                  checkTypeCode 为 11 ： 支付宝扫一扫快速登录            <br/>
+     */
+    @FormUrlEncoded
+    @POST("singleSendcode.html")
+    Observable<Object> sendVoiceVerifyCode(@Field("time") String time, @Field("hash") String hash,
+                                           @Field("mobile") String mobile, @Field("checktype") int checktype
+    );
 
 
 }

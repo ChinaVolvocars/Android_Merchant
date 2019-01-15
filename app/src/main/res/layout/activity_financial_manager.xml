@@ -129,23 +129,6 @@
                 </LinearLayout>
             </LinearLayout>
 
-            <!--<FrameLayout-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="45dp"-->
-                <!--android:layout_marginTop="5dp"-->
-                <!--android:background="@color/white">-->
-
-                <!--<com.common.widget.indicator.MagicIndicator-->
-                    <!--android:id="@+id/indicator_consumption_record"-->
-                    <!--android:layout_width="match_parent"-->
-                    <!--android:layout_height="@dimen/view_size_45"-->
-                    <!--android:layout_gravity="center_horizontal|bottom"-->
-                    <!--android:layout_marginLeft="@dimen/view_size_15"-->
-                    <!--android:layout_marginRight="@dimen/view_size_15" />-->
-            <!--</FrameLayout>-->
-
-            <!--<ImageView style="@style/DivideLine" />-->
-
 
             <com.common.widget.recyclerview.refresh.recycleview.XRecyclerView
                 android:id="@+id/recyclerview"

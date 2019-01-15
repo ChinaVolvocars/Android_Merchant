@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_f0f0f0"
+    tools:context="com.hzxmkuar.sxmaketnew.newversion.TodayRevenueActivity">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/app_bar_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <android.support.design.widget.CollapsingToolbarLayout
+            android:id="@+id/collapsing_toolbar_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:collapsedTitleTextAppearance="@style/ToolBarTitleText"
+            app:contentScrim="@color/white"
+            app:expandedTitleMarginEnd="48dp"
+            app:expandedTitleMarginStart="48dp"
+            app:expandedTitleTextAppearance="@style/transparentText"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+
+            <!--头部布局-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="?attr/actionBarSize"
+                android:background="@color/white"
+                android:orientation="vertical"
+                app:layout_collapseMode="pin">
+
+                <ImageView
+                    android:id="@+id/iv_adv"
+                    android:layout_width="match_parent"
+                    android:layout_height="103dp"
+                    android:scaleType="fitXY"
+                    android:src="@mipmap/adv_toaday_revenue" />
+
+            </LinearLayout>
+
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="@color/white"
+                android:contentInsetEnd="0dp"
+                android:contentInsetLeft="0dp"
+                android:contentInsetRight="0dp"
+                android:contentInsetStart="0dp"
+                android:fitsSystemWindows="false"
+                app:contentInsetEnd="0dp"
+                app:contentInsetLeft="0dp"
+                app:contentInsetRight="0dp"
+                app:contentInsetStart="0dp"
+                app:layout_collapseMode="pin"
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+                app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="64dp">
+
+                    <ImageView
+                        android:id="@+id/back"
+                        android:layout_width="32dp"
+                        android:layout_height="?attr/actionBarSize"
+                        android:layout_gravity="center"
+                        android:scaleType="centerInside"
+                        android:src="@mipmap/ic_arrow_left_gray" />
+
+
+                    <TextView
+                        android:id="@+id/t_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:layout_gravity="center"
+                        android:textColor="@color/color_303030"
+                        android:textSize="18sp"
+                        tools:text="众鑫赢家-支付" />
+
+                    <ImageView
+                        android:id="@+id/title_right_icon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:duplicateParentState="true"
+                        android:paddingEnd="@dimen/activity_horizontal_margin"
+                        android:paddingRight="@dimen/activity_horizontal_margin" />
+
+                </RelativeLayout>
+
+
+            </android.support.v7.widget.Toolbar>
+
+        </android.support.design.widget.CollapsingToolbarLayout>
+
+        <!--要固定的布局-->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_5"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingLeft="@dimen/dp_11"
+                android:paddingRight="@dimen/dp_11"
+                android:paddingTop="@dimen/dp_14">
+
+                <TextView
+                    android:id="@+id/tv_time"
+                    android:layout_width="345dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="18-10-15"
+                    android:textColor="@color/color_fdc70a"
+                    android:textSize="@dimen/sp_23"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:id="@+id/iv_calendar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/ic_calendar" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingBottom="@dimen/dp_8"
+                android:paddingLeft="@dimen/dp_11"
+                android:paddingRight="@dimen/dp_11">
+
+                <TextView
+                    android:id="@+id/tv_withdrawal_settlement"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textColor="@color/color_747373"
+                    android:textSize="@dimen/sp_12"
+                    tools:text="提现结算63.00元" />
+
+                <TextView
+                    android:id="@+id/tv_cash_settlement"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:textColor="@color/color_747373"
+                    android:textSize="@dimen/sp_12"
+                    tools:text="现金结算63.00元" />
+
+                <TextView
+                    android:id="@+id/tv_total"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="right"
+                    android:textColor="@color/color_747373"
+                    android:textSize="@dimen/sp_12"
+                    tools:text="合计14.00元" />
+
+
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="@dimen/dp_11"
+                android:paddingRight="@dimen/dp_11"
+                android:scaleType="fitXY"
+                android:src="@mipmap/ic_line" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingBottom="@dimen/dp_12"
+                android:paddingLeft="@dimen/dp_11"
+                android:paddingRight="@dimen/dp_11"
+                android:paddingTop="@dimen/dp_10">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="时间"
+                    android:textColor="@color/color_303030"
+                    android:textSize="@dimen/sp_17" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="提现结算"
+                    android:textColor="@color/color_303030"
+                    android:textSize="@dimen/sp_17" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="right"
+                    android:text="现金结算"
+                    android:textColor="@color/color_303030"
+                    android:textSize="@dimen/sp_17" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </android.support.design.widget.AppBarLayout>
+
+
+    <android.support.v4.widget.NestedScrollView
+        android:id="@+id/nsv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:scrollbars="none"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <com.common.widget.recyclerview.refresh.recycleview.XRecyclerView
+                android:id="@+id/recycler_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:flipInterval="30"
+                android:persistentDrawingCache="animation" />
+
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="@dimen/dp_11"
+                android:paddingRight="@dimen/dp_11"
+                android:scaleType="fitXY"
+                android:src="@mipmap/ic_line" />
+
+            <TextView
+                android:id="@+id/tv_transactions"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:paddingBottom="@dimen/dp_8"
+                android:paddingRight="@dimen/dp_11"
+                android:paddingTop="@dimen/dp_7"
+                android:textColor="@color/color_747373"
+                android:textSize="@dimen/sp_12"
+                tools:text="共14笔" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/color_f0f0f0"
+                android:paddingBottom="@dimen/dp_4"
+                android:paddingLeft="@dimen/dp_11"
+                android:paddingTop="@dimen/dp_4"
+                android:text="注：提现结算与现金结算均已扣除“服务扣点”"
+                android:textColor="@color/color_747373"
+                android:textSize="@dimen/sp_13" />
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+
+
+</android.support.design.widget.CoordinatorLayout>

@@ -2,6 +2,7 @@ package com.hzxmkuar.sxmaketnew.home;
 
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.common.event.BaseEvent;
@@ -36,7 +37,8 @@ public class ChangManagerPhoneActivity extends BaseMvpActivity {
     private Button btn_confirm_input;
     private TextView tv_phone_verify_old_phone_no;
     private TextView tv_phone_verify_new_phone_no;
-
+    private TextView tv_title;
+    private ImageView iv_back;
 
     @Override
     protected BasePresenter createPresenterInstance() {
@@ -59,6 +61,9 @@ public class ChangManagerPhoneActivity extends BaseMvpActivity {
         btn_confirm_input = (Button) findViewById(R.id.btn_confirm_input);
         tv_phone_verify_old_phone_no = (TextView) findViewById(R.id.tv_phone_verify_old_phone_no);
         tv_phone_verify_new_phone_no = (TextView) findViewById(R.id.tv_phone_verify_new_phone_no);
+        tv_title = (TextView) findViewById(R.id.tv_title);
+        tv_title.setText("更换绑定手机号码");
+        iv_back = (ImageView) findViewById(R.id.iv_back);
         tv_phone_verify_old_phone_no.setVisibility(View.GONE);
         tv_phone_verify_new_phone_no.setVisibility(View.GONE);
 
@@ -71,6 +76,7 @@ public class ChangManagerPhoneActivity extends BaseMvpActivity {
         attachClickListener(btn_confirm_input);
         attachClickListener(tv_phone_verify_old_phone_no);
         attachClickListener(tv_phone_verify_new_phone_no);
+        attachClickListener(iv_back);
     }
 
     @Override
@@ -109,6 +115,8 @@ public class ChangManagerPhoneActivity extends BaseMvpActivity {
 //            SendPhoneVerifyDialog dialog = new SendPhoneVerifyDialog(context,RegisterActivity.this);
 //            dialog.show();
 
+        }else if (view.getId() == iv_back.getId() ){
+            finish();
         }
     }
 

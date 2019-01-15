@@ -1,7 +1,5 @@
-<resources
-    xmlns:tools="http://schemas.android.com/tools"
-    tools:ignore="MissingTranslation">
-    <string name="app_name">省鑫网商户端</string>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
+    <!--<string name="app_name">省鑫网商户端</string>-->
     <string name="wenzhang">造成今日之老大中国者，则中国老朽之冤业也；制出将来之少年中国者，则中国少年之责任也。彼老朽者何足道，彼与此世界作别之日不远矣，而我少年乃新来而与世界为缘。如僦屋者然，彼明日将迁居他方，而我今日始入此室处，将迁居者，不爱护其窗栊，不洁治其庭庑，俗人恒情，亦何足怪。若我少年者前程浩浩，后顾茫茫，中国而为牛、为马、为奴、为隶，则烹脔鞭棰之惨酷，惟我少年当之；中国如称霸宇内、主盟地球，则指挥顾盼之尊荣，惟我少年享之。于彼气息奄奄、与鬼为邻者何与焉？彼而漠然置之，犹可言也；我而漠然置之，不可言也。使举国之少年而果为少年也，则吾中国为未来之国，其进步未可量也；使举国之少年而亦为老大也，则吾中国为过去之国，其澌亡可翘足而待也。故今日之责任，不在他人，而全在我少年。少年智则国智，少年富则国富，少年强则国强，少年独立则国独立，少年自由则国自由，少年进步则国进步，少年胜于欧洲，则国胜于欧洲，少年雄于地球，则国雄于地球。红日初升，其道大光；河出伏流，一泻汪洋；潜龙腾渊，鳞爪飞扬；乳虎啸谷，百兽震惶；鹰隼试翼，风尘翕张；奇花初胎，矞矞郁郁皇皇；干将发硎，有作其芒；天戴其苍，地履其黄；纵有千古，横有八荒；前途似海，来日方长。美哉，我少年中国，与天不老！壮哉，我中国少年，与国无疆！</string>
     <string name="wenzhangs">造成今日之老大中国者，则中国老朽之冤业也；制出将来之少年中国者，则中国少年之责任也。彼老朽者何足道，彼与此世界作别之日不远矣，</string>
     <string name="msg_recall_by_self">This message has been recall by me</string>
@@ -16,4 +14,14 @@
     <string name="fb">发布</string>
     <string name="digets">1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
     <string name="id_card_digets">1234567890Xx</string>
+    <string name="end_time">%1$d天后结束</string>
+    <string name="bank_num">尾号%s储蓄卡</string>
+    <string name="transactions">共%d笔</string>
+    <string name="withdrawal_settlement">提现结算%1$.2f元</string>
+    <string name="cash_settlement">现金结算%1$.2f元</string>
+    <string name="total">合计%1$.2f元</string>
+    <string name="plus">+%s</string>
+    <string name="service_fee">提现金额(鑫豆*服务扣点%1$s%%)</string>
+    <string name="format_total_money">¥ %s</string>
+    <string name="total_day_flow">共%1$d笔&#160;&#160;&#160;&#160;&#160;&#160;合计¥&#160;%2$s</string>
 </resources>

@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/dp_5"
+    android:background="@android:color/white"
+    android:orientation="vertical">
+
+
+    <TextView
+        android:id="@+id/tv_today_revenue"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_38"
+        android:drawableLeft="@drawable/shape_rectangle_income"
+        android:drawablePadding="@dimen/dp_9"
+        android:drawableRight="@mipmap/ic_home_arrow_right"
+        android:gravity="center_vertical"
+        android:paddingLeft="@dimen/dp_13"
+        android:paddingRight="@dimen/dp_13"
+        android:text="今日营收"
+        android:textColor="@color/color_000000"
+        android:textSize="@dimen/sp_17" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_marginLeft="@dimen/dp_9"
+        android:layout_marginRight="@dimen/dp_9"
+        android:background="@color/color_b5b5b5" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingBottom="@dimen/dp_16"
+        android:paddingTop="@dimen/dp_10">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_settlement_accumulation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/color_fe6500"
+                android:textSize="@dimen/sp_30"
+                tools:text="0.00元" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="结算累计"
+                android:textColor="@color/color_969595"
+                android:textSize="@dimen/sp_17" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="1px"
+            android:layout_height="@dimen/dp_74"
+            android:layout_gravity="center"
+            android:layout_marginRight="@dimen/dp_7"
+            android:background="@color/color_b5b5b5" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <LinearLayout
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:paddingLeft="@dimen/dp_7">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingRight="@dimen/dp_12"
+                    android:text="鑫豆结算"
+                    android:textColor="@color/color_969595"
+                    android:textSize="@dimen/sp_16" />
+
+                <TextView
+                    android:id="@+id/tv_xindou_settlement"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/color_fe6500"
+                    android:textSize="@dimen/sp_21"
+                    tools:text="0.00 元" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_marginRight="@dimen/dp_7"
+                android:background="@color/color_b5b5b5" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:paddingLeft="@dimen/dp_7">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingRight="@dimen/dp_12"
+                    android:text="现金结算"
+                    android:textColor="@color/color_969595"
+                    android:textSize="@dimen/sp_16" />
+
+                <TextView
+                    android:id="@+id/tv_cash_settlement"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/color_fe6500"
+                    android:textSize="@dimen/sp_21"
+                    tools:text="0.00 元" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

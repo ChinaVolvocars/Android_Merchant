@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/dp_49"
+    android:background="@color/color_f0f0f0"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:paddingLeft="@dimen/dp_13"
+    android:paddingRight="@dimen/dp_13">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="10-17 16:00"
+        android:textColor="@color/color_303030"
+        android:textSize="@dimen/sp_21" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/dp_26"
+        android:text="￥50.00"
+        android:textColor="@color/color_303030"
+        android:textSize="@dimen/sp_15" />
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="right"
+        android:text="对账中"
+        android:textColor="@color/color_fe6500"
+        android:textSize="@dimen/sp_18" />
+
+
+</LinearLayout>

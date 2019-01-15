@@ -27,6 +27,7 @@ import com.common.widget.imageview.image.ImageLoaderUtils;
 import com.hzxmkuar.sxmaketnew.R;
 import com.hzxmkuar.sxmaketnew.base.BaseUrlActivity;
 import com.hzxmkuar.sxmaketnew.event.AccountConstants;
+import com.hzxmkuar.sxmaketnew.newversion.NewMainActivity;
 import com.hzxmkuar.sxmaketnew.view.dialog.VersionCompareDialog;
 
 import java.util.ArrayList;
@@ -120,7 +121,8 @@ public class MainActivity extends BaseMvpActivity {
             gotoActivity(SettingsActivity.class);
         } else if (view.getId() == mLlEditeInfo.getId()) {
             //资料编辑
-            gotoActivity(ShopInfoActivity.class);
+//            gotoActivity(ShopInfoActivity.class);
+            gotoActivity(NewMainActivity.class);
         } else if (view.getId() == mLlActiveList.getId()) {
             // 活动列表
             gotoActivity(ActiveListActivity.class);
@@ -197,7 +199,6 @@ public class MainActivity extends BaseMvpActivity {
 
     private void goToHttpReqs() {
         CommonSubscriber<IndexBean> subscriber = new CommonSubscriber<>(new SubscriberListener() {
-
             @Override
             public void onNext(Object o) {
                 statusContent();

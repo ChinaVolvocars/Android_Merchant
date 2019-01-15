@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_f0f0f0"
+    android:orientation="vertical">
+    <!--代收代付申请记录-->
+
+    <include layout="@layout/toolbar_common" />
+
+    <ImageView
+        android:id="@+id/iv_adv"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_70"
+        android:scaleType="fitXY"
+        android:src="@mipmap/adv_withdrawal_time" />
+
+    <com.common.widget.recyclerview.refresh.recycleview.XRecyclerView
+        android:id="@+id/recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_5"
+        android:background="@color/white" />
+
+</LinearLayout>

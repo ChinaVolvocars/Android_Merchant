@@ -27,10 +27,10 @@ import com.common.widget.progress.LoadDialog;
 import com.common.widget.toast.ToastManager;
 
 /**
- * @desc:         MVP模式
- * @author:       Leo
- * @date:         2016/10/26
- * @param <P>     扩展Presenter
+ * @param <P> 扩展Presenter
+ * @desc: MVP模式
+ * @author: Leo
+ * @date: 2016/10/26
  */
 public abstract class BaseMvpFragment<P extends BasePresenter>
         extends Fragment implements BaseMView {
@@ -68,11 +68,12 @@ public abstract class BaseMvpFragment<P extends BasePresenter>
             presenter.attachView(this, context);
         }
     }
+
     @Override
     public void setUserVisibleHint(boolean isVisibleToUser) {
         super.setUserVisibleHint(isVisibleToUser);
 
-        if(getUserVisibleHint()) {
+        if (getUserVisibleHint()) {
             isVisible = true;
             onVisible();
         } else {
@@ -103,11 +104,11 @@ public abstract class BaseMvpFragment<P extends BasePresenter>
      * 延迟加载
      * 子类必须重写此方法
      */
-    protected void lazyLoad(){}
+    protected void lazyLoad() {
+    }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
-    {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         context = getActivity();
 
         if (contentView == null) {
@@ -125,14 +126,15 @@ public abstract class BaseMvpFragment<P extends BasePresenter>
 
         // 缓存的mView需要判断是否已经被加过parent，如果有parent需要从parent删除，要不然会发生这个mView已经有parent的错误。
         ViewGroup parent = (ViewGroup) contentView.getParent();
-        if (parent != null)
-        {
+        if (parent != null) {
             parent.removeView(contentView);
         }
         return contentView;
     }
 
-    /**  设置状态栏高度  */
+    /**
+     * 设置状态栏高度
+     */
     protected void setStatusBarS() {
         m_statusBar.setVisibility(View.VISIBLE);
         ViewGroup.LayoutParams layoutParams = m_statusBar.getLayoutParams();
@@ -162,8 +164,9 @@ public abstract class BaseMvpFragment<P extends BasePresenter>
 
     /**
      * 获取编辑框文本
+     *
      * @param editText
-     * @return      编辑框中文本
+     * @return 编辑框中文本
      */
     protected String getEditTextStr(EditText editText) {
         if (EmptyUtils.isNotNull(editText)) {
@@ -173,9 +176,12 @@ public abstract class BaseMvpFragment<P extends BasePresenter>
     }
 
     protected abstract P createPresenterInstance();
+
     protected abstract int getLayoutId();
+
     // 初始化界面控件
     protected abstract void onViewCreated(View view);
+
     // 执行逻辑操作
     protected abstract void doLogicFunc();
 
@@ -186,12 +192,12 @@ public abstract class BaseMvpFragment<P extends BasePresenter>
 
     protected LoadDialog loadDialog;
     protected String loadText;//加载中提示文字
-    protected boolean loadCancelable=true;
+    protected boolean loadCancelable = true;
 
     @Override
     public void showProgressingDialog() {
-        loadText=getResources().getString(R.string.string_loadText);
-        loadDialog = new LoadDialog(context,loadText, loadCancelable);
+        loadText = getResources().getString(R.string.string_loadText);
+        loadDialog = new LoadDialog(context, loadText, loadCancelable);
         loadDialog.show();
     }
 
@@ -204,12 +210,12 @@ public abstract class BaseMvpFragment<P extends BasePresenter>
 
     /**
      * 创建通用对话框
-     * @param text              提示文本
-     * @param outSideCancel     点击窗外是否取消<默认<true>
+     *
+     * @param text          提示文本
+     * @param outSideCancel 点击窗外是否取消<默认<true>
      * @return
      */
-    protected CommonDialog newCommonDialog(String text, Boolean outSideCancel)
-    {
+    protected CommonDialog newCommonDialog(String text, Boolean outSideCancel) {
         CommonDialog dialog = CommonDialog.newInstance(context);
         dialog.setText(text);
         dialog.setCanceledOnTouchOutside(outSideCancel);
@@ -247,47 +253,50 @@ public abstract class BaseMvpFragment<P extends BasePresenter>
     }
 
     @Override
-    public void statusReTry(LoadingLayout.OnReloadListener listener)
-    {
-        if (EmptyUtils.isNull(listener)) {   return;   }
+    public void statusReTry(LoadingLayout.OnReloadListener listener) {
+        if (EmptyUtils.isNull(listener)) {
+            return;
+        }
 
         m_contentView.setOnReloadListener(listener);
     }
 
     /**
      * 填充文本兼容空对象
-     * @param textView    textview
-     * @param content     content
+     *
+     * @param textView textview
+     * @param content  content
      */
-    public void setTextView(TextView textView, String content)
-    {
-        if (EmptyUtils.isNull(textView)) {  return; }
+    public void setTextView(TextView textView, String content) {
+        if (EmptyUtils.isNull(textView)) {
+            return;
+        }
 
         textView.setText(StringUtils.nullToStr(content));
     }
 
     /**
      * 填充图片兼容空对象
-     * @param imageview    imageview
-     * @param url          content
+     *
+     * @param imageview imageview
+     * @param url       content
      */
-    public void setImageView(ImageView imageview, String url)
-    {
-        if (EmptyUtils.isNull(imageview)) {  return; }
+    public void setImageView(ImageView imageview, String url) {
+        if (EmptyUtils.isNull(imageview)) {
+            return;
+        }
 
         ImageLoaderUtils.display(imageview, StringUtils.nullToStr(url));
     }
 
-    public void gotoActivity(Class<?> cls)
-    {
+    public void gotoActivity(Class<?> cls) {
         gotoActivity(cls, null);
     }
 
     /**
      * 含有Bundle通过Class跳转界面
      **/
-    public void gotoActivity(Class<?> cls, Bundle bundle)
-    {
+    public void gotoActivity(Class<?> cls, Bundle bundle) {
         if (null == cls) {
             return;
         }
@@ -302,11 +311,11 @@ public abstract class BaseMvpFragment<P extends BasePresenter>
 
     /**
      * 登录弹窗
-     * @param loginFragment   loginFragment
+     *
+     * @param loginFragment loginFragment
      */
-    public void gotoLogin(BaseDialogFragment loginFragment)
-    {
-        loginFragment.show(((BaseMvpActivity) context).getSupportFragmentManager(),"Login");
+    public void gotoLogin(BaseDialogFragment loginFragment) {
+        loginFragment.show(((BaseMvpActivity) context).getSupportFragmentManager(), "Login");
     }
 
     protected void attachClickListener(View view) {

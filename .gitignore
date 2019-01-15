@@ -6,4 +6,9 @@
 /captures
 .externalNativeBuild
 *build
+<<<<<<< HEAD
 build
+=======
+gradle
+*.apk
+>>>>>>> dev1.1.1

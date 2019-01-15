@@ -36,6 +36,7 @@ import com.common.utils.EmptyUtils;
 import com.common.utils.FileUtils;
 import com.common.utils.LQRPhotoSelectUtils;
 import com.common.utils.PhotoUtils;
+import com.common.widget.dialog.SendPhoneVerifyDialog;
 import com.common.widget.editview.DeleteEditText;
 import com.common.widget.imageview.image.ImageLoaderUtils;
 import com.common.widget.textview.CountdownButton;
@@ -210,9 +211,9 @@ public class NewZCActivity extends BaseMvpActivity {
      */
     private CountdownButton mCdBtnSendMsg;
 
-//    private String mLng;
-//    private String mLat;
+    private SendPhoneVerifyDialog sendPhoneVerifyDialog;
     private TextView tv_phone_verify_new_add;
+    private boolean canClickAble = true;
     @Override
     protected BasePresenter createPresenterInstance() {
         return null;
@@ -258,11 +259,12 @@ public class NewZCActivity extends BaseMvpActivity {
         mEdtInputVerCode = (DeleteEditText) findViewById(R.id.edt_input_ver_code);
         mCdBtnSendMsg = (CountdownButton) findViewById(R.id.cd_btn_send_msg);
 
-
         mCheckBox = (CheckBox) findViewById(R.id.checkbox);
-        mBack = (ImageView) findViewById(R.id.back);
+        mBack = (ImageView) findViewById(R.id.iv_back);
         mXieyi = (TextView) findViewById(R.id.xieyi);
         mNext = (Button) findViewById(R.id.next);
+        TextView tvTitle =(TextView) findViewById(R.id.tv_title);
+        tvTitle.setText("入驻申请");
         tv_phone_verify_new_add = (TextView) findViewById(R.id.tv_phone_verify_new_add);
         tv_phone_verify_new_add.setVisibility(View.INVISIBLE);
 
@@ -271,6 +273,49 @@ public class NewZCActivity extends BaseMvpActivity {
             ActivityCompat.requestPermissions(this,
                     new String[]{"android.permission.CAMERA"}, 1);
         }
+        sendPhoneVerifyDialog = new SendPhoneVerifyDialog(context,NewZCActivity.this);
+        sendPhoneVerifyDialog.setOnDialogButtonClickListener(new SendPhoneVerifyDialog.OnDialogButtonClickListener() {
+            @Override
+            public void cancelLick() {
+                canClickAble = true;
+            }
+
+            @Override
+            public void confirmClick() {
+                canClickAble = false;
+                mCdBtnSendMsg.restart();
+                if (!EmptyUtils.isEmpty(getEditTextStr(mEdtManagerPhoneNo))){
+//                    Log.i(TAG, "sendVoiceVerifyCodeReq:   手机号码 ：         "+getEditTextStr(mEdtManagerPhoneNo));
+                    sendVoiceVerifyCodeReq();
+                }else {
+                    showToastMsg("手机号码格式不正确");
+                }
+            }
+        });
+    }
+
+
+    /**
+     * 发送语音短信验证码
+     */
+    private void sendVoiceVerifyCodeReq() {
+        CommonSubscriber<Object> subscriber = new CommonSubscriber<>(new SubscriberListener() {
+            @Override
+            public void onNext(Object o) {
+                showToastMsg("发送成功");
+            }
+
+            @Override
+            public void onError(String e, int code) {
+                showToastMsg(e);
+            }
+        });
+        List<String> paramaList = new ArrayList<>();
+        paramaList.add("time");
+        paramaList.add("mobile");
+        paramaList.add("checktype");
+        SmsMethods.getInstance().sendVoiceVerifyCode(subscriber,getEditTextStr(mEdtManagerPhoneNo),1, paramaList);
+        rxManager.add(subscriber);
     }
 
     /**
@@ -462,8 +507,9 @@ public class NewZCActivity extends BaseMvpActivity {
             // 提交审核
             checkInputInfo(mNext);
         } else if (view.getId() == tv_phone_verify_new_add.getId()){
-//            SendPhoneVerifyDialog dialog = new SendPhoneVerifyDialog(context,RegisterActivity.this);
-//            dialog.show();
+            if (canClickAble){
+                sendPhoneVerifyDialog.show();
+            }
         }
     }
 
@@ -471,7 +517,13 @@ public class NewZCActivity extends BaseMvpActivity {
     public void newAdd(BaseEvent event) {
         switch (event.getTag()) {
             case EventBusConstants.TIME_OUT:
-//                tv_phone_verify_new_add.setVisibility(View.VISIBLE);
+                tv_phone_verify_new_add.setVisibility(View.VISIBLE);
+                String eventStr = (String)event.getS();
+                if ("show".equals(eventStr)){
+//                    canClickAble = false;
+                }else if ("canRestart".equals(eventStr)){
+                    canClickAble = true;
+                }
                 break;
         }
     }

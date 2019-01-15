@@ -59,10 +59,11 @@
             android:id="@+id/tv_id_code"
             style="@style/MyStoreContentRight"
             android:drawableRight="@null"
-            android:text=""/>
+            android:text="" />
     </LinearLayout>
 
-    <LinearLayout style="@style/BindBankCardContent"
+    <LinearLayout
+        style="@style/BindBankCardContent"
         android:gravity="center_vertical">
 
         <TextView
@@ -74,20 +75,20 @@
             android:layout_width="16dp"
             android:layout_height="16dp"
             android:layout_marginLeft="@dimen/view_size_2"
-            android:background="@mipmap/btn_requestion"/>
+            android:background="@mipmap/btn_requestion" />
 
 
         <TextView
             style="@style/MyStoreContentRight"
             android:drawableRight="@null"
-            android:text=""/>
+            android:text="" />
 
         <com.hzxmkuar.sxmaketnew.widget.SwitchButton
             android:id="@+id/switch_bt"
             android:layout_width="48dp"
             android:layout_height="28dp"
             android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"/>
+            android:layout_centerVertical="true" />
 
     </LinearLayout>
 

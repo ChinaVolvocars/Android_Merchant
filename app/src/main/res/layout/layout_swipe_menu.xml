@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="@layout/item_bank_new">
+
+    <View
+        android:layout_width="@dimen/dp_8"
+        android:layout_height="match_parent" />
+
+    <Button
+        android:id="@+id/btn_delete"
+        android:layout_width="@dimen/dp_84"
+        android:layout_height="match_parent"
+        android:background="@drawable/btn_delete"
+        android:text="删除"
+        android:textColor="@color/color_fefcfc"
+        android:textSize="@dimen/sp_20"
+        android:textStyle="bold" />
+
+    <View
+        android:layout_width="@dimen/dp_8"
+        android:layout_height="match_parent" />
+
+</merge>

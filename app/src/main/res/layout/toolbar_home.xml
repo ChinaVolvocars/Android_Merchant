@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:background="@color/white">
+
+    <TextView
+        style="@style/TitleBarTitleStyle"
+        android:text="众商联盟-我的店" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp">
+
+        <TextView
+            android:id="@+id/tv_is_test"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="16dp"
+            android:gravity="center"
+            android:textColor="@color/color_303030"
+            android:textSize="16sp"
+            android:visibility="visible"
+            tools:text="用户名" />
+
+        <TextView
+            android:id="@+id/tv_test"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="66dp"
+            android:layout_marginStart="66dp"
+            android:layout_toEndOf="@+id/tv_is_test"
+            android:layout_toRightOf="@+id/tv_is_test"
+            android:gravity="center"
+            android:text="测试环境"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/iv_setting"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginEnd="15dp"
+            android:layout_marginRight="15dp"
+            android:src="@mipmap/ic_home_setting" />
+    </RelativeLayout>
+
+</FrameLayout>

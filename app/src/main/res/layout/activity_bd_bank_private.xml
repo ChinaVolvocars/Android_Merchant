@@ -11,43 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
-
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="65dp"
-            android:background="@mipmap/titles_bac">
-
-            <TextView
-                style="@style/TitleBarTitleStyle"
-                android:text="添加个人账户" />
-
-            <ImageView
-                android:id="@+id/back"
-                style="@style/TitleBarBackStyle" />
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="15dp">
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_alignParentRight="true">
-
-                    <TextView
-                        android:id="@+id/bj"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_marginRight="15dp"
-                        android:gravity="center"
-                        android:text="添加"
-                        android:textColor="@color/white"
-                        android:textSize="15sp"
-                        android:visibility="gone" />
-                </LinearLayout>
-            </RelativeLayout>
-        </FrameLayout>
+        <include layout="@layout/layout_toolbar_base"/>
 
         <ImageView style="@style/DivideLine" />
 
@@ -76,10 +40,6 @@
                 style="@style/BindBankCardContentLeft"
                 android:text="开户行" />
 
-            <!--<TextView-->
-                <!--android:id="@+id/bankdes"-->
-                <!--style="@style/BindBankCardContentRight"-->
-                <!--android:hint="请选择发卡银行" />-->
             <com.common.widget.editview.DeleteEditText
                 android:id="@+id/bankdes"
                 style="@style/BindBankCardContentRight"

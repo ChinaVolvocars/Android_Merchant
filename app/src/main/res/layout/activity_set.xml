@@ -5,29 +5,7 @@
     android:background="@color/view_background_color"
     android:orientation="vertical">
 
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="65dp"
-        android:background="@mipmap/titles_bac">
-
-        <TextView
-            android:id="@+id/head"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginTop="15dp"
-            android:gravity="center"
-            android:text="设置"
-            android:textColor="@color/white"
-            android:textSize="18sp" />
-
-        <ImageView
-            android:id="@+id/back"
-            android:layout_width="30dp"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="15dp"
-            android:src="@mipmap/whait_back" />
-    </FrameLayout>
+    <include layout="@layout/layout_toolbar_base" />
 
     <LinearLayout
         android:id="@+id/ll_set_pwd"
@@ -51,17 +29,14 @@
             android:src="@mipmap/alls_back" />
     </LinearLayout>
 
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/view_size_0_5"
-        android:src="#ddd" />
 
     <LinearLayout
         android:id="@+id/ll_bank_card"
         android:layout_width="match_parent"
         android:layout_height="55dp"
         android:background="@color/white"
-        android:gravity="center_vertical">
+        android:gravity="center_vertical"
+        android:visibility="gone">
 
         <TextView
             android:layout_width="0dp"
@@ -78,8 +53,7 @@
             android:src="@mipmap/alls_back" />
     </LinearLayout>
 
-    <ImageView
-        style="@style/DivideLine"/>
+    <ImageView style="@style/DivideLine" />
 
     <LinearLayout
         android:id="@+id/ll_change_manager_phone"
@@ -102,8 +76,8 @@
             android:layout_marginRight="15dp"
             android:src="@mipmap/alls_back" />
     </LinearLayout>
-    <ImageView
-        style="@style/DivideLine"/>
+
+    <ImageView style="@style/DivideLine" />
 
     <LinearLayout
         android:id="@+id/ll_privacy"
@@ -126,8 +100,8 @@
             android:layout_marginRight="15dp"
             android:src="@mipmap/alls_back" />
     </LinearLayout>
-    <ImageView
-        style="@style/DivideLine"/>
+
+    <ImageView style="@style/DivideLine" />
 
     <LinearLayout
         android:id="@+id/ll_statement"
@@ -153,17 +127,16 @@
 
     <Button
         android:id="@+id/btn_exit"
-        style="@style/BaseCustomButton"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
         android:layout_marginTop="70dp"
-        android:background="@mipmap/mine_bac_w"
+        android:background="@drawable/bg_circle_shape_send_msg"
         android:clickable="true"
         android:text="退出登录"
-        android:textColor="@color/normal_text_color"
+        android:textColor="@color/white"
         android:textSize="16sp"
         android:textStyle="bold" />
 </LinearLayout>

@@ -4,19 +4,8 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="65dp"
-        android:background="@mipmap/titles_bac">
+    <include layout="@layout/layout_toolbar_base" />
 
-        <TextView
-            style="@style/TitleBarTitleStyle"
-            android:text="众商联盟-我要展示" />
-
-        <ImageView
-            android:id="@+id/iv_show_back"
-            style="@style/TitleBarBackStyle" />
-    </FrameLayout>
 
     <ScrollView
         android:layout_width="match_parent"

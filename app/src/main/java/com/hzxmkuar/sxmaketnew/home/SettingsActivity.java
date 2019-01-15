@@ -5,6 +5,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.common.mvp.BaseMvpActivity;
 import com.common.mvp.BasePresenter;
@@ -28,7 +29,8 @@ public class SettingsActivity extends BaseMvpActivity {
     private LinearLayout mLlChangeManagerPhone;
     private LinearLayout mLlPrivacy;
     private LinearLayout mLlStatement;
-    private ImageView mBack;
+    private ImageView iv_back;
+    private TextView tv_title;
 
     @Override
     protected BasePresenter createPresenterInstance() {
@@ -52,15 +54,17 @@ public class SettingsActivity extends BaseMvpActivity {
         mLlChangeManagerPhone = (LinearLayout) findViewById(R.id.ll_change_manager_phone);
         mLlPrivacy = (LinearLayout) findViewById(R.id.ll_privacy);
         mLlStatement = (LinearLayout) findViewById(R.id.ll_statement);
-        mBack = (ImageView) findViewById(R.id.back);
+        iv_back = (ImageView) findViewById(R.id.iv_back);
+        tv_title = (TextView) findViewById(R.id.tv_title);
         mBtbExit = (Button) findViewById(R.id.btn_exit);
+        tv_title.setText("设置");
     }
 
     @Override
     protected void doLogicFunc() {
         attachClickListener(mBtbExit);
         attachClickListener(mLlSetPwd);
-        attachClickListener(mBack);
+        attachClickListener(iv_back);
         attachClickListener(mBankCard);
         attachClickListener(mLlChangeManagerPhone);
         attachClickListener(mLlPrivacy);
@@ -76,7 +80,7 @@ public class SettingsActivity extends BaseMvpActivity {
             onBackPressed();
         } else if (view.getId() == mLlSetPwd.getId()) {
             gotoActivity(SetPasActivity.class);
-        } else if (view.getId() == mBack.getId()) {
+        } else if (view.getId() == iv_back.getId()) {
             finish();
         }  else if (view.getId() == mLlChangeManagerPhone.getId()) {
             gotoActivity(ChangManagerPhoneActivity.class);

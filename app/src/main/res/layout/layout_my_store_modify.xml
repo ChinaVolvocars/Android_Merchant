@@ -19,6 +19,20 @@
 
     <TextView style="@style/DivideLine" />
 
+
+    <LinearLayout style="@style/BindBankCardContent">
+
+        <TextView
+            style="@style/MyStoreContentLeft"
+            android:text="商家营业电话" />
+
+        <com.common.widget.editview.DeleteEditText
+            android:id="@+id/edt_shop_telephone"
+            style="@style/BindBankCardContentRight"
+            android:hint="请输入商家营业电话" />
+
+    </LinearLayout>
+    <TextView style="@style/DivideLine" />
     <LinearLayout
         android:id="@+id/ll_store_type_modify"
         style="@style/BindBankCardContent">

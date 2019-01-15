@@ -38,6 +38,7 @@ public class AddBankCardToPrivateActivity extends BaseMvpActivity {
     private List<String> banksids = new ArrayList<>();
 //    private String bankes = "";
     private ImageView mBack;
+    private TextView tv_title;
 
 
     @Override
@@ -63,7 +64,9 @@ public class AddBankCardToPrivateActivity extends BaseMvpActivity {
         edt_account_name = (DeleteEditText) findViewById(R.id.edt_account_name);
         mNext = (Button) findViewById(R.id.next);
 //        mChoose_bank = (LinearLayout) findViewById(R.id.choose_bank);
-        mBack = (ImageView) findViewById(R.id.back);
+        mBack = (ImageView) findViewById(R.id.iv_back);
+        tv_title = (TextView) findViewById(R.id.tv_title);
+        tv_title.setText("添加个人账户");
     }
 
     @Override

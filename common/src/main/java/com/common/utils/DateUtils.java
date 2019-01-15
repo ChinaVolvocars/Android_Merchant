@@ -1,6 +1,9 @@
 package com.common.utils;
 
+import android.text.TextUtils;
+
 import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -17,7 +20,12 @@ public class DateUtils {
     public static final SimpleDateFormat FORMAT = new SimpleDateFormat("yyyy-MM-dd HH:mm", Locale.CHINA);
     public static final SimpleDateFormat FORMAT_DATE_DOT = new SimpleDateFormat("yyyy.MM.dd", Locale.CHINA);
     public static final SimpleDateFormat FORMAT_DATE = new SimpleDateFormat("yyyy-MM-dd", Locale.CHINA);
+    public static final SimpleDateFormat FORMAT_DATE5 = new SimpleDateFormat("yy年MM月dd日", Locale.CHINA);
+    public static final SimpleDateFormat FORMAT_DATE6 = new SimpleDateFormat("yy年MM月", Locale.CHINA);
+    public static final SimpleDateFormat FORMAT_DATE7 = new SimpleDateFormat("yyyy年MM月", Locale.CHINA);
+    public static final SimpleDateFormat FORMAT_DATE4 = new SimpleDateFormat("yyyy-MM", Locale.CHINA);
     public static final SimpleDateFormat FORMAT_DATE2 = new SimpleDateFormat("yyyy/MM/dd", Locale.CHINA);
+    public static final SimpleDateFormat FORMAT_TIME3 = new SimpleDateFormat("HH:mm:ss", Locale.CHINA);
     public static final SimpleDateFormat FORMAT_TIME = new SimpleDateFormat("HH:mm", Locale.CHINA);
     public static final SimpleDateFormat FORMAT_DETAIL = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.CHINA);
 
@@ -666,4 +674,7 @@ public class DateUtils {
     public static String getDataTime() {
         return getDataTime("yyyy.MM.dd");
     }
+
+
+
 }

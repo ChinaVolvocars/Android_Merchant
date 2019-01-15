@@ -4,6 +4,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+
 import com.common.adapter.helper.IRecyclerViewHelper;
 import com.common.event.BaseEvent;
 import com.common.event.EventBusConstants;
@@ -30,6 +31,7 @@ import java.util.List;
  */
 public class ShopShowActivity extends BaseMvpActivity {
     private ImageView mIvShowBack;
+    private TextView tv_title;
     private ImageView mIvShopShowDetails;
     private ImageView mTvShowOrHide;
     private TextView mTvAddNewShows;
@@ -50,12 +52,14 @@ public class ShopShowActivity extends BaseMvpActivity {
     @Override
     protected void onViewCreated() {
         registerEvent();
-        mIvShowBack = (ImageView) findViewById(R.id.iv_show_back);
+        mIvShowBack = (ImageView) findViewById(R.id.iv_back);
+        tv_title = (TextView) findViewById(R.id.tv_title);
+        tv_title.setText("众商联盟-我要展示");
         mIvShopShowDetails = (ImageView) findViewById(R.id.iv_shop_show_details);
         mTvShowOrHide = (ImageView) findViewById(R.id.tv_show_or_hide);
         mTvAddNewShows = (TextView) findViewById(R.id.tv_add_new_shows);
         mIvShopShowDetails.setVisibility(View.VISIBLE);
-        ImageLoaderUtils.displaySmallPhoto(mTvShowOrHide, R.mipmap.shop_show_arrow_up_icon);
+        ImageLoaderUtils.display(mTvShowOrHide, R.mipmap.shop_show_arrow_up_icon);
         mRvShopShowsList = (XRecyclerView) findViewById(R.id.rv_shop_shows_list);
         mRvShopShowsList.setNestedScrollingEnabled(false);
     }
@@ -75,10 +79,10 @@ public class ShopShowActivity extends BaseMvpActivity {
         } else if (view.getId() == mTvShowOrHide.getId()) {
             isShow = !isShow;
             if (isShow) {
-                ImageLoaderUtils.displaySmallPhoto(mTvShowOrHide, R.mipmap.shop_show_arrow_up_icon);
+                ImageLoaderUtils.display(mTvShowOrHide, R.mipmap.shop_show_arrow_up_icon);
                 mIvShopShowDetails.setVisibility(View.VISIBLE);
             } else {
-                ImageLoaderUtils.displaySmallPhoto(mTvShowOrHide, R.mipmap.shop_show_arrow_down_icon);
+                ImageLoaderUtils.display(mTvShowOrHide, R.mipmap.shop_show_arrow_down_icon);
                 mIvShopShowDetails.setVisibility(View.GONE);
             }
         } else if (view.getId() == mTvAddNewShows.getId()) {
@@ -91,16 +95,16 @@ public class ShopShowActivity extends BaseMvpActivity {
     }
 
     /**
-     *  获取商家个活动列表
+     * 获取商家个活动列表
      */
     private void getShopShowsList() {
         CommonSubscriber<ShopShowsEntity> subscriber = new CommonSubscriber<>(new SubscriberListener() {
             @Override
             public void onNext(Object o) {
                 statusContent();
-                ShopShowsEntity entity = (ShopShowsEntity)o;
+                ShopShowsEntity entity = (ShopShowsEntity) o;
                 List<ShopShowsEntity.ShopShowsItemEntity> entityListItem = entity.getList();
-                if ( null != entityListItem && entityListItem.size() > 0) {
+                if (null != entityListItem && entityListItem.size() > 0) {
                     initRvAdapter(entityListItem);
                 }
             }
@@ -114,7 +118,7 @@ public class ShopShowActivity extends BaseMvpActivity {
         List<String> getActiveListParama = new ArrayList<>();
         getActiveListParama.add("time");
         getActiveListParama.add("uid");
-        BusinessUserMethods.getInstance().getShopAllActivesList(subscriber,getActiveListParama);
+        BusinessUserMethods.getInstance().getShopAllActivesList(subscriber, getActiveListParama);
         rxManager.add(subscriber);
     }
 
@@ -122,8 +126,8 @@ public class ShopShowActivity extends BaseMvpActivity {
      * 初始化适配器
      */
     private void initRvAdapter(List<ShopShowsEntity.ShopShowsItemEntity> dataList) {
-        if (null == mShopShowsRvAdapter){
-            mShopShowsRvAdapter = new ShopShowsRvAdapter(context,dataList);
+        if (null == mShopShowsRvAdapter) {
+            mShopShowsRvAdapter = new ShopShowsRvAdapter(context, dataList);
         }
         IRecyclerViewHelper.init().setRecycleLineLayout(context, LinearLayoutManager.VERTICAL, mRvShopShowsList);
         mRvShopShowsList.setHasFixedSize(true);

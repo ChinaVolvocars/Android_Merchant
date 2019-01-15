@@ -1,102 +1,111 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:fillViewport="true"
-    android:scrollbars="none"
-    android:overScrollMode="never"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:orientation="vertical"
+    android:overScrollMode="never"
+    android:scrollbars="none">
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:orientation="vertical"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
         <FrameLayout
-            android:background="@mipmap/titles_bac"
             android:layout_width="match_parent"
-            android:layout_height="65dp">
+            android:layout_height="65dp"
+            android:background="@mipmap/titles_bac">
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginTop="15dp"
-                android:textColor="@color/white"
-                android:text="众商联盟-我的店家"
                 android:gravity="center"
-                android:textSize="18sp"/>
+                android:text="众商联盟-我的店家"
+                android:textColor="@color/white"
+                android:textSize="18sp" />
+
             <ImageView
                 android:id="@+id/back"
-                android:layout_marginTop="15dp"
-                android:src="@mipmap/whait_back"
-                android:layout_marginLeft="10dp"
                 android:layout_width="30dp"
-                android:layout_height="match_parent"/>
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="15dp"
+                android:src="@mipmap/whait_back" />
         </FrameLayout>
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
             android:layout_marginTop="10dp"
-            android:textColor="@color/black"
-            android:text="选择增加数量"/>
+            android:text="选择增加数量"
+            android:textColor="@color/black" />
+
         <android.support.v7.widget.RecyclerView
             android:id="@+id/recyclerview"
-            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="30dp"
             android:layout_marginRight="30dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-        </android.support.v7.widget.RecyclerView>
+            android:layout_marginTop="10dp"></android.support.v7.widget.RecyclerView>
+
         <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
             android:layout_marginTop="10dp"
             android:background="@color/white"
-            android:layout_width="match_parent"
-            android:orientation="horizontal"
-            android:layout_height="50dp">
+            android:orientation="horizontal">
+
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
+                android:layout_marginLeft="15dp"
                 android:layout_weight="1"
-                android:textSize="15sp"
-                android:textColor="#333"
-                android:text="支付金额"
                 android:gravity="center_vertical"
-                android:layout_marginLeft="15dp"/>
+                android:text="支付金额"
+                android:textColor="#333"
+                android:textSize="15sp" />
+
             <TextView
                 android:id="@+id/money"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
+                android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp"
-                android:textSize="12sp"
-                android:textColor="@color/normal_text_color"
-                android:text="自动生成"
                 android:gravity="center_vertical"
-                android:layout_marginLeft="15dp"/>
+                android:text="自动生成"
+                android:textColor="@color/normal_text_color"
+                android:textSize="12sp" />
 
         </LinearLayout>
+
         <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
             android:layout_marginTop="10dp"
             android:background="@color/white"
-            android:layout_width="match_parent"
-            android:orientation="horizontal"
-            android:layout_height="50dp">
+            android:orientation="horizontal">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:textSize="15sp"
-                android:textColor="#333"
-                android:text="鑫利豆抵扣"
+                android:layout_marginLeft="15dp"
                 android:gravity="center_vertical"
-                android:layout_marginLeft="15dp"/>
+                android:text="鑫利豆抵扣"
+                android:textColor="#333"
+                android:textSize="15sp" />
+
             <TextView
                 android:id="@+id/dz"
                 android:layout_width="0dp"
-                android:layout_weight="1"
                 android:layout_height="match_parent"
-                android:textSize="12sp"
-                android:textColor="@color/base_color"
-                android:text="(剩余0豆)"
+                android:layout_weight="1"
                 android:gravity="center_vertical"
-                />
+                android:text="(剩余0豆)"
+                android:textColor="@color/base_color"
+                android:textSize="12sp" />
 
             <com.common.widget.editview.DeleteEditText
                 android:id="@+id/num"
@@ -106,36 +115,38 @@
                 android:layout_marginRight="15dp"
                 android:gravity="center_vertical|right"
                 android:hint="请输入鑫利豆数量"
-                android:textSize="12sp"
-                />
+                android:textSize="12sp" />
         </LinearLayout>
+
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="@dimen/view_size_0_5"
-            android:src="#ddd"/>
+            android:src="#ddd" />
+
         <LinearLayout
-            android:background="@color/white"
             android:layout_width="match_parent"
-            android:orientation="horizontal"
-            android:layout_height="50dp">
+            android:layout_height="50dp"
+            android:background="@color/white"
+            android:orientation="horizontal">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:textSize="15sp"
-                android:textColor="#333"
-                android:text="享利豆抵扣"
+                android:layout_marginLeft="15dp"
                 android:gravity="center_vertical"
-                android:layout_marginLeft="15dp"/>
+                android:text="享利豆抵扣"
+                android:textColor="#333"
+                android:textSize="15sp" />
+
             <TextView
                 android:id="@+id/xdz"
                 android:layout_width="0dp"
-                android:layout_weight="1"
                 android:layout_height="match_parent"
-                android:textSize="12sp"
-                android:textColor="@color/base_color"
-                android:text="(剩余0豆)"
+                android:layout_weight="1"
                 android:gravity="center_vertical"
-                />
+                android:text="(剩余0豆)"
+                android:textColor="@color/base_color"
+                android:textSize="12sp" />
 
             <com.common.widget.editview.DeleteEditText
                 android:id="@+id/num1"
@@ -145,23 +156,23 @@
                 android:layout_marginRight="15dp"
                 android:gravity="center_vertical|right"
                 android:hint="请输入享利豆数量"
-                android:textSize="12sp"
-                />
+                android:textSize="12sp" />
         </LinearLayout>
+
         <Button
-            android:layout_marginTop="45dp"
             android:id="@+id/next"
-            android:layout_marginBottom="20dp"
             style="@style/BaseCustomButton"
             android:layout_width="match_parent"
             android:layout_alignParentBottom="true"
             android:layout_gravity="center"
+            android:layout_marginBottom="20dp"
             android:layout_marginLeft="40dp"
             android:layout_marginRight="45dp"
+            android:layout_marginTop="45dp"
             android:background="@drawable/jx_10_base"
             android:clickable="true"
             android:text="提交"
             android:textColor="@color/white"
-            android:textStyle="bold"/>
+            android:textStyle="bold" />
     </LinearLayout>
 </ScrollView>
