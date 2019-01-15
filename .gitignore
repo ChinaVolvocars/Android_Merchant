@@ -3,11 +3,8 @@
 .idea
 /local.properties
 .DS_Store
+/build
 /captures
 .externalNativeBuild
 gradle
-<<<<<<< HEAD
-*.apk
-=======
-build
->>>>>>> v2.0.1
+*build

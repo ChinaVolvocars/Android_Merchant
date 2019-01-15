@@ -92,10 +92,7 @@
                 android:text="收款小账本"
                 android:textColor="@color/color_222222"
                 android:textSize="@dimen/sp_13" />
-<<<<<<< HEAD
 
-=======
->>>>>>> v2.0.1
         </LinearLayout>
 
 

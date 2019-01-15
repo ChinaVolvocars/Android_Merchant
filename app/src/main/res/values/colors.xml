@@ -61,9 +61,6 @@
     <color name="color_959595">#959595</color>
     <color name="red_ff4a57">#ff4a57</color>
     <color name="color_df440e">#df440e</color>
-<<<<<<< HEAD
-    <color name="color_68cafd">#68cafd</color>
-=======
     <color name="color_F5F4F4">#F5F4F4</color>
     <color name="color_9f9f9f">#9f9f9f</color>
     <color name="color_f1f1f1">#f1f1f1</color>
@@ -87,6 +84,5 @@
     <color name="color_666666">#666666</color>
     <color name="color_76b4e7">#76b4e7</color>
     <color name="color_fd6502">#fd6502</color>
->>>>>>> v2.0.1
 
 </resources>

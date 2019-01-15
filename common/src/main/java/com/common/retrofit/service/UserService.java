@@ -1123,10 +1123,6 @@ public interface UserService {
     Observable<HttpRespBean<WithdrawlBillEntity>> withdrawCredit(@Field("time") String time, @Field("hash") String hash
             , @Field("uid") int uid, @Field("type") String type, @Field("page") int page);
 
-<<<<<<< HEAD
-
-=======
->>>>>>> v2.0.1
     /**
      * 用户端登录发送语音短信验证码
      * 请求类型（//1商家管理员注册短信 2商家密码找回 3 个人短信登录 7个人版用户注册短信 8商家找回账号 11支付宝扫一扫快速登录）

@@ -445,16 +445,13 @@ public class BusinessUserMethods extends BaseMethods {
 
 
     //    public void todayRevenue(Subscriber<HttpRespBean<TodayRevenue>> subscriber, List<String> reqList, String date) {
-<<<<<<< HEAD
+
     public void todayRevenue(Subscriber<HttpRespBean<TodayRevenue>> subscriber, String date, int page) {
         List<String> reqLis = new ArrayList<>();
         reqLis.add("time");
         reqLis.add("uid");
         reqLis.add("page");
         reqLis.add("dates");
-=======
-    public void todayRevenue(Subscriber<HttpRespBean<TodayRevenue>> subscriber, List<String> reqList, String date, int page) {
->>>>>>> v2.0.1
         Observable observable = initService().todayRevenue(System.currentTimeMillis() + ""
                 , Constants.getHash(reqLis), DataCenter.UserId, page, date);
         toOtherSubscribe(observable, subscriber);
