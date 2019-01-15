@@ -37,12 +37,12 @@ public class TicketsCheckDetailsAdapter extends CommonAdapter<CouponListItemEnti
         } else {
             holder.setText(R.id.tv_state, "已提现");
         }
-        holder.setOnClickListener(R.id.tv_state, new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showToastMsg(item.getWithdraw_status());
-            }
-        });
+//        holder.setOnClickListener(R.id.tv_state, new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                showToastMsg(item.getWithdraw_status());
+//            }
+//        });
         if (position == mData.size()-1){
             holder.setBackgroundResource(R.id.ll_item_content,R.drawable.jx_10_w_conner_bottomleft_bottomright);
         }

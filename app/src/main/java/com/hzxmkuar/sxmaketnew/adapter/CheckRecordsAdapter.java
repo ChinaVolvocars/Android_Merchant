@@ -41,7 +41,6 @@ public class CheckRecordsAdapter extends CommonAdapter<CheckRecordEntity.RecordI
             @Override
             public void onClick(View v) {
 //                onRecordItemClickListener.itemClick(dataList.get(position).getId(), position);
-                showToastMsg("点击了条目：        " + (position + 1));
                 mContext.startActivity(new Intent(mContext, TicketsCheckDetailActiivty.class).putExtra("codeId",item.getId()));
             }
         });

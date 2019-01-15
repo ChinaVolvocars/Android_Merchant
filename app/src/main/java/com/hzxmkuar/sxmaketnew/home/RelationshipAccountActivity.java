@@ -82,6 +82,7 @@ public class RelationshipAccountActivity extends BaseMvpActivity {
                 } else {
                     relationType = 1;
                 }
+                relationShipList.clear();
                 if (null != relationShipAccountAdapter) {
                     relationShipAccountAdapter.setRelationType(relationType);
                 }

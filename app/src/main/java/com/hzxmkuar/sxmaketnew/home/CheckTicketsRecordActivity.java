@@ -35,7 +35,7 @@ import java.util.List;
  * Created by jc on 2019/1/2.
  */
 public class CheckTicketsRecordActivity extends BaseMvpActivity {
-    private static final String TAG = "CheckTicketsRecordActiv";
+//    private static final String TAG = "CheckTicketsRecordActiv";
     private ImageView mIvBack;
     private TextView mTvTitle;
 
@@ -127,7 +127,7 @@ public class CheckTicketsRecordActivity extends BaseMvpActivity {
             @Override
             public void run() {
                 mHeaderViewHeight = headerView.getHeight();
-                Log.i(TAG, "run:  头布局的高度：       " + mHeaderViewHeight);
+//                Log.i(TAG, "run:  头布局的高度：       " + mHeaderViewHeight);
             }
         }, 300);
 
@@ -146,10 +146,8 @@ public class CheckTicketsRecordActivity extends BaseMvpActivity {
 //                    int i4 = (position) * itemHeight - firstVisiableChildView.getTop();
                     Log.i("jibbb", "===" + itemHeight);
                     if (itemHeight < mHeaderViewHeight) {
-//                        ll_float_content.setVisibility(View.GONE);
                         ll_float_content.setVisibility(View.VISIBLE);
                     } else {
-//                        ll_float_content.setVisibility(View.VISIBLE);
                         ll_float_content.setVisibility(View.GONE);
                     }
                 }
@@ -194,7 +192,10 @@ public class CheckTicketsRecordActivity extends BaseMvpActivity {
                 }
                 tv_chose_date.setText(DateUtils.format(currentDate, "yyyy-MM-dd"));
                 mPageIndex = 1;
-                getCheckRecord();
+                recordItemEntities.clear();
+                if (null != loadingListener){
+                    loadingListener.onRefresh();
+                }
 
             }
         }).setDate(selectedDate).setRangDate(startDate, selectedDate).setLayoutRes(R.layout.today_revenue_pickerview_custom_time, new CustomListener() {
@@ -282,6 +283,7 @@ public class CheckTicketsRecordActivity extends BaseMvpActivity {
             public void onError(String e, int code) {
                 showToastMsg(e);
                 dismissProgressDialog();
+                recyclerViewRecord.refreshComplete();
             }
         });
         CouponMethods.getInstance().couponVerifyRecord(subscriber, DateUtils.format(currentDate, "yyyy-MM-dd"), mPageIndex);

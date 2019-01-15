@@ -110,13 +110,6 @@ public class QRCodeActivity extends BaseMvpActivity {
         }
     }
 
-
-    @OnClick(R.id.tv_book)
-    public void onBookClicked() {
-//        showToastMsg("该功能暂未开放，敬请期待！");
-        gotoActivity(TodayBillsActivity.class);
-    }
-
     @Override
     protected void doLogicFunc() {
 
