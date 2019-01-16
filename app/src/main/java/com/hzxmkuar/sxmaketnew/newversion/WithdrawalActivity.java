@@ -359,11 +359,11 @@ public class WithdrawalActivity extends BaseMvpActivity {
      */
     private void checkConfirm() {
         if (null != itemBank && 1 == week) {  // 提现要求： 必须选择了银行卡且在可提现期内
-            if (rdbt_normal_withdrawl.isChecked() && rdbt_normal_withdrawl.isChecked()){  // 两个选项都选择了
+            if (rdbt_normal_withdrawl.isChecked() && rdbt_coupon_withdrawl.isChecked()){  // 两个选项都选择了
                 setConfirmBtState( Double.parseDouble(money) > 0 || Double.parseDouble(counponWithdrawl) > 0);
-            }else if (rdbt_normal_withdrawl.isChecked() && !rdbt_normal_withdrawl.isChecked()){ // 只选择了发票（代收代付）提现  未选择券码提现
+            }else if (rdbt_normal_withdrawl.isChecked() && !rdbt_coupon_withdrawl.isChecked()){ // 只选择了发票（代收代付）提现  未选择券码提现
                 setConfirmBtState( Double.parseDouble(money) > 0 );
-            }else if (!rdbt_normal_withdrawl.isChecked() && rdbt_normal_withdrawl.isChecked()){ // 只选择了券码提现  未选择发票（代收代付）提现
+            }else if (!rdbt_normal_withdrawl.isChecked() && rdbt_coupon_withdrawl.isChecked()){ // 只选择了券码提现  未选择发票（代收代付）提现
                 setConfirmBtState( Double.parseDouble(counponWithdrawl) > 0 );
             }else {
                 setConfirmBtState(false);

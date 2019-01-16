@@ -67,7 +67,6 @@ public class ScanActivity extends BaseCaptureActivity {
             ToastManager.showShortToast("扫描失败,请重试");
         }
 //        finish();
-//
 //        Log.i(TAG, "dealDecode:     扫瞄结果：rawResult.getText():      " + rawResult.getText().toString());
 //        Log.i(TAG, "dealDecode:     扫瞄结果：barcode:      " + barcode);
 //        Log.i(TAG, "dealDecode:     扫瞄结果：scaleFactor:      " + scaleFactor);
@@ -93,7 +92,6 @@ public class ScanActivity extends BaseCaptureActivity {
                         finish();
                     }
                 });
-
             }
 
             @Override
@@ -104,6 +102,5 @@ public class ScanActivity extends BaseCaptureActivity {
         });
         CouponMethods.getInstance().couponVerifyCodeurl(subscriber,resultUrl);
     }
-
 
 }

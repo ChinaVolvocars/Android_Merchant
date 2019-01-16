@@ -15,7 +15,6 @@
         android:layout_height="48dp"
         android:layout_marginTop="10dp"
         android:hint="请输入券码"
-        android:text="8Rkc5B5akG2x"
         android:background="@color/white"
         android:digits="@string/digets"
         android:paddingRight="4dp"/>

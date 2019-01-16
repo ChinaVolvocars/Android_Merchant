@@ -82,7 +82,7 @@ public class RelationshipAccountActivity extends BaseMvpActivity {
                 } else {
                     relationType = 1;
                 }
-                relationShipList.clear();
+
                 if (null != relationShipAccountAdapter) {
                     relationShipAccountAdapter.setRelationType(relationType);
                 }
@@ -95,6 +95,7 @@ public class RelationshipAccountActivity extends BaseMvpActivity {
 
     @Override
     protected void doLogicFunc() {
+        attachClickListener(mIvBack);
     }
 
     private void initAdapter() {
@@ -105,6 +106,13 @@ public class RelationshipAccountActivity extends BaseMvpActivity {
         recyclerView_account_list.setAdapter(relationShipAccountAdapter);
         recyclerView_account_list.setLoadingListener(loadingListener);
 
+    }
+
+    @Override
+    protected void onViewClicked(View view) {
+        if (view.getId() == mIvBack.getId()){
+            finish();
+        }
     }
 
     /**
@@ -169,7 +177,12 @@ public class RelationshipAccountActivity extends BaseMvpActivity {
         public void onRefresh() {
             mPageIndex = 1;
             mIsRefreshOrLoadMore = 0;
+            relationShipList.clear();
+            if (relationShipAccountAdapter != null){
+                relationShipAccountAdapter.clear();
+            }
             getServerData();
+
         }
 
         @Override

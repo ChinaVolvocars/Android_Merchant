@@ -18,9 +18,11 @@ import com.common.retrofit.subscriber.CommonSubscriber;
 import com.common.retrofit.subscriber.SubscriberListener;
 import com.common.utils.DateUtils;
 import com.common.utils.EmptyUtils;
+import com.common.utils.UIUtils;
 import com.common.widget.recyclerview.refresh.recycleview.XRecyclerView;
 import com.hzxmkuar.sxmaketnew.R;
 import com.hzxmkuar.sxmaketnew.adapter.TicketsCheckDetailsAdapter;
+import com.hzxmkuar.sxmaketnew.utils.JCSpanUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -106,7 +108,14 @@ public class TicketsCheckDetailActiivty extends BaseHasListActivity {
             @Override
             public void onNext(CheckTicketsDetailsEntity result) {
 //                (共4笔，合计￥120.00)
-                tv_coupon_count_total.setText("(共"+result.getCount()+"笔，合计￥"+result.getSum()+"元)");
+//                tv_coupon_count_total.setText("(共"+result.getCount()+"笔，合计￥"+result.getSum()+"元)");
+
+                tv_coupon_count_total.setText(new JCSpanUtils()
+                        .append("(共"+result.getCount()+"笔，合计").setForegroundColor(UIUtils.getColor(R.color.color_cccccc))
+                        .append("￥"+result.getSum()+"元").setForegroundColor(UIUtils.getColor(R.color.color_fdc009))
+                        .append(")").setForegroundColor(UIUtils.getColor(R.color.color_cccccc))
+                        .create());
+
                 CouponInfoEntity infoEntity = result.getCoupon_info();
                 tv_coupon_name.setText(infoEntity.getName());
                 tv_valid_time.setText("有效时间:"+"\n"+infoEntity.getStart_time()+" "+infoEntity.getEnd_time());

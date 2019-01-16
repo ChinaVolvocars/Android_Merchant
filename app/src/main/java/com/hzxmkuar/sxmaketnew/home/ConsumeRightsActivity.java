@@ -115,7 +115,7 @@ public class ConsumeRightsActivity extends BaseMvpActivity {
         attachClickListener(mIvBack);
         attachClickListener(iv_tip01);
         attachClickListener(iv_tip02);
-        attachClickListener(btn_share);
+//        attachClickListener(btn_share);
         attachClickListener(ll_consume_function_content);
         attachClickListener(ll_relationship_content);
         attachClickListener(ll_empty_view);

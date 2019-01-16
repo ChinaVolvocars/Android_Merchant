@@ -253,11 +253,6 @@ public class CheckTicketsRecordActivity extends BaseMvpActivity {
 
                 List<CheckRecordEntity.RecordItemEntity> beanList = result.getList();
 
-                if (beanList.size() <= 0) {
-                    ll_emp.setVisibility(View.VISIBLE);
-                } else {
-                    ll_emp.setVisibility(View.GONE);
-                }
                 // 下拉刷新
                 if (mIsRefreshOrLoadMore == 0) {
                     recyclerViewRecord.refreshComplete();
@@ -269,6 +264,11 @@ public class CheckTicketsRecordActivity extends BaseMvpActivity {
                     checkRecordsAdapter.addAll(recordItemEntities);
                 }
 
+                if (recordItemEntities.size() <= 0) {
+                    ll_emp.setVisibility(View.VISIBLE);
+                } else {
+                    ll_emp.setVisibility(View.GONE);
+                }
 
                 if (EmptyUtils.isEmpty(beanList)) {
                     recyclerViewRecord.setNoMore(true);
@@ -299,6 +299,7 @@ public class CheckTicketsRecordActivity extends BaseMvpActivity {
             mPageIndex = 1;
             mIsRefreshOrLoadMore = 0;
             getCheckRecord();
+            recordItemEntities.clear();
         }
 
         @Override

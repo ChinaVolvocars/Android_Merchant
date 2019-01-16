@@ -32,7 +32,8 @@
                 android:layout_height="wrap_content"
                 android:text="鑫福利商城 30元赠品券券券"
                 android:textColor="@color/color_1e1e1e"
-                android:textSize="12sp" />
+                android:textSize="12sp"
+                android:textStyle="bold"/>
 
             <View
                 android:layout_width="match_parent"
@@ -104,7 +105,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="4dp"
-                android:text="(共4笔，合计￥120.00)" />
+                android:text="(共4笔，合计￥120.00)"
+                android:textColor="@color/color_cccccc"/>
 
         </LinearLayout>
 
