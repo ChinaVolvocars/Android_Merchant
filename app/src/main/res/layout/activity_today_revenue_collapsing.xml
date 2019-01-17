@@ -118,7 +118,7 @@
                 android:gravity="center_vertical"
                 android:orientation="horizontal"
                 android:paddingLeft="@dimen/dp_11"
-                android:paddingRight="@dimen/dp_11"
+                android:paddingRight="@dimen/dp_18"
                 android:paddingTop="@dimen/dp_14">
 
                 <TextView
@@ -145,28 +145,8 @@
                 android:layout_height="wrap_content"
                 android:gravity="center_vertical"
                 android:orientation="horizontal"
-                android:paddingBottom="@dimen/dp_8"
-                android:paddingLeft="@dimen/dp_11"
-                android:paddingRight="@dimen/dp_11">
-
-                <TextView
-                    android:id="@+id/tv_withdrawal_settlement"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:textColor="@color/color_747373"
-                    android:textSize="@dimen/sp_12"
-                    tools:text="提现结算63.00元" />
-
-                <TextView
-                    android:id="@+id/tv_cash_settlement"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:textColor="@color/color_747373"
-                    android:textSize="@dimen/sp_12"
-                    tools:text="现金结算63.00元" />
+                android:paddingBottom="@dimen/dp_5"
+                android:paddingRight="@dimen/dp_18">
 
                 <TextView
                     android:id="@+id/tv_total"
@@ -175,8 +155,8 @@
                     android:layout_weight="1"
                     android:gravity="right"
                     android:textColor="@color/color_747373"
-                    android:textSize="@dimen/sp_12"
-                    tools:text="合计14.00元" />
+                    android:textSize="@dimen/sp_13"
+                    tools:text="共14笔      合计￥114.00" />
 
 
             </LinearLayout>
@@ -195,14 +175,14 @@
                 android:gravity="center_vertical"
                 android:orientation="horizontal"
                 android:paddingBottom="@dimen/dp_12"
-                android:paddingLeft="@dimen/dp_11"
-                android:paddingRight="@dimen/dp_11"
+                android:paddingRight="@dimen/dp_20"
                 android:paddingTop="@dimen/dp_10">
-
+                <!--0.17352 0.28529 0.28235 0.25882-->
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
+                    android:layout_weight="0.17352"
+                    android:gravity="right"
                     android:text="时间"
                     android:textColor="@color/color_303030"
                     android:textSize="@dimen/sp_17" />
@@ -210,8 +190,8 @@
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="center"
+                    android:layout_weight="0.28529"
+                    android:gravity="right"
                     android:text="提现结算"
                     android:textColor="@color/color_303030"
                     android:textSize="@dimen/sp_17" />
@@ -219,9 +199,18 @@
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
+                    android:layout_weight="0.28235"
                     android:gravity="right"
                     android:text="现金结算"
+                    android:textColor="@color/color_303030"
+                    android:textSize="@dimen/sp_17" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.25882"
+                    android:gravity="right"
+                    android:text="结算小计"
                     android:textColor="@color/color_303030"
                     android:textSize="@dimen/sp_17" />
 
@@ -261,17 +250,62 @@
                 android:scaleType="fitXY"
                 android:src="@mipmap/ic_line" />
 
-            <TextView
-                android:id="@+id/tv_transactions"
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="right"
-                android:paddingBottom="@dimen/dp_8"
-                android:paddingRight="@dimen/dp_11"
-                android:paddingTop="@dimen/dp_7"
-                android:textColor="@color/color_747373"
-                android:textSize="@dimen/sp_12"
-                tools:text="共14笔" />
+                android:background="@color/white"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingBottom="@dimen/dp_6"
+                android:paddingRight="@dimen/dp_23"
+                android:paddingTop="@dimen/dp_6">
+
+                <!--0.18991 0.23738 0.28783 0.28486-->
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.18991"
+                    android:gravity="right"
+                    android:text="合计"
+                    android:textColor="@color/color_303030"
+                    android:textSize="@dimen/sp_14" />
+
+                <TextView
+                    android:id="@+id/tv_total_withdraw"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.23738"
+                    android:gravity="right"
+                    android:textColor="@color/color_fdc70a"
+                    android:textSize="@dimen/sp_14"
+                    android:textStyle="bold"
+                    tools:text="30.00" />
+
+                <TextView
+                    android:id="@+id/tv_total_cash"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.28783"
+                    android:gravity="right"
+                    android:textColor="@color/color_fdc70a"
+                    android:textSize="@dimen/sp_14"
+                    android:textStyle="bold"
+                    tools:text="30.65" />
+
+                <TextView
+                    android:id="@+id/tv_sum"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.28486"
+                    android:gravity="right"
+                    android:textColor="@color/color_fdc70a"
+                    android:textSize="@dimen/sp_14"
+                    android:textStyle="bold"
+                    tools:text="￥25.00" />
+
+            </LinearLayout>
 
             <TextView
                 android:layout_width="match_parent"

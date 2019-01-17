@@ -22,6 +22,15 @@ public class TodaysRevenue implements Parcelable {
     private String pay_time;
     private String xinlijuan;
     private String xindou;
+    private String subtotal;
+
+    public String getSubtotal() {
+        return subtotal;
+    }
+
+    public void setSubtotal(String subtotal) {
+        this.subtotal = subtotal;
+    }
 
     public String getId() {
         return id;
@@ -79,6 +88,9 @@ public class TodaysRevenue implements Parcelable {
         this.xindou = xindou;
     }
 
+    public TodaysRevenue() {
+    }
+
     @Override
     public int describeContents() {
         return 0;
@@ -93,9 +105,7 @@ public class TodaysRevenue implements Parcelable {
         dest.writeString(this.pay_time);
         dest.writeString(this.xinlijuan);
         dest.writeString(this.xindou);
-    }
-
-    public TodaysRevenue() {
+        dest.writeString(this.subtotal);
     }
 
     protected TodaysRevenue(Parcel in) {
@@ -106,6 +116,7 @@ public class TodaysRevenue implements Parcelable {
         this.pay_time = in.readString();
         this.xinlijuan = in.readString();
         this.xindou = in.readString();
+        this.subtotal = in.readString();
     }
 
     public static final Creator<TodaysRevenue> CREATOR = new Creator<TodaysRevenue>() {

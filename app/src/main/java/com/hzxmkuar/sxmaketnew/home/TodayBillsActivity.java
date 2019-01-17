@@ -36,8 +36,10 @@ import butterknife.OnClick;
 import rx.Subscriber;
 
 /**
+ * 废弃
  * 当日流水
  */
+@Deprecated
 public class TodayBillsActivity extends BaseMvpActivity {
     private static final String TAG = "TodayRevenueActivity";
     @BindView(R.id.back)
@@ -183,7 +185,7 @@ public class TodayBillsActivity extends BaseMvpActivity {
                 }
 
             }
-        },  formatDate, mPageIndex);
+        }, formatDate, mPageIndex);
     }
 
     @Override

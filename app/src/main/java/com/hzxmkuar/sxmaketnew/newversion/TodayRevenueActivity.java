@@ -1,6 +1,7 @@
 package com.hzxmkuar.sxmaketnew.newversion;
 
 import android.graphics.Color;
+import android.support.annotation.NonNull;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.SpannableStringBuilder;
@@ -20,6 +21,7 @@ import com.common.mvp.BasePresenter;
 import com.common.retrofit.entity.result.ApplyRecodEntity;
 import com.common.retrofit.entity.resultImpl.HttpRespBean;
 import com.common.retrofit.methods.BusinessUserMethods;
+import com.common.retrofit.model.DayFlowListDto;
 import com.common.retrofit.model.TodayRevenue;
 import com.common.retrofit.model.TodaysRevenue;
 import com.common.utils.DateUtils;
@@ -55,16 +57,16 @@ public class TodayRevenueActivity extends BaseMvpActivity {
     TextView tvTime;
     @BindView(R.id.iv_calendar)
     ImageView ivCalendar;
-    @BindView(R.id.tv_withdrawal_settlement)
-    TextView tvWithdrawalSettlement;
-    @BindView(R.id.tv_cash_settlement)
-    TextView tvCashSettlement;
+    @BindView(R.id.tv_total_withdraw)
+    TextView tvTotalWithdraw;
+    @BindView(R.id.tv_total_cash)
+    TextView tvTotalCash;
     @BindView(R.id.tv_total)
     TextView tvTotal;
     @BindView(R.id.recycler_view)
     XRecyclerView recyclerView;
-    @BindView(R.id.tv_transactions)
-    TextView tvTransactions;
+    @BindView(R.id.tv_sum)
+    TextView tvSum;
     private TodayRevenueAdapter adapter;
     private TimePickerView pvTime;
     private Date currentDate;
@@ -144,25 +146,10 @@ public class TodayRevenueActivity extends BaseMvpActivity {
             @Override
             public void onNext(HttpRespBean<TodayRevenue> result) {
                 TodayRevenue todayRevenue = result.getData();
-                tvWithdrawalSettlement.setText(getString(R.string.withdrawal_settlement, todayRevenue.getTotal_xindou()));
-                tvCashSettlement.setText(getString(R.string.cash_settlement, todayRevenue.getPay_moneys()));
-                //12 14 12
-                //#747373 #fdc70a #747373
-                SpannableStringBuilder stringTotal = new SpannableStringBuilder();
-                stringTotal.append(getString(R.string.total, todayRevenue.getTotal_money()));
-
-                ForegroundColorSpan colorSpan = new ForegroundColorSpan(Color.parseColor("#fdc70a"));
-                stringTotal.setSpan(colorSpan, 2, stringTotal.length() - 1, Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
-                RelativeSizeSpan sizeSpan01 = new RelativeSizeSpan(1.0f);
-                RelativeSizeSpan sizeSpan02 = new RelativeSizeSpan(1.167f);
-                RelativeSizeSpan sizeSpan03 = new RelativeSizeSpan(1.0f);
-                stringTotal.setSpan(sizeSpan01, 0, 2, Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
-                stringTotal.setSpan(sizeSpan02, 2, stringTotal.length() - 1, Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
-                stringTotal.setSpan(sizeSpan03, stringTotal.length() - 1, stringTotal.length(), Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
-                tvTotal.setText(stringTotal);
-
-                tvTransactions.setText(getString(R.string.transactions, todayRevenue.getTransaction()));
-
+                tvTotal.setText(getSpannableStringBuilder(todayRevenue));
+                tvTotalWithdraw.setText(getString(R.string.format_point_two, todayRevenue.getTotal_xindou()));
+                tvTotalCash.setText(getString(R.string.format_point_two, todayRevenue.getPay_moneys()));
+                tvSum.setText(getString(R.string.format_rmb, todayRevenue.getTotal_money()));
                 List<TodaysRevenue> dataListFromNet = result.getData().getToday_list();
                 List<TodaysRevenue> cacheDataList = new ArrayList<>();
                 if (null != dataListFromNet) {
@@ -194,6 +181,19 @@ public class TodayRevenueActivity extends BaseMvpActivity {
 
     }
 
+    @NonNull
+    private SpannableStringBuilder getSpannableStringBuilder(TodayRevenue dayFlowListDto) {
+        SpannableStringBuilder stringTotal = new SpannableStringBuilder();
+        stringTotal.append(getString(R.string.total_day_revenue, dayFlowListDto.getTransaction(), dayFlowListDto.getTotal_money()));
+        //共14笔      合计￥228.00 4+6空格
+        int transaction = dayFlowListDto.getTransaction();
+        ForegroundColorSpan colorSpan1 = new ForegroundColorSpan(Color.parseColor("#747373"));
+        ForegroundColorSpan colorSpan2 = new ForegroundColorSpan(Color.parseColor("#fdc70a"));
+        stringTotal.setSpan(colorSpan1, 0, 10 + String.valueOf(transaction).length(), Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
+        stringTotal.setSpan(colorSpan2, 10 + String.valueOf(transaction).length(), stringTotal.length(), Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
+        return stringTotal;
+    }
+
 
     private void initTimePicker() {
         //控制时间范围(如果不设置范围，则使用默认时间1900-2100年，此段代码可注释)
@@ -207,12 +207,6 @@ public class TodayRevenueActivity extends BaseMvpActivity {
         pvTime = new TimePickerView.Builder(getActivity(), new TimePickerView.OnTimeSelectListener() {
             @Override
             public void onTimeSelect(Date date, View v) {
-                // 这里回调过来的v,就是show()方法里面所添加的 View 参数，如果show的时候没有添加参数，v则为null
-                /*btn_Time.setText(getTime(date));*/
-//                Button btn = (Button) v;
-//                btn.setText(getTime(date));
-//                Log.e("TAG", "onTimeSelect: " + DateUtils.FORMAT_DETAIL.format(date));
-                // TODO: 2018/11/22     选取日期
                 currentDate = date;
                 if (null != adapter) {
                     adapter.clearData();

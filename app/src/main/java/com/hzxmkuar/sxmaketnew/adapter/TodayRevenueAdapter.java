@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.common.retrofit.model.Home;
 import com.common.retrofit.model.TodaysRevenue;
 import com.hzxmkuar.sxmaketnew.R;
 
@@ -36,12 +37,12 @@ public class TodayRevenueAdapter extends RecyclerView.Adapter<TodayRevenueAdapte
         notifyDataSetChanged();
     }
 
-    public void clearData(){
+    public void clearData() {
         this.list.clear();
         notifyDataSetChanged();
     }
 
-    public void addAllData(List<TodaysRevenue> dataList){
+    public void addAllData(List<TodaysRevenue> dataList) {
         this.list.addAll(dataList);
         notifyDataSetChanged();
     }
@@ -54,9 +55,10 @@ public class TodayRevenueAdapter extends RecyclerView.Adapter<TodayRevenueAdapte
     @Override
     public void onBindViewHolder(TodayRevenueViewHolder holder, int position) {
         TodaysRevenue todaysRevenue = list.get(position);
-        holder.tvTime.setText(todaysRevenue.getPay_time());
+        holder.tvTime.setText(todaysRevenue.getPay_time().substring(0,5));
         holder.tvWithdrawValue.setText(context.getString(R.string.plus, todaysRevenue.getXindou()));
         holder.tvCashValue.setText(context.getString(R.string.plus, todaysRevenue.getPay_money()));
+        holder.tvSum.setText(context.getString(R.string.format_total_money, todaysRevenue.getSubtotal()));
     }
 
     @Override
@@ -71,6 +73,8 @@ public class TodayRevenueAdapter extends RecyclerView.Adapter<TodayRevenueAdapte
         TextView tvWithdrawValue;
         @BindView(R.id.tv_cash_value)
         TextView tvCashValue;
+        @BindView(R.id.tv_sum)
+        TextView tvSum;
 
         public TodayRevenueViewHolder(View itemView) {
             super(itemView);

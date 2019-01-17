@@ -4,7 +4,6 @@ import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.widget.ImageView;
@@ -14,9 +13,7 @@ import com.bumptech.glide.Glide;
 import com.common.mvp.BaseMvpActivity;
 import com.common.mvp.BasePresenter;
 import com.hzxmkuar.sxmaketnew.R;
-import com.hzxmkuar.sxmaketnew.home.TodayBillsActivity;
 import com.hzxmkuar.sxmaketnew.utils.ImgUtils;
-import com.hzxmkuar.sxmaketnew.view.dialog.DialogQR;
 
 import butterknife.BindView;
 import butterknife.OnClick;

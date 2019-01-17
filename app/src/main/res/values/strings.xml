@@ -24,7 +24,10 @@
     <string name="plus">+%s</string>
     <string name="service_fee">提现金额(鑫豆*服务扣点%1$s%%)</string>
     <string name="format_total_money">¥ %s</string>
+    <string name="format_rmb">¥%.2f</string>
+    <string name="format_point_two">%.2f</string>
     <string name="total_day_flow">共%1$d笔&#160;&#160;&#160;&#160;&#160;&#160;合计¥&#160;%2$s</string>
+    <string name="total_day_revenue">共%1$d笔&#160;&#160;&#160;&#160;&#160;&#160;合计¥&#160;%2$.2f</string>
     <string name="check_tickets">验券记录</string>
     <string name="valid_time">2018.12.20-2019.01.23</string>
     <string name="ticketst_code_digits">1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
