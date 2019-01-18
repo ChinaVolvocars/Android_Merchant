@@ -35,6 +35,11 @@
                 android:orientation="vertical"
                 app:layout_collapseMode="pin">
 
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_5"
+                    android:background="@color/color_f0f0f0" />
+
                 <ImageView
                     android:id="@+id/iv_adv"
                     android:layout_width="match_parent"
