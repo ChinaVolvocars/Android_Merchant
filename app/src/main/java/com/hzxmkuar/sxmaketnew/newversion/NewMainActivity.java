@@ -162,7 +162,6 @@ public class NewMainActivity extends BaseMvpActivity {
                 } else if ("7".equals(itemId)) {
 //                    // 语音播报
                     if (null != bindDeviceEntity) {
-                        Log.i(TAG, "onServiceItemClick:      绑定状态：   " + bindDeviceEntity.getStatus());
                         if ("0".equals(bindDeviceEntity.getStatus())) {
                             gotoActivity(VoiceBroadcastUnbindActivity.class);
                         } else if ("1".equals(bindDeviceEntity.getStatus())) {

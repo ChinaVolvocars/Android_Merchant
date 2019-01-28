@@ -33,8 +33,9 @@
             android:id="@+id/tv_invitation_code"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="69dp"
-            android:layout_marginTop="40dp"
+            android:layout_alignBottom="@+id/btn_share"
+            android:layout_alignLeft="@+id/tv_manager_account"
+            android:layout_alignStart="@+id/tv_manager_account"
             android:text="邀请码:311999"
             android:textColor="@color/color_9281a4" />
 
@@ -64,8 +65,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="4dp"
-        android:layout_marginRight="4dp"
+        android:paddingBottom="8dp"
+        android:layout_marginTop="8dp"
         android:background="@drawable/jx_10_w"
         android:gravity="center"
         android:orientation="horizontal">
