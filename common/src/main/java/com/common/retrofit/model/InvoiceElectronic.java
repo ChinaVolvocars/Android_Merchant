@@ -5,6 +5,15 @@ public class InvoiceElectronic {
 
     private String invoice_code;
     private String invoice_num;
+    private String img_url;
+
+    public String getImg_url() {
+        return img_url;
+    }
+
+    public void setImg_url(String img_url) {
+        this.img_url = img_url;
+    }
 
     public String getInvoice_code() {
         return invoice_code;

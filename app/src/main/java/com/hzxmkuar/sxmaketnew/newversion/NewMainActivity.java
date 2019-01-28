@@ -31,10 +31,8 @@ import com.hzxmkuar.sxmaketnew.activity.MyBankActivity;
 import com.hzxmkuar.sxmaketnew.activity.WithdrawBillActivity;
 import com.hzxmkuar.sxmaketnew.adapter.MainAdapter;
 import com.hzxmkuar.sxmaketnew.base.BaseUrlActivity;
-import com.hzxmkuar.sxmaketnew.home.CheckTicketsActivity;
 import com.hzxmkuar.sxmaketnew.home.CheckTicketsRecordActivity;
 import com.hzxmkuar.sxmaketnew.home.ConsumeRightsActivity;
-import com.hzxmkuar.sxmaketnew.home.ScanActivity;
 import com.hzxmkuar.sxmaketnew.home.SettingsActivity;
 import com.hzxmkuar.sxmaketnew.home.ShopInfoActivity;
 import com.hzxmkuar.sxmaketnew.home.ShopShowActivity;
@@ -320,12 +318,7 @@ public class NewMainActivity extends BaseMvpActivity {
     @Override
     protected void onResume() {
         super.onResume();
-//        Log.e(TAG, "onResume: " + SPUtils.getShareBoolean(REFRESH));
-        if (SPUtils.getShareBoolean(REFRESH)) {
-            getHomeInfo();
-            SPUtils.setShareBoolean(REFRESH, false);
-        }
-
+        getHomeInfo();
     }
 
     private long exitTime = 0;

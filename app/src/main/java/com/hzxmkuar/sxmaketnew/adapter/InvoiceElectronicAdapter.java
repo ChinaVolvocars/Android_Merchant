@@ -2,19 +2,23 @@ package com.hzxmkuar.sxmaketnew.adapter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 
+import com.bumptech.glide.Glide;
 import com.common.retrofit.model.InvoiceElectronic;
 import com.hzxmkuar.sxmaketnew.R;
+import com.makeramen.roundedimageview.RoundedImageView;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import butterknife.OnTextChanged;
 
 
@@ -47,6 +51,17 @@ public class InvoiceElectronicAdapter extends RecyclerView.Adapter<InvoiceElectr
         holder.etNum.setText(invoiceElectronic.getInvoice_num());
         holder.etCode.setText(invoiceElectronic.getInvoice_code());
 
+        if (TextUtils.isEmpty(invoiceElectronic.getImg_url())) {
+            holder.ivInvoice.setBorderWidth(context.getResources().getDimension(R.dimen.dp_0));
+        } else {
+            holder.ivInvoice.setBorderWidth(context.getResources().getDimension(R.dimen.dp_2));
+            Glide.with(context)
+                    .load(invoiceElectronic.getImg_url())
+                    .error(R.mipmap.bkg_invoice_add)
+                    .into(holder.ivInvoice);
+        }
+
+
     }
 
     @Override
@@ -60,6 +75,8 @@ public class InvoiceElectronicAdapter extends RecyclerView.Adapter<InvoiceElectr
         EditText etCode;
         @BindView(R.id.et_num)
         EditText etNum;
+        @BindView(R.id.iv_invoice)
+        RoundedImageView ivInvoice;
 
         public InvoiceElectronicViewHolder(View itemView) {
             super(itemView);
@@ -72,7 +89,7 @@ public class InvoiceElectronicAdapter extends RecyclerView.Adapter<InvoiceElectr
             System.out.println("==========" + list.get(getLayoutPosition()).getInvoice_code());
 
             if (listener != null) {
-                listener.onDateChage(getLayoutPosition(), list);
+                listener.onDateChange(getLayoutPosition(), list);
             }
         }
 
@@ -80,9 +97,17 @@ public class InvoiceElectronicAdapter extends RecyclerView.Adapter<InvoiceElectr
         public void onNumChanged(CharSequence num) {
             list.get(getLayoutPosition()).setInvoice_num(num.toString());
             if (listener != null) {
-                listener.onDateChage(getLayoutPosition(), list);
+                listener.onDateChange(getLayoutPosition(), list);
             }
         }
+
+        @OnClick(R.id.iv_invoice)
+        public void onInvoiceClicked() {
+            if (listener != null) {
+                listener.onAddImgClick(getLayoutPosition(), list);
+            }
+        }
+
     }
 
     public List<InvoiceElectronic> getDate() {
@@ -92,7 +117,9 @@ public class InvoiceElectronicAdapter extends RecyclerView.Adapter<InvoiceElectr
     private OnDateChangeListener listener;
 
     public interface OnDateChangeListener {
-        void onDateChage(int position, List<InvoiceElectronic> list);
+        void onDateChange(int position, List<InvoiceElectronic> list);
+
+        void onAddImgClick(int position, List<InvoiceElectronic> list);
     }
 
     public void setOnItemClickListener(OnDateChangeListener listener) {

@@ -25,6 +25,9 @@ import butterknife.OnTextChanged;
 import butterknife.Unbinder;
 import rx.Subscriber;
 
+/**
+ * 提交发票 快递发票
+ */
 public class InvoiceExpressFragment extends BaseMvpFragment {
     public static final String WID = "WID";
 

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@color/color_f0f0f0"
@@ -65,6 +66,31 @@
             android:textColor="@color/color_303030"
             android:textColorHint="@color/color_959595"
             android:textSize="@dimen/sp_16" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp_12"
+            android:layout_marginTop="@dimen/dp_12"
+            android:text="上传电子发票图片*"
+            android:textColor="@color/color_303030"
+            android:textSize="@dimen/sp_18" />
+
+
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:id="@+id/iv_invoice"
+            android:layout_width="match_parent"
+            android:layout_height="190dp"
+            android:layout_marginLeft="@dimen/dp_12"
+            android:layout_marginRight="@dimen/dp_12"
+            android:layout_marginTop="@dimen/dp_8"
+            android:scaleType="fitXY"
+            android:src="@mipmap/bkg_invoice_add"
+            app:riv_border_color="#60aeff"
+            app:riv_border_width="0dp"
+            app:riv_corner_radius="@dimen/dp_5"
+            app:riv_oval="false" />
+
 
     </LinearLayout>
 
