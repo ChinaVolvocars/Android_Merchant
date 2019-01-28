@@ -15,7 +15,9 @@ import com.common.mvp.BaseMvpActivity;
 import com.common.mvp.BasePresenter;
 import com.common.retrofit.entity.DataCenter;
 import com.common.retrofit.entity.result.AppVersionEntity;
+import com.common.retrofit.entity.result.BindDeviceEntity;
 import com.common.retrofit.entity.result.UserBean;
+import com.common.retrofit.methods.BindMethods;
 import com.common.retrofit.methods.BusinessUserMethods;
 import com.common.retrofit.model.Home;
 import com.common.retrofit.subscriber.CommonSubscriber;
@@ -36,6 +38,8 @@ import com.hzxmkuar.sxmaketnew.home.ConsumeRightsActivity;
 import com.hzxmkuar.sxmaketnew.home.SettingsActivity;
 import com.hzxmkuar.sxmaketnew.home.ShopInfoActivity;
 import com.hzxmkuar.sxmaketnew.home.ShopShowActivity;
+import com.hzxmkuar.sxmaketnew.home.VoiceBroadcastBindedActivity;
+import com.hzxmkuar.sxmaketnew.home.VoiceBroadcastUnbindActivity;
 import com.hzxmkuar.sxmaketnew.view.dialog.ChoseCheckWayDialog;
 import com.hzxmkuar.sxmaketnew.view.dialog.DialogHomeWay;
 import com.hzxmkuar.sxmaketnew.view.dialog.VersionCompareDialog;
@@ -71,6 +75,7 @@ public class NewMainActivity extends BaseMvpActivity {
     private String invoiceUrl = "";
     private TextView tvUserName;
     private DialogHomeWay dialog;
+    private BindDeviceEntity bindDeviceEntity;
 
     @Override
     protected BasePresenter createPresenterInstance() {
@@ -123,6 +128,7 @@ public class NewMainActivity extends BaseMvpActivity {
             public void onRefresh() {
                 getHomeInfo();
                 checkAppVerion();
+                checkDeviceIsBind();
             }
         });
 
@@ -142,15 +148,6 @@ public class NewMainActivity extends BaseMvpActivity {
             @Override
             public void onServiceItemClick(View view, int position, String itemId) {
                 Log.e("服务的点击事件", "onServiceItemClick: " + position);
-                //
-//                if (0 == position) {
-//                    //我要展示
-//                    gotoActivity(ShopShowActivity.class);
-//                } else if (1 == position) {
-//                    // 商家资料
-//                    gotoActivity(ShopInfoActivity.class);
-//                }
-
                 if ("3".equals(itemId)) {
 //                    //我要展示
                     gotoActivity(ShopShowActivity.class);
@@ -162,6 +159,19 @@ public class NewMainActivity extends BaseMvpActivity {
                 } else if ("6".equals(itemId)) {
 //                    // 消费权限
                     gotoActivity(ConsumeRightsActivity.class);
+                } else if ("7".equals(itemId)) {
+//                    // 语音播报
+                    if (null != bindDeviceEntity) {
+                        Log.i(TAG, "onServiceItemClick:      绑定状态：   " + bindDeviceEntity.getStatus());
+                        if ("0".equals(bindDeviceEntity.getStatus())) {
+                            gotoActivity(VoiceBroadcastUnbindActivity.class);
+                        } else if ("1".equals(bindDeviceEntity.getStatus())) {
+                            Intent intent = new Intent(context, VoiceBroadcastBindedActivity.class);
+                            intent.putExtra("deviceNo", bindDeviceEntity.getDev_num());
+                            intent.putExtra("deviceState", bindDeviceEntity.getStatus());
+                            startActivity(intent);
+                        }
+                    }
                 }
             }
 
@@ -318,7 +328,12 @@ public class NewMainActivity extends BaseMvpActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        getHomeInfo();
+//        Log.e(TAG, "onResume: " + SPUtils.getShareBoolean(REFRESH));
+        if (SPUtils.getShareBoolean(REFRESH)) {
+            getHomeInfo();
+            SPUtils.setShareBoolean(REFRESH, false);
+        }
+        checkDeviceIsBind();
     }
 
     private long exitTime = 0;
@@ -345,4 +360,27 @@ public class NewMainActivity extends BaseMvpActivity {
     protected void onDestroy() {
         super.onDestroy();
     }
+
+    /**
+     * 检测设备状态，是否已经绑定
+     */
+    private void checkDeviceIsBind() {
+        showProgressingDialog();
+        CommonSubscriber<BindDeviceEntity> subscriber = new CommonSubscriber<>(new SubscriberListener() {
+            @Override
+            public void onNext(Object o) {
+                dismissProgressDialog();
+                bindDeviceEntity = (BindDeviceEntity) o;
+            }
+
+            @Override
+            public void onError(String e, int code) {
+                dismissProgressDialog();
+                showToastMsg(e);
+            }
+        });
+        BindMethods.getInstance().devStatus(subscriber);
+        rxManager.add(subscriber);
+    }
+
 }

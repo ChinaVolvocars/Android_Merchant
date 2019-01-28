@@ -8,6 +8,7 @@ import com.common.retrofit.entity.result.AppVersionEntity;
 import com.common.retrofit.entity.result.ApplyRecodEntity;
 import com.common.retrofit.entity.result.BankListBean;
 import com.common.retrofit.entity.result.BankNameBean;
+import com.common.retrofit.entity.result.BindDeviceEntity;
 import com.common.retrofit.entity.result.CCBean;
 import com.common.retrofit.entity.result.ChangeBean;
 import com.common.retrofit.entity.result.CheckRecordEntity;
@@ -1247,6 +1248,27 @@ public interface UserService {
     @POST("couponInfo.html")
     Observable<HttpRespBean<CheckTicketsDetailsEntity>> couponInfo(@Field("time") String time, @Field("hash") String hash
             , @Field("uid") int uid, @Field("under_id") String type, @Field("page") int page);
+
+
+
+    /***
+     *  语音播报状态<><br/>
+     */
+    @FormUrlEncoded
+    @POST("devStatus")
+    Observable<HttpRespBean<BindDeviceEntity>> devStatus(@Field("time") String time, @Field("hash") String hash
+            , @Field("uid") int uid);
+
+    /**
+     * 设备绑定或取消绑定  <br/>
+     *
+     * @param type   绑定类型  <br/> 1 绑定   <br/>2 解绑  <br/>
+     * @param dev_num 设备id  <br/>
+     */
+    @FormUrlEncoded
+    @POST("isBind")
+    Observable<HttpRespBean<BindDeviceEntity>> isBind(@Field("time") String time, @Field("hash") String hash
+            , @Field("type") String type , @Field("uid") int uid , @Field("dev_num") String dev_num);
 
 
 }

@@ -372,6 +372,8 @@
         <activity android:name=".home.TodayBillsActivity" />
         <activity android:name=".home.CheckTicketsActivity" />
         <activity android:name=".home.ScanActivity" />
+        <activity android:name=".home.VoiceBroadcastUnbindActivity"/>
+        <activity android:name=".home.VoiceBroadcastBindedActivity"/>
     </application>
 
 </manifest>

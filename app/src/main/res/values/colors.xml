@@ -86,5 +86,13 @@
     <color name="color_fd6502">#fd6502</color>
     <color name="color_cccccc">#cccccc</color>
     <color name="color_fdc009">#fdc009</color>
+    <color name="color_363636">#363636</color>
+    <color name="color_eb0000">#eb0000</color>
+    <color name="color_b1b5b6">#b1b5b6</color>
+    <color name="color_494949">#494949</color>
+    <color name="color_fed846">#fed846</color>
+    <color name="color_7c7c7c">#7c7c7c</color>
+    <color name="color_23bc00">#23bc00</color>
+    <color name="color_444444">#444444</color>
 
 </resources>
