@@ -36,6 +36,8 @@ public abstract class BaseHasListActivity<T> extends BaseMvpActivity implements 
     protected void onViewCreated() {
         onCurrentViewCreate();
         xRecyclerView = initRecyclerView();
+        xRecyclerView.setLoadingListener(this);
+
     }
 
     @Override
@@ -83,7 +85,7 @@ public abstract class BaseHasListActivity<T> extends BaseMvpActivity implements 
         xRecyclerView.loadMoreComplete();
         tempList = new ArrayList<>();
         List<T> beanList = list;
-        if (null != ll_emp){
+        if (null != ll_emp) {
             if (beanList.size() <= 0) {
                 ll_emp.setVisibility(View.VISIBLE);
             } else {

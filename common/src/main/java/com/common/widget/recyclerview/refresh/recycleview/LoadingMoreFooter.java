@@ -79,7 +79,6 @@ public class LoadingMoreFooter extends LinearLayout {
     }
 
     public void setState(int state) {
-        Log.e("加载更多", "加载更多" + state);
         switch (state) {
             case STATE_LOADING:
                 progressCon.setVisibility(View.VISIBLE);

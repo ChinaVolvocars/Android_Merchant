@@ -89,10 +89,10 @@ public class TicketsCheckDetailActiivty extends BaseHasListActivity {
 
     private void initAdapter() {
         ticketsCheckDetailsAdapter = new TicketsCheckDetailsAdapter(context);
-        mHeaderView = LayoutInflater.from(context).inflate(R.layout.item_check_details_header,null,false);
+        mHeaderView = LayoutInflater.from(context).inflate(R.layout.item_check_details_header, null, false);
         ticketsCheckDetailsAdapter.addHeaderView(mHeaderView);
 
-        tv_coupon_count_total = (TextView)mHeaderView.findViewById(R.id.tv_coupon_count_total);
+        tv_coupon_count_total = (TextView) mHeaderView.findViewById(R.id.tv_coupon_count_total);
         tv_coupon_name = (TextView) mHeaderView.findViewById(R.id.tv_coupon_name);
         tv_valid_time = (TextView) mHeaderView.findViewById(R.id.tv_valid_time);
         tv_protocol_price = (TextView) mHeaderView.findViewById(R.id.tv_protocol_price);
@@ -111,26 +111,28 @@ public class TicketsCheckDetailActiivty extends BaseHasListActivity {
 //                tv_coupon_count_total.setText("(共"+result.getCount()+"笔，合计￥"+result.getSum()+"元)");
 
                 tv_coupon_count_total.setText(new JCSpanUtils()
-                        .append("(共"+result.getCount()+"笔，合计").setForegroundColor(UIUtils.getColor(R.color.color_cccccc))
-                        .append("￥"+result.getSum()+"元").setForegroundColor(UIUtils.getColor(R.color.color_fdc009))
+                        .append("(共" + result.getCount() + "笔，合计").setForegroundColor(UIUtils.getColor(R.color.color_cccccc))
+                        .append("￥" + result.getSum() + "元").setForegroundColor(UIUtils.getColor(R.color.color_fdc009))
                         .append(")").setForegroundColor(UIUtils.getColor(R.color.color_cccccc))
                         .create());
 
                 CouponInfoEntity infoEntity = result.getCoupon_info();
                 tv_coupon_name.setText(infoEntity.getName());
-                tv_valid_time.setText("有效时间:"+"\n"+infoEntity.getStart_time()+" "+infoEntity.getEnd_time());
-                tv_protocol_price.setText("¥"+infoEntity.getProtocol_price());
+                tv_valid_time.setText("有效时间:" + "\n" + infoEntity.getStart_time() + " " + infoEntity.getEnd_time());
+                tv_protocol_price.setText("¥" + infoEntity.getProtocol_price());
                 couponList = result.getCoupon_list();
-                onNextMethodsAddDatas(couponList,null,ticketsCheckDetailsAdapter);
+                onNextMethodsAddDatas(couponList, null, ticketsCheckDetailsAdapter);
 
             }
+
             @Override
             public void onError(String e, int code) {
+                xRecyclerView.loadMoreComplete();
                 showToastMsg(e);
                 dismissProgressDialog();
             }
         });
-        CouponMethods.getInstance().couponInfo(subscriber,mCodeId, mPageIndex);
+        CouponMethods.getInstance().couponInfo(subscriber, mCodeId, mPageIndex);
         rxManager.add(subscriber);
 
     }
