@@ -32,10 +32,6 @@ public class SetPasActivity extends BaseMvpActivity {
     }
 
     @Override
-    protected void setStatusBar() {
-    }
-
-    @Override
     protected int getLayoutId() {
         return R.layout.activity_set_pas;
     }

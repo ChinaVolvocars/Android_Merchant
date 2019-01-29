@@ -11,7 +11,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
-        <include layout="@layout/layout_toolbar_base"/>
+
+        <include layout="@layout/layout_toolbar_base" />
 
         <ImageView style="@style/DivideLine" />
 
@@ -43,7 +44,7 @@
             <com.common.widget.editview.DeleteEditText
                 android:id="@+id/bankdes"
                 style="@style/BindBankCardContentRight"
-                android:hint="请输入开户行名称"/>
+                android:hint="请输入开户行名称" />
 
         </LinearLayout>
 

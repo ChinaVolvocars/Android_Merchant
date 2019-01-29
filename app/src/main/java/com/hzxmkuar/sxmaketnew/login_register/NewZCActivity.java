@@ -220,10 +220,6 @@ public class NewZCActivity extends BaseMvpActivity {
     }
 
     @Override
-    protected void setStatusBar() {
-    }
-
-    @Override
     protected int getLayoutId() {
         return R.layout.activity_newzhuce;
     }

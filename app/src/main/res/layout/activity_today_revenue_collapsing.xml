@@ -12,25 +12,23 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-
         <android.support.design.widget.CollapsingToolbarLayout
             android:id="@+id/collapsing_toolbar_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:collapsedTitleTextAppearance="@style/ToolBarTitleText"
             app:contentScrim="@color/white"
-            app:expandedTitleMarginEnd="48dp"
-            app:expandedTitleMarginStart="48dp"
+            app:expandedTitleMarginEnd="?attr/actionBarSize"
+            app:expandedTitleMarginStart="?attr/actionBarSize"
             app:expandedTitleTextAppearance="@style/transparentText"
             app:layout_scrollFlags="scroll|exitUntilCollapsed">
-
 
             <!--头部布局-->
             <!--android:layout_marginTop="?attr/actionBarSize"-->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="?attr/actionBarSize"
+                android:layout_marginTop="45dp"
                 android:background="@color/white"
                 android:orientation="vertical"
                 app:layout_collapseMode="pin">
@@ -53,7 +51,7 @@
             <android.support.v7.widget.Toolbar
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
+                android:layout_height="45dp"
                 android:background="@color/white"
                 android:contentInsetEnd="0dp"
                 android:contentInsetLeft="0dp"
@@ -71,15 +69,17 @@
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="64dp">
+                    android:layout_height="match_parent">
 
                     <ImageView
                         android:id="@+id/back"
-                        android:layout_width="32dp"
-                        android:layout_height="?attr/actionBarSize"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
                         android:layout_gravity="center"
+                        android:paddingLeft="12dp"
+                        android:paddingRight="@dimen/dp_20"
                         android:scaleType="centerInside"
-                        android:src="@mipmap/ic_arrow_left_gray" />
+                        android:src="@mipmap/left_arrow_icon" />
 
 
                     <TextView
@@ -93,13 +93,6 @@
                         android:textSize="18sp"
                         tools:text="标题栏" />
 
-                    <ImageView
-                        android:id="@+id/title_right_icon"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:duplicateParentState="true"
-                        android:paddingEnd="@dimen/activity_horizontal_margin"
-                        android:paddingRight="@dimen/activity_horizontal_margin" />
 
                 </RelativeLayout>
 

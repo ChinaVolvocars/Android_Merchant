@@ -28,10 +28,6 @@ public class VoiceBroadcastBindedActivity extends BaseMvpActivity {
     private String deviceNo = "";
 
     @Override
-    protected void setStatusBar() {
-
-    }
-    @Override
     protected BasePresenter createPresenterInstance() {
         return null;
     }

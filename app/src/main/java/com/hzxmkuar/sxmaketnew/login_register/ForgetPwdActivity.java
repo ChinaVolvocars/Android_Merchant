@@ -113,9 +113,6 @@ public class ForgetPwdActivity extends BaseMvpActivity {
         });
     }
 
-    @Override
-    protected void setStatusBar() {
-    }
 
     @Override
     protected void doLogicFunc() {

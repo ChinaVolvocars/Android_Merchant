@@ -328,10 +328,7 @@ public class NewMainActivity extends BaseMvpActivity {
     protected void onResume() {
         super.onResume();
 //        Log.e(TAG, "onResume: " + SPUtils.getShareBoolean(REFRESH));
-        if (SPUtils.getShareBoolean(REFRESH)) {
-            getHomeInfo();
-            SPUtils.setShareBoolean(REFRESH, false);
-        }
+        getHomeInfo();
         checkDeviceIsBind();
     }
 

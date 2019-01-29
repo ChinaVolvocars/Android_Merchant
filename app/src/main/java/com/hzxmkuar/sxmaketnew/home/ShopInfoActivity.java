@@ -142,10 +142,6 @@ public class ShopInfoActivity extends BaseMvpActivity {
     }
 
     @Override
-    protected void setStatusBar() {
-    }
-
-    @Override
     protected int getLayoutId() {
         return R.layout.activity_my_store_info_edit;
     }

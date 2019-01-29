@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+
 import com.common.mvp.BaseMvpActivity;
 import com.common.mvp.BasePresenter;
 import com.common.retrofit.entity.result.BindDeviceEntity;
@@ -25,10 +26,6 @@ public class VoiceBroadcastUnbindActivity extends BaseMvpActivity {
     private BindDeviceDialog bindDeviceDialog;
 
     @Override
-    protected void setStatusBar() {
-
-    }
-    @Override
     protected BasePresenter createPresenterInstance() {
         return null;
     }
@@ -44,7 +41,7 @@ public class VoiceBroadcastUnbindActivity extends BaseMvpActivity {
         mTvTitle = (TextView) findViewById(R.id.tv_title);
         tvHaveNotBind = (TextView) findViewById(R.id.tv_have_not_bind);
         mTvTitle.setText("语音播报");
-        bindDeviceDialog = new BindDeviceDialog(context,1);
+        bindDeviceDialog = new BindDeviceDialog(context, 1);
     }
 
 
@@ -70,8 +67,8 @@ public class VoiceBroadcastUnbindActivity extends BaseMvpActivity {
         }
     }
 
-    private void bindDev(String inputDeviceIdNo){
-        if (EmptyUtils.isEmpty(inputDeviceIdNo)){
+    private void bindDev(String inputDeviceIdNo) {
+        if (EmptyUtils.isEmpty(inputDeviceIdNo)) {
             showToastMsg("设备id不能为空");
             return;
         }
@@ -81,7 +78,7 @@ public class VoiceBroadcastUnbindActivity extends BaseMvpActivity {
             public void onNext(BindDeviceEntity entiy) {
                 dismissProgressDialog();
                 showToastMsg("设备绑定成功");
-                Intent intent = new Intent(context,VoiceBroadcastBindedActivity.class);
+                Intent intent = new Intent(context, VoiceBroadcastBindedActivity.class);
                 intent.putExtra("deviceNo", entiy.getDev_num());
                 intent.putExtra("deviceState", entiy.getStatus());
                 startActivity(intent);
@@ -94,7 +91,7 @@ public class VoiceBroadcastUnbindActivity extends BaseMvpActivity {
                 showToastMsg(e);
             }
         });
-        BindMethods.getInstance().isBind(subscriber,"1",inputDeviceIdNo);
+        BindMethods.getInstance().isBind(subscriber, "1", inputDeviceIdNo);
         rxManager.add(subscriber);
     }
 

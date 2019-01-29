@@ -25,8 +25,8 @@
                 android:id="@+id/switch_bt_our_shop"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:track="@drawable/selector_switch_button_track"
-                android:thumb="@drawable/selector_switch_button_thumb" />
+                android:thumb="@drawable/selector_switch_button_thumb"
+                android:track="@drawable/selector_switch_button_track" />
         </LinearLayout>
 
         <View
@@ -47,8 +47,8 @@
                 android:id="@+id/switch_bt_other_shop"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:track="@drawable/selector_switch_button_track"
-                android:thumb="@drawable/selector_switch_button_thumb" />
+                android:thumb="@drawable/selector_switch_button_thumb"
+                android:track="@drawable/selector_switch_button_track" />
         </LinearLayout>
 
         <View
@@ -68,8 +68,8 @@
                 android:id="@+id/switch_bt_mall_consume"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:track="@drawable/selector_switch_button_track"
-                android:thumb="@drawable/selector_switch_button_thumb" />
+                android:thumb="@drawable/selector_switch_button_thumb"
+                android:track="@drawable/selector_switch_button_track" />
         </LinearLayout>
 
     </LinearLayout>
@@ -93,8 +93,8 @@
                 android:id="@+id/switch_bt_leaflet"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:track="@drawable/selector_switch_button_track"
-                android:thumb="@drawable/selector_switch_button_thumb"/>
+                android:thumb="@drawable/selector_switch_button_thumb"
+                android:track="@drawable/selector_switch_button_track" />
         </LinearLayout>
 
         <View

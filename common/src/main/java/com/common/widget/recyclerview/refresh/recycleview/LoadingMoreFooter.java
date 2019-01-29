@@ -3,6 +3,7 @@ package com.common.widget.recyclerview.refresh.recycleview;
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,20 +28,21 @@ public class LoadingMoreFooter extends LinearLayout {
     private TextView mText;
 
 
-	public LoadingMoreFooter(Context context) {
-		super(context);
-		initView();
-	}
+    public LoadingMoreFooter(Context context) {
+        super(context);
+        initView();
+    }
 
-	/**
-	 * @param context
-	 * @param attrs
-	 */
-	public LoadingMoreFooter(Context context, AttributeSet attrs) {
-		super(context, attrs);
-		initView();
-	}
-    public void initView(){
+    /**
+     * @param context
+     * @param attrs
+     */
+    public LoadingMoreFooter(Context context, AttributeSet attrs) {
+        super(context, attrs);
+        initView();
+    }
+
+    public void initView() {
         setGravity(Gravity.CENTER);
         setLayoutParams(new RecyclerView.LayoutParams(
                 ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
@@ -56,19 +58,19 @@ public class LoadingMoreFooter extends LinearLayout {
         addView(progressCon);
         mText = new TextView(getContext());
         mText.setTextColor(ResourceUtils.getColor(getContext(), R.color.base_text_color));
-        mText.setText("正在加载");
+//        mText.setText("正在加载");
 
         LayoutParams layoutParams = new LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-        layoutParams.setMargins(10,10,0,10);
+        layoutParams.setMargins(10, 10, 0, 10);
 
         mText.setLayoutParams(layoutParams);
         addView(mText);
     }
 
     public void setProgressStyle(int style) {
-        if(style == ProgressStyle.SysProgress){
+        if (style == ProgressStyle.SysProgress) {
             progressCon.setView(new ProgressBar(getContext(), null, android.R.attr.progressBarStyle));
-        }else{
+        } else {
             AVLoadingIndicatorView progressView = new AVLoadingIndicatorView(this.getContext());
             progressView.setIndicatorColor(0xffB5B5B5);
             progressView.setIndicatorId(style);
@@ -76,21 +78,24 @@ public class LoadingMoreFooter extends LinearLayout {
         }
     }
 
-    public void  setState(int state) {
-        switch(state) {
+    public void setState(int state) {
+        Log.e("加载更多", "加载更多" + state);
+        switch (state) {
             case STATE_LOADING:
                 progressCon.setVisibility(View.VISIBLE);
                 mText.setText("正在加载");
                 this.setVisibility(View.VISIBLE);
-                    break;
+
+                break;
             case STATE_COMPLETE:
                 mText.setText("正在加载");
                 this.setVisibility(View.GONE);
                 break;
             case STATE_NOMORE:
                 mText.setText("");
+                mText.setVisibility(GONE);
                 progressCon.setVisibility(View.GONE);
-                this.setVisibility(View.VISIBLE);
+                this.setVisibility(View.GONE);
                 break;
         }
     }

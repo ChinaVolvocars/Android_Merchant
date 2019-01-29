@@ -45,11 +45,6 @@ public class QRCodeActivity extends BaseMvpActivity {
     }
 
     @Override
-    protected void setStatusBar() {
-
-    }
-
-    @Override
     protected BasePresenter createPresenterInstance() {
         return null;
     }

@@ -59,10 +59,6 @@ public class ConsumeRightsActivity extends BaseMvpActivity {
         return null;
     }
 
-    @Override
-    protected void setStatusBar() {
-
-    }
 
     @Override
     protected int getLayoutId() {

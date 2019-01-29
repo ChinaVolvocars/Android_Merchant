@@ -52,10 +52,6 @@ public class RelationshipAccountActivity extends BaseMvpActivity {
     }
 
     @Override
-    protected void setStatusBar() {
-    }
-
-    @Override
     protected int getLayoutId() {
         return R.layout.activity_relationship_account;
     }
@@ -110,7 +106,7 @@ public class RelationshipAccountActivity extends BaseMvpActivity {
 
     @Override
     protected void onViewClicked(View view) {
-        if (view.getId() == mIvBack.getId()){
+        if (view.getId() == mIvBack.getId()) {
             finish();
         }
     }
@@ -178,7 +174,7 @@ public class RelationshipAccountActivity extends BaseMvpActivity {
             mPageIndex = 1;
             mIsRefreshOrLoadMore = 0;
             relationShipList.clear();
-            if (relationShipAccountAdapter != null){
+            if (relationShipAccountAdapter != null) {
                 relationShipAccountAdapter.clear();
             }
             getServerData();

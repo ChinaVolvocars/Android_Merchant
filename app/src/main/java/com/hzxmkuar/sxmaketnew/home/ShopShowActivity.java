@@ -90,9 +90,6 @@ public class ShopShowActivity extends BaseMvpActivity {
         }
     }
 
-    @Override
-    protected void setStatusBar() {
-    }
 
     /**
      * 获取商家个活动列表

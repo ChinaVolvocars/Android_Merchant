@@ -117,10 +117,6 @@ public class WithdrawBillActivity extends BaseMvpActivity {
         attachClickListener(ivBack);
     }
 
-    @Override
-    protected void setStatusBar() {
-
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

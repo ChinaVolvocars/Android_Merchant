@@ -45,9 +45,6 @@ public class AddBankCardToCompanyActivity extends BaseMvpActivity {
         return null;
     }
 
-    @Override
-    protected void setStatusBar() {
-    }
 
     @Override
     protected int getLayoutId() {

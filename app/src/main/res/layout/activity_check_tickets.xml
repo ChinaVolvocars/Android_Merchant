@@ -8,26 +8,25 @@
 
     <include layout="@layout/layout_toolbar_base" />
 
-
     <com.common.widget.editview.DeleteEditText
         android:id="@+id/edt_input_tickets_code"
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:layout_marginTop="10dp"
-        android:hint="请输入券码"
         android:background="@color/white"
         android:digits="@string/digets"
-        android:paddingRight="4dp"/>
+        android:hint="请输入券码"
+        android:paddingRight="4dp" />
 
     <Button
         android:id="@+id/btn_confir_commit"
         android:layout_width="288dp"
         android:layout_height="42dp"
         android:layout_marginTop="180dp"
+        android:background="@drawable/shape_btn_color_fcc80a"
         android:text="确认"
         android:textColor="@color/white"
-        android:textSize="13sp"
-        android:background="@drawable/shape_btn_color_fcc80a"/>
+        android:textSize="13sp" />
 
 
 </LinearLayout>

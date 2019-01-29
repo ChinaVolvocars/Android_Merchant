@@ -65,10 +65,6 @@ public class MyBankActivity extends BaseMvpActivity {
     }
 
     @Override
-    protected void setStatusBar() {
-    }
-
-    @Override
     protected void onViewCreated() {
         recyclerView = (XRecyclerView) findViewById(R.id.recyclerview);
         mTvAddCard = (TextView) findViewById(R.id.tv_right);

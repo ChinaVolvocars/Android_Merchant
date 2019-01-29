@@ -52,10 +52,6 @@ public class FAQActivity extends BaseMvpActivity {
         attachClickListener(llAccountLost);
     }
 
-    @Override
-    protected void setStatusBar() {
-
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

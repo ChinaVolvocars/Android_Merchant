@@ -65,10 +65,6 @@ public class RecordActivity extends BaseMvpActivity {
 
     protected int mPageIndex = 1;
 
-    @Override
-    protected void setStatusBar() {
-
-    }
 
     @Override
     protected BasePresenter createPresenterInstance() {

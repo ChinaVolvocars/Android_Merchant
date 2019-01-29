@@ -80,10 +80,6 @@ public class ChangManagerPhoneActivity extends BaseMvpActivity {
     }
 
     @Override
-    protected void setStatusBar() {
-    }
-
-    @Override
     protected void onViewClicked(View view) {
         if (view.getId() == cd_original_phone_verify_code.getId()) {
             if (EmptyUtils.isEmpty(getEditTextStr(edt_original_phone))) {
@@ -115,7 +111,7 @@ public class ChangManagerPhoneActivity extends BaseMvpActivity {
 //            SendPhoneVerifyDialog dialog = new SendPhoneVerifyDialog(context,RegisterActivity.this);
 //            dialog.show();
 
-        }else if (view.getId() == iv_back.getId() ){
+        } else if (view.getId() == iv_back.getId()) {
             finish();
         }
     }

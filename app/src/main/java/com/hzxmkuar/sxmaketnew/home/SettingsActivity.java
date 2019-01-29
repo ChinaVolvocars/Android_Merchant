@@ -37,11 +37,6 @@ public class SettingsActivity extends BaseMvpActivity {
         return null;
     }
 
-
-    @Override
-    protected void setStatusBar() {
-    }
-
     @Override
     protected int getLayoutId() {
         return R.layout.activity_set;
@@ -82,7 +77,7 @@ public class SettingsActivity extends BaseMvpActivity {
             gotoActivity(SetPasActivity.class);
         } else if (view.getId() == iv_back.getId()) {
             finish();
-        }  else if (view.getId() == mLlChangeManagerPhone.getId()) {
+        } else if (view.getId() == mLlChangeManagerPhone.getId()) {
             gotoActivity(ChangManagerPhoneActivity.class);
         } else if (view.getId() == mBankCard.getId()) {
             startActivity(new Intent(context, MyBankActivity.class).putExtra("name", "000"));

@@ -7,6 +7,11 @@
 
     <include layout="@layout/layout_toolbar_base" />
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/color_ddd" />
+
     <LinearLayout
         android:id="@+id/ll_set_pwd"
         android:layout_width="match_parent"

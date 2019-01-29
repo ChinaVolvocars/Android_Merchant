@@ -35,10 +35,6 @@ public class ConsumeFunctionActivity extends BaseMvpActivity {
         return null;
     }
 
-    @Override
-    protected void setStatusBar() {
-
-    }
 
     @Override
     protected int getLayoutId() {
@@ -118,7 +114,7 @@ public class ConsumeFunctionActivity extends BaseMvpActivity {
                 clickedBtn = "leaflet";
             }
 //            showToastMsg(clickedBtn + "   的状态为      " + verifySwitchButtonState((Switch) buttonView) + "");
-            requestChangeBtnState(clickedBtn,verifySwitchButtonState((Switch) buttonView));
+            requestChangeBtnState(clickedBtn, verifySwitchButtonState((Switch) buttonView));
         }
     }
 

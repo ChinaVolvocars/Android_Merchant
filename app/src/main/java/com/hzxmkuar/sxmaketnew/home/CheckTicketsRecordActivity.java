@@ -35,7 +35,7 @@ import java.util.List;
  * Created by jc on 2019/1/2.
  */
 public class CheckTicketsRecordActivity extends BaseMvpActivity {
-//    private static final String TAG = "CheckTicketsRecordActiv";
+    //    private static final String TAG = "CheckTicketsRecordActiv";
     private ImageView mIvBack;
     private TextView mTvTitle;
 
@@ -74,10 +74,6 @@ public class CheckTicketsRecordActivity extends BaseMvpActivity {
         return R.layout.activity_check_tickets_record;
     }
 
-    @Override
-    protected void setStatusBar() {
-
-    }
 
     @Override
     protected void onViewCreated() {
@@ -193,7 +189,7 @@ public class CheckTicketsRecordActivity extends BaseMvpActivity {
                 tv_chose_date.setText(DateUtils.format(currentDate, "yyyy-MM-dd"));
                 mPageIndex = 1;
                 recordItemEntities.clear();
-                if (null != loadingListener){
+                if (null != loadingListener) {
                     loadingListener.onRefresh();
                 }
 

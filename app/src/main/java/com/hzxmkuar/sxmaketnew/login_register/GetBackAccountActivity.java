@@ -66,10 +66,10 @@ public class GetBackAccountActivity extends BaseMvpActivity {
     private ImageView iv_credential_back_getback;
     private ImageView iv_business_license_getback;
     private int type = 0;
-    private String id_front_img_getBack="";
-    private String id_back_img_getBack="";
-    private String license_img="";
-    private String path ="";
+    private String id_front_img_getBack = "";
+    private String id_back_img_getBack = "";
+    private String license_img = "";
+    private String path = "";
     private DeleteEditText edt_reserved_phone_no_getback;
     private DeleteEditText edt_input_ver_code_getback;
     private CountdownButton cd_btn_send_msg_getback;
@@ -82,6 +82,7 @@ public class GetBackAccountActivity extends BaseMvpActivity {
     SendPhoneVerifyDialog sendPhoneVerifyDialog;
     private boolean canClickAble = true;
     private TextView tv_title;
+
     @Override
     protected BasePresenter createPresenterInstance() {
         return null;
@@ -114,7 +115,7 @@ public class GetBackAccountActivity extends BaseMvpActivity {
         tv_phone_verify_getback_account.setVisibility(View.INVISIBLE);
 
 
-        sendPhoneVerifyDialog = new SendPhoneVerifyDialog(context,GetBackAccountActivity.this);
+        sendPhoneVerifyDialog = new SendPhoneVerifyDialog(context, GetBackAccountActivity.this);
         sendPhoneVerifyDialog.setOnDialogButtonClickListener(new SendPhoneVerifyDialog.OnDialogButtonClickListener() {
             @Override
             public void cancelLick() {
@@ -125,18 +126,14 @@ public class GetBackAccountActivity extends BaseMvpActivity {
             public void confirmClick() {
                 canClickAble = false;
                 cd_btn_send_msg_getback.restart();
-                if (!EmptyUtils.isEmpty(getEditTextStr(edt_reserved_phone_no_getback))){
+                if (!EmptyUtils.isEmpty(getEditTextStr(edt_reserved_phone_no_getback))) {
 //                    Log.i(TAG, "sendVoiceVerifyCodeReq:   手机号码 ：         "+getEditTextStr(edt_reserved_phone_no_getback));
                     sendVoiceVerifyCodeReq();
-                }else {
+                } else {
                     showToastMsg("手机号码格式不正确");
                 }
             }
         });
-    }
-
-    @Override
-    protected void setStatusBar() {
     }
 
     @Override
@@ -163,21 +160,21 @@ public class GetBackAccountActivity extends BaseMvpActivity {
             finish();
         } else if (view.getId() == btn_commit_getback.getId()) {
             verifyInput(btn_commit_getback);
-        }  else if (view.getId() == cd_btn_send_msg_getback.getId()) {
+        } else if (view.getId() == cd_btn_send_msg_getback.getId()) {
             verifyInput(cd_btn_send_msg_getback);
         } else if (view.getId() == tv_credentials_type.getId()) {
             mCertificatesTypePicker.show();
         } else if (view.getId() == iv_credential_front_getback.getId()) {
             type = 1;
             showPicCheck();
-        }else if ( view.getId() == iv_credential_back_getback.getId()){
+        } else if (view.getId() == iv_credential_back_getback.getId()) {
             type = 2;
             showPicCheck();
-        }else if ( view.getId() == iv_business_license_getback.getId()){
+        } else if (view.getId() == iv_business_license_getback.getId()) {
             type = 3;
             showPicCheck();
-        }else if ( view.getId() == tv_phone_verify_getback_account.getId()){
-            if (canClickAble){
+        } else if (view.getId() == tv_phone_verify_getback_account.getId()) {
+            if (canClickAble) {
                 sendPhoneVerifyDialog.show();
             }
         }
@@ -202,13 +199,13 @@ public class GetBackAccountActivity extends BaseMvpActivity {
      * 验证商户输入的合法性
      */
     private void verifyInput(View view) {
-       if (EmptyUtils.isEmpty(getEditTextStr(edt_input_shop_name))) {
+        if (EmptyUtils.isEmpty(getEditTextStr(edt_input_shop_name))) {
             showToastMsg("商家名称不能为空，请输入您的商铺名称");
             return;
-        } else if (getEditTextStr(edt_input_shop_name).length() < 2 ) {
+        } else if (getEditTextStr(edt_input_shop_name).length() < 2) {
             showToastMsg("法商家名称格式不正确");
             return;
-        }  else if (EmptyUtils.isEmpty(getEditTextStr(edt_legal_name_getback))) {
+        } else if (EmptyUtils.isEmpty(getEditTextStr(edt_legal_name_getback))) {
             showToastMsg("法人姓名不能为空，请输入法人姓名");
             return;
         } else if (getEditTextStr(edt_legal_name_getback).length() < 2) {
@@ -224,15 +221,15 @@ public class GetBackAccountActivity extends BaseMvpActivity {
             showToastMsg("证件号码格式不正确，请重新输入");
             return;
         } else if (EmptyUtils.isEmpty(id_front_img_getBack)) {
-           showToastMsg("请上传身份证正面照");
-           return;
-       } else if (EmptyUtils.isEmpty(id_back_img_getBack)) {
-           showToastMsg("请上传身份证反面照");
-           return;
-       } else if (EmptyUtils.isEmpty(license_img)) {
-           showToastMsg("请上传营业执照");
-           return;
-       }else if (EmptyUtils.isEmpty(getEditTextStr(edt_reserved_phone_no_getback))) {
+            showToastMsg("请上传身份证正面照");
+            return;
+        } else if (EmptyUtils.isEmpty(id_back_img_getBack)) {
+            showToastMsg("请上传身份证反面照");
+            return;
+        } else if (EmptyUtils.isEmpty(license_img)) {
+            showToastMsg("请上传营业执照");
+            return;
+        } else if (EmptyUtils.isEmpty(getEditTextStr(edt_reserved_phone_no_getback))) {
             showToastMsg("预留手机号码不能为空");
             return;
         } else if (getEditTextStr(edt_reserved_phone_no_getback).length() < 11) {
@@ -252,30 +249,31 @@ public class GetBackAccountActivity extends BaseMvpActivity {
                 return;
             }
             commitInputInfo(getEditTextStr(edt_input_shop_name), getEditTextStr(edt_legal_name_getback),
-                            getTextViewStr(tv_credentials_type), getTextViewStr(edt_credentials_no_getback),
-                            id_front_img_getBack, id_back_img_getBack,
-                            license_img,getEditTextStr(edt_reserved_phone_no_getback),
-                            getEditTextStr(edt_input_ver_code_getback));
+                    getTextViewStr(tv_credentials_type), getTextViewStr(edt_credentials_no_getback),
+                    id_front_img_getBack, id_back_img_getBack,
+                    license_img, getEditTextStr(edt_reserved_phone_no_getback),
+                    getEditTextStr(edt_input_ver_code_getback));
         }
     }
 
     /**
-     *  提交用户输入的信息
-     * @param shopName 商家名称 <br/>
-     * @param documentName 法人姓名 <br/>
-     * @param certificatesType 证件类型 <br/>
+     * 提交用户输入的信息
+     *
+     * @param shopName           商家名称 <br/>
+     * @param documentName       法人姓名 <br/>
+     * @param certificatesType   证件类型 <br/>
      * @param certificatesNumber 证件号码 <br/>
-     * @param ID_front_img 身份证正面照片 <br/>
-     * @param ID_back_img 身份证反面照片 <br/>
-     * @param license_img 营业执照 <br/>
-     * @param phone 预留手机号 <br/>
-     * @param checkcode 验证码 <br/>
+     * @param ID_front_img       身份证正面照片 <br/>
+     * @param ID_back_img        身份证反面照片 <br/>
+     * @param license_img        营业执照 <br/>
+     * @param phone              预留手机号 <br/>
+     * @param checkcode          验证码 <br/>
      */
     private void commitInputInfo(String shopName, String documentName,
                                  String certificatesType, String certificatesNumber,
                                  String ID_front_img, String ID_back_img,
                                  String license_img,
-                                 String phone,String checkcode) {
+                                 String phone, String checkcode) {
         CommonSubscriber<Object> subscriber = new CommonSubscriber<>(new SubscriberListener() {
             @Override
             public void onNext(Object o) {
@@ -292,7 +290,7 @@ public class GetBackAccountActivity extends BaseMvpActivity {
         });
         BusinessUserMethods.getInstance().forgetAccountGetBack(subscriber, shopName, documentName,
                 certificatesType, certificatesNumber,
-                ID_front_img, ID_back_img, license_img,phone,checkcode);
+                ID_front_img, ID_back_img, license_img, phone, checkcode);
         rxManager.add(subscriber);
 
     }
@@ -373,6 +371,7 @@ public class GetBackAccountActivity extends BaseMvpActivity {
         }
         super.onActivityResult(requestCode, resultCode, data);
     }
+
     /**
      * 选择、上传图片
      *
@@ -442,6 +441,7 @@ public class GetBackAccountActivity extends BaseMvpActivity {
     public void selectpicfromsys() {
         mLqrPhotoSelectUtils.takePhoto();
     }
+
     public void selectpic() {
         try {
             startActivityForResult(MQPhotoPickerActivity.newIntent(context, null, 1, null,
@@ -470,7 +470,7 @@ public class GetBackAccountActivity extends BaseMvpActivity {
         paramaList.add("time");
         paramaList.add("mobile");
         paramaList.add("checktype");
-        SmsMethods.getInstance().sendVoiceVerifyCode(subscriber,getEditTextStr(edt_reserved_phone_no_getback),8, paramaList);
+        SmsMethods.getInstance().sendVoiceVerifyCode(subscriber, getEditTextStr(edt_reserved_phone_no_getback), 8, paramaList);
         rxManager.add(subscriber);
     }
 }
