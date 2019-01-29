@@ -40,10 +40,6 @@ public class ChangeActivity extends BaseMvpActivity {
     private DeleteEditText mNum1;
 
     @Override
-    protected void setStatusBar() {
-    }
-
-    @Override
     protected BasePresenter createPresenterInstance() {
         return null;
     }
@@ -55,7 +51,10 @@ public class ChangeActivity extends BaseMvpActivity {
 
     @Override
     protected void onViewCreated() {
-        mBack = (ImageView) findViewById(R.id.back);
+        TextView tvTitle = (TextView) findViewById(R.id.tv_title);
+        tvTitle.setText("众商联盟-我的店家");
+
+        mBack = (ImageView) findViewById(R.id.iv_back);
         mMoney = (TextView) findViewById(R.id.money);
         mDouzi = (TextView) findViewById(R.id.dz);
         mDouzix = (TextView) findViewById(R.id.xdz);

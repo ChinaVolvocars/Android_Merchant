@@ -10,6 +10,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -40,6 +41,7 @@ import com.google.gson.reflect.TypeToken;
 import com.hzxmkuar.sxmaketnew.R;
 import com.hzxmkuar.sxmaketnew.common.PictureCheckDialogFragment;
 import com.hzxmkuar.sxmaketnew.common.photoPcker.MQPhotoPickerActivity;
+
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -48,7 +50,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- *  上传商户店铺照片
+ * 上传商户店铺照片
  * Created by little_bug on 2018/10/15.
  */
 public class UploadPicAndDescActivity extends BaseMvpActivity {
@@ -82,10 +84,6 @@ public class UploadPicAndDescActivity extends BaseMvpActivity {
     private ImageListAdapter imageListAdapter;
 
     @Override
-    protected void setStatusBar() {
-    }
-
-    @Override
     protected BasePresenter createPresenterInstance() {
         return null;
     }
@@ -100,8 +98,12 @@ public class UploadPicAndDescActivity extends BaseMvpActivity {
     @Override
     protected void onViewCreated() {
         mRecyclerView = (RecyclerView) findViewById(R.id.recyclerview);
-        btnRight = (TextView) findViewById(R.id.yes);
-        mBack = (ImageView) findViewById(R.id.back);
+        TextView tvTitle = (TextView) findViewById(R.id.tv_title);
+        tvTitle.setText("众商联盟-我的店");
+        btnRight = (TextView) findViewById(R.id.tv_right);
+        btnRight.setText("确认");
+        btnRight.setVisibility(View.GONE);
+        mBack = (ImageView) findViewById(R.id.iv_back);
         initImagePicker();
     }
 
@@ -122,7 +124,7 @@ public class UploadPicAndDescActivity extends BaseMvpActivity {
     }
 
     /**
-     *  初始化适配器
+     * 初始化适配器
      */
     private void initAdapter() {
         //设置布局管理器
@@ -136,7 +138,7 @@ public class UploadPicAndDescActivity extends BaseMvpActivity {
     }
 
     /**
-     *  初始化图片选择器
+     * 初始化图片选择器
      */
     private void initImagePicker() {
         // 1、创建LQRPhotoSelectUtils（一个Activity对应一个LQRPhotoSelectUtils）
@@ -382,7 +384,8 @@ public class UploadPicAndDescActivity extends BaseMvpActivity {
     }
 
     /**
-     *  选择图片更新到item上
+     * 选择图片更新到item上
+     *
      * @param imageUrl
      */
     private void updatePicOnItemView(final String imageUrl) {

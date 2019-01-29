@@ -82,10 +82,14 @@ public class XRecyclerView extends RecyclerView {
     }
 
     public void loadMoreComplete() {
+        Log.e(TAG, "loadMoreComplete: 刷新完成");
         isLoadingData = false;
         if (mLoadMoreFootView instanceof LoadingMoreFooter) {
+            Log.e(TAG, "loadMoreComplete: instanceof");
+
             ((LoadingMoreFooter) mLoadMoreFootView).setState(LoadingMoreFooter.STATE_COMPLETE);
         } else {
+            Log.e(TAG, "loadMoreComplete: 非 instanceof");
             mLoadMoreFootView.setVisibility(View.GONE);
         }
     }
@@ -94,13 +98,23 @@ public class XRecyclerView extends RecyclerView {
         isLoadingData = false;
         isNoMore = noMore;
         if (mLoadMoreFootView instanceof LoadingMoreFooter) {
+            Log.e(TAG, "setNoMore: instanceof");
+            Log.e(TAG, "setNoMore: instanceof：" + noMore);
             ((LoadingMoreFooter) mLoadMoreFootView).setState(isNoMore ? LoadingMoreFooter.STATE_NOMORE : LoadingMoreFooter.STATE_COMPLETE);
         } else {
             mLoadMoreFootView.setVisibility(View.GONE);
+            Log.e(TAG, "setNoMore:非 instanceof");
         }
+
+        if (isNoMore) {
+            ((LoadingMoreFooter) mLoadMoreFootView).setVisibility(View.GONE);
+        }
+
+
     }
 
     public void refreshComplete() {
+        Log.e(TAG, "refreshComplete: 刷新完成");
         mRefreshHeader.refreshComplete();
         setNoMore(false);
     }
@@ -181,7 +195,7 @@ public class XRecyclerView extends RecyclerView {
                 if (mLoadMoreFootView instanceof LoadingMoreFooter) {
                     ((LoadingMoreFooter) mLoadMoreFootView).setState(LoadingMoreFooter.STATE_LOADING);
                 } else {
-                    mLoadMoreFootView.setVisibility(View.VISIBLE);
+                    mLoadMoreFootView.setVisibility(View.GONE);
                 }
                 mLoadingListener.onLoadMore();
             }
