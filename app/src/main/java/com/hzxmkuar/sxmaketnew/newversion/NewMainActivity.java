@@ -296,7 +296,7 @@ public class NewMainActivity extends BaseMvpActivity {
         CommonSubscriber<AppVersionEntity> subscriber = new CommonSubscriber<>(new SubscriberListener() {
             @Override
             public void onNext(Object o) {
-                statusContent();
+//                statusContent();
                 AppVersionEntity appVersionEntity = (AppVersionEntity) o;
 //                Log.i(TAG, "onNext: " + appVersionEntity.toString());
 //                Log.i(TAG, "onNext:  下载链接：      " + appVersionEntity.getDownloadUrl());
@@ -310,7 +310,7 @@ public class NewMainActivity extends BaseMvpActivity {
 
             @Override
             public void onError(String e, int code) {
-                statusContent();
+//                statusContent();
                 showToastMsg(e);
             }
         });
@@ -327,7 +327,6 @@ public class NewMainActivity extends BaseMvpActivity {
     @Override
     protected void onResume() {
         super.onResume();
-//        Log.e(TAG, "onResume: " + SPUtils.getShareBoolean(REFRESH));
         getHomeInfo();
         checkDeviceIsBind();
     }
@@ -361,7 +360,7 @@ public class NewMainActivity extends BaseMvpActivity {
      * 检测设备状态，是否已经绑定
      */
     private void checkDeviceIsBind() {
-        showProgressingDialog();
+//        showProgressingDialog();
         CommonSubscriber<BindDeviceEntity> subscriber = new CommonSubscriber<>(new SubscriberListener() {
             @Override
             public void onNext(Object o) {
