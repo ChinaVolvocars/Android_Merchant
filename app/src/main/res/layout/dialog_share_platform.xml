@@ -1,35 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:paddingBottom="24dp"
+    android:layout_height="match_parent"
     android:orientation="vertical">
 
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="@dimen/view_size_0_5"
-        android:src="#ddd" />
+        android:src="#ddd"
+        android:visibility="gone" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="18dp"
-        android:layout_marginRight="18dp"
         android:layout_alignParentBottom="true"
-        android:background="@drawable/jx_10_w"
+        android:background="@color/white"
         android:orientation="vertical">
 
         <!--<ImageView-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="@dimen/view_size_0_5"-->
-            <!--android:src="#ddd"/>-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="@dimen/view_size_0_5"-->
+        <!--android:src="#ddd"/>-->
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:gravity="center_horizontal"
-            android:text="分享"
+            android:paddingLeft="@dimen/dp_15"
+            android:text="分享至"
             android:textColor="@color/black"
             android:textSize="@dimen/text_size_18" />
 
@@ -38,7 +36,7 @@
             android:layout_height="1px"
             android:layout_marginTop="20dp"
             android:background="#ddd"
-            android:visibility="invisible"/>
+            android:visibility="invisible" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -52,7 +50,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:visibility="gone">
 
                 <ImageView
                     android:layout_width="50dp"
@@ -96,7 +95,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:visibility="gone">
 
                 <ImageView
                     android:id="@+id/imageView3"

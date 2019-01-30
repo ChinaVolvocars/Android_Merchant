@@ -13,8 +13,10 @@ import android.widget.PopupWindow;
 import android.widget.TextView;
 
 import com.common.adapter.helper.IRecyclerViewHelper;
+import com.common.base.Constants;
 import com.common.mvp.BaseMvpActivity;
 import com.common.mvp.BasePresenter;
+import com.common.retrofit.entity.DataCenter;
 import com.common.retrofit.entity.result.ConsumeRightsEntity;
 import com.common.retrofit.entity.result.ShareBean;
 import com.common.retrofit.methods.BusinessUserMethods;
@@ -111,7 +113,7 @@ public class ConsumeRightsActivity extends BaseMvpActivity {
         attachClickListener(mIvBack);
         attachClickListener(iv_tip01);
         attachClickListener(iv_tip02);
-//        attachClickListener(btn_share);
+        attachClickListener(btn_share);
         attachClickListener(ll_consume_function_content);
         attachClickListener(ll_relationship_content);
         attachClickListener(ll_empty_view);
@@ -127,7 +129,14 @@ public class ConsumeRightsActivity extends BaseMvpActivity {
             iv_tip02.setVisibility(View.GONE);
         } else if (view.getId() == btn_share.getId()) {
 //            showToastMsg("分享好友");
-            ShareBean shareEntity = new ShareBean("测试标题", "000", "测试内容", "测试链接");
+//            http://test.zhongxinyingjia.com/Home/Index/share/pid/155.html?from=singlemessage
+//            "http://test.zhongxinyingjia.com/Api/";
+            String baseShareUrl = Constants.BaseUrl.replace("Api", "Home");
+            String shareUrl = baseShareUrl + "Index/share/pid/" + DataCenter.UserId;
+            ShareBean shareEntity = new ShareBean("好友邀请您加入省鑫",
+                    "http://sxpic.oss-cn-hangzhou.aliyuncs.com/file/2018-07-16/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20180629092016.jpg",
+                    "下载安装后，请尽快注册成为省鑫会员，并开启省鑫神奇之旅！",
+                    shareUrl);
 
             YQBean qrEntity = new YQBean();
             qrEntity.setCode(shareEntity.getContent());

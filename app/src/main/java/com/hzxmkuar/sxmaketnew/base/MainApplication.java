@@ -67,18 +67,17 @@ public class MainApplication extends ContextUtils {
         ToastManager.init(getAppContext());
         initLoadingView();
         initDataCenter();
-        initThreeSDK();
+//        initThreeSDK();
     }
-
     // 初始化第三方SDK
     private void initThreeSDK() {
-        ShareConfig config = ShareConfig.instance()
-                .qqId("101431881")
-                .weiboId("XXXXX")
-                .wxId("wxd5542ca09b968dd0")
-                .weiboRedirectUrl("XXXXXX")
-                .wxSecret("aa90ede2e4d08ff23009eb1185fc4bda");
-        ShareManager.init(config);
+//        ShareConfig config = ShareConfig.instance()
+//                .qqId("101431881")
+//                .weiboId("XXXXX")
+//                .wxId("wxd5542ca09b968dd0")
+//                .weiboRedirectUrl("XXXXXX")
+//                .wxSecret("aa90ede2e4d08ff23009eb1185fc4bda");
+//        ShareManager.init(config);
     }
 
     // 初始化本地数据存储

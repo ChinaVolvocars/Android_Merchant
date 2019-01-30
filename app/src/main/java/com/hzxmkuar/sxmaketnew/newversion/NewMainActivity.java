@@ -52,7 +52,6 @@ import butterknife.OnClick;
 
 import static com.common.event.SpConstants.CLOSED_PAY_URL;
 import static com.common.event.SpConstants.INVOICE_URL;
-import static com.hzxmkuar.sxmaketnew.view.dialog.WithdrawDialogFragment.REFRESH;
 
 public class NewMainActivity extends BaseMvpActivity {
     private static final String TAG = "NewMainActivity";
