@@ -37,9 +37,16 @@ public class SpConstants {
     public static final String CONSUME_FUNC_MALL_IS_OPEN = "consume_func_mall_is_open";
 
     /**
-     * 消费功能 —— 开多传单
+     * 消费功能 —— 开鑫传单
      */
     public static final String CONSUME_FUNC_LEAFLET_IS_OPEN = "consume_func_leaflet_is_open";
+
+
+    /**
+     * 消费权限 —— 提示用户操作流程
+     */
+    public static final String CONSUME_RIGHTS_TIPS = "consume_rights_tips";
+
 
 
 

@@ -14,6 +14,7 @@ import android.widget.TextView;
 
 import com.common.adapter.helper.IRecyclerViewHelper;
 import com.common.base.Constants;
+import com.common.event.SpConstants;
 import com.common.mvp.BaseMvpActivity;
 import com.common.mvp.BasePresenter;
 import com.common.retrofit.entity.DataCenter;
@@ -23,11 +24,13 @@ import com.common.retrofit.methods.BusinessUserMethods;
 import com.common.retrofit.subscriber.CommonSubscriber;
 import com.common.retrofit.subscriber.SubscriberListener;
 import com.common.utils.EmptyUtils;
+import com.common.utils.SPUtils;
 import com.common.widget.recyclerview.refresh.recycleview.XRecyclerView;
 import com.hzxmkuar.sxmaketnew.R;
 import com.hzxmkuar.sxmaketnew.adapter.ConsumeRecordAdapter;
 import com.hzxmkuar.sxmaketnew.entity.YQBean;
 import com.hzxmkuar.sxmaketnew.view.SharePopupWindow;
+import com.view.pie.AnimatedPieViewConfig;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -61,6 +64,10 @@ public class ConsumeRightsActivity extends BaseMvpActivity {
         return null;
     }
 
+    @Override
+    protected void setStatusBar() {
+
+    }
 
     @Override
     protected int getLayoutId() {
@@ -83,6 +90,15 @@ public class ConsumeRightsActivity extends BaseMvpActivity {
         loadingListener = new MyLoadingListener();
         initAdapter();
         getServerData();
+
+        boolean hadTiped = SPUtils.getShareBoolean(SpConstants.CONSUME_RIGHTS_TIPS);
+        if (!hadTiped) {
+            iv_tip01.setVisibility(View.VISIBLE);
+            iv_tip02.setVisibility(View.VISIBLE);
+        } else {
+            iv_tip01.setVisibility(View.GONE);
+            iv_tip02.setVisibility(View.GONE);
+        }
 
     }
 
@@ -123,14 +139,13 @@ public class ConsumeRightsActivity extends BaseMvpActivity {
     protected void onViewClicked(View view) {
         if (view.getId() == mIvBack.getId()) {
             finish();
-        } else if (view.getId() == iv_tip01.getId()) {
+        } else if (view.getId() == iv_tip01.getId() ) {
             iv_tip01.setVisibility(View.GONE);
+            SPUtils.setShareBoolean(SpConstants.CONSUME_RIGHTS_TIPS, true);
         } else if (view.getId() == iv_tip02.getId()) {
             iv_tip02.setVisibility(View.GONE);
+            SPUtils.setShareBoolean(SpConstants.CONSUME_RIGHTS_TIPS, true);
         } else if (view.getId() == btn_share.getId()) {
-//            showToastMsg("分享好友");
-//            http://test.zhongxinyingjia.com/Home/Index/share/pid/155.html?from=singlemessage
-//            "http://test.zhongxinyingjia.com/Api/";
             String baseShareUrl = Constants.BaseUrl.replace("Api", "Home");
             String shareUrl = baseShareUrl + "Index/share/pid/" + DataCenter.UserId;
             ShareBean shareEntity = new ShareBean("好友邀请您加入省鑫",
