@@ -4,6 +4,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.FrameLayout;
@@ -25,12 +26,12 @@ import com.common.retrofit.subscriber.CommonSubscriber;
 import com.common.retrofit.subscriber.SubscriberListener;
 import com.common.utils.EmptyUtils;
 import com.common.utils.SPUtils;
+import com.common.utils.ScreenUtils;
 import com.common.widget.recyclerview.refresh.recycleview.XRecyclerView;
 import com.hzxmkuar.sxmaketnew.R;
 import com.hzxmkuar.sxmaketnew.adapter.ConsumeRecordAdapter;
 import com.hzxmkuar.sxmaketnew.entity.YQBean;
 import com.hzxmkuar.sxmaketnew.view.SharePopupWindow;
-import com.view.pie.AnimatedPieViewConfig;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -66,7 +67,6 @@ public class ConsumeRightsActivity extends BaseMvpActivity {
 
     @Override
     protected void setStatusBar() {
-
     }
 
     @Override
@@ -76,6 +76,11 @@ public class ConsumeRightsActivity extends BaseMvpActivity {
 
     @Override
     protected void onViewCreated() {
+        View viewStatus = (View) findViewById(R.id.view_status);
+        ViewGroup.LayoutParams layoutParams = viewStatus.getLayoutParams();
+        layoutParams.height = ScreenUtils.getStatusHeight(context);
+        viewStatus.setLayoutParams(layoutParams);
+
         mTvTitle = (TextView) findViewById(R.id.tv_title);
         mIvBack = (ImageView) findViewById(R.id.iv_back);
         mTvTitle.setText("消费权限");
@@ -139,7 +144,7 @@ public class ConsumeRightsActivity extends BaseMvpActivity {
     protected void onViewClicked(View view) {
         if (view.getId() == mIvBack.getId()) {
             finish();
-        } else if (view.getId() == iv_tip01.getId() ) {
+        } else if (view.getId() == iv_tip01.getId()) {
             iv_tip01.setVisibility(View.GONE);
             SPUtils.setShareBoolean(SpConstants.CONSUME_RIGHTS_TIPS, true);
         } else if (view.getId() == iv_tip02.getId()) {
